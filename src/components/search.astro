@@ -54,21 +54,24 @@ if (trailingSlash === 'never') dataAttributes['data-strip-trailing-slash'] = ''
 </site-search>
 
 <script is:inline>
-	/* eslint-disable antfu/if-newline */
-	;(() => {
+	document.addEventListener('astro:page-load', () => {
 		const openBtn = document.querySelector('button[data-open-modal]')
 		const shortcut = openBtn?.querySelector('kbd')
-		if (!openBtn || !(shortcut instanceof HTMLElement)) return
+		if (!openBtn || !(shortcut instanceof HTMLElement)) {
+			return
+		}
 		const platformKey = shortcut.querySelector('kbd')
 		if (platformKey && /Mac|iPhone|iPod|iPad/i.test(navigator.platform)) {
 			platformKey.textContent = '⌘'
 			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K')
 		}
 		shortcut.style.display = ''
-	})()
+	})
 </script>
 
 <script>
+	import { appendTrailingSlash } from '@utils'
+
 	class SiteSearch extends HTMLElement {
 		constructor() {
 			super()
@@ -116,30 +119,49 @@ if (trailingSlash === 'never') dataAttributes['data-strip-trailing-slash'] = ''
 			const stripTrailingSlash = (path: string) => path.replace(/(.)\/(#.*)?$/, '$1$2')
 			const formatURL = shouldStrip ? stripTrailingSlash : (path: string) => path
 
-			window.addEventListener('DOMContentLoaded', () => {
+			const searchElement = this.querySelector<HTMLElement>('#search')
+			const initializePagefind = () => {
+				if (
+					!searchElement ||
+					searchElement.dataset.pagefindInitialized === 'true' ||
+					searchElement.dataset.pagefindInitializing === 'true'
+				) {
+					return
+				}
+				searchElement.dataset.pagefindInitializing = 'true'
 				const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1))
 				onIdle(async () => {
-					// @ts-expect-error — Missing types for @pagefind/default-ui package.
-					const { PagefindUI } = await import('@pagefind/default-ui')
-					// eslint-disable-next-line no-new
-					new PagefindUI({
-						element: '#search',
-						baseUrl: import.meta.env.BASE_URL,
-						bundlePath: `${import.meta.env.BASE_URL.replace(/\/$/, '')}/pagefind/`,
-						showImages: false,
-						showSubResults: true,
-						resetStyles: false,
-						// eslint-disable-next-line style/member-delimiter-style
-						processResult: (result: { url: string; sub_results: Array<{ url: string }> }) => {
-							result.url = formatURL(result.url)
-							result.sub_results = result.sub_results.map((sub_result) => {
-								sub_result.url = formatURL(sub_result.url)
-								return sub_result
-							})
-						},
-					})
+					try {
+						const base = import.meta.env.BASE_URL
+						// @ts-expect-error — Missing types for @pagefind/default-ui package.
+						const { PagefindUI } = await import('@pagefind/default-ui')
+						// eslint-disable-next-line no-new
+						new PagefindUI({
+							element: '#search',
+							baseUrl: base,
+							bundlePath: `${appendTrailingSlash(base)}pagefind/`,
+							showImages: false,
+							showSubResults: true,
+							resetStyles: false,
+							// eslint-disable-next-line style/member-delimiter-style
+							processResult: (result: { url: string; sub_results: Array<{ url: string }> }) => {
+								result.url = formatURL(result.url)
+								result.sub_results = result.sub_results.map((sub_result) => {
+									sub_result.url = formatURL(sub_result.url)
+									return sub_result
+								})
+							},
+						})
+						searchElement.dataset.pagefindInitialized = 'true'
+					} catch {
+						delete searchElement.dataset.pagefindInitialized
+					} finally {
+						delete searchElement.dataset.pagefindInitializing
+					}
 				})
-			})
+			}
+
+			initializePagefind()
 		}
 	}
 	if (!customElements.get('site-search')) {

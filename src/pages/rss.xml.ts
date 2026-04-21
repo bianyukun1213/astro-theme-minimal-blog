@@ -2,11 +2,18 @@ import type { RSSFeedItem } from '@astrojs/rss'
 import type { APIRoute } from 'astro'
 import rss from '@astrojs/rss'
 import { SITE } from '@constants'
-import { sortAsc } from '@utils'
+import { appendTrailingSlash, sortAsc } from '@utils'
+import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
 
+const base = import.meta.env.BASE_URL
+let slash = '/'
+if (trailingSlash === 'never') {
+	slash = ''
+}
+
 function generateContent(description: string, link: string) {
-	return `<p>${description}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${SITE.url}/${link}">Keep reading</a>.</strong></div>`
+	return `<p>${description}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${new URL(`${appendTrailingSlash(base)}${link}${slash}`, SITE.url)}">Keep reading</a>.</strong></div>`
 }
 
 export const GET: APIRoute = async () => {
@@ -14,7 +21,7 @@ export const GET: APIRoute = async () => {
 		title: entry.data.title,
 		description: entry.data.description,
 		content: generateContent(entry.data.description, entry.data.slug),
-		link: `/${entry.data.slug}/`,
+		link: `${appendTrailingSlash(base)}${entry.data.slug}${slash}`,
 		pubDate: entry.data.date,
 	} satisfies RSSFeedItem))
 
@@ -22,7 +29,7 @@ export const GET: APIRoute = async () => {
 		trailingSlash: true,
 		title: SITE.titleDefault,
 		description: SITE.description,
-		site: SITE.url,
+		site: SITE.url + base,
 		items,
 		customData: '<language>en-us</language>',
 	})

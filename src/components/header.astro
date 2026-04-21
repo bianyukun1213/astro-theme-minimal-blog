@@ -1,8 +1,10 @@
 ---
 import { HEADER, SITE } from '@constants'
-import Spacer from './spacer.astro'
 import Link from './link.astro'
 import Search from './search.astro'
+import Spacer from './spacer.astro'
+
+const base = import.meta.env.BASE_URL
 
 const { pathname } = Astro.url
 ---
@@ -13,7 +15,7 @@ const { pathname } = Astro.url
 		<div>
 			<a
 				class="font-semibold text-xl md:text-2xl lg:text-3xl text-highlight"
-				href="/"
+				href={base}
 				aria-label={`${SITE.title} - Back to home`}>{SITE.title}</a
 			>
 		</div>

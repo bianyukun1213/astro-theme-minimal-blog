@@ -17,7 +17,7 @@ import remarkDirective from 'remark-directive'
 import remarkSmartypants from 'remark-smartypants'
 import { SITE } from './src/constants'
 import { remarkAsides } from './src/remark'
-import { pagefindIntegration } from './src/utils'
+import { pagefindIntegration } from './src/serverUtils'
 
 export default defineConfig({
 	fonts: [
@@ -32,7 +32,7 @@ export default defineConfig({
 	output: 'static',
 	trailingSlash: 'always',
 	site: SITE.url,
-	// base: '/base-test/',
+	base: SITE.base,
 	integrations: [expressiveCode(), mdx(), sitemap(), pagefindIntegration(), react()],
 	vite: {
 		plugins: [tailwindcss()],

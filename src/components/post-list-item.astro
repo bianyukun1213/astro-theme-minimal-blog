@@ -1,0 +1,26 @@
+---
+import { appendTrailingSlash, defaultDateFormat } from '@utils'
+import type { InferEntrySchema } from 'astro:content'
+import Link from './link.astro'
+import Spacer from './spacer.astro'
+
+interface Props {
+	post: InferEntrySchema<'blog'>
+}
+
+const { post } = Astro.props
+
+const base = import.meta.env.BASE_URL
+---
+
+<div>
+	<Link variant="highlight" class="font-medium" href={`${appendTrailingSlash(base)}${post.slug}/`}>
+		{post.title}
+	</Link>
+	<Spacer axis="vertical" size={2} />
+	<div class="text-faded">
+		{defaultDateFormat(post.date)} — {post.tags.join(', ')}
+	</div>
+	<Spacer axis="vertical" size={4} />
+	<div class="text-subtle text-md md:text-lg">{post.description}</div>
+</div>

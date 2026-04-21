@@ -9,6 +9,10 @@ export const SITE: Record<string, string> = {
 	 */
 	url: 'https://astro-theme-minimal-blog.lekoarts.de',
 	/**
+	 * Base path of your site, if deployed to a subfolder
+	 */
+	base: '/base-test/',
+	/**
 	 * Site-wide title
 	 */
 	title: 'Minimal Blog',
@@ -49,11 +53,11 @@ export const HEADER: Header = {
 	internal: [
 		{
 			title: 'Blog',
-			url: '/blog/',
+			url: '/base-test/blog/',
 		},
 		{
 			title: 'About',
-			url: '/about/',
+			url: '/base-test/about/',
 		},
 	],
 	/**
