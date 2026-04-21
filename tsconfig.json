@@ -21,6 +21,9 @@
 			],
 			"@styles/*": [
 				"./src/styles/*"
+			],
+			"@paraglide/*": [
+				"./src/paraglide/*"
 			]
 		}
 	},

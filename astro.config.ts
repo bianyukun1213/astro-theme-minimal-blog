@@ -3,6 +3,7 @@ import type { Options as ExternalLinkOptions } from 'rehype-external-links'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
+import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import remarkSandpack from '@lekoarts/remark-sandpack'
 import tailwindcss from '@tailwindcss/vite'
 import { imageService } from '@unpic/astro/service'
@@ -35,7 +36,14 @@ export default defineConfig({
 	base: SITE.base,
 	integrations: [expressiveCode(), mdx(), sitemap(), pagefindIntegration(), react()],
 	vite: {
-		plugins: [tailwindcss()],
+		plugins: [
+			tailwindcss(),
+			paraglideVitePlugin({
+				project: './project.inlang',
+				outdir: './src/paraglide',
+				emitTsDeclarations: true,
+			}),
+		],
 	},
 	image: {
 		service: imageService(),
