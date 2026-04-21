@@ -20,17 +20,15 @@ import { remarkAsides } from './src/remark'
 import { pagefindIntegration } from './src/utils'
 
 export default defineConfig({
-	experimental: {
-		fonts: [
-			{
-				provider: fontProviders.google(),
-				name: 'IBM Plex Sans',
-				weights: ['400', '500', '600'],
-				subsets: ['latin'],
-				cssVariable: '--font-plex-sans',
-			},
-		],
-	},
+	fonts: [
+		{
+			provider: fontProviders.google(),
+			name: 'IBM Plex Sans',
+			weights: ['400', '500', '600'],
+			subsets: ['latin'],
+			cssVariable: '--font-plex-sans',
+		},
+	],
 	output: 'static',
 	trailingSlash: 'always',
 	site: SITE.url,
