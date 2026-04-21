@@ -16,7 +16,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 import rehypeSlug from 'rehype-slug'
 import remarkDirective from 'remark-directive'
 import remarkSmartypants from 'remark-smartypants'
-import { SITE } from './src/constants'
+import { DEFAULT_LOCALE, SITE } from './src/constants'
 import { remarkAsides } from './src/remark'
 import { pagefindIntegration } from './src/serverUtils'
 
@@ -47,6 +47,14 @@ export default defineConfig({
 	},
 	image: {
 		service: imageService(),
+	},
+	i18n: {
+		locales: ['en-US', 'zh-CN', 'ru-RU'],
+		defaultLocale: DEFAULT_LOCALE,
+		routing: {
+			prefixDefaultLocale: true,
+			redirectToDefaultLocale: true,
+		},
 	},
 	devToolbar: {
 		enabled: false,
