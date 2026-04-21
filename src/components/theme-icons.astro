@@ -1,0 +1,30 @@
+---
+// 这是一个非常隐蔽且经典的边缘情况！升级到 Astro 6 后出现这个现象，完全是因为 Astro 6 底层处理 HTML 流式渲染（Streaming） 和 样式注入（Style Injection） 的机制发生了变化。
+// 结合你提供的代码，我们终于破案了。
+// 1. 核心触发点：Astro 的头部注入器遇到了 <svg>
+// 在你的 layout.astro 中，<ThemeProvider /> 被放置在了 <head> 内部 。这个组件输出了一个包含了 <svg> 标签的 <template id="theme-icons">。
+// 在 HTML5 规范中，<template> 放在 <head> 里是完全合法的。但在 Astro 6 中，为了提升流式渲染的性能，Astro 使用了一个非常激进的、基于正则表达式的 HTML 扫描器来决定把提取出来的全局 <style> 和 <script> 注入到哪里。
+// Astro 的扫描器在解析 <head> 时，会寻找第一个不属于 <head> 的标签（以此来判断 <head> 是否已经意外结束）。当扫描器扫到 <ThemeProvider /> 输出的 <svg> 标签时，它并不知道这个 <svg> 是安全地包裹在 <template> 里的。它只会做出这样的判断：
+// “等等！<svg> 是属于 <body> 的元素，不能出现在 <head> 里。这意味着 <head> 已经结束了！我必须立刻把所有收集到的样式注入到这个 <svg> 的前面！”
+// 这就导致了你的 CSS 样式被错误地“截胡”，直接注入到了 <template> 内部，从而导致 About 页面样式全部失效。
+// 2. 为什么首页（index）正常，而关于页（about）缺失？
+// 这就涉及到了 Astro 6 的 Chunk（分块）与异步等待（Await） 机制。
+// 首页 (index.astro) 为什么能逃过一劫？
+// 在 index.astro 的 Frontmatter 中，你有一个顶层的 await 调用：await getCollection('blog') 。
+// 这个顶级的异步阻塞会让 Astro 在开始向浏览器流式输出 HTML 之前，就完成了大部分数据的准备。当它开始输出时，<head> 到 </head> 的完整结构很可能被打包在同一个 HTML Chunk 中。Astro 的扫描器顺利看到了明确的 </head> 闭合标签，于是规规矩矩地把样式放在了 </head> 前面。
+// 关于页 (about.astro) 为什么中招了？
+// 在 about.astro 中，Frontmatter 里没有任何 await 阻塞 。Astro 立刻开始流式输出 HTML。但当它渲染到 <body> 里的 <Content />（MDX 是异步组件）时，渲染流被迫暂停，Astro 决定把当前已经生成的 Chunk（即包含 <head> 和 <ThemeProvider /> 的这部分）先推给浏览器。
+// 由于在这个 Chunk 中，Astro 的头部注入器被迫立刻结算，它扫描到了 <svg>，触发了上面提到的误判，提前把 <style> 排泄在了 <template> 里面。
+// 3. 解决方案
+// 要彻底解决这个 Astro 6 的扫描器 Bug，最简单且最符合语义的办法就是让 <svg> 远离 <head>。
+// 你只需要修改 layout.astro，将 <ThemeProvider /> 从 <head> 中移出，放到 <body> 的最顶端即可 。<template> 标签在 <body> 顶部是完全合法的，这样 Astro 的头部注入器就不会再被它干扰了。
+//
+// 因此，theme-icons 单独拆分，放入 body。
+import Icon from './icon.astro'
+---
+
+<template id="theme-icons">
+	<Icon name="sun" class="light label-icon" />
+	<Icon name="moon" class="dark label-icon" />
+	<Icon name="laptop" class="auto label-icon" />
+</template>

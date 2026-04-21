@@ -5,8 +5,6 @@
  * MIT License
  * Copyright (c) 2023 Astro Contributors
  */
-
-import Icon from './icon.astro'
 ---
 
 {/* This is intentionally inlined to avoid FOUC. */}
@@ -36,9 +34,3 @@ select.value = theme
 		}
 	})()
 </script>
-
-<template id="theme-icons">
-	<Icon name="sun" class="light label-icon" />
-	<Icon name="moon" class="dark label-icon" />
-	<Icon name="laptop" class="auto label-icon" />
-</template>

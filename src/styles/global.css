@@ -19,6 +19,7 @@
 @layer theme {
 	:root {
 		@variant dark {
+			color-scheme: dark;
 			--color-bg: var(--color-gray-900);
 			--color-text: var(--color-gray-200);
 			--color-highlight: var(--color-white);

@@ -32,6 +32,7 @@ export default defineConfig({
 	output: 'static',
 	trailingSlash: 'always',
 	site: SITE.url,
+	// base: '/base-test/',
 	integrations: [expressiveCode(), mdx(), sitemap(), pagefindIntegration(), react()],
 	vite: {
 		plugins: [tailwindcss()],
