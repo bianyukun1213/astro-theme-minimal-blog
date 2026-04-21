@@ -1,5 +1,6 @@
 ---
-import { appendTrailingSlash, defaultDateFormat } from '@utils'
+import { defaultDateFormat, removeTrailingSlash } from '@utils'
+import { trailingSlash } from 'astro:config/client'
 import type { InferEntrySchema } from 'astro:content'
 import Link from './link.astro'
 import Spacer from './spacer.astro'
@@ -11,10 +12,11 @@ interface Props {
 const { post } = Astro.props
 
 const base = import.meta.env.BASE_URL
+const slash = trailingSlash === 'never' ? '' : '/'
 ---
 
 <div>
-	<Link variant="highlight" class="font-medium" href={`${appendTrailingSlash(base)}${post.slug}/`}>
+	<Link variant="highlight" href={removeTrailingSlash(base) + '/' + post.slug + slash}>
 		{post.title}
 	</Link>
 	<Spacer axis="vertical" size={2} />

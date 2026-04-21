@@ -1,5 +1,5 @@
 ---
-import { appendTrailingSlash } from '@utils'
+import { removeTrailingSlash } from '@utils'
 import Link from './link.astro'
 import Spacer from './spacer.astro'
 import ThemeSelect from './theme-select.astro'
@@ -13,7 +13,7 @@ const base = import.meta.env.BASE_URL
 		<div class="flex gap-4">
 			<ThemeSelect />
 			<span class="w-px h-auto bg-border"></span>
-			<Link href={`${appendTrailingSlash(base)}rss.xml`}>RSS Feed</Link>
+			<Link href={`${removeTrailingSlash(base)}/rss.xml`}>RSS Feed</Link>
 		</div>
 		<div>
 			<Link href="http://github.com/LekoArts/astro-theme-minimal-blog">Theme</Link> by <Link

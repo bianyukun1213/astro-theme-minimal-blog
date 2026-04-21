@@ -18,8 +18,9 @@
 				document.querySelectorAll('atmb-theme-select').forEach((picker) => {
 					const select = picker.querySelector('select')
 					// prettier-ignore
-					if (select)
-select.value = theme
+					if (select) {
+						select.value = theme
+					}
 					/** @type {HTMLTemplateElement | null} */
 					const tmpl = document.querySelector(`#theme-icons`)
 					const newIcon = tmpl && tmpl.content.querySelector(`.${theme}`)

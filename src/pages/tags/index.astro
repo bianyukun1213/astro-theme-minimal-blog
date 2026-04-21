@@ -4,8 +4,12 @@ import Link from '@components/link.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
 import Layout from '@layouts/layout.astro'
-import { getTags } from '@utils'
+import { getTags, removeTrailingSlash } from '@utils'
+import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
+
+const base = import.meta.env.BASE_URL
+const slash = trailingSlash === 'never' ? '' : '/'
 
 const entries = await getCollection('blog')
 
@@ -15,12 +19,14 @@ const tags = getTags(entries)
 <Layout>
 	<Seo slot="seo" title="Tags" />
 	<SkipNavContent>
-		<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">All tags</h2>
-		<Spacer axis="vertical" size={12} />
+		<div class="border-b border-border pb-4 flex justify-between items-center">
+			<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">All tags</h2>
+		</div>
+		<Spacer axis="vertical" size={8} />
 		<div class="flex gap-6 flex-col">
 			{
 				tags.map(({ tag, slug, count }) => (
-					<Link variant="highlight" href={`/tags/${slug}/`}>
+					<Link variant="highlight" href={`${removeTrailingSlash(base)}/tags/${slug}${slash}`}>
 						{tag} ({count})
 					</Link>
 				))

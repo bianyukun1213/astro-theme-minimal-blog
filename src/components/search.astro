@@ -70,8 +70,6 @@ if (trailingSlash === 'never') dataAttributes['data-strip-trailing-slash'] = ''
 </script>
 
 <script>
-	import { appendTrailingSlash } from '@utils'
-
 	class SiteSearch extends HTMLElement {
 		constructor() {
 			super()
@@ -139,7 +137,7 @@ if (trailingSlash === 'never') dataAttributes['data-strip-trailing-slash'] = ''
 						new PagefindUI({
 							element: '#search',
 							baseUrl: base,
-							bundlePath: `${appendTrailingSlash(base)}pagefind/`,
+							bundlePath: `${stripTrailingSlash(base)}/pagefind${shouldStrip ? '' : '/'}`,
 							showImages: false,
 							showSubResults: true,
 							resetStyles: false,

@@ -1,6 +1,6 @@
 ---
 import { SITE } from '@constants'
-import { appendTrailingSlash, removeTrailingSlash } from '@utils'
+import { removeTrailingSlash } from '@utils'
 interface Props {
 	title?: string
 	forceTitle?: string
@@ -39,7 +39,7 @@ if (forceTitle) {
 	rel="alternate"
 	type="application/rss+xml"
 	title={SITE.titleDefault}
-	href={new URL(`${appendTrailingSlash(base)}rss.xml`, Astro.site)}
+	href={new URL(`${removeTrailingSlash(base)}/rss.xml`, Astro.site)}
 />
 <link rel="canonical" href={seo.url} />
 <meta property="og:title" content={seo.title} />
