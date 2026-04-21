@@ -1,16 +1,18 @@
 ---
-import Layout from '@layouts/layout.astro'
-import Seo from '@components/seo.astro'
-import SkipNavContent from '@components/a11y/skip-nav-content.astro'
 import { Content } from '@assets/about.mdx'
+import SkipNavContent from '@components/a11y/skip-nav-content.astro'
 import Prose from '@components/prose.astro'
+import Seo from '@components/seo.astro'
+import Spacer from '@components/spacer.astro'
+import Layout from '@layouts/layout.astro'
 ---
 
 <Layout>
 	<Seo slot="seo" title="About" />
 	<SkipNavContent>
-		<h1 class="sr-only">About</h1>
 		<Prose>
+			<h1 class="mb-0!">About</h1>
+			<Spacer axis="vertical" size={12} />
 			<Content />
 		</Prose>
 	</SkipNavContent>

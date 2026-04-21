@@ -56,6 +56,10 @@ export const HEADER: Header = {
 			url: '/base-test/blog/',
 		},
 		{
+			title: 'Tags',
+			url: '/base-test/tags/',
+		},
+		{
 			title: 'About',
 			url: '/base-test/about/',
 		},
