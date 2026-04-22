@@ -1,0 +1,76 @@
+---
+import SkipNavContent from '@components/a11y/skip-nav-content.astro'
+import Link from '@components/link.astro'
+import Pagination from '@components/pagination.astro'
+import PostListItem from '@components/post-list-item.astro'
+import Seo from '@components/seo.astro'
+import Spacer from '@components/spacer.astro'
+import { FRONTMATTER_TAGS, POSTS_PER_PAGE, SITE, type FrontmatterTag } from '@constants'
+import Layout from '@layouts/layout.astro'
+import { getPostsByTag, removeTrailingSlash } from '@utils'
+import { trailingSlash } from 'astro:config/client'
+import { getCollection, type CollectionEntry } from 'astro:content'
+
+interface Props {
+	tagName: FrontmatterTag
+	tagSlug: string
+	posts: Array<CollectionEntry<'blog'>>
+	currentPage: number
+	totalPages: number
+}
+
+export async function getStaticPaths() {
+	const entries = await getCollection('blog')
+	const result = [] as Array<{
+		params: { tag: string; page?: string }
+		props: Props
+	}>
+	for (const [tagName, tagSlug] of FRONTMATTER_TAGS) {
+		const postsWithTag = getPostsByTag(entries, tagName)
+		const totalPages = Math.max(1, Math.ceil(postsWithTag.length / POSTS_PER_PAGE))
+		for (let index = 0; index < totalPages; index++) {
+			const currentPage = index + 1
+			const start = index * POSTS_PER_PAGE
+			const end = start + POSTS_PER_PAGE
+			result.push({
+				params: {
+					tag: tagSlug,
+					page: currentPage === 1 ? undefined : String(currentPage),
+				},
+				props: {
+					tagName,
+					tagSlug,
+					posts: postsWithTag.slice(start, end),
+					currentPage,
+					totalPages,
+				},
+			})
+		}
+	}
+	return result
+}
+
+const { tagName, tagSlug, posts, currentPage, totalPages } = Astro.props
+
+const base = import.meta.env.BASE_URL
+const slash = trailingSlash === 'never' ? '' : '/'
+const tagsBasePath = `${removeTrailingSlash(base)}/tags`
+const tagBasePath = `${tagsBasePath}/${tagSlug}`
+const pageTitle = currentPage === 1 ? `Tag: ${tagName}` : `Tag: ${tagName} - Page ${currentPage}`
+---
+
+<Layout>
+	<Seo slot="seo" title={pageTitle} />
+	<SkipNavContent>
+		<h1 class="sr-only">{SITE.title}</h1>
+		<div class="border-b border-border pb-4 flex justify-between items-center">
+			<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">{pageTitle}</h2>
+			<div><Link href={`${tagsBasePath}${slash}`}>See all tags</Link></div>
+		</div>
+		<Spacer axis="vertical" size={8} />
+		<div class="flex gap-10 flex-col">
+			{posts.map(({ data: post }) => <PostListItem post={post} />)}
+		</div>
+		<Pagination currentPage={currentPage} totalPages={totalPages} basePath={tagBasePath} />
+	</SkipNavContent>
+</Layout>

@@ -27,7 +27,7 @@ async function main() {
 		const title = await p.text({
 			message: 'Title',
 			validate: (value) => {
-				if (value.length === 0) {
+				if (typeof value === 'undefined' || value.length === 0) {
 					return 'title is required'
 				}
 			},
@@ -43,7 +43,7 @@ async function main() {
 				message: 'Slug',
 				placeholder: 'Use a SEO-friendly kebab-case slug',
 				validate: (value) => {
-					if (value.length === 0) {
+					if (typeof value === 'undefined' || value.length === 0) {
 						return 'slug is required'
 					}
 					if (value.startsWith('/')) {
@@ -66,7 +66,7 @@ async function main() {
 			description: () => p.text({
 				message: 'Description',
 				validate: (value) => {
-					if (value.length === 0) {
+					if (typeof value === 'undefined' || value.length === 0) {
 						return 'description is required'
 					}
 				},
@@ -76,7 +76,7 @@ async function main() {
 				// Format: YYYY-MM-DD
 				initialValue: new Date().toISOString().split('T')[0],
 				validate: (value) => {
-					if (value.length === 0) {
+					if (typeof value === 'undefined' || value.length === 0) {
 						return 'date is required'
 					}
 					if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
