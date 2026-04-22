@@ -16,7 +16,7 @@ const slash = trailingSlash === 'never' ? '' : '/'
 ---
 
 <div>
-	<Link variant="highlight" href={removeTrailingSlash(base) + '/' + post.slug + slash}>
+	<Link variant="highlight" href={`${removeTrailingSlash(base)}/posts/${post.slug}${slash}`}>
 		{post.title}
 	</Link>
 	<Spacer axis="vertical" size={2} />

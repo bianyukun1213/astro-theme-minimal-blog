@@ -38,7 +38,7 @@ export async function getStaticPaths() {
 const { posts, currentPage, totalPages } = Astro.props
 
 const base = import.meta.env.BASE_URL
-const postsBasePath = `${removeTrailingSlash(base)}/blog`
+const postsBasePath = `${removeTrailingSlash(base)}/posts`
 const pageTitle = currentPage === 1 ? 'Blog' : `Blog - Page ${currentPage}`
 ---
 

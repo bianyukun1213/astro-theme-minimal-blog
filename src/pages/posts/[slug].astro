@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
 	return entries.map((e) => ({
 		params: {
-			blog: e.data.slug,
+			slug: e.data.slug,
 		},
 		props: {
 			entry: e,

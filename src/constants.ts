@@ -57,7 +57,7 @@ export const HEADER: Header = {
 	internal: [
 		{
 			title: 'Blog',
-			url: '/base-test/blog/',
+			url: '/base-test/posts/',
 		},
 		{
 			title: 'Tags',
