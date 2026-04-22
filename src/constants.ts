@@ -2,6 +2,7 @@ type MapKey<T extends Map<any, any>> = T extends Map<infer K, any> ? K : never
 
 export const BLOG_PATH = './content/blog'
 export const DEFAULT_LOCALE = 'en-US'
+export const BLOG_POSTS_PER_PAGE = 5
 
 /**
  * Metadata for your site

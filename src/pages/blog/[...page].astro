@@ -1,0 +1,59 @@
+---
+import SkipNavContent from '../../components/a11y/skip-nav-content.astro'
+import Pagination from '../../components/pagination.astro'
+import PostListItem from '../../components/post-list-item.astro'
+import Seo from '../../components/seo.astro'
+import Spacer from '../../components/spacer.astro'
+import { BLOG_POSTS_PER_PAGE } from '../../constants'
+import Layout from '../../layouts/layout.astro'
+import { removeTrailingSlash, sortAsc } from '../../utils'
+import { getCollection, type CollectionEntry } from 'astro:content'
+
+interface Props {
+	posts: Array<CollectionEntry<'blog'>>
+	currentPage: number
+	totalPages: number
+}
+
+export async function getStaticPaths() {
+	const allPosts = sortAsc(await getCollection('blog'))
+	const totalPages = Math.max(1, Math.ceil(allPosts.length / BLOG_POSTS_PER_PAGE))
+
+	return Array.from({ length: totalPages }, (_, index) => {
+		const currentPage = index + 1
+		const start = (currentPage - 1) * BLOG_POSTS_PER_PAGE
+		const end = start + BLOG_POSTS_PER_PAGE
+
+		return {
+			params: {
+				page: currentPage === 1 ? undefined : String(currentPage),
+			},
+			props: {
+				posts: allPosts.slice(start, end),
+				currentPage,
+				totalPages,
+			},
+		}
+	})
+}
+
+const { posts, currentPage, totalPages } = Astro.props
+
+const base = import.meta.env.BASE_URL
+const blogBasePath = `${removeTrailingSlash(base)}/blog`
+const pageTitle = currentPage === 1 ? 'Blog' : `Blog - Page ${currentPage}`
+---
+
+<Layout>
+	<Seo slot="seo" title={pageTitle} />
+	<SkipNavContent>
+		<div class="border-b border-border pb-4 flex justify-between items-center">
+			<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">All posts</h2>
+		</div>
+		<Spacer axis="vertical" size={8} />
+		<div class="flex gap-10 flex-col">
+			{posts.map(({ data: post }) => <PostListItem post={post} />)}
+		</div>
+		<Pagination currentPage={currentPage} totalPages={totalPages} basePath={blogBasePath} />
+	</SkipNavContent>
+</Layout>

@@ -1,0 +1,77 @@
+---
+import Icon from '@components/icon.astro'
+import Link from '@components/link.astro'
+import Spacer from '@components/spacer.astro'
+import { trailingSlash } from 'astro:config/client'
+
+interface Props {
+	currentPage: number
+	totalPages: number
+	basePath: string
+}
+
+const { currentPage, totalPages, basePath } = Astro.props
+
+const slash = trailingSlash === 'never' ? '' : '/'
+
+function getPageHref(page: number) {
+	if (page === 1) return `${basePath}${slash}`
+	return `${basePath}/${page}${slash}`
+}
+
+const prevHref = currentPage > 1 ? getPageHref(currentPage - 1) : null
+const nextHref = currentPage < totalPages ? getPageHref(currentPage + 1) : null
+const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
+---
+
+{
+	totalPages > 1 && (
+		<>
+			<Spacer axis="vertical" size={10} />
+			<nav
+				aria-label="Blog pagination"
+				class="border-t border-border pt-4 flex items-center justify-between gap-4 flex-wrap"
+			>
+				<div class="min-w-16">
+					{prevHref && (
+						<Link href={prevHref} class="pagination-nav-link">
+							<Icon name="chevron-left" class="pagination-nav-icon pagination-nav-icon-prev" />
+							<span>Previous</span>
+						</Link>
+					)}
+				</div>
+				<div class="flex items-center gap-2 flex-wrap justify-center">
+					{pages.map((page) =>
+						page === currentPage ? (
+							<span class="text-highlight underline" aria-current="page">
+								{page}
+							</span>
+						) : (
+							<Link href={getPageHref(page)}>{page}</Link>
+						),
+					)}
+				</div>
+				<div class="min-w-16 text-right">
+					{nextHref && (
+						<Link href={nextHref} class="pagination-nav-link justify-end">
+							<span>Next</span>
+							<Icon name="chevron-right" class="pagination-nav-icon pagination-nav-icon-next" />
+						</Link>
+					)}
+				</div>
+			</nav>
+		</>
+	)
+}
+
+<style>
+	.pagination-nav-link {
+		display: inline-flex;
+		align-items: center;
+	}
+
+	:global([dir='rtl']) .pagination-nav-icon-prev,
+	:global([dir='rtl']) .pagination-nav-icon-next {
+		transform: scaleX(-1);
+	}
+</style>
