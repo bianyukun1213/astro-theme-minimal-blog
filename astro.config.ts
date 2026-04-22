@@ -52,8 +52,8 @@ export default defineConfig({
 		locales: ['en-US', 'zh-CN', 'ru-RU'],
 		defaultLocale: DEFAULT_LOCALE,
 		routing: {
-			prefixDefaultLocale: true,
-			redirectToDefaultLocale: true,
+			prefixDefaultLocale: false,
+			redirectToDefaultLocale: false,
 		},
 	},
 	devToolbar: {
