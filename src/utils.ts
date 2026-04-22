@@ -5,9 +5,8 @@ import * as messages from '@paraglide/messages'
 import { getTextDirection } from '@paraglide/runtime'
 import {
 	getRelativeLocaleUrl as getRelativeLocaleUrlImpl,
-	getRelativeLocaleUrlList,
 } from 'astro:i18n'
-import { BLOG_PATH, DEFAULT_LOCALE, FRONTMATTER_TAGS } from './constants'
+import { BLOG_PATH, DEFAULT_LOCALE, FRONTMATTER_TAGS, LOCALES } from './constants'
 
 // import { clsx, type ClassValue } from 'clsx';
 // import { twMerge } from 'tailwind-merge';
@@ -20,15 +19,17 @@ import { BLOG_PATH, DEFAULT_LOCALE, FRONTMATTER_TAGS } from './constants'
  * Returns a list of available locales based on the relative locale URL list. It uses Astro's i18n utility to get the list of locale-specific paths and extracts the locale from each path.
  * @returns An array of available locales.
  */
-export function getLocales() {
-	const paths = getRelativeLocaleUrlList('', {
-		normalizeLocale: false,
-	})
-	return paths.map((url) => {
-		const locale = url.split('/')[1]
-		return locale as Locale
-	})
-}
+// export function getLocales() {
+// 	// const paths = getRelativeLocaleUrlList('', {
+// 	// 	normalizeLocale: false,
+// 	// })
+// 	// return paths.map((url) => {
+// 	// 	console.log(url)
+// 	// 	const locale = url.split('/')[1]
+// 	// 	return locale as Locale
+// 	// })
+// 	return LOCALES
+// }
 
 /**
  * Returns the text direction for a given locale.
@@ -62,7 +63,7 @@ export function getLocaleFromFilePath(filePath: string | undefined): Locale {
 	}
 	const relative = filePath.replace(`${BLOG_PATH}/`, '')
 	const firstSegment = relative.split('/')[0]
-	if (getLocales().includes(firstSegment as Locale)) {
+	if (LOCALES.includes(firstSegment as Locale)) {
 		return firstSegment as Locale
 	}
 	return DEFAULT_LOCALE
