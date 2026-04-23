@@ -1,6 +1,6 @@
 type MapKey<T extends Map<any, any>> = T extends Map<infer K, any> ? K : never
 
-export const BLOG_PATH = './content/blog'
+export const BLOG_PATH = './content/blog/'
 export const POSTS_PER_PAGE = 1
 export { baseLocale as DEFAULT_LOCALE, locales as LOCALES } from './paraglide/runtime'
 

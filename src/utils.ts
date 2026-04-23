@@ -61,12 +61,28 @@ export function getLocaleFromFilePath(filePath: string | undefined): Locale {
 	if (!filePath) {
 		return DEFAULT_LOCALE
 	}
-	const relative = filePath.replace(`${BLOG_PATH}/`, '')
+	const blogPath = BLOG_PATH.replace(/^(?:\.\.\/|\.\/|\/)?(.*?)\/?$/, '$1/')
+	const relative = filePath.replace(blogPath, '')
 	const firstSegment = relative.split('/')[0]
 	if (LOCALES.includes(firstSegment as Locale)) {
 		return firstSegment as Locale
 	}
 	return DEFAULT_LOCALE
+}
+
+/**
+ * Get blog posts by locale
+ * @param posts - list of all blog posts
+ * @param locale - the locale to filter by
+ * @returns list of blog posts that match the given locale
+ */
+export function getPostsByLocale(
+	posts: CollectionEntry<'blog'>[],
+	locale: Locale,
+) {
+	return posts.filter((post) => {
+		return getLocaleFromFilePath(post.filePath) === locale
+	})
 }
 
 /**

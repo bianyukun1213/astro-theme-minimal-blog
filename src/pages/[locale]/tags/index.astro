@@ -3,13 +3,24 @@ import SkipNavContent from '@components/a11y/skip-nav-content.astro'
 import Link from '@components/link.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
+import { LOCALES } from '@constants'
 import Layout from '@layouts/layout.astro'
-import { getTags, removeTrailingSlash } from '@utils'
+import { getLocaleFromFilePath, getTags, removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import type { GetStaticPaths } from 'astro'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
 
 const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
+
+export const getStaticPaths = (async () => {
+	// return LOCALES.map((locale) => ({
+	// 	params: { locale },
+	// }))
+}) satisfies GetStaticPaths
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
 
 const entries = await getCollection('blog')
 
@@ -26,7 +37,7 @@ const tags = getTags(entries)
 		<div class="flex gap-6 flex-col">
 			{
 				tags.map(({ tag, slug, count }) => (
-					<Link variant="highlight" href={`${removeTrailingSlash(base)}/tags/${slug}${slash}`}>
+					<Link variant="highlight" href={`${removeTrailingSlash(base)}/${currentLocale}/tags/${slug}${slash}`}>
 						{tag} ({count})
 					</Link>
 				))

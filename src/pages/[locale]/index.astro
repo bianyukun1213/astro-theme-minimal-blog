@@ -58,12 +58,12 @@ const posts = sortAsc(await getCollection('blog')).slice(0, POSTS_PER_PAGE)
 			<div class="border-b border-border pb-4 flex justify-between items-center">
 				<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">Latest Posts</h2>
 				<div>
-					<Link href={`${removeTrailingSlash(base)}/posts${slash}`}>Read all posts</Link>
+					<Link href={`${removeTrailingSlash(base)}/${currentLocale}/posts${slash}`}>Read all posts</Link>
 				</div>
 			</div>
 			<Spacer axis="vertical" size={8} />
 			<div class="flex gap-10 flex-col">
-				{posts.map(({ data: post }) => <PostListItem post={post} />)}
+				{posts.map((post) => <PostListItem post={post} />)}
 			</div>
 		</section>
 		<Spacer axis="vertical" size={32} />

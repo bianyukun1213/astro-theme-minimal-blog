@@ -1,5 +1,6 @@
 import { glob } from 'astro/loaders'
-import { defineCollection, z } from 'astro:content'
+import { z } from 'astro/zod'
+import { defineCollection } from 'astro:content'
 import { BLOG_PATH, FRONTMATTER_TAGS } from './constants'
 
 const zodEnum = <T>(arr: T[]): [T, ...T[]] => arr as [T, ...T[]]
@@ -10,7 +11,8 @@ const blog = defineCollection({
 	loader: glob({ pattern: '**\/[^_]*.mdx', base: BLOG_PATH }),
 	schema: z.object({
 		title: z.string(),
-		slug: z.string(),
+		// slug: z.string().optional(),
+		displayId: z.string(),
 		description: z.string(),
 		date: z.date(),
 		lastUpdated: z.date(),
