@@ -5,12 +5,12 @@ import Spacer from '@components/spacer.astro'
 import { trailingSlash } from 'astro:config/client'
 
 interface Props {
-	currentPage: number
-	totalPages: number
 	basePath: string
+	totalPages: number
+	currentPage: number
 }
 
-const { currentPage, totalPages, basePath } = Astro.props
+const { basePath, totalPages, currentPage } = Astro.props
 
 const slash = trailingSlash === 'never' ? '' : '/'
 

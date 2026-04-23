@@ -17,13 +17,15 @@ import {
 import type { GetStaticPaths } from 'astro'
 import { getCollection } from 'astro:content'
 
+const base = import.meta.env.BASE_URL
+
 export const getStaticPaths = (async ({ paginate }) => {
 	const allPosts = await getCollection('blog')
 	const localesInUse = [...new Set(allPosts.map((post) => getLocaleFromFilePath(post.filePath)))]
-	console.log('Locales in use:', localesInUse)
 	return localesInUse.flatMap((locale) => {
 		const localePosts = getPostsByLocale(allPosts, locale)
-		return paginate(sortAsc(localePosts), {
+		const posts = sortAsc(localePosts)
+		return paginate(posts, {
 			pageSize: POSTS_PER_PAGE,
 			params: { locale },
 		})
@@ -38,7 +40,6 @@ const posts = page.data
 const currentPage = page.currentPage
 const totalPages = page.lastPage
 
-const base = import.meta.env.BASE_URL
 const postsBasePath = `${removeTrailingSlash(base)}/${currentLocale}/posts`
 const pageTitle = currentPage === 1 ? 'Blog' : `Blog - Page ${currentPage}`
 ---
@@ -53,6 +54,6 @@ const pageTitle = currentPage === 1 ? 'Blog' : `Blog - Page ${currentPage}`
 		<div class="flex gap-10 flex-col">
 			{posts.map((post) => <PostListItem post={post} />)}
 		</div>
-		<Pagination currentPage={currentPage} totalPages={totalPages} basePath={postsBasePath} />
+		<Pagination basePath={postsBasePath} totalPages={totalPages} currentPage={currentPage} />
 	</SkipNavContent>
 </Layout>

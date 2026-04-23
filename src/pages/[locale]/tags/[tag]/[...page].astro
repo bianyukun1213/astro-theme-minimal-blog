@@ -7,54 +7,44 @@ import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
 import { FRONTMATTER_TAGS, POSTS_PER_PAGE, SITE, type FrontmatterTag } from '@constants'
 import Layout from '@layouts/layout.astro'
-import { getPostsByTag, removeTrailingSlash } from '@utils'
+import { getLocaleFromFilePath, getPostsByLocale, getPostsByTag, removeTrailingSlash, type Locale } from '@utils'
+import type { GetStaticPaths, Page } from 'astro'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection, type CollectionEntry } from 'astro:content'
 
-interface Props {
-	tagName: FrontmatterTag
-	tagSlug: string
-	posts: Array<CollectionEntry<'blog'>>
-	currentPage: number
-	totalPages: number
-}
-
-export async function getStaticPaths() {
-	const entries = await getCollection('blog')
-	const result = [] as Array<{
-		params: { tag: string; page?: string }
-		props: Props
-	}>
-	for (const [tagName, tagSlug] of FRONTMATTER_TAGS) {
-		const postsWithTag = getPostsByTag(entries, tagName)
-		const totalPages = Math.max(1, Math.ceil(postsWithTag.length / POSTS_PER_PAGE))
-		for (let index = 0; index < totalPages; index++) {
-			const currentPage = index + 1
-			const start = index * POSTS_PER_PAGE
-			const end = start + POSTS_PER_PAGE
-			result.push({
-				params: {
-					tag: tagSlug,
-					page: currentPage === 1 ? undefined : String(currentPage),
-				},
-				props: {
-					tagName,
-					tagSlug,
-					posts: postsWithTag.slice(start, end),
-					currentPage,
-					totalPages,
-				},
-			})
-		}
-	}
-	return result
-}
-
-const { tagName, tagSlug, posts, currentPage, totalPages } = Astro.props
-
 const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
-const tagsBasePath = `${removeTrailingSlash(base)}/tags`
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const allPosts = await getCollection('blog')
+	const localesInUse = [...new Set(allPosts.map((post) => getLocaleFromFilePath(post.filePath)))]
+	return localesInUse.flatMap((locale) => {
+		const localePosts = getPostsByLocale(allPosts, locale)
+		return [...FRONTMATTER_TAGS].flatMap(([tagName, tagSlug]) => {
+			const posts = getPostsByTag(localePosts, tagName)
+			return paginate(posts, {
+				pageSize: POSTS_PER_PAGE,
+				params: { locale, tag: tagSlug },
+				props: { tagName, tagSlug },
+			})
+		})
+	})
+}) satisfies GetStaticPaths
+
+const currentLocale = Astro.currentLocale as Locale
+
+interface Props {
+	page: Page<CollectionEntry<'blog'>>
+	tagName: FrontmatterTag
+	tagSlug: string
+}
+
+const { page, tagName, tagSlug } = Astro.props
+const posts = page.data
+const currentPage = page.currentPage
+const totalPages = page.lastPage
+
+const tagsBasePath = `${removeTrailingSlash(base)}/${currentLocale}/tags`
 const tagBasePath = `${tagsBasePath}/${tagSlug}`
 const pageTitle = currentPage === 1 ? `Tag: ${tagName}` : `Tag: ${tagName} - Page ${currentPage}`
 ---
@@ -69,8 +59,8 @@ const pageTitle = currentPage === 1 ? `Tag: ${tagName}` : `Tag: ${tagName} - Pag
 		</div>
 		<Spacer axis="vertical" size={8} />
 		<div class="flex gap-10 flex-col">
-			{posts.map(({ data: post }) => <PostListItem post={post} />)}
+			{posts.map((post) => <PostListItem post={post} />)}
 		</div>
-		<Pagination currentPage={currentPage} totalPages={totalPages} basePath={tagBasePath} />
+		<Pagination basePath={tagBasePath} totalPages={totalPages} currentPage={currentPage} />
 	</SkipNavContent>
 </Layout>

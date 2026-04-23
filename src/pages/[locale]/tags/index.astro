@@ -5,7 +5,7 @@ import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
 import { LOCALES } from '@constants'
 import Layout from '@layouts/layout.astro'
-import { getLocaleFromFilePath, getTags, removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import { getPostsByLocale, getTags, removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import type { GetStaticPaths } from 'astro'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
@@ -14,17 +14,17 @@ const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
 
 export const getStaticPaths = (async () => {
-	// return LOCALES.map((locale) => ({
-	// 	params: { locale },
-	// }))
+	return LOCALES.map((locale) => ({
+		params: { locale },
+	}))
 }) satisfies GetStaticPaths
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
 
-const entries = await getCollection('blog')
-
-const tags = getTags(entries)
+const allPosts = await getCollection('blog')
+const posts = getPostsByLocale(allPosts, currentLocale)
+const tags = getTags(posts)
 ---
 
 <Layout>
