@@ -1,12 +1,16 @@
 ---
-import { HEADER, SITE } from '@constants'
+import { getHeader, SITE } from '@constants'
+import type { Locale } from '@utils'
 import Link from './link.astro'
 import Search from './search.astro'
 import Spacer from './spacer.astro'
 
 const base = import.meta.env.BASE_URL
 
+const currentLocale = Astro.currentLocale as Locale
+
 const { pathname } = Astro.url
+const header = getHeader(currentLocale)
 ---
 
 <header class="container">
@@ -25,7 +29,7 @@ const { pathname } = Astro.url
 	<div class="flex flex-row justify-between items-center border-b border-border pb-4 text-lg md:text-xl">
 		<nav aria-label="Primary navigation" class="flex gap-4">
 			{
-				HEADER.internal.map((link) => (
+				header.internal.map((link) => (
 					<Link
 						href={link.url}
 						class={pathname === link.url ? 'active' : ''}
@@ -38,7 +42,7 @@ const { pathname } = Astro.url
 		</nav>
 		<div class="flex gap-4">
 			{
-				HEADER.external.map((link) => (
+				header.external.map((link) => (
 					<Link href={link.url} {...link.props}>
 						{link.title}
 					</Link>

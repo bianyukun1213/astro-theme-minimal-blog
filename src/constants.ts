@@ -1,6 +1,11 @@
+import type { Locale } from '@paraglide/runtime'
+import { baseLocale, locales } from './paraglide/runtime'
+
 export const BLOG_PATH = './content/blog/'
 export const POSTS_PER_PAGE = 1
-export { baseLocale as DEFAULT_LOCALE, locales as LOCALES } from './paraglide/runtime'
+
+export const DEFAULT_LOCALE = baseLocale
+export const LOCALES = locales
 
 /**
  * Metadata for your site
@@ -45,46 +50,107 @@ interface Header {
 	external: Array<{ title: string, url: string, props?: Record<string, unknown> }>
 }
 
-/**
- * Links used in the header
- */
-export const HEADER: Header = {
-	/**
-	 * Internal links to other subpages shown in the header navigation
-	 */
-	internal: [
-		{
-			title: 'Blog',
-			url: '/base-test/en-US/posts/',
-		},
-		{
-			title: 'Tags',
-			url: '/base-test/en-US/tags/',
-		},
-		{
-			title: 'About',
-			url: '/base-test/en-US/about/',
-		},
-	],
-	/**
-	 * Arbitrary list of links (e.g. social media) shown on the right side of the header
-	 */
-	external: [
-		{
-			title: 'Bluesky',
-			url: 'https://bsky.app/profile/lekoarts.de',
-			props: {
-				target: '_blank',
+const HEADER_BY_LOCALE: Record<string, Header> = {
+	'en-US': {
+		internal: [
+			{
+				title: 'Blog',
+				url: '/base-test/en-US/posts/',
 			},
-		},
-		{
-			title: 'Homepage',
-			url: 'https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog',
-			props: {
-				target: '_blank',
+			{
+				title: 'Tags',
+				url: '/base-test/en-US/tags/',
 			},
-		},
-	],
+			{
+				title: 'About',
+				url: '/base-test/en-US/about/',
+			},
+		],
+		external: [
+			{
+				title: 'Bluesky',
+				url: 'https://bsky.app/profile/lekoarts.de',
+				props: {
+					target: '_blank',
+				},
+			},
+			{
+				title: 'Homepage',
+				url: 'https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog',
+				props: {
+					target: '_blank',
+				},
+			},
+		],
+	},
+	'zh-CN': {
+		internal: [
+			{
+				title: '博客',
+				url: '/base-test/zh-CN/posts/',
+			},
+			{
+				title: '标签',
+				url: '/base-test/zh-CN/tags/',
+			},
+			{
+				title: '关于',
+				url: '/base-test/zh-CN/about/',
+			},
+		],
+		external: [
+			{
+				title: 'Bluesky',
+				url: 'https://bsky.app/profile/lekoarts.de',
+				props: {
+					target: '_blank',
+				},
+			},
+			{
+				title: 'Homepage',
+				url: 'https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog',
+				props: {
+					target: '_blank',
+				},
+			},
+		],
+	},
+	'ru-RU': {
+		internal: [
+			{
+				title: 'Блог',
+				url: '/base-test/ru-RU/posts/',
+			},
+			{
+				title: 'Теги',
+				url: '/base-test/ru-RU/tags/',
+			},
+			{
+				title: 'О сайте',
+				url: '/base-test/ru-RU/about/',
+			},
+		],
+		external: [
+			{
+				title: 'Bluesky',
+				url: 'https://bsky.app/profile/lekoarts.de',
+				props: {
+					target: '_blank',
+				},
+			},
+			{
+				title: 'Homepage',
+				url: 'https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog',
+				props: {
+					target: '_blank',
+				},
+			},
+		],
+	},
+}
+
+export function getHeader(locale: Locale): Header {
+	return HEADER_BY_LOCALE[locale]
 }
 
 export const TAG_SLUGS = [
