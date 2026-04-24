@@ -43,7 +43,7 @@ const { Content } = await render(entry)
 		<meta name="twitter:label2" value="Tags" />
 		<meta name="twitter:data2" value={post.tags.join(', ')} />
 		<meta name="article:published_time" data-pagefind-meta="published_time" content={isoDateFormat(post.date)} />
-		<meta name="article:modified_time" data-pagefind-meta="modified_time" content={isoDateFormat(post.lastUpdated)} />
+		<meta name="article:modified_time" data-pagefind-meta="modified_time" content={isoDateFormat(post.updated)} />
 	</Seo>
 	<SkipNavContent searchIndex={post.searchIndex}>
 		<Prose>

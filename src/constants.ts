@@ -45,12 +45,58 @@ export const SITE: Record<string, string> = {
 	defaultAuthor: 'LekoArts',
 }
 
+interface Author {
+	slug: string
+	name: string
+	photo: string
+	url: string
+	email: string
+	note: string
+}
+
+const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
+	'en-US': [
+		{
+			slug: 'hollis',
+			name: 'Hollis',
+			photo: 'https://avatars.githubusercontent.com/u/24708556',
+			url: 'https://yukun.bio/',
+			email: 'bianyukun1213@outlook.com',
+			note: 'I am Hollis.',
+		},
+	],
+	'zh-CN': [
+		{
+			slug: 'hollis',
+			name: 'Hollis',
+			photo: 'https://avatars.githubusercontent.com/u/24708556',
+			url: 'https://yukun.bio/',
+			email: 'bianyukun1213@outlook.com',
+			note: 'I am Hollis.',
+		},
+	],
+	'ru-RU': [
+		{
+			slug: 'hollis',
+			name: 'Hollis',
+			photo: 'https://avatars.githubusercontent.com/u/24708556',
+			url: 'https://yukun.bio/',
+			email: 'bianyukun1213@outlook.com',
+			note: 'I am Hollis.',
+		},
+	],
+}
+
+export function getAuthors(locale: Locale): Author[] {
+	return AUTHORS_BY_LOCALE[locale]
+}
+
 interface Header {
 	internal: Array<{ title: string, url: string }>
 	external: Array<{ title: string, url: string, props?: Record<string, unknown> }>
 }
 
-const HEADER_BY_LOCALE: Record<string, Header> = {
+const HEADER_BY_LOCALE: Record<Locale, Header> = {
 	'en-US': {
 		internal: [
 			{
