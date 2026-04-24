@@ -2,7 +2,7 @@ import type { Locale } from '@paraglide/runtime'
 import { baseLocale, locales } from './paraglide/runtime'
 
 export const BLOG_PATH = './content/blog/'
-export const POSTS_PER_PAGE = 1
+export const POSTS_PER_PAGE = 5
 
 export const DEFAULT_LOCALE = baseLocale
 export const LOCALES = locales
