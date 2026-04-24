@@ -24,7 +24,7 @@ const m = useTranslations(currentLocale)
 
 const allPosts = await getCollection('blog')
 const posts = getPostsByLocale(allPosts, currentLocale)
-const tags = getTags(posts)
+const tags = getTags(posts, currentLocale)
 ---
 
 <Layout>
@@ -36,9 +36,9 @@ const tags = getTags(posts)
 		<Spacer axis="vertical" size={8} />
 		<div class="flex gap-6 flex-col">
 			{
-				tags.map(({ tag, slug, count }) => (
+				tags.map(({ tagName, slug, count }) => (
 					<Link variant="highlight" href={`${removeTrailingSlash(base)}/${currentLocale}/tags/${slug}${slash}`}>
-						{tag} ({count})
+						{tagName} ({count})
 					</Link>
 				))
 			}

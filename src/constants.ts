@@ -1,5 +1,3 @@
-type MapKey<T extends Map<any, any>> = T extends Map<infer K, any> ? K : never
-
 export const BLOG_PATH = './content/blog/'
 export const POSTS_PER_PAGE = 1
 export { baseLocale as DEFAULT_LOCALE, locales as LOCALES } from './paraglide/runtime'
@@ -57,15 +55,15 @@ export const HEADER: Header = {
 	internal: [
 		{
 			title: 'Blog',
-			url: '/base-test/posts/',
+			url: '/base-test/en-US/posts/',
 		},
 		{
 			title: 'Tags',
-			url: '/base-test/tags/',
+			url: '/base-test/en-US/tags/',
 		},
 		{
 			title: 'About',
-			url: '/base-test/about/',
+			url: '/base-test/en-US/about/',
 		},
 	],
 	/**
@@ -89,20 +87,17 @@ export const HEADER: Header = {
 	],
 }
 
-/**
- * A map of name - slug pairs
- */
-export const FRONTMATTER_TAGS = new Map(
-	[
-		['General', 'general'] as const,
-		['Coding', 'coding'] as const,
-		['MDX', 'mdx'] as const,
-		['Open Source', 'open-source'] as const,
-		['서울', '서울'] as const,
-	],
-)
+export const TAG_SLUGS = [
+	'general',
+	'coding',
+	'mdx',
+	'open-source',
+	'seoul',
+	'english',
+	'chinese',
+] as const
 
-export type FrontmatterTag = MapKey<typeof FRONTMATTER_TAGS>
+export type TagSlug = (typeof TAG_SLUGS)[number]
 
 export const SKIP_NAV_ID = 'skip-to-content'
 

@@ -1,5 +1,5 @@
 ---
-import { defaultDateFormat, removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import { defaultDateFormat, getLocalizedTagName, removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 import type { InferEntrySchema } from 'astro:content'
 import Link from './link.astro'
@@ -25,7 +25,9 @@ const slash = trailingSlash === 'never' ? '' : '/'
 	</Link>
 	<Spacer axis="vertical" size={2} />
 	<div class="text-faded">
-		{defaultDateFormat(post.data.date)} — {post.data.tags.join(', ')}
+		{defaultDateFormat(post.data.date)} — {
+			post.data.tags.map((tagSlug) => getLocalizedTagName(tagSlug, currentLocale)).join(', ')
+		}
 	</div>
 	<Spacer axis="vertical" size={4} />
 	<div class="text-subtle text-md md:text-lg">{post.data.description}</div>

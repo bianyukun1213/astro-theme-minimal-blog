@@ -1,11 +1,7 @@
 import { glob } from 'astro/loaders'
 import { z } from 'astro/zod'
 import { defineCollection } from 'astro:content'
-import { BLOG_PATH, FRONTMATTER_TAGS } from './constants'
-
-const zodEnum = <T>(arr: T[]): [T, ...T[]] => arr as [T, ...T[]]
-
-const TAGS_NAMES = Array.from(FRONTMATTER_TAGS.keys())
+import { BLOG_PATH, TAG_SLUGS } from './constants'
 
 const blog = defineCollection({
 	loader: glob({ pattern: '**\/[^_]*.mdx', base: BLOG_PATH }),
@@ -16,7 +12,7 @@ const blog = defineCollection({
 		description: z.string(),
 		date: z.date(),
 		lastUpdated: z.date(),
-		tags: z.array(z.enum(zodEnum(TAGS_NAMES))),
+		tags: z.array(z.enum(TAG_SLUGS)),
 		image: z.string().optional(),
 		searchIndex: z.boolean().optional().default(true),
 	}),

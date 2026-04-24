@@ -1,4 +1,4 @@
-import type { FrontmatterTag } from '@constants'
+import type { TagSlug } from '@constants'
 import type { Locale } from '@paraglide/runtime'
 import type { CollectionEntry } from 'astro:content'
 import * as messages from '@paraglide/messages'
@@ -6,7 +6,7 @@ import { getTextDirection } from '@paraglide/runtime'
 import {
 	getRelativeLocaleUrl as getRelativeLocaleUrlImpl,
 } from 'astro:i18n'
-import { BLOG_PATH, DEFAULT_LOCALE, FRONTMATTER_TAGS, LOCALES } from './constants'
+import { BLOG_PATH, DEFAULT_LOCALE, LOCALES } from './constants'
 
 // import { clsx, type ClassValue } from 'clsx';
 // import { twMerge } from 'tailwind-merge';
@@ -112,6 +112,23 @@ export function useTranslations(locale: Locale) {
 	}) as typeof messages
 }
 
+/**
+ * Returns the localized name of a tag based on the given locale. It uses the useTranslations function to get the translation for the tag slug. If a translation is not found, it falls back to returning the original tag slug.
+ * @param tagSlug The slug of the tag to get the localized name for.
+ * @param locale The locale to use for translation.
+ * @returns The localized name of the tag, or the original tag slug if no translation is found.
+ */
+export function getLocalizedTagName(tagSlug: TagSlug, locale: Locale) {
+	type MsgKey = Exclude<keyof typeof messages, 'm'>
+	const key = `tag_${tagSlug.replace(/-/g, '_')}` as MsgKey
+	const m = useTranslations(locale)
+	const tagNameFunc = m[key]
+	if (typeof tagNameFunc === 'function') {
+		return (tagNameFunc as () => string)()
+	}
+	return tagSlug
+}
+
 export { DEFAULT_LOCALE }
 export type { Locale }
 
@@ -197,36 +214,33 @@ export function capitalize<T extends string>(str: T): Capitalize<T> {
 }
 
 /**
- * Get all posts tagged with the given tag
+ * Get all posts tagged with the given tagSlug
  */
-export function getPostsByTag(data: Array<CollectionEntry<'blog'>>, tag: FrontmatterTag) {
-	return data.filter(post => post.data.tags?.includes(tag))
+export function getPostsByTag(data: Array<CollectionEntry<'blog'>>, tagSlug: TagSlug) {
+	return data.filter(post => post.data.tags?.includes(tagSlug))
 }
 
 /**
  * Get all tags, their slug, and the number of posts
  */
-export function getTags(data: Array<CollectionEntry<'blog'>>) {
-	const output = [] as Array<{ tag: FrontmatterTag, slug: string, count: number }>
-
+export function getTags(data: Array<CollectionEntry<'blog'>>, locale: Locale) {
+	const output = [] as Array<{ tagName: string, slug: TagSlug, count: number }>
 	for (const post of data) {
 		if (!post.data.tags)
 			continue
-
-		for (const tag of post.data.tags) {
-			const existingTag = output.find(t => t.tag === tag)
+		for (const tagSlug of post.data.tags) {
+			const existingTag = output.find(t => t.slug === tagSlug)
 			if (existingTag) {
 				existingTag.count++
 			}
 			else {
 				output.push({
-					tag,
-					slug: FRONTMATTER_TAGS.get(tag) as string,
+					tagName: getLocalizedTagName(tagSlug, locale),
+					slug: tagSlug,
 					count: 1,
 				})
 			}
 		}
 	}
-
 	return output
 }
