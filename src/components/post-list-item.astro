@@ -1,10 +1,9 @@
 ---
 import { defaultDateFormat, getLocalizedTagName, removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
-import type { InferEntrySchema } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
 import Link from './link.astro'
 import Spacer from './spacer.astro'
-import type { CollectionEntry } from 'astro:content'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)

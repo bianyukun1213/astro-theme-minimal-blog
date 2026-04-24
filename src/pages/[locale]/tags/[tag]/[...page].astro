@@ -19,9 +19,6 @@ import type { GetStaticPaths, Page } from 'astro'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection, type CollectionEntry } from 'astro:content'
 
-const base = import.meta.env.BASE_URL
-const slash = trailingSlash === 'never' ? '' : '/'
-
 export const getStaticPaths = (async ({ paginate }) => {
 	const allPosts = await getCollection('blog')
 	const localesInUse = [...new Set(allPosts.map((post) => getLocaleFromFilePath(post.filePath)))]
@@ -47,6 +44,10 @@ interface Props {
 }
 
 const { page, tagName, slug } = Astro.props
+
+const base = import.meta.env.BASE_URL
+const slash = trailingSlash === 'never' ? '' : '/'
+
 const posts = page.data
 const currentPage = page.currentPage
 const totalPages = page.lastPage

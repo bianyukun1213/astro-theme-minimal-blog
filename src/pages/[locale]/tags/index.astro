@@ -10,9 +10,6 @@ import type { GetStaticPaths } from 'astro'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
 
-const base = import.meta.env.BASE_URL
-const slash = trailingSlash === 'never' ? '' : '/'
-
 export const getStaticPaths = (async () => {
 	return LOCALES.map((locale) => ({
 		params: { locale },
@@ -21,6 +18,9 @@ export const getStaticPaths = (async () => {
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
+
+const base = import.meta.env.BASE_URL
+const slash = trailingSlash === 'never' ? '' : '/'
 
 const allPosts = await getCollection('blog')
 const posts = getPostsByLocale(allPosts, currentLocale)
