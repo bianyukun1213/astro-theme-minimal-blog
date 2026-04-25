@@ -28,17 +28,18 @@ const tags = getTags(posts, currentLocale)
 ---
 
 <Layout>
-	<Seo slot="seo" title="Tags" />
+	<Seo slot="seo" title={m.label_tags()} />
 	<SkipNavContent>
+		<h1 class="sr-only">{m.site_title()}</h1>
 		<div class="border-b border-border pb-4 flex justify-between items-center">
-			<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">Tags</h2>
+			<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">{m.label_tags()}</h2>
 		</div>
 		<Spacer axis="vertical" size={8} />
-		<div class="flex gap-6 flex-col">
+		<div class="flex gap-6 flex-col items-start">
 			{
 				tags.map(({ tagName, slug, count }) => (
 					<Link variant="highlight" href={`${removeTrailingSlash(base)}/${currentLocale}/tags/${slug}${slash}`}>
-						{tagName} ({count})
+						{m.label_tags_tagname_count({ tagName, count })}
 					</Link>
 				))
 			}

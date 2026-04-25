@@ -1,36 +1,40 @@
 ---
 import { SITE } from '@constants'
-import { removeTrailingSlash } from '@utils'
+import { removeTrailingSlash, useTranslations, type Locale } from '@utils'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
 
 interface Props {
 	title?: string
-	forceTitle?: string
+	titleOverride?: string
 	description?: string
 	image?: string
 	noIndex?: boolean
 }
 
-const { title, forceTitle, description, image, noIndex = false } = Astro.props
+const { title, titleOverride, description, image, noIndex = false } = Astro.props
 
 const base = import.meta.env.BASE_URL
 
-const {
-	title: siteTitle,
-	titleDefault: siteTitleDefault,
-	description: siteDescription,
-	url: siteUrl,
-	defaultOgImage: siteImage,
-} = SITE
+const siteTitle = m.site_title()
+const siteDescription = m.site_description()
+const siteImage = m.site_default_og_image()
+const { url: siteUrl } = SITE
 
+const validImage = image || siteImage
 const seo = {
-	title: title ? `${title} | ${siteTitle}` : siteTitleDefault,
+	title: title ? `${title} | ${siteTitle}` : siteTitle,
 	description: description || siteDescription,
 	url: new URL(Astro.url.pathname, siteUrl),
-	image: new URL(`${removeTrailingSlash(base)}${image || siteImage}`, siteUrl),
+	image:
+		validImage.startsWith('http://') || validImage.startsWith('https://')
+			? validImage
+			: new URL(`${removeTrailingSlash(base)}${validImage}`, siteUrl),
 }
 
-if (forceTitle) {
-	seo.title = forceTitle
+if (titleOverride) {
+	seo.title = titleOverride
 }
 ---
 
@@ -40,7 +44,7 @@ if (forceTitle) {
 <link
 	rel="alternate"
 	type="application/rss+xml"
-	title={SITE.titleDefault}
+	title={siteTitle}
 	href={new URL(`${removeTrailingSlash(base)}/rss.xml`, Astro.site)}
 />
 <link rel="canonical" href={seo.url} />
@@ -54,5 +58,6 @@ if (forceTitle) {
 <meta name="twitter:url" content={seo.url} />
 <meta name="twitter:description" content={seo.description} />
 <meta name="twitter:image" content={seo.image} />
+<!-- todo: ld-json -->
 {noIndex && <meta name="robots" content="noindex, nofollow" />}
 <slot />

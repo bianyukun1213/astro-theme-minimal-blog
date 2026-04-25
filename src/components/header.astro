@@ -1,11 +1,12 @@
 ---
 import { getHeader, SITE } from '@constants'
-import type { Locale } from '@utils'
+import { useTranslations, type Locale } from '@utils'
 import Link from './link.astro'
 import Search from './search.astro'
 import Spacer from './spacer.astro'
 
 const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
 
 const base = import.meta.env.BASE_URL
 
@@ -20,7 +21,7 @@ const header = getHeader(currentLocale)
 			<a
 				class="font-semibold text-xl md:text-2xl lg:text-3xl text-highlight"
 				href={base}
-				aria-label={`${SITE.title} - Back to home`}>{SITE.title}</a
+				aria-label={`${SITE.title} - Back to home`}>{m.site_title()}</a
 			>
 		</div>
 		<Search />

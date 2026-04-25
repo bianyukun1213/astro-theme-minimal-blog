@@ -17,16 +17,21 @@ export const GET: APIRoute = async () => {
 	const items = (sortAsc(await getCollection('blog'))).map(entry => ({
 		title: entry.data.title,
 		description: entry.data.description,
-		content: generateContent(entry.data.description, entry.data.slug),
-		link: `${removeTrailingSlash(base)}/posts/${entry.data.slug}${slash}`,
+		// content: generateContent(entry.data.description, entry.data.slug),
+		// link: `${removeTrailingSlash(base)}/posts/${entry.data.slug}${slash}`,
+		content: 'aaa',
+		link: 'bbb',
 		pubDate: entry.data.date,
 	} satisfies RSSFeedItem))
 
 	return rss({
 		trailingSlash: trailingSlash !== 'never',
-		title: SITE.titleDefault,
-		description: SITE.description,
-		site: SITE.url + base,
+		// title: SITE.titleDefault,
+		// description: SITE.description,
+		// site: SITE.url + base,
+		title: 'aaa',
+		description: 'bbb',
+		site: 'https://example.com',
 		items,
 		customData: '<language>en-us</language>',
 	})

@@ -24,7 +24,7 @@ const slash = trailingSlash === 'never' ? '' : '/'
 	</Link>
 	<Spacer axis="vertical" size={2} />
 	<div class="text-faded">
-		{defaultDateFormat(post.data.date)} — {
+		{defaultDateFormat(post.data.date, currentLocale)} — {
 			post.data.tags.map((tagSlug) => getLocalizedTagName(tagSlug, currentLocale)).join(', ')
 		}
 	</div>

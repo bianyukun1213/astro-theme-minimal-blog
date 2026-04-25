@@ -159,15 +159,15 @@ export function removeTrailingSlash(path: string): string {
 /**
  * Returns a date in the format "MMM DD, YYYY"
  */
-export function defaultDateFormat(date: Date): string {
-	return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+export function defaultDateFormat(date: Date, locale: Locale): string {
+	return date.toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' })
 }
 
 /**
  * Returns a date in the format "YYYY"
  */
-export function yearDateFormat(date: Date): string {
-	return date.toLocaleDateString('en-US', { year: 'numeric' })
+export function yearDateFormat(date: Date, locale: Locale): string {
+	return date.toLocaleDateString(locale, { year: 'numeric' })
 }
 
 /**

@@ -42,12 +42,13 @@ const currentPage = page.currentPage
 const totalPages = page.lastPage
 
 const postsBasePath = `${removeTrailingSlash(base)}/${currentLocale}/posts`
-const pageTitle = currentPage === 1 ? 'Blog' : `Blog - Page ${currentPage}`
+const pageTitle = currentPage === 1 ? m.label_all_posts() : m.label_all_posts_pagenum({ pageNum: currentPage })
 ---
 
 <Layout>
 	<Seo slot="seo" title={pageTitle} />
 	<SkipNavContent>
+		<h1 class="sr-only">{m.site_title()}</h1>
 		<div class="border-b border-border pb-4 flex justify-between items-center">
 			<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">{pageTitle}</h2>
 		</div>

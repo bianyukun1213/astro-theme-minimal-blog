@@ -20,29 +20,13 @@ export const SITE: Record<string, string> = {
 	 */
 	base: '/base-test/',
 	/**
-	 * Site-wide title
-	 */
-	title: 'Minimal Blog',
-	/**
-	 * Used on index page and as a fallback if no title is set
-	 */
-	titleDefault: 'Astro Theme: Minimal Blog',
-	/**
-	 * Used in meta tags, RSS feed, and other places
-	 */
-	description: 'Minimal Astro blog theme with extensive code syntax highlighting capabilities, focus on typography, and clean design bringing your content to the forefront.',
-	/**
-	 * Language used in the <html> tag
-	 */
-	lang: 'en-US',
-	/**
 	 * Name of the image inside `public` folder that should be used as a default og:image
 	 */
 	defaultOgImage: '/og-image.png',
 	/**
-	 * Default author name that gets added to meta tags
+	 * Default author slug that gets added to meta tags
 	 */
-	defaultAuthor: 'LekoArts',
+	// defaultAuthor: 'hollis',
 }
 
 interface Author {
@@ -64,6 +48,14 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 			email: 'bianyukun1213@outlook.com',
 			note: 'I am Hollis.',
 		},
+		{
+			slug: 'veronika',
+			name: 'Veronika',
+			photo: 'https://avatars.githubusercontent.com/u/24708556',
+			url: 'https://yukun.bio/',
+			email: 'bianyukun1213@outlook.com',
+			note: 'I am Veronika.',
+		},
 	],
 	'zh-CN': [
 		{
@@ -73,6 +65,14 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 			url: 'https://yukun.bio/',
 			email: 'bianyukun1213@outlook.com',
 			note: 'I am Hollis.',
+		},
+		{
+			slug: 'veronika',
+			name: 'Veronika',
+			photo: 'https://avatars.githubusercontent.com/u/24708556',
+			url: 'https://yukun.bio/',
+			email: 'bianyukun1213@outlook.com',
+			note: 'I am Veronika.',
 		},
 	],
 	'ru-RU': [
@@ -100,7 +100,7 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 	'en-US': {
 		internal: [
 			{
-				title: 'Blog',
+				title: 'Posts',
 				url: '/base-test/en-US/posts/',
 			},
 			{
@@ -132,7 +132,7 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 	'zh-CN': {
 		internal: [
 			{
-				title: '博客',
+				title: '文章',
 				url: '/base-test/zh-CN/posts/',
 			},
 			{
@@ -164,7 +164,7 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 	'ru-RU': {
 		internal: [
 			{
-				title: 'Блог',
+				title: 'Посты',
 				url: '/base-test/ru-RU/posts/',
 			},
 			{

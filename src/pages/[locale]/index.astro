@@ -6,9 +6,9 @@ import PostListItem from '@components/post-list-item.astro'
 import Prose from '@components/prose.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
-import { LOCALES, POSTS_PER_PAGE, SITE } from '@constants'
+import { LOCALES, POSTS_PER_PAGE } from '@constants'
 import Layout from '@layouts/layout.astro'
-import { removeTrailingSlash, sortAsc, useTranslations, type Locale } from '@utils'
+import { getPostsByLocale, removeTrailingSlash, sortAsc, useTranslations, type Locale } from '@utils'
 import type { GetStaticPaths } from 'astro'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
@@ -43,22 +43,23 @@ const slash = trailingSlash === 'never' ? '' : '/'
 // 	},
 // ]
 
-const posts = sortAsc(await getCollection('blog')).slice(0, POSTS_PER_PAGE)
+const allPost = await getCollection('blog')
+const posts = sortAsc(getPostsByLocale(allPost, currentLocale)).slice(0, POSTS_PER_PAGE)
 ---
 
 <Layout>
 	<Seo slot="seo" />
 	<SkipNavContent>
-		<h1 class="sr-only">{SITE.title}</h1>
+		<h1 class="sr-only">{m.site_title()}</h1>
 		<Prose>
 			<Hero />
 		</Prose>
 		<Spacer axis="vertical" size={32} />
 		<section>
 			<div class="border-b border-border pb-4 flex justify-between items-center">
-				<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">Latest Posts</h2>
+				<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">{m.label_latest_posts()}</h2>
 				<div>
-					<Link href={`${removeTrailingSlash(base)}/${currentLocale}/posts${slash}`}>Read all posts</Link>
+					<Link href={`${removeTrailingSlash(base)}/${currentLocale}/posts${slash}`}>{m.label_all_posts()}</Link>
 				</div>
 			</div>
 			<Spacer axis="vertical" size={8} />

@@ -5,7 +5,7 @@ import Pagination from '@components/pagination.astro'
 import PostListItem from '@components/post-list-item.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
-import { TAG_SLUGS, POSTS_PER_PAGE, SITE, type TagSlug } from '@constants'
+import { POSTS_PER_PAGE, SITE, TAG_SLUGS, type TagSlug } from '@constants'
 import Layout from '@layouts/layout.astro'
 import {
 	getLocaleFromFilePath,
@@ -13,6 +13,7 @@ import {
 	getPostsByLocale,
 	getPostsByTag,
 	removeTrailingSlash,
+	useTranslations,
 	type Locale,
 } from '@utils'
 import type { GetStaticPaths, Page } from 'astro'
@@ -36,6 +37,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths
 
 const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
 
 interface Props {
 	page: Page<CollectionEntry<'blog'>>
@@ -54,16 +56,17 @@ const totalPages = page.lastPage
 
 const tagsBasePath = `${removeTrailingSlash(base)}/${currentLocale}/tags`
 const tagBasePath = `${tagsBasePath}/${slug}`
-const pageTitle = currentPage === 1 ? `Tag: ${tagName}` : `Tag: ${tagName} - Page ${currentPage}`
+const pageTitle =
+	currentPage === 1 ? m.label_tag_tagname({ tagName }) : m.label_tag_tagname_pagenum({ tagName, pageNum: currentPage })
 ---
 
 <Layout>
 	<Seo slot="seo" title={pageTitle} />
 	<SkipNavContent>
-		<h1 class="sr-only">{SITE.title}</h1>
+		<h1 class="sr-only">{m.site_title()}</h1>
 		<div class="border-b border-border pb-4 flex justify-between items-center">
 			<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">{pageTitle}</h2>
-			<div><Link href={`${tagsBasePath}${slash}`}>See all tags</Link></div>
+			<div><Link href={`${tagsBasePath}${slash}`}>{m.label_all_tags()}</Link></div>
 		</div>
 		<Spacer axis="vertical" size={8} />
 		<div class="flex gap-10 flex-col">
