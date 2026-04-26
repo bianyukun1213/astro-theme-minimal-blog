@@ -6,19 +6,23 @@
  * Copyright (c) 2023 Astro Contributors
  */
 
+import { useTranslations, type Locale } from '@utils'
 import Icon from './icon.astro'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
 ---
 
 <atmb-theme-select>
 	<label class="relative flex items-center gap-2">
-		<span class="sr-only">Select theme</span>
+		<span class="sr-only">{m.label_select_theme()}</span>
 		<Icon name="laptop" class="icon label-icon" />
 		<select value="auto" autocomplete="off">
 			{
 				[
-					{ label: 'Dark', selected: false, value: 'dark' },
-					{ label: 'Light', selected: false, value: 'light' },
-					{ label: 'Auto', selected: true, value: 'auto' },
+					{ label: m.label_dark(), selected: false, value: 'dark' },
+					{ label: m.label_light(), selected: false, value: 'light' },
+					{ label: m.label_auto(), selected: true, value: 'auto' },
 				].map(({ value, selected, label }) => <option value={value} selected={selected} set:html={label} />)
 			}
 		</select>

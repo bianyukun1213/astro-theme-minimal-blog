@@ -21,14 +21,14 @@ const header = getHeader(currentLocale)
 			<a
 				class="font-semibold text-xl md:text-2xl lg:text-3xl text-highlight"
 				href={base}
-				aria-label={`${SITE.title} - Back to home`}>{m.site_title()}</a
+				aria-label={m.label_back_to_home({ siteTitle: m.site_title() })}>{m.site_title()}</a
 			>
 		</div>
 		<Search />
 	</div>
 	<Spacer axis="vertical" size={6} />
 	<div class="flex flex-row justify-between items-center border-b border-border pb-4 text-lg md:text-xl">
-		<nav aria-label="Primary navigation" class="flex gap-4">
+		<nav aria-label={m.label_primary_navigation()} class="flex gap-4">
 			{
 				header.internal.map((link) => (
 					<Link

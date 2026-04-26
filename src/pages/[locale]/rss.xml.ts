@@ -1,10 +1,14 @@
 import type { RSSFeedItem } from '@astrojs/rss'
+import type { Locale } from '@utils'
 import type { APIRoute } from 'astro'
 import rss from '@astrojs/rss'
 import { SITE } from '@constants'
 import { removeTrailingSlash, sortAsc } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
 
 const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
@@ -36,3 +40,23 @@ export const GET: APIRoute = async () => {
 		customData: '<language>en-us</language>',
 	})
 }
+
+// bug，使用动态路由和 trailingSlash: always 时，生成的路由末尾带 /。
+// export async function GET({ params }: { params: { locale: Locale } }) {
+//   const { locale } = params;
+//   const m = useTranslations(locale);
+//   const posts = await getCollection("blog");
+//   const localePosts = getPostsByLocale(posts, locale);
+//   const sortedPosts = getSortedPosts(localePosts);
+//   return rss({
+//     title: m.site_title(),
+//     description: m.site_desc(),
+//     site: new URL(getLocalizedUrl(locale), SITE.website).href,
+//     items: sortedPosts.map(({ data, id, filePath }) => ({
+//       link: new URL(getPath(data.displayId ?? id, filePath), SITE.website).href,
+//       title: data.title,
+//       description: data.description,
+//       pubDate: new Date(data.modDatetime ?? data.pubDatetime),
+//     })),
+//   });
+// }

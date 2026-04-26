@@ -1,8 +1,11 @@
 ---
-import { removeTrailingSlash } from '@utils'
+import { removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import Link from './link.astro'
 import Spacer from './spacer.astro'
 import ThemeSelect from './theme-select.astro'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
 
 const base = import.meta.env.BASE_URL
 ---
@@ -13,7 +16,7 @@ const base = import.meta.env.BASE_URL
 		<div class="flex gap-4">
 			<ThemeSelect />
 			<span class="w-px h-auto bg-border"></span>
-			<Link href={`${removeTrailingSlash(base)}/rss.xml`}>RSS Feed</Link>
+			<Link href={`${removeTrailingSlash(base)}/rss.xml`}>{m.label_rss_feed()}</Link>
 		</div>
 		<div>
 			<Link href="http://github.com/LekoArts/astro-theme-minimal-blog">Theme</Link> by <Link

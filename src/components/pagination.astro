@@ -2,7 +2,11 @@
 import Icon from '@components/icon.astro'
 import Link from '@components/link.astro'
 import Spacer from '@components/spacer.astro'
+import { useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
 
 interface Props {
 	basePath: string
@@ -29,14 +33,14 @@ const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
 		<>
 			<Spacer axis="vertical" size={10} />
 			<nav
-				aria-label="Blog pagination"
+				aria-label={m.label_posts_pagination()}
 				class="border-t border-border pt-4 flex items-center justify-between gap-4 flex-wrap"
 			>
 				<div class="min-w-16">
 					{prevHref && (
 						<Link href={prevHref} class="inline-flex items-center justify-start">
 							<Icon name="chevron-left" class="ltr:scale-x-100 rtl:-scale-x-100" />
-							<span>Previous</span>
+							<span>{m.label_previous_page()}</span>
 						</Link>
 					)}
 				</div>
@@ -54,7 +58,7 @@ const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
 				<div class="min-w-16 text-right">
 					{nextHref && (
 						<Link href={nextHref} class="inline-flex items-center justify-end">
-							<span>Next</span>
+							<span>{m.label_next_page()}</span>
 							<Icon name="chevron-right" class="ltr:scale-x-100 rtl:-scale-x-100" />
 						</Link>
 					)}
