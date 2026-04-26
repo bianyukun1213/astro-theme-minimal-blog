@@ -22,36 +22,33 @@ const slash = trailingSlash === 'never' ? '' : '/'
 function getPostHref(displayId: string) {
 	return `${removeTrailingSlash(base)}/${currentLocale}/posts/${displayId}${slash}`
 }
+
+const prevHref = previousPost ? getPostHref(previousPost.data.displayId) : null
+const nextHref = nextPost ? getPostHref(nextPost.data.displayId) : null
 ---
 
 {
 	(previousPost || nextPost) && (
 		<>
-			<Spacer axis="vertical" size={10} />
+			<Spacer axis="vertical" size={12} />
 			<nav
 				aria-label={m.label_posts_pagination()}
-				class="border-t border-border pt-4 flex items-start justify-between gap-4 flex-wrap"
+				class="border-t border-border pt-4 flex items-start justify-between gap-4"
 			>
-				<div class="min-w-16 max-w-[48%]">
+				<div class="min-w-16 text-start">
 					{previousPost && (
-						<div class="flex flex-col items-start gap-1">
-							<span class="text-subtle text-sm">{m.label_previous_page()}</span>
-							<Link href={getPostHref(previousPost.data.displayId)} class="inline-flex items-center justify-start gap-1">
-								<Icon name="chevron-left" class="ltr:scale-x-100 rtl:-scale-x-100" />
-								<span>{previousPost.data.title}</span>
-							</Link>
-						</div>
+						<Link href={prevHref} class="inline-flex items-center justify-start">
+							<Icon name="chevron-left" class="ltr:scale-x-100 rtl:-scale-x-100" />
+							<span>{previousPost.data.title}</span>
+						</Link>
 					)}
 				</div>
-				<div class="min-w-16 max-w-[48%] text-right ml-auto">
+				<div class="min-w-16 text-end">
 					{nextPost && (
-						<div class="flex flex-col items-end gap-1">
-							<span class="text-subtle text-sm">{m.label_next_page()}</span>
-							<Link href={getPostHref(nextPost.data.displayId)} class="inline-flex items-center justify-end gap-1">
-								<span>{nextPost.data.title}</span>
-								<Icon name="chevron-right" class="ltr:scale-x-100 rtl:-scale-x-100" />
-							</Link>
-						</div>
+						<Link href={nextHref} class="inline-flex items-center justify-end">
+							<span>{nextPost.data.title}</span>
+							<Icon name="chevron-right" class="ltr:scale-x-100 rtl:-scale-x-100" />
+						</Link>
 					)}
 				</div>
 			</nav>
