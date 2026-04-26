@@ -1,6 +1,7 @@
 ---
 import SkipNavContent from '@components/a11y/skip-nav-content.astro'
 import Aside from '@components/aside.astro'
+import PostNavigation from '@components/post-navigation.astro'
 import Playground from '@components/playground.astro'
 import Prose from '@components/prose.astro'
 import Seo from '@components/seo.astro'
@@ -12,7 +13,9 @@ import {
 	defaultDateFormat,
 	getLocaleFromFilePath,
 	getLocalizedTagName,
+	getPostsByLocale,
 	isoDateFormat,
+	sortAsc,
 	useTranslations,
 	type Locale,
 } from '@utils'
@@ -44,6 +47,12 @@ const authors = getAuthors(currentLocale)
 const authorSlugs = postData.authors
 const postAuthors = authors.filter((author) => authorSlugs.includes(author.slug))
 const { Content } = await render(post)
+
+const allPosts = await getCollection('blog')
+const sortedLocalePosts = sortAsc(getPostsByLocale(allPosts, currentLocale))
+const currentPostIndex = sortedLocalePosts.findIndex((entry) => entry.id === post.id)
+const previousPost = currentPostIndex < sortedLocalePosts.length - 1 ? sortedLocalePosts[currentPostIndex + 1] : null
+const nextPost = currentPostIndex > 0 ? sortedLocalePosts[currentPostIndex - 1] : null
 ---
 
 <Layout>
@@ -70,6 +79,7 @@ const { Content } = await render(post)
 			</div>
 			<Spacer axis="vertical" size={12} />
 			<Content components={{ Aside, Playground }} />
+			<PostNavigation previousPost={previousPost} nextPost={nextPost} />
 		</Prose>
 	</SkipNavContent>
 </Layout>

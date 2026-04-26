@@ -52,8 +52,8 @@ export default defineConfig({
 		locales: LOCALES as unknown as string[],
 		defaultLocale: DEFAULT_LOCALE,
 		routing: {
-			prefixDefaultLocale: false,
-			redirectToDefaultLocale: false,
+			prefixDefaultLocale: true,
+			redirectToDefaultLocale: true,
 		},
 	},
 	devToolbar: {
