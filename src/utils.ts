@@ -129,7 +129,6 @@ export function getLocalizedTagName(tagSlug: TagSlug, locale: Locale) {
 	return tagSlug
 }
 
-export { DEFAULT_LOCALE }
 export type { Locale }
 
 /**
