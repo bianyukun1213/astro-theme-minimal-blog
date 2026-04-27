@@ -45,7 +45,7 @@ if (titleOverride) {
 	rel="alternate"
 	type="application/rss+xml"
 	title={siteTitle}
-	href={new URL(`${removeTrailingSlash(base)}/rss.xml`, Astro.site)}
+	href={new URL(`${removeTrailingSlash(base)}/${currentLocale}/rss.xml`, Astro.site)}
 />
 <link rel="canonical" href={seo.url} />
 <meta property="og:title" content={seo.title} />
@@ -58,6 +58,5 @@ if (titleOverride) {
 <meta name="twitter:url" content={seo.url} />
 <meta name="twitter:description" content={seo.description} />
 <meta name="twitter:image" content={seo.image} />
-<!-- todo: ld-json -->
 {noIndex && <meta name="robots" content="noindex, nofollow" />}
 <slot />
