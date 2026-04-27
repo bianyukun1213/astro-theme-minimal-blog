@@ -9,11 +9,13 @@ const en_us2_label_rss_feed = /** @type {(inputs: Label_Rss_FeedInputs) => Local
 	return /** @type {LocalizedString} */ (`RSS feed`)
 };
 
-/** @type {(inputs: Label_Rss_FeedInputs) => LocalizedString} */
-const zh_cn2_label_rss_feed = en_us2_label_rss_feed;
+const zh_cn2_label_rss_feed = /** @type {(inputs: Label_Rss_FeedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`RSS 订阅`)
+};
 
-/** @type {(inputs: Label_Rss_FeedInputs) => LocalizedString} */
-const ru_ru2_label_rss_feed = en_us2_label_rss_feed;
+const ru_ru2_label_rss_feed = /** @type {(inputs: Label_Rss_FeedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`RSS-лента`)
+};
 
 /**
 * | output |

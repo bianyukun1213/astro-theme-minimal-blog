@@ -1,4 +1,3 @@
-export * from "./example_message.js";
 export * from "./lang_en_us.js";
 export * from "./lang_zh_cn.js";
 export * from "./lang_ru_ru.js";
@@ -39,4 +38,5 @@ export * from "./tag_open_source.js";
 export * from "./tag_seoul.js";
 export * from "./tag_english.js";
 export * from "./tag_chinese.js";
+export * from "./example_message.js";
 export type LocalizedString = import("../runtime.js").LocalizedString;

@@ -9,11 +9,13 @@ const en_us2_label_note = /** @type {(inputs: Label_NoteInputs) => LocalizedStri
 	return /** @type {LocalizedString} */ (`Note`)
 };
 
-/** @type {(inputs: Label_NoteInputs) => LocalizedString} */
-const zh_cn2_label_note = en_us2_label_note;
+const zh_cn2_label_note = /** @type {(inputs: Label_NoteInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`注意`)
+};
 
-/** @type {(inputs: Label_NoteInputs) => LocalizedString} */
-const ru_ru2_label_note = en_us2_label_note;
+const ru_ru2_label_note = /** @type {(inputs: Label_NoteInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Примечание`)
+};
 
 /**
 * | output |

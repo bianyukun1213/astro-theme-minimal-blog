@@ -9,11 +9,13 @@ const en_us2_label_primary_navigation = /** @type {(inputs: Label_Primary_Naviga
 	return /** @type {LocalizedString} */ (`Primary navigation`)
 };
 
-/** @type {(inputs: Label_Primary_NavigationInputs) => LocalizedString} */
-const zh_cn2_label_primary_navigation = en_us2_label_primary_navigation;
+const zh_cn2_label_primary_navigation = /** @type {(inputs: Label_Primary_NavigationInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`主导航`)
+};
 
-/** @type {(inputs: Label_Primary_NavigationInputs) => LocalizedString} */
-const ru_ru2_label_primary_navigation = en_us2_label_primary_navigation;
+const ru_ru2_label_primary_navigation = /** @type {(inputs: Label_Primary_NavigationInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Основная навигация`)
+};
 
 /**
 * | output |

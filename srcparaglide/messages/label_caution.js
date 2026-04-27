@@ -9,11 +9,13 @@ const en_us2_label_caution = /** @type {(inputs: Label_CautionInputs) => Localiz
 	return /** @type {LocalizedString} */ (`Caution`)
 };
 
-/** @type {(inputs: Label_CautionInputs) => LocalizedString} */
-const zh_cn2_label_caution = en_us2_label_caution;
+const zh_cn2_label_caution = /** @type {(inputs: Label_CautionInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`警告`)
+};
 
-/** @type {(inputs: Label_CautionInputs) => LocalizedString} */
-const ru_ru2_label_caution = en_us2_label_caution;
+const ru_ru2_label_caution = /** @type {(inputs: Label_CautionInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Предупреждение`)
+};
 
 /**
 * | output |

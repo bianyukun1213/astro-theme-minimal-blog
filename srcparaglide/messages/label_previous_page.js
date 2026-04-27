@@ -9,11 +9,13 @@ const en_us2_label_previous_page = /** @type {(inputs: Label_Previous_PageInputs
 	return /** @type {LocalizedString} */ (`Previous`)
 };
 
-/** @type {(inputs: Label_Previous_PageInputs) => LocalizedString} */
-const zh_cn2_label_previous_page = en_us2_label_previous_page;
+const zh_cn2_label_previous_page = /** @type {(inputs: Label_Previous_PageInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`上一页`)
+};
 
-/** @type {(inputs: Label_Previous_PageInputs) => LocalizedString} */
-const ru_ru2_label_previous_page = en_us2_label_previous_page;
+const ru_ru2_label_previous_page = /** @type {(inputs: Label_Previous_PageInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Предыдущая`)
+};
 
 /**
 * | output |

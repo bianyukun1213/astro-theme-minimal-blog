@@ -9,11 +9,13 @@ const en_us2_label_keep_reading = /** @type {(inputs: Label_Keep_ReadingInputs) 
 	return /** @type {LocalizedString} */ (`Keep reading`)
 };
 
-/** @type {(inputs: Label_Keep_ReadingInputs) => LocalizedString} */
-const zh_cn2_label_keep_reading = en_us2_label_keep_reading;
+const zh_cn2_label_keep_reading = /** @type {(inputs: Label_Keep_ReadingInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`继续阅读`)
+};
 
-/** @type {(inputs: Label_Keep_ReadingInputs) => LocalizedString} */
-const ru_ru2_label_keep_reading = en_us2_label_keep_reading;
+const ru_ru2_label_keep_reading = /** @type {(inputs: Label_Keep_ReadingInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Читать далее`)
+};
 
 /**
 * | output |

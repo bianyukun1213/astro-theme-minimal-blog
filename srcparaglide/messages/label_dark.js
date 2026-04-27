@@ -9,11 +9,13 @@ const en_us2_label_dark = /** @type {(inputs: Label_DarkInputs) => LocalizedStri
 	return /** @type {LocalizedString} */ (`Dark`)
 };
 
-/** @type {(inputs: Label_DarkInputs) => LocalizedString} */
-const zh_cn2_label_dark = en_us2_label_dark;
+const zh_cn2_label_dark = /** @type {(inputs: Label_DarkInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`深色`)
+};
 
-/** @type {(inputs: Label_DarkInputs) => LocalizedString} */
-const ru_ru2_label_dark = en_us2_label_dark;
+const ru_ru2_label_dark = /** @type {(inputs: Label_DarkInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Тёмная`)
+};
 
 /**
 * | output |

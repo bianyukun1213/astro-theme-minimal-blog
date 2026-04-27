@@ -10,7 +10,7 @@ const en_us2_label_tags_tagname_count = /** @type {(inputs: Label_Tags_Tagname_C
 };
 
 const zh_cn2_label_tags_tagname_count = /** @type {(inputs: Label_Tags_Tagname_CountInputs) => LocalizedString} */ (i) => {
-	return /** @type {LocalizedString} */ (`${i?.tagName} (${i?.count})`)
+	return /** @type {LocalizedString} */ (`${i?.tagName}（${i?.count}）`)
 };
 
 const ru_ru2_label_tags_tagname_count = /** @type {(inputs: Label_Tags_Tagname_CountInputs) => LocalizedString} */ (i) => {

@@ -9,11 +9,13 @@ const en_us2_label_tip = /** @type {(inputs: Label_TipInputs) => LocalizedString
 	return /** @type {LocalizedString} */ (`Tip`)
 };
 
-/** @type {(inputs: Label_TipInputs) => LocalizedString} */
-const zh_cn2_label_tip = en_us2_label_tip;
+const zh_cn2_label_tip = /** @type {(inputs: Label_TipInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`提示`)
+};
 
-/** @type {(inputs: Label_TipInputs) => LocalizedString} */
-const ru_ru2_label_tip = en_us2_label_tip;
+const ru_ru2_label_tip = /** @type {(inputs: Label_TipInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Совет`)
+};
 
 /**
 * | output |

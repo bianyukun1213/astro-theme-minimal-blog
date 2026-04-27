@@ -9,11 +9,13 @@ const en_us2_label_skip_to_content = /** @type {(inputs: Label_Skip_To_ContentIn
 	return /** @type {LocalizedString} */ (`Skip to content`)
 };
 
-/** @type {(inputs: Label_Skip_To_ContentInputs) => LocalizedString} */
-const zh_cn2_label_skip_to_content = en_us2_label_skip_to_content;
+const zh_cn2_label_skip_to_content = /** @type {(inputs: Label_Skip_To_ContentInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`跳转到内容`)
+};
 
-/** @type {(inputs: Label_Skip_To_ContentInputs) => LocalizedString} */
-const ru_ru2_label_skip_to_content = en_us2_label_skip_to_content;
+const ru_ru2_label_skip_to_content = /** @type {(inputs: Label_Skip_To_ContentInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Перейти к содержимому`)
+};
 
 /**
 * | output |

@@ -1,8 +1,5 @@
 /**
-* | output |
-* | --- |
-* | "Hello world {username}" |
-*
+
 * @param {Example_MessageInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
 * @returns {LocalizedString}

@@ -9,11 +9,13 @@ const en_us2_label_posts_pagination = /** @type {(inputs: Label_Posts_Pagination
 	return /** @type {LocalizedString} */ (`Posts pagination`)
 };
 
-/** @type {(inputs: Label_Posts_PaginationInputs) => LocalizedString} */
-const zh_cn2_label_posts_pagination = en_us2_label_posts_pagination;
+const zh_cn2_label_posts_pagination = /** @type {(inputs: Label_Posts_PaginationInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`文章分页`)
+};
 
-/** @type {(inputs: Label_Posts_PaginationInputs) => LocalizedString} */
-const ru_ru2_label_posts_pagination = en_us2_label_posts_pagination;
+const ru_ru2_label_posts_pagination = /** @type {(inputs: Label_Posts_PaginationInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Пагинация публикаций`)
+};
 
 /**
 * | output |

@@ -9,11 +9,13 @@ const en_us2_label_next_page = /** @type {(inputs: Label_Next_PageInputs) => Loc
 	return /** @type {LocalizedString} */ (`Next`)
 };
 
-/** @type {(inputs: Label_Next_PageInputs) => LocalizedString} */
-const zh_cn2_label_next_page = en_us2_label_next_page;
+const zh_cn2_label_next_page = /** @type {(inputs: Label_Next_PageInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`下一页`)
+};
 
-/** @type {(inputs: Label_Next_PageInputs) => LocalizedString} */
-const ru_ru2_label_next_page = en_us2_label_next_page;
+const ru_ru2_label_next_page = /** @type {(inputs: Label_Next_PageInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Следующая`)
+};
 
 /**
 * | output |

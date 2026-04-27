@@ -4,7 +4,6 @@ import Footer from '@components/footer.astro'
 import Header from '@components/header.astro'
 import ThemeIcons from '@components/theme-icons.astro'
 import ThemeProvider from '@components/theme-provider.astro'
-import { SITE } from '@constants'
 import '@styles/global.css'
 import { getLocaleDir, removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import { Font } from 'astro:assets'
@@ -13,8 +12,6 @@ import { ClientRouter } from 'astro:transitions'
 const currentLocale = Astro.currentLocale as Locale
 const dir = getLocaleDir(currentLocale)
 const m = useTranslations(currentLocale)
-
-const base = import.meta.env.BASE_URL
 ---
 
 <!doctype html>
@@ -22,7 +19,7 @@ const base = import.meta.env.BASE_URL
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={`${removeTrailingSlash(base)}/favicon.svg`} />
+		<link rel="icon" type="image/svg+xml" href={m.site_favicon()} />
 		<meta name="generator" content={Astro.generator} />
 		<Font cssVariable="--font-plex-sans" preload />
 		<ThemeProvider />

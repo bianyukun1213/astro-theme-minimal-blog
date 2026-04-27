@@ -9,11 +9,13 @@ const en_us2_label_select_theme = /** @type {(inputs: Label_Select_ThemeInputs) 
 	return /** @type {LocalizedString} */ (`Select theme`)
 };
 
-/** @type {(inputs: Label_Select_ThemeInputs) => LocalizedString} */
-const zh_cn2_label_select_theme = en_us2_label_select_theme;
+const zh_cn2_label_select_theme = /** @type {(inputs: Label_Select_ThemeInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`选择主题`)
+};
 
-/** @type {(inputs: Label_Select_ThemeInputs) => LocalizedString} */
-const ru_ru2_label_select_theme = en_us2_label_select_theme;
+const ru_ru2_label_select_theme = /** @type {(inputs: Label_Select_ThemeInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Выбрать тему`)
+};
 
 /**
 * | output |

@@ -9,11 +9,13 @@ const en_us2_label_back_to_home = /** @type {(inputs: Label_Back_To_HomeInputs) 
 	return /** @type {LocalizedString} */ (`${i?.siteTitle} - Back to home`)
 };
 
-/** @type {(inputs: Label_Back_To_HomeInputs) => LocalizedString} */
-const zh_cn2_label_back_to_home = en_us2_label_back_to_home;
+const zh_cn2_label_back_to_home = /** @type {(inputs: Label_Back_To_HomeInputs) => LocalizedString} */ (i) => {
+	return /** @type {LocalizedString} */ (`${i?.siteTitle} - 返回首页`)
+};
 
-/** @type {(inputs: Label_Back_To_HomeInputs) => LocalizedString} */
-const ru_ru2_label_back_to_home = en_us2_label_back_to_home;
+const ru_ru2_label_back_to_home = /** @type {(inputs: Label_Back_To_HomeInputs) => LocalizedString} */ (i) => {
+	return /** @type {LocalizedString} */ (`${i?.siteTitle} - Назад на главную`)
+};
 
 /**
 * | output |

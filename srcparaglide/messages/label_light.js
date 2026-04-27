@@ -9,11 +9,13 @@ const en_us2_label_light = /** @type {(inputs: Label_LightInputs) => LocalizedSt
 	return /** @type {LocalizedString} */ (`Light`)
 };
 
-/** @type {(inputs: Label_LightInputs) => LocalizedString} */
-const zh_cn2_label_light = en_us2_label_light;
+const zh_cn2_label_light = /** @type {(inputs: Label_LightInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`浅色`)
+};
 
-/** @type {(inputs: Label_LightInputs) => LocalizedString} */
-const ru_ru2_label_light = en_us2_label_light;
+const ru_ru2_label_light = /** @type {(inputs: Label_LightInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Светлая`)
+};
 
 /**
 * | output |

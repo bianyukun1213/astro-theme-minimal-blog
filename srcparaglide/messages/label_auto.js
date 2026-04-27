@@ -9,11 +9,13 @@ const en_us2_label_auto = /** @type {(inputs: Label_AutoInputs) => LocalizedStri
 	return /** @type {LocalizedString} */ (`Auto`)
 };
 
-/** @type {(inputs: Label_AutoInputs) => LocalizedString} */
-const zh_cn2_label_auto = en_us2_label_auto;
+const zh_cn2_label_auto = /** @type {(inputs: Label_AutoInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`自动`)
+};
 
-/** @type {(inputs: Label_AutoInputs) => LocalizedString} */
-const ru_ru2_label_auto = en_us2_label_auto;
+const ru_ru2_label_auto = /** @type {(inputs: Label_AutoInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Авто`)
+};
 
 /**
 * | output |

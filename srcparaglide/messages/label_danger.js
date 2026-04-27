@@ -9,11 +9,13 @@ const en_us2_label_danger = /** @type {(inputs: Label_DangerInputs) => Localized
 	return /** @type {LocalizedString} */ (`Danger`)
 };
 
-/** @type {(inputs: Label_DangerInputs) => LocalizedString} */
-const zh_cn2_label_danger = en_us2_label_danger;
+const zh_cn2_label_danger = /** @type {(inputs: Label_DangerInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`危险`)
+};
 
-/** @type {(inputs: Label_DangerInputs) => LocalizedString} */
-const ru_ru2_label_danger = en_us2_label_danger;
+const ru_ru2_label_danger = /** @type {(inputs: Label_DangerInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Опасно`)
+};
 
 /**
 * | output |
