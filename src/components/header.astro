@@ -1,6 +1,7 @@
 ---
-import { getHeader, SITE } from '@constants'
-import { useTranslations, type Locale } from '@utils'
+import { getHeader } from '@constants'
+import { removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import { trailingSlash } from 'astro:config/client'
 import Link from './link.astro'
 import Search from './search.astro'
 import Spacer from './spacer.astro'
@@ -9,6 +10,7 @@ const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
 
 const base = import.meta.env.BASE_URL
+const slash = trailingSlash === 'never' ? '' : '/'
 
 const { pathname } = Astro.url
 const header = getHeader(currentLocale)
@@ -20,13 +22,13 @@ const header = getHeader(currentLocale)
 		<div>
 			<a
 				class="font-semibold text-xl md:text-2xl lg:text-3xl text-highlight"
-				href={base}
+				href={`${removeTrailingSlash(base)}/${currentLocale}${slash}`}
 				aria-label={m.label_back_to_home({ siteTitle: m.site_title() })}>{m.site_title()}</a
 			>
 		</div>
 		<Search />
 	</div>
-	<Spacer axis="vertical" size={6} />
+	<Spacer axis="vertical" size={4} />
 	<div class="flex flex-row justify-between items-center border-b border-border pb-4 text-lg md:text-xl">
 		<nav aria-label={m.label_primary_navigation()} class="flex gap-4">
 			{
@@ -51,5 +53,5 @@ const header = getHeader(currentLocale)
 			}
 		</div>
 	</div>
-	<Spacer axis="vertical" size={16} />
+	<Spacer axis="vertical" size={12} />
 </header>
