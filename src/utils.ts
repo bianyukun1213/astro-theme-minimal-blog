@@ -16,22 +16,6 @@ import { BLOG_PATH, DEFAULT_LOCALE, LOCALES } from './constants'
 // }
 
 /**
- * Returns a list of available locales based on the relative locale URL list. It uses Astro's i18n utility to get the list of locale-specific paths and extracts the locale from each path.
- * @returns An array of available locales.
- */
-// export function getLocales() {
-// 	// const paths = getRelativeLocaleUrlList('', {
-// 	// 	normalizeLocale: false,
-// 	// })
-// 	// return paths.map((url) => {
-// 	// 	console.log(url)
-// 	// 	const locale = url.split('/')[1]
-// 	// 	return locale as Locale
-// 	// })
-// 	return LOCALES
-// }
-
-/**
  * Returns the text direction for a given locale.
  * @param locale The locale to get the text direction for.
  * @returns The text direction ("ltr" or "rtl").

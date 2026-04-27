@@ -1,7 +1,7 @@
 ---
 title: 代码块示例
 displayId: code-block-examples
-description: How to use the available code blocks
+description: 如何使用可用的代码块
 authors: [hollis]
 date: 2025-04-01
 updated: 2025-04-01
@@ -9,68 +9,68 @@ tags:
   - coding
 ---
 
-All code blocks are powered by [Expressive Code](https://expressive-code.com/). Please read its documentation to learn more.
+所有代码块都由 [Expressive Code](https://expressive-code.com/) 提供支持。想了解更多，请阅读它的文档。
 
-Regular syntax highlighting:
+常规语法高亮：
 
 ```ts
 /**
- * Returns a date in the format "MMM DD, YYYY"
+ * 返回格式为 "MMM DD, YYYY" 的日期
  */
 export function defaultDateFormat(date: Date): string {
 	return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
 }
 ```
 
-A single line item in the shell:
+Shell 中的单行命令：
 
 ```shell
 npx secco init
 ```
 
-Titles for code blocks:
+为代码块添加标题：
 
 ```ts title="utils.ts"
 /**
- * Returns a date in the format "YYYY"
+ * 返回格式为 "YYYY" 的日期
  */
 export function yearDateFormat(date: Date): string {
 	return date.toLocaleDateString('en-US', { year: 'numeric' })
 }
 ```
 
-For the automatic terminal frames (e.g. when `shell` is used) titles look like this:
+对于自动终端边框（例如使用 `shell` 时），标题看起来会像这样：
 
 ```shell title="Run secco"
 npx secco init
 ```
 
-Mark full lines and line ranges:
+标记整行和行范围：
 
 ```js {1, 4, 7-8}
-// Line 1 - targeted by line number
-// Line 2
-// Line 3
-// Line 4 - targeted by line number
-// Line 5
-// Line 6
-// Line 7 - targeted by range "7-8"
-// Line 8 - targeted by range "7-8"
+// 第 1 行 - 通过行号选中
+// 第 2 行
+// 第 3 行
+// 第 4 行 - 通过行号选中
+// 第 5 行
+// 第 6 行
+// 第 7 行 - 通过范围 "7-8" 选中
+// 第 8 行 - 通过范围 "7-8" 选中
 ```
 
-Use other line marker types (`mark`, `ins`, `del`):
+使用其他行标记类型（`mark`、`ins`、`del`）：
 
 ```js title="line-markers.js" del={2} ins={3-4} {6}
 function demo() {
-  console.log('this line is marked as deleted')
-  // This line and the next one are marked as inserted
-  console.log('this is the second inserted line')
+  console.log('这一行会被标记为删除')
+  // 这一行和下一行会被标记为新增
+  console.log('这是第二行新增内容')
 
-  return 'this line uses the neutral default marker type'
+  return '这一行使用中性的默认标记类型'
 }
 ```
 
-Adding labels to line markers:
+为行标记添加标签：
 
 ```jsx {"1":5} del={"2":7-8} ins={"3":10-12}
 // labeled-line-markers.jsx
@@ -88,9 +88,9 @@ Adding labels to line markers:
 </button>
 ```
 
-Adding long labels on their own lines:
+在独立行中添加更长的标签：
 
-```jsx {"1. Provide the value prop here:":5-6} del={"2. Remove the disabled and active states:":8-10} ins={"3. Add this to render the children inside the button:":12-15}
+```jsx {"1. 在这里提供 value 属性：":5-6} del={"2. 删除 disabled 和 active 状态：":8-10} ins={"3. 添加这段代码以在按钮内部渲染 children：":12-15}
 // labeled-line-markers.jsx
 <button
   role="button"
@@ -109,67 +109,67 @@ Adding long labels on their own lines:
 </button>
 ```
 
-Using `diff`-like syntax:
+使用类似 `diff` 的语法：
 
 ```diff
-+this line will be marked as inserted
--this line will be marked as deleted
-this is a regular line
++这一行会被标记为新增
+-这一行会被标记为删除
+这是一行普通内容
 ```
 
-Combining syntax highlighting with diff-like syntax:
+将语法高亮与类似 diff 的语法结合使用：
 
 ```diff lang="js"
   function thisIsJavaScript() {
-    // This entire block gets highlighted as JavaScript,
-    // and we can still add diff markers to it!
--   console.log('Old code to be removed')
-+   console.log('New and shiny code!')
+    // 整个代码块都会按 JavaScript 高亮，
+    // 同时我们仍然可以给它添加 diff 标记！
+-   console.log('要移除的旧代码')
++   console.log('全新闪亮的代码！')
   }
 ```
 
-Marking individual text inside lines:
+标记行内的特定文本：
 
 ```js "given text"
 function demo() {
-  // Mark any given text inside lines
-  return 'Multiple matches of the given text are supported';
+  // 标记行内任何给定的文本
+  return '支持匹配给定文本的多个出现位置';
 }
 ```
 
-Collapsible sections:
+可折叠的代码段：
 
 ```js collapse={1-5, 12-14, 21-24}
-// All this boilerplate setup code will be collapsed
+// 这里所有样板初始化代码都会被折叠
 import { someBoilerplateEngine } from '@example/some-boilerplate'
 import { evenMoreBoilerplate } from '@example/even-more-boilerplate'
 
 const engine = someBoilerplateEngine(evenMoreBoilerplate())
 
-// This part of the code will be visible by default
+// 这部分代码默认可见
 engine.doSomething(1, 2, 3, calcFn)
 
 function calcFn() {
-  // You can have multiple collapsed sections
+  // 你可以拥有多个折叠区段
   const a = 1
   const b = 2
   const c = a + b
 
-  // This will remain visible
-  console.log(`Calculation result: ${a} + ${b} = ${c}`)
+  // 这里会保持可见
+  console.log(`计算结果：${a} + ${b} = ${c}`)
   return c
 }
 
-// All this code until the end of the block will be collapsed again
+// 从这里到代码块结尾的内容都会再次折叠
 engine.closeConnection()
 engine.freeMemory()
-engine.shutdown({ reason: 'End of example boilerplate code' })
+engine.shutdown({ reason: '示例样板代码结束' })
 ```
 
-Line numbers:
+行号：
 
 ```js showLineNumbers
-// This code block will show line numbers
-console.log('Greetings from line 2!')
-console.log('I am on line 3')
+// 这个代码块会显示行号
+console.log('第 2 行向你问好！')
+console.log('我在第 3 行')
 ```
