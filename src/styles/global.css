@@ -77,6 +77,41 @@ html[lang='he-IL'] {
 	}
 }
 
+/* for microformats2 compatibility */
+/* need to replace h-* with ht-* manually */
+@utility ht-* {
+	height: --value([number]);
+	height: --value(number);
+	height: --value(--height-*);
+}
+@utility ht-auto {
+	height: auto;
+}
+@utility ht-full {
+	height: 100%;
+}
+@utility ht-screen {
+	height: 100vw;
+}
+@utility ht-svh {
+	height: 100svh;
+}
+@utility ht-dvh {
+	height: 100dvh;
+}
+@utility ht-lvh {
+	height: 100lvh;
+}
+@utility ht-fit {
+	height: fit-content;
+}
+@utility ht-min {
+	height: min-content;
+}
+@utility ht-max {
+	height: max-content;
+}
+
 @custom-variant prose-inline-code {
 	&.prose :where(:not(pre) > code):not(:where([class~='not-prose'] *)) {
 		@slot;

@@ -11,7 +11,7 @@ type Props = {
 }
 
 const { localesOverride } = Astro.props
-const displayLocales = localesOverride ?? LOCALES
+const displayLocales = (localesOverride ?? LOCALES).slice().sort((a, b) => LOCALES.indexOf(a) - LOCALES.indexOf(b))
 
 function getLocalizedLocale(localeKey: Locale) {
 	type MsgKey = Exclude<keyof typeof messages, 'm'>
