@@ -23,21 +23,21 @@ import { pagefindIntegration } from './src/serverUtils'
 export default defineConfig({
 	fonts: [
 		{
-			provider: fontProviders.google(),
 			name: 'Noto Serif',
 			cssVariable: '--font-noto-serif',
-			subsets: ['latin', 'cyrillic'],
-			styles: ['normal', 'italic'],
+			provider: fontProviders.google(),
 			weights: [400, 500, 600],
+			styles: ['normal', 'italic'],
+			subsets: ['latin', 'cyrillic'],
 			fallbacks: ['serif'],
 		},
 		{
-			provider: fontProviders.google(),
 			name: 'Noto Serif SC',
 			cssVariable: '--font-noto-serif-sc',
-			subsets: ['chinese-simplified'],
-			styles: ['normal', 'italic'],
+			provider: fontProviders.google(),
 			weights: [400, 500, 600],
+			styles: ['normal', 'italic'],
+			subsets: ['chinese-simplified', 'latin', 'cyrillic'],
 			fallbacks: ['serif'],
 		},
 	],

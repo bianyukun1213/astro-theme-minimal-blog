@@ -5,13 +5,13 @@ import Pagination from '@components/pagination.astro'
 import PostListItem from '@components/post-list-item.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
-import { POSTS_PER_PAGE, SITE, TAG_SLUGS, type TagSlug } from '@constants'
+import { POSTS_PER_PAGE, SITE, type TagSlug } from '@constants'
 import Layout from '@layouts/layout.astro'
 import {
 	getLocaleFromFilePath,
-	getLocalizedTagName,
 	getPostsByLocale,
 	getPostsByTag,
+	getTags,
 	removeTrailingSlash,
 	useTranslations,
 	type Locale,
@@ -25,12 +25,13 @@ export const getStaticPaths = (async ({ paginate }) => {
 	const localesInUse = [...new Set(allPosts.map((post) => getLocaleFromFilePath(post.filePath)))]
 	return localesInUse.flatMap((locale) => {
 		const localePosts = getPostsByLocale(allPosts, locale)
-		return TAG_SLUGS.flatMap((tagSlug) => {
+		const usedTags = getTags(localePosts, locale)
+		return usedTags.flatMap(({ slug: tagSlug, tagName }) => {
 			const posts = getPostsByTag(localePosts, tagSlug)
 			return paginate(posts, {
 				pageSize: POSTS_PER_PAGE,
 				params: { locale, tag: tagSlug },
-				props: { tagName: getLocalizedTagName(tagSlug, locale), slug: tagSlug },
+				props: { tagName, slug: tagSlug },
 			})
 		})
 	})

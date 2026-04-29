@@ -1,12 +1,13 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"lang_en_us": "English",
-	"lang_zh_cn": "Chinese",
-	"lang_ru_ru": "Russian",
+	"lang_en_us": "🇺🇸 Eng",
+	"lang_zh_cn": "🇨🇳 简中",
+	"lang_ru_ru": "🇷🇺 Рус.",
 	"site_title": "My Blog",
 	"site_description": "A minimal blog theme for Astro",
 	"site_favicon": "https://placehold.co/32",
 	"site_default_og_image": "https://placehold.co/400x300",
+	"label_select_language": "Select language",
 	"label_latest_posts": "Latest posts",
 	"label_all_posts": "All posts",
 	"label_all_posts_pagenum": "All posts - page {pageNum}",
@@ -39,6 +40,6 @@
 	"tag_open_source": "Open source",
 	"tag_seoul": "Seoul",
 	"tag_english": "English",
-	"tag_chinese": "Chinese",
-	"tag_russian": "Russian"
+	"tag_chinese": "中文",
+	"tag_russian": "Русский"
 }

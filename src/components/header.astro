@@ -2,6 +2,7 @@
 import { getHeader } from '@constants'
 import { removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
+import LangSelect from './lang-select.astro'
 import Link from './link.astro'
 import Search from './search.astro'
 import Spacer from './spacer.astro'
@@ -42,6 +43,7 @@ const header = getHeader(currentLocale)
 					</Link>
 				))
 			}
+			<LangSelect />
 		</nav>
 		<div class="flex gap-4">
 			{

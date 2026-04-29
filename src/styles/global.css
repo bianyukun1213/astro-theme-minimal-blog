@@ -2,24 +2,22 @@
 @plugin '@tailwindcss/typography';
 
 html {
-	--font-locale: var(--font-noto-serif);
+	--font-global: var(--font-noto-serif);
 }
 
 html[lang='en-US'] {
-	--font-locale: var(--font-noto-serif);
+	--font-global: var(--font-noto-serif);
 }
 
 html[lang='zh-CN'] {
-	--font-locale: var(--font-noto-serif-sc);
+	--font-global: var(--font-noto-serif-sc);
 }
 
 html[lang='ru-RU'] {
-	--font-locale: var(--font-noto-serif);
+	--font-global: var(--font-noto-serif);
 }
 
 @theme {
-	--font-sans: var(--font-locale);
-
 	--color-bg: var(--color-gray-50);
 	--color-text: var(--color-gray-700);
 	--color-highlight: var(--color-black);

@@ -1,9 +1,9 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"example_message": "Привет, мир {username}",
-	"lang_en_us": "Английский",
-	"lang_zh_cn": "Китайский",
-	"lang_ru_ru": "Русский",
+	"lang_en_us": "🇺🇸 Eng",
+	"lang_zh_cn": "🇨🇳 简中",
+	"lang_ru_ru": "🇷🇺 Рус.",
 	"site_title": "Мой блог",
 	"site_description": "Минималистичная тема блога для Astro",
 	"site_favicon": "https://placehold.co/32",
@@ -39,7 +39,7 @@
 	"tag_mdx": "MDX",
 	"tag_open_source": "Открытый исходный код",
 	"tag_seoul": "Сеул",
-	"tag_english": "Английский",
-	"tag_chinese": "Китайский",
+	"tag_english": "English",
+	"tag_chinese": "中文",
 	"tag_russian": "Русский"
 }

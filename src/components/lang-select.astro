@@ -1,0 +1,38 @@
+---
+import { useTranslations, type Locale } from '@utils'
+import * as messages from '@paraglide/messages'
+import { LOCALES } from '@constants'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
+
+type Props = {
+	localesOverride?: Locale[]
+}
+
+const { localesOverride } = Astro.props
+const displayLocales = localesOverride ?? LOCALES
+
+function getLocalizedLocale(localeKey: Locale) {
+	type MsgKey = Exclude<keyof typeof messages, 'm'>
+	const key = `lang_${localeKey.toLowerCase().replace(/-/g, '_')}` as MsgKey
+	const localizationFunc = m[key]
+	if (typeof localizationFunc === 'function') {
+		return (localizationFunc as () => string)()
+	}
+	return localeKey
+}
+---
+
+<lang-select>
+	<label class="relative flex items-center gap-2">
+		<span class="sr-only">{m.label_select_language()}</span>
+		<select id="lang-select" class="cursor-pointer" value="auto" autocomplete="off">
+			{
+				displayLocales.map((locale) => (
+					<option value={locale} selected={locale === currentLocale} set:html={getLocalizedLocale(locale)} />
+				))
+			}
+		</select>
+	</label>
+</lang-select>

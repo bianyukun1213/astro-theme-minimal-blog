@@ -17,7 +17,7 @@ const m = useTranslations(currentLocale)
 	<label class="relative flex items-center gap-2">
 		<span class="sr-only">{m.label_select_theme()}</span>
 		<Icon name="laptop" class="icon label-icon" />
-		<select class="cursor-pointer" value="auto" autocomplete="off">
+		<select id="theme-select" class="cursor-pointer" value="auto" autocomplete="off">
 			{
 				[
 					{ label: m.label_dark(), selected: false, value: 'dark' },

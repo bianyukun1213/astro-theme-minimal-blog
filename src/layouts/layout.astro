@@ -16,7 +16,7 @@ const m = useTranslations(currentLocale)
 const localeFonts = {
 	default: {
 		cssVariable: '--font-noto-serif',
-		preload: [{ subset: 'latin', weight: 400, style: 'normal' }],
+		preload: false,
 	},
 	'en-US': {
 		cssVariable: '--font-noto-serif',
@@ -48,7 +48,7 @@ const localeFont = localeFonts[currentLocale as keyof typeof localeFonts] ?? loc
 		<ThemeProvider />
 		<slot name="seo" />
 	</head>
-	<body class="min-h-screen bg-bg text-text">
+	<body class="font-(family-name:--font-global) min-h-screen bg-bg text-text">
 		<ClientRouter />
 		<ThemeIcons />
 		<SkipNavLink />
