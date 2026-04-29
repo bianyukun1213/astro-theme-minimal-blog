@@ -1,7 +1,7 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"lang_en_us": "Eng",
-	"lang_zh_cn": "简体",
+	"lang_zh_cn": "简中",
 	"lang_ru_ru": "Рус.",
 	"site_title": "My Blog",
 	"site_description": "A minimal blog theme for Astro",
