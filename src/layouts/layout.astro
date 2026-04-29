@@ -12,6 +12,26 @@ import { ClientRouter } from 'astro:transitions'
 const currentLocale = Astro.currentLocale as Locale
 const dir = getLocaleDir(currentLocale)
 const m = useTranslations(currentLocale)
+
+const localeFonts = {
+	default: {
+		cssVariable: '--font-noto-serif',
+		preload: [{ subset: 'latin', weight: 400, style: 'normal' }],
+	},
+	'en-US': {
+		cssVariable: '--font-noto-serif',
+		preload: false,
+	},
+	'zh-CN': {
+		cssVariable: '--font-noto-serif-sc',
+		preload: false,
+	},
+	'ru-RU': {
+		cssVariable: '--font-noto-serif',
+		preload: false,
+	},
+} as const
+const localeFont = localeFonts[currentLocale as keyof typeof localeFonts] ?? localeFonts.default
 ---
 
 <!doctype html>
@@ -21,7 +41,10 @@ const m = useTranslations(currentLocale)
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={m.site_favicon()} />
 		<meta name="generator" content={Astro.generator} />
-		<Font cssVariable="--font-plex-sans" preload />
+		<Font
+			cssVariable={localeFont.cssVariable}
+			preload={Array.isArray(localeFont.preload) ? [...localeFont.preload] : false}
+		/>
 		<ThemeProvider />
 		<slot name="seo" />
 	</head>
