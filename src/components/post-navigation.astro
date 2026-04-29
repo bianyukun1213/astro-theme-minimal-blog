@@ -37,7 +37,7 @@ const nextHref = nextPost ? getPostHref(nextPost.data.displayId) : null
 			>
 				<div class="min-w-16 text-start">
 					{previousPost && (
-						<Link href={prevHref} class="inline-flex items-center justify-start">
+						<Link href={prevHref} class="inline-flex items-center justify-start gap-2">
 							<Icon name="chevron-left" class="ltr:scale-x-100 rtl:-scale-x-100" />
 							<span>{previousPost.data.title}</span>
 						</Link>
@@ -45,7 +45,7 @@ const nextHref = nextPost ? getPostHref(nextPost.data.displayId) : null
 				</div>
 				<div class="min-w-16 text-end">
 					{nextPost && (
-						<Link href={nextHref} class="inline-flex items-center justify-end">
+						<Link href={nextHref} class="inline-flex items-center justify-end gap-2">
 							<span>{nextPost.data.title}</span>
 							<Icon name="chevron-right" class="ltr:scale-x-100 rtl:-scale-x-100" />
 						</Link>

@@ -38,7 +38,7 @@ const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
 			>
 				<div class="min-w-16 text-start">
 					{prevHref && (
-						<Link href={prevHref} class="inline-flex items-center justify-start">
+						<Link href={prevHref} class="inline-flex items-center justify-start gap-2">
 							<Icon name="chevron-left" class="ltr:scale-x-100 rtl:-scale-x-100" />
 							<span>{m.label_previous_page()}</span>
 						</Link>
@@ -57,7 +57,7 @@ const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
 				</div>
 				<div class="min-w-16 text-end">
 					{nextHref && (
-						<Link href={nextHref} class="inline-flex items-center justify-end">
+						<Link href={nextHref} class="inline-flex items-center justify-end gap-2">
 							<span>{m.label_next_page()}</span>
 							<Icon name="chevron-right" class="ltr:scale-x-100 rtl:-scale-x-100" />
 						</Link>
