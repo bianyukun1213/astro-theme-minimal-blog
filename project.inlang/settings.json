@@ -4,7 +4,8 @@
 	"locales": [
 		"en-US",
 		"zh-CN",
-		"ru-RU"
+		"ru-RU",
+		"he-IL"
 	],
 	"modules": [
 		"https://cdn.jsdelivr.net/npm/@inlang/plugin-message-format@4/dist/index.js",

@@ -30,6 +30,10 @@ const localeFonts = {
 		cssVariable: '--font-noto-serif',
 		preload: false,
 	},
+	'he-IL': {
+		cssVariable: '--font-noto-serif-hebrew',
+		preload: false,
+	},
 } as const
 const localeFont = localeFonts[currentLocale as keyof typeof localeFonts] ?? localeFonts.default
 ---

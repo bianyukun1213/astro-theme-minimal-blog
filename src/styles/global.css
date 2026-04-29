@@ -17,6 +17,10 @@ html[lang='ru-RU'] {
 	--font-global: var(--font-noto-serif);
 }
 
+html[lang='he-IL'] {
+	--font-global: var(--font-noto-serif-hebrew);
+}
+
 @theme {
 	--color-bg: var(--color-gray-50);
 	--color-text: var(--color-gray-700);

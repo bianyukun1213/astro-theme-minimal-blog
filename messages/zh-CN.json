@@ -3,6 +3,7 @@
 	"lang_en_us": "Eng",
 	"lang_zh_cn": "简中",
 	"lang_ru_ru": "Рус.",
+	"lang_he_il": "עברית",
 	"site_title": "我的博客",
 	"site_description": "一个用于 Astro 的极简博客主题",
 	"site_favicon": "https://placehold.co/32",
@@ -41,5 +42,6 @@
 	"tag_seoul": "首尔",
 	"tag_english": "English",
 	"tag_chinese": "中文",
-	"tag_russian": "Русский"
+	"tag_russian": "Русский",
+	"tag_hebrew": "עברית"
 }

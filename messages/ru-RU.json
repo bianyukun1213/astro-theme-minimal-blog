@@ -3,6 +3,7 @@
 	"lang_en_us": "Eng",
 	"lang_zh_cn": "简中",
 	"lang_ru_ru": "Рус.",
+	"lang_he_il": "עברית",
 	"site_title": "Мой блог",
 	"site_description": "Минималистичная тема блога для Astro",
 	"site_favicon": "https://placehold.co/32",
@@ -41,5 +42,6 @@
 	"tag_seoul": "Сеул",
 	"tag_english": "English",
 	"tag_chinese": "中文",
-	"tag_russian": "Русский"
+	"tag_russian": "Русский",
+	"tag_hebrew": "עברית"
 }

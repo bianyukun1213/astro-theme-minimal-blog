@@ -85,6 +85,16 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 			note: 'I am Hollis.',
 		},
 	],
+	'he-IL': [
+		{
+			slug: 'hollis',
+			name: 'Hollis',
+			photo: 'https://avatars.githubusercontent.com/u/24708556',
+			url: 'https://yukun.bio/',
+			email: 'bianyukun1213@outlook.com',
+			note: 'I am Hollis.',
+		},
+	],
 }
 
 export function getAuthors(locale: Locale): Author[] {
@@ -193,6 +203,38 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 			},
 		],
 	},
+	'he-IL': {
+		internal: [
+			{
+				title: 'פוסטים',
+				url: '/base-test/he-IL/posts/',
+			},
+			{
+				title: 'תגיות',
+				url: '/base-test/he-IL/tags/',
+			},
+			{
+				title: 'אודות',
+				url: '/base-test/he-IL/about/',
+			},
+		],
+		external: [
+			{
+				title: 'Bluesky',
+				url: 'https://bsky.app/profile/lekoarts.de',
+				props: {
+					target: '_blank',
+				},
+			},
+			{
+				title: 'Homepage',
+				url: 'https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog',
+				props: {
+					target: '_blank',
+				},
+			},
+		],
+	},
 }
 
 export function getHeader(locale: Locale): Header {
@@ -208,6 +250,7 @@ export const TAG_SLUGS = [
 	'english',
 	'chinese',
 	'russian',
+	'hebrew',
 ] as const
 
 export type TagSlug = (typeof TAG_SLUGS)[number]
