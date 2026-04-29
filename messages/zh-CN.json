@@ -1,6 +1,5 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"example_message": "你好，世界 {username}",
 	"lang_en_us": "Eng",
 	"lang_zh_cn": "简中",
 	"lang_ru_ru": "Рус.",

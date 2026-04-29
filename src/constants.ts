@@ -140,7 +140,7 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 				url: '/base-test/zh-CN/tags/',
 			},
 			{
-				title: '简中',
+				title: '关于',
 				url: '/base-test/zh-CN/about/',
 			},
 		],
