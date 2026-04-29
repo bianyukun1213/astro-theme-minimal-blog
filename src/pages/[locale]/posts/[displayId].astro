@@ -74,6 +74,10 @@ const sortedLocalePosts = sortAsc(getPostsByLocale(allPosts, currentLocale))
 const currentPostIndex = sortedLocalePosts.findIndex((entry) => entry.id === post.id)
 const previousPost = currentPostIndex < sortedLocalePosts.length - 1 ? sortedLocalePosts[currentPostIndex + 1] : null
 const nextPost = currentPostIndex > 0 ? sortedLocalePosts[currentPostIndex - 1] : null
+
+Astro.locals.localesOverride = allPosts
+	.filter((p) => p.data.displayId === postData.displayId)
+	.map((p) => getLocaleFromFilePath(p.filePath)) as Locale[]
 ---
 
 <Layout>

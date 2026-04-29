@@ -43,7 +43,7 @@ const header = getHeader(currentLocale)
 					</Link>
 				))
 			}
-			<LangSelect />
+			<LangSelect localesOverride={Astro.locals.localesOverride} />
 		</nav>
 		<div class="flex gap-4">
 			{

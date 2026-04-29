@@ -1,7 +1,7 @@
 ---
-import { useTranslations, type Locale } from '@utils'
-import * as messages from '@paraglide/messages'
 import { LOCALES } from '@constants'
+import * as messages from '@paraglide/messages'
+import { getLocaleDir, useTranslations, type Locale } from '@utils'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
@@ -24,15 +24,33 @@ function getLocalizedLocale(localeKey: Locale) {
 }
 ---
 
-<lang-select>
+<div>
 	<label class="relative flex items-center gap-2">
 		<span class="sr-only">{m.label_select_language()}</span>
 		<select id="lang-select" class="cursor-pointer" value="auto" autocomplete="off">
 			{
 				displayLocales.map((locale) => (
-					<option value={locale} selected={locale === currentLocale} set:html={getLocalizedLocale(locale)} />
+					<option
+						value={locale}
+						dir={getLocaleDir(locale)}
+						selected={locale === currentLocale}
+						set:html={getLocalizedLocale(locale)}
+					/>
 				))
 			}
 		</select>
 	</label>
-</lang-select>
+</div>
+
+<script>
+	document.addEventListener('astro:page-load', () => {
+		const langSelect = document.querySelector('#lang-select')
+		if (langSelect) {
+			langSelect.addEventListener('change', (event) => {
+				const locale = document.documentElement.lang
+				const targetLocale = (event.target as HTMLSelectElement).value
+				window.location.href = window.location.href.replace(`/${locale}/`, `/${targetLocale}/`)
+			})
+		}
+	})
+</script>

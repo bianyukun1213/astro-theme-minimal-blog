@@ -4,7 +4,7 @@ import Pagination from '@components/pagination.astro'
 import PostListItem from '@components/post-list-item.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
-import { POSTS_PER_PAGE } from '@constants'
+import { LOCALES, POSTS_PER_PAGE } from '@constants'
 import Layout from '@layouts/layout.astro'
 import {
 	getLocaleFromFilePath,
@@ -43,6 +43,18 @@ const totalPages = page.lastPage
 
 const postsBasePath = `${removeTrailingSlash(base)}/${currentLocale}/posts`
 const pageTitle = currentPage === 1 ? m.label_all_posts() : m.label_all_posts_pagenum({ pageNum: currentPage })
+
+const localesOverride: Locale[] = []
+const allPosts = await getCollection('blog')
+for (const locale of LOCALES) {
+	const localePosts = getPostsByLocale(allPosts, locale)
+	const localePostsCount = localePosts.length
+	const pagesCount = Math.ceil(localePostsCount / page.size)
+	if (pagesCount >= page.currentPage) {
+		localesOverride.push(locale)
+	}
+}
+Astro.locals.localesOverride = localesOverride
 ---
 
 <Layout>

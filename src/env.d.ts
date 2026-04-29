@@ -7,3 +7,9 @@ declare namespace astroHTML.JSX {
 declare let AtmbThemeProvider: {
 	updatePickers: (theme?: string) => void
 }
+
+declare namespace App {
+	interface Locals {
+		localesOverride?: import('@/paraglide/runtime').Locale[]
+	}
+}
