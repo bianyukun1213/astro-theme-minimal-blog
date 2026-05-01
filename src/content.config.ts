@@ -1,3 +1,4 @@
+import { HAdrSchema } from '@types'
 import { glob } from 'astro/loaders'
 import { z } from 'astro/zod'
 import { defineCollection } from 'astro:content'
@@ -15,6 +16,8 @@ const blog = defineCollection({
 		tags: z.array(z.enum(TAG_SLUGS)),
 		image: z.string().optional(),
 		searchIndex: z.boolean().optional().default(true),
+		hAdr: HAdrSchema.optional(),
+		syndications: z.array(z.string()).optional(),
 	}),
 })
 

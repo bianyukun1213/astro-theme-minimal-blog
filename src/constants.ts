@@ -1,4 +1,5 @@
 import type { Locale } from '@paraglide/runtime'
+import type { Author, Header } from '@types'
 import { baseLocale, locales } from './paraglide/runtime'
 
 export const BLOG_PATH = './content/blog/'
@@ -27,15 +28,6 @@ export const SITE: Record<string, string> = {
 	 * Default author slug that gets added to meta tags
 	 */
 	// defaultAuthor: 'hollis',
-}
-
-interface Author {
-	slug: string
-	name: string
-	photo: string
-	url: string
-	email: string
-	note: string
 }
 
 const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
@@ -99,11 +91,6 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 
 export function getAuthors(locale: Locale): Author[] {
 	return AUTHORS_BY_LOCALE[locale]
-}
-
-interface Header {
-	internal: Array<{ title: string, url: string }>
-	external: Array<{ title: string, url: string, props?: Record<string, unknown> }>
 }
 
 const HEADER_BY_LOCALE: Record<Locale, Header> = {

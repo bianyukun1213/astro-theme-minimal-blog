@@ -1,12 +1,15 @@
 ---
 import SkipNavContent from '@components/a11y/skip-nav-content.astro'
 import Aside from '@components/aside.astro'
-import PostNavigation from '@components/post-navigation.astro'
+import HAdr from '@components/HAdr.astro'
+import HCard from '@components/HCard.astro'
 import Playground from '@components/playground.astro'
+import PostNavigation from '@components/post-navigation.astro'
 import Prose from '@components/prose.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
 import TagLinks from '@components/tag-links.astro'
+import USyndication from '@components/USyndication.astro'
 import { getAuthors, SITE } from '@constants'
 import Layout from '@layouts/layout.astro'
 import {
@@ -47,6 +50,11 @@ const { post } = Astro.props
 const base = import.meta.env.BASE_URL
 
 const { data: postData } = post
+const url = Astro.url
+const title = postData.title || m.site_title()
+const description = postData.description || m.site_description()
+const datePublished = isoDateFormat(postData.date)
+const dateModified = isoDateFormat(postData.updated)
 const authors = getAuthors(currentLocale)
 const authorSlugs = postData.authors
 const postAuthors = authors.filter((author) => authorSlugs.includes(author.slug))
@@ -55,11 +63,11 @@ const jsonLd = {
 	'@context': 'https://schema.org',
 	'@type': 'BlogPosting',
 	'@language': currentLocale,
-	headline: postData.title || m.site_title(),
-	description: postData.description || m.site_description(),
-	datePublished: isoDateFormat(postData.date),
-	dateModified: isoDateFormat(postData.updated),
-	mainEntityOfPage: new URL(Astro.url.pathname, SITE.url),
+	headline: title,
+	description,
+	datePublished,
+	dateModified,
+	mainEntityOfPage: url,
 	author: postAuthors.map((author) => ({ '@type': 'Person', name: author.name })),
 	image: [
 		validImage.startsWith('http://') || validImage.startsWith('https://')
@@ -81,7 +89,7 @@ Astro.locals.localesOverride = allPosts
 ---
 
 <Layout>
-	<Seo slot="seo" titleOverride={postData.title} description={postData.description} image={postData.image}>
+	<Seo slot="seo" titleOverride={title} {description} image={postData.image}>
 		<meta name="twitter:label1" value={m.label_authors()} />
 		<!-- <meta name="twitter:data1" data-pagefind-meta="author" value={postAuthors.map((author) => author.name).join(',')} /> -->
 		<meta name="twitter:data1" value={postAuthors.map((author) => author.name).join(', ')} />
@@ -90,19 +98,45 @@ Astro.locals.localesOverride = allPosts
 			name="twitter:data2"
 			value={postData.tags.map((tagSlug) => getLocalizedTagName(tagSlug, currentLocale)).join(', ')}
 		/>
-		<!-- <meta name="article:published_time" data-pagefind-meta="published_time" content={isoDateFormat(postData.date)} />
-		<meta name="article:modified_time" data-pagefind-meta="modified_time" content={isoDateFormat(postData.updated)} /> -->
-		<meta name="article:published_time" content={isoDateFormat(postData.date)} />
-		<meta name="article:modified_time" content={isoDateFormat(postData.updated)} />
+		<meta name="article:published_time" content={datePublished} />
+		<meta name="article:modified_time" content={dateModified} />
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 	</Seo>
 	<SkipNavContent searchIndex={postData.searchIndex}>
-		<Prose>
-			<h1 class="mb-0!" data-pagefind-meta="title">{postData.title}</h1>
+		<Prose class="h-entry">
+			<h1 class="p-name mb-0!" data-pagefind-meta="title">{title}</h1>
 			<Spacer axis="vertical" size={4} />
 			<div class="text-faded">
 				{defaultDateFormat(postData.date, currentLocale)} — <TagLinks slugs={postData.tags} />
 			</div>
+			<a class="u-url hidden" href={url}>{url}</a>
+			<span class="p-summary hidden">{description}</span>
+			{
+				authors.map((a) => {
+					return (
+						<HCard
+							hCard={{
+								pName: a.name,
+								uPhoto: a.photo,
+								uUrl: a.url,
+								uEmail: a.email,
+								pNote: a.note,
+							}}
+						/>
+					)
+				})
+			}
+			<time class="dt-published hidden" data-pagefind-meta="published_time" datetime={datePublished}
+				>{datePublished}</time
+			>
+			<time class="dt-updated hidden" data-pagefind-meta="modified_time" datetime={dateModified}>{dateModified}</time>
+			{
+				postData.syndications &&
+					postData.syndications.map((syndication) => {
+						return <USyndication {syndication} />
+					})
+			}
+			{postData.hAdr && <HAdr hAdr={postData.hAdr} />}
 			<Spacer axis="vertical" size={12} />
 			<Content components={{ Aside, Playground }} />
 		</Prose>

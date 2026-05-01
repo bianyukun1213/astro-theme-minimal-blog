@@ -1,0 +1,16 @@
+---
+import { useTranslations, type Locale } from '@utils'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
+
+interface Props {
+	syndication: string
+}
+
+const { syndication } = Astro.props
+---
+
+<a class="u-syndication hidden" href={syndication} target="_blank" rel="noopener noreferrer">
+	{new URL(syndication).hostname}
+</a>

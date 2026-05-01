@@ -26,7 +26,7 @@ const validImage = image || siteImage
 const seo = {
 	title: title ? `${title} | ${siteTitle}` : siteTitle,
 	description: description || siteDescription,
-	url: new URL(Astro.url.pathname, siteUrl),
+	url: Astro.url,
 	image:
 		validImage.startsWith('http://') || validImage.startsWith('https://')
 			? validImage

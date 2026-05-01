@@ -22,6 +22,9 @@
 			"@styles/*": [
 				"./src/styles/*"
 			],
+			"@types": [
+				"./src/types.ts"
+			],
 			"@paraglide/*": [
 				"./src/paraglide/*"
 			]
