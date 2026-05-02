@@ -37,6 +37,16 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Label_TipInputs */
 /** @typedef {{}} Label_CautionInputs */
 /** @typedef {{}} Label_DangerInputs */
+/** @typedef {{}} Label_Tide_Picture_Default_MaskInputs */
+/** @typedef {{}} Btn_Tide_Picture_Reveal_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Close_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Zoom_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Arrow_Prev_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Arrow_Next_TitleInputs */
+/** @typedef {{}} Label_Pswp_Error_MsgInputs */
+/** @typedef {{}} Label_Pswp_Index_Indicator_SepInputs */
+/** @typedef {{}} Btn_Pswp_Caption_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Reveal_TitleInputs */
 /** @typedef {{}} Tag_GeneralInputs */
 /** @typedef {{}} Tag_CodingInputs */
 /** @typedef {{}} Tag_MdxInputs */
@@ -609,6 +619,166 @@ export const label_danger = /** @type {((inputs?: Label_DangerInputs, options?: 
 	if (locale === "zh-CN") return __zh_cn2.label_danger(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_danger(inputs)
 	return __he_il2.label_danger(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Hidden" |
+*
+* @param {Label_Tide_Picture_Default_MaskInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_picture_default_mask = /** @type {((inputs?: Label_Tide_Picture_Default_MaskInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Picture_Default_MaskInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_tide_picture_default_mask(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_tide_picture_default_mask(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_tide_picture_default_mask(inputs)
+	return __he_il2.label_tide_picture_default_mask(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Click to reveal" |
+*
+* @param {Btn_Tide_Picture_Reveal_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_tide_picture_reveal_title = /** @type {((inputs?: Btn_Tide_Picture_Reveal_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Tide_Picture_Reveal_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_tide_picture_reveal_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_tide_picture_reveal_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_tide_picture_reveal_title(inputs)
+	return __he_il2.btn_tide_picture_reveal_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Close" |
+*
+* @param {Btn_Pswp_Close_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_pswp_close_title = /** @type {((inputs?: Btn_Pswp_Close_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Pswp_Close_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_pswp_close_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_pswp_close_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_pswp_close_title(inputs)
+	return __he_il2.btn_pswp_close_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Zoom" |
+*
+* @param {Btn_Pswp_Zoom_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_pswp_zoom_title = /** @type {((inputs?: Btn_Pswp_Zoom_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Pswp_Zoom_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_pswp_zoom_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_pswp_zoom_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_pswp_zoom_title(inputs)
+	return __he_il2.btn_pswp_zoom_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Previous" |
+*
+* @param {Btn_Pswp_Arrow_Prev_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_pswp_arrow_prev_title = /** @type {((inputs?: Btn_Pswp_Arrow_Prev_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Pswp_Arrow_Prev_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_pswp_arrow_prev_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_pswp_arrow_prev_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_pswp_arrow_prev_title(inputs)
+	return __he_il2.btn_pswp_arrow_prev_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Next" |
+*
+* @param {Btn_Pswp_Arrow_Next_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_pswp_arrow_next_title = /** @type {((inputs?: Btn_Pswp_Arrow_Next_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Pswp_Arrow_Next_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_pswp_arrow_next_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_pswp_arrow_next_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_pswp_arrow_next_title(inputs)
+	return __he_il2.btn_pswp_arrow_next_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "The image cannot be loaded" |
+*
+* @param {Label_Pswp_Error_MsgInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_pswp_error_msg = /** @type {((inputs?: Label_Pswp_Error_MsgInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Pswp_Error_MsgInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_pswp_error_msg(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_pswp_error_msg(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_pswp_error_msg(inputs)
+	return __he_il2.label_pswp_error_msg(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "/" |
+*
+* @param {Label_Pswp_Index_Indicator_SepInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_pswp_index_indicator_sep = /** @type {((inputs?: Label_Pswp_Index_Indicator_SepInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Pswp_Index_Indicator_SepInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_pswp_index_indicator_sep(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_pswp_index_indicator_sep(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_pswp_index_indicator_sep(inputs)
+	return __he_il2.label_pswp_index_indicator_sep(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Caption" |
+*
+* @param {Btn_Pswp_Caption_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_pswp_caption_title = /** @type {((inputs?: Btn_Pswp_Caption_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Pswp_Caption_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_pswp_caption_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_pswp_caption_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_pswp_caption_title(inputs)
+	return __he_il2.btn_pswp_caption_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Reveal" |
+*
+* @param {Btn_Pswp_Reveal_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_pswp_reveal_title = /** @type {((inputs?: Btn_Pswp_Reveal_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Pswp_Reveal_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_pswp_reveal_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_pswp_reveal_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_pswp_reveal_title(inputs)
+	return __he_il2.btn_pswp_reveal_title(inputs)
 });
 /**
 * | output |

@@ -34,6 +34,16 @@
 /** @typedef {{}} Label_TipInputs */
 /** @typedef {{}} Label_CautionInputs */
 /** @typedef {{}} Label_DangerInputs */
+/** @typedef {{}} Label_Tide_Picture_Default_MaskInputs */
+/** @typedef {{}} Btn_Tide_Picture_Reveal_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Close_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Zoom_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Arrow_Prev_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Arrow_Next_TitleInputs */
+/** @typedef {{}} Label_Pswp_Error_MsgInputs */
+/** @typedef {{}} Label_Pswp_Index_Indicator_SepInputs */
+/** @typedef {{}} Btn_Pswp_Caption_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Reveal_TitleInputs */
 /** @typedef {{}} Tag_GeneralInputs */
 /** @typedef {{}} Tag_CodingInputs */
 /** @typedef {{}} Tag_MdxInputs */
@@ -137,6 +147,16 @@ export type Label_NoteInputs = {};
 export type Label_TipInputs = {};
 export type Label_CautionInputs = {};
 export type Label_DangerInputs = {};
+export type Label_Tide_Picture_Default_MaskInputs = {};
+export type Btn_Tide_Picture_Reveal_TitleInputs = {};
+export type Btn_Pswp_Close_TitleInputs = {};
+export type Btn_Pswp_Zoom_TitleInputs = {};
+export type Btn_Pswp_Arrow_Prev_TitleInputs = {};
+export type Btn_Pswp_Arrow_Next_TitleInputs = {};
+export type Label_Pswp_Error_MsgInputs = {};
+export type Label_Pswp_Index_Indicator_SepInputs = {};
+export type Btn_Pswp_Caption_TitleInputs = {};
+export type Btn_Pswp_Reveal_TitleInputs = {};
 export type Tag_GeneralInputs = {};
 export type Tag_CodingInputs = {};
 export type Tag_MdxInputs = {};
@@ -146,3 +166,4 @@ export type Tag_EnglishInputs = {};
 export type Tag_ChineseInputs = {};
 export type Tag_RussianInputs = {};
 export type Tag_HebrewInputs = {};
+export { label_tide_picture_default_mask, btn_tide_picture_reveal_title, btn_pswp_close_title, btn_pswp_zoom_title, btn_pswp_arrow_prev_title, btn_pswp_arrow_next_title, label_pswp_error_msg, label_pswp_index_indicator_sep, btn_pswp_caption_title, btn_pswp_reveal_title } from "./en-US.js";

@@ -34,6 +34,16 @@
 /** @typedef {{}} Label_TipInputs */
 /** @typedef {{}} Label_CautionInputs */
 /** @typedef {{}} Label_DangerInputs */
+/** @typedef {{}} Label_Tide_Picture_Default_MaskInputs */
+/** @typedef {{}} Btn_Tide_Picture_Reveal_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Close_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Zoom_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Arrow_Prev_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Arrow_Next_TitleInputs */
+/** @typedef {{}} Label_Pswp_Error_MsgInputs */
+/** @typedef {{}} Label_Pswp_Index_Indicator_SepInputs */
+/** @typedef {{}} Btn_Pswp_Caption_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Reveal_TitleInputs */
 /** @typedef {{}} Tag_GeneralInputs */
 /** @typedef {{}} Tag_CodingInputs */
 /** @typedef {{}} Tag_MdxInputs */
@@ -78,6 +88,16 @@ export const label_note: (inputs: Label_NoteInputs) => LocalizedString;
 export const label_tip: (inputs: Label_TipInputs) => LocalizedString;
 export const label_caution: (inputs: Label_CautionInputs) => LocalizedString;
 export const label_danger: (inputs: Label_DangerInputs) => LocalizedString;
+export const label_tide_picture_default_mask: (inputs: Label_Tide_Picture_Default_MaskInputs) => LocalizedString;
+export const btn_tide_picture_reveal_title: (inputs: Btn_Tide_Picture_Reveal_TitleInputs) => LocalizedString;
+export const btn_pswp_close_title: (inputs: Btn_Pswp_Close_TitleInputs) => LocalizedString;
+export const btn_pswp_zoom_title: (inputs: Btn_Pswp_Zoom_TitleInputs) => LocalizedString;
+export const btn_pswp_arrow_prev_title: (inputs: Btn_Pswp_Arrow_Prev_TitleInputs) => LocalizedString;
+export const btn_pswp_arrow_next_title: (inputs: Btn_Pswp_Arrow_Next_TitleInputs) => LocalizedString;
+export const label_pswp_error_msg: (inputs: Label_Pswp_Error_MsgInputs) => LocalizedString;
+export const label_pswp_index_indicator_sep: (inputs: Label_Pswp_Index_Indicator_SepInputs) => LocalizedString;
+export const btn_pswp_caption_title: (inputs: Btn_Pswp_Caption_TitleInputs) => LocalizedString;
+export const btn_pswp_reveal_title: (inputs: Btn_Pswp_Reveal_TitleInputs) => LocalizedString;
 export const tag_general: (inputs: Tag_GeneralInputs) => LocalizedString;
 export const tag_coding: (inputs: Tag_CodingInputs) => LocalizedString;
 export const tag_mdx: (inputs: Tag_MdxInputs) => LocalizedString;
@@ -137,6 +157,16 @@ export type Label_NoteInputs = {};
 export type Label_TipInputs = {};
 export type Label_CautionInputs = {};
 export type Label_DangerInputs = {};
+export type Label_Tide_Picture_Default_MaskInputs = {};
+export type Btn_Tide_Picture_Reveal_TitleInputs = {};
+export type Btn_Pswp_Close_TitleInputs = {};
+export type Btn_Pswp_Zoom_TitleInputs = {};
+export type Btn_Pswp_Arrow_Prev_TitleInputs = {};
+export type Btn_Pswp_Arrow_Next_TitleInputs = {};
+export type Label_Pswp_Error_MsgInputs = {};
+export type Label_Pswp_Index_Indicator_SepInputs = {};
+export type Btn_Pswp_Caption_TitleInputs = {};
+export type Btn_Pswp_Reveal_TitleInputs = {};
 export type Tag_GeneralInputs = {};
 export type Tag_CodingInputs = {};
 export type Tag_MdxInputs = {};

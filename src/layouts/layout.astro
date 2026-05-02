@@ -51,6 +51,16 @@ const localeFont = localeFonts[currentLocale as keyof typeof localeFonts] ?? loc
 		/>
 		<ThemeProvider />
 		<slot name="seo" />
+		<script>
+			import type { Locale } from '@paraglide/runtime'
+			import { m } from '@paraglide/messages.js'
+			import { setLocale } from '@paraglide/runtime'
+
+			window.tideMeta = JSON.parse(document.querySelector('meta[name="tide-meta"]')?.getAttribute('content') || '{}')
+			window.m = m
+			window.setLocale = setLocale
+			window.setLocale(document.documentElement.lang as Locale)
+		</script>
 	</head>
 	<body class="font-(family-name:--font-global) min-h-screen bg-bg text-text">
 		<ClientRouter />

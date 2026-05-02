@@ -1,19 +1,82 @@
 import type { TagSlug } from '@constants'
 import type { Locale } from '@paraglide/runtime'
 import type { CollectionEntry } from 'astro:content'
+import type { ClassValue } from 'clsx'
 import * as messages from '@paraglide/messages'
 import { getTextDirection } from '@paraglide/runtime'
-import {
-	getRelativeLocaleUrl as getRelativeLocaleUrlImpl,
-} from 'astro:i18n'
+// import {
+// 	getRelativeLocaleUrl as getRelativeLocaleUrlImpl,
+// } from 'astro:i18n'
+import { clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 import { BLOG_PATH, DEFAULT_LOCALE, LOCALES } from './constants'
 
-// import { clsx, type ClassValue } from 'clsx';
-// import { twMerge } from 'tailwind-merge';
+export function cn(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs))
+}
 
-// export function cn(...inputs: ClassValue[]) {
-//     return twMerge(clsx(inputs));
-// }
+type ConvMode = 'rem2px' | 'px2rem'
+export function convertRemPx(input: string, mode?: ConvMode): string
+export function convertRemPx(input: number, mode?: ConvMode): number
+/**
+ * Converts between rem and px units based on the root HTML font size and input format.
+ * @param input The value to convert, either a string with units 'rem' or 'px' or a number.
+ * @param mode The conversion mode, 'rem2px' to convert rem to pixels or 'px2rem' to convert pixels to rem.
+ * @returns The converted value, either as a string with the appropriate unit or as a number.
+ */
+export function convertRemPx(
+	input: string | number,
+	mode: ConvMode = 'rem2px',
+): string | number {
+	if (typeof window === 'undefined') {
+		throw new TypeError(
+			'"window" is undefined. This function can only be used in a browser environment.',
+		)
+	}
+	const returnString = typeof input === 'string'
+	let returnUnit: 'px' | 'rem' | '' = ''
+	const htmlFontSize = Number.parseFloat(
+		window.getComputedStyle(document.documentElement).fontSize,
+	)
+	let numericValue: number
+	// 处理输入逻辑
+	if (typeof input === 'string') {
+		if (input.endsWith('rem')) {
+			numericValue = Number.parseFloat(input.replace('rem', ''))
+			mode = 'rem2px'
+			returnUnit = 'px'
+		}
+		else if (input.endsWith('px')) {
+			numericValue = Number.parseFloat(input.replace('px', ''))
+			mode = 'px2rem'
+			returnUnit = 'rem'
+		}
+		else {
+			numericValue = Number.parseFloat(input)
+		}
+	}
+	else {
+		numericValue = input
+	}
+	if (Number.isNaN(numericValue)) {
+		throw new TypeError(
+			'Invalid value. Must be a number or a string ending with "rem" or "px".',
+		)
+	}
+	let result: number
+	if (mode === 'rem2px') {
+		result = numericValue * htmlFontSize
+	}
+	else {
+		result = numericValue / htmlFontSize
+	}
+	if (returnString) {
+		return `${result}${returnUnit}`
+	}
+	else {
+		return result
+	}
+}
 
 /**
  * Returns the text direction for a given locale.
@@ -30,11 +93,11 @@ export function getLocaleDir(locale: Locale) {
  * @param path The path to localize.
  * @returns The localized URL.
  */
-export function getLocalizedUrl(local: Locale, path?: string) {
-	return getRelativeLocaleUrlImpl(local, path, {
-		normalizeLocale: false,
-	})
-}
+// export function getLocalizedUrl(local: Locale, path?: string) {
+// 	return getRelativeLocaleUrlImpl(local, path, {
+// 		normalizeLocale: false,
+// 	})
+// }
 
 /**
  * Get locale of a blog post

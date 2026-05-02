@@ -35,6 +35,16 @@
 /** @typedef {{}} Label_TipInputs */
 /** @typedef {{}} Label_CautionInputs */
 /** @typedef {{}} Label_DangerInputs */
+/** @typedef {{}} Label_Tide_Picture_Default_MaskInputs */
+/** @typedef {{}} Btn_Tide_Picture_Reveal_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Close_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Zoom_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Arrow_Prev_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Arrow_Next_TitleInputs */
+/** @typedef {{}} Label_Pswp_Error_MsgInputs */
+/** @typedef {{}} Label_Pswp_Index_Indicator_SepInputs */
+/** @typedef {{}} Btn_Pswp_Caption_TitleInputs */
+/** @typedef {{}} Btn_Pswp_Reveal_TitleInputs */
 /** @typedef {{}} Tag_GeneralInputs */
 /** @typedef {{}} Tag_CodingInputs */
 /** @typedef {{}} Tag_MdxInputs */
@@ -184,6 +194,46 @@ export const label_caution = /** @type {(inputs: Label_CautionInputs) => Localiz
 
 export const label_danger = /** @type {(inputs: Label_DangerInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Danger`)
+};
+
+export const label_tide_picture_default_mask = /** @type {(inputs: Label_Tide_Picture_Default_MaskInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Hidden`)
+};
+
+export const btn_tide_picture_reveal_title = /** @type {(inputs: Btn_Tide_Picture_Reveal_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Click to reveal`)
+};
+
+export const btn_pswp_close_title = /** @type {(inputs: Btn_Pswp_Close_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Close`)
+};
+
+export const btn_pswp_zoom_title = /** @type {(inputs: Btn_Pswp_Zoom_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Zoom`)
+};
+
+export const btn_pswp_arrow_prev_title = /** @type {(inputs: Btn_Pswp_Arrow_Prev_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Previous`)
+};
+
+export const btn_pswp_arrow_next_title = /** @type {(inputs: Btn_Pswp_Arrow_Next_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Next`)
+};
+
+export const label_pswp_error_msg = /** @type {(inputs: Label_Pswp_Error_MsgInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`The image cannot be loaded`)
+};
+
+export const label_pswp_index_indicator_sep = /** @type {(inputs: Label_Pswp_Index_Indicator_SepInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (` / `)
+};
+
+export const btn_pswp_caption_title = /** @type {(inputs: Btn_Pswp_Caption_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Caption`)
+};
+
+export const btn_pswp_reveal_title = /** @type {(inputs: Btn_Pswp_Reveal_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Reveal`)
 };
 
 export const tag_general = /** @type {(inputs: Tag_GeneralInputs) => LocalizedString} */ () => {
