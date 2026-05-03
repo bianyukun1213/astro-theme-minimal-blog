@@ -38,15 +38,15 @@ export const HCardSchema = z.object({
 
 export type HCard = z.infer<typeof HCardSchema>
 
-export const HAdrSchema = z.object({
-	pStreetAddress: z.string(),
-	pExtendedAddress: z.string().optional(),
-	pLocality: z.string(),
-	pRegion: z.string(),
-	pCountryName: z.string(),
+export const PLocationSchema = z.object({
+	pStreetAddress: z.string().optional(),
+	pExtendedAddress: z.string().optional().optional(),
+	pLocality: z.string().optional(),
+	pRegion: z.string().optional(),
+	pCountryName: z.string().optional(),
 	pLongitude: z.number().optional(),
 	pLatitude: z.number().optional(),
 	pAltitude: z.number().optional(),
 })
 
-export type HAdr = z.infer<typeof HAdrSchema>
+export type PLocation = z.infer<typeof PLocationSchema>

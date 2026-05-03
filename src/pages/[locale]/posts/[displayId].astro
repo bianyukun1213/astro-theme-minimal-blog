@@ -1,27 +1,26 @@
 ---
 import SkipNavContent from '@components/a11y/skip-nav-content.astro'
 import Aside from '@components/aside.astro'
-import HAdr from '@components/HAdr.astro'
 import HCard from '@components/HCard.astro'
 import Playground from '@components/playground.astro'
+import PLocation from '@components/PLocation.astro'
 import PostNavigation from '@components/post-navigation.astro'
 import Prose from '@components/prose.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
 import TagLinks from '@components/tag-links.astro'
-import USyndication from '@components/USyndication.astro'
 import { getAuthors, SITE } from '@constants'
 import Layout from '@layouts/layout.astro'
 import {
-	defaultDateFormat,
-	getLocaleFromFilePath,
-	getLocalizedTagName,
-	getPostsByLocale,
-	isoDateFormat,
-	removeTrailingSlash,
-	sortAsc,
-	useTranslations,
-	type Locale,
+defaultDateFormat,
+getLocaleFromFilePath,
+getLocalizedTagName,
+getPostsByLocale,
+isoDateFormat,
+removeTrailingSlash,
+sortAsc,
+useTranslations,
+type Locale,
 } from '@utils'
 import type { GetStaticPaths } from 'astro'
 import { getCollection, render } from 'astro:content'
@@ -58,6 +57,7 @@ const dateModified = isoDateFormat(postData.updated)
 const authors = getAuthors(currentLocale)
 const authorSlugs = postData.authors
 const postAuthors = authors.filter((author) => authorSlugs.includes(author.slug))
+const tagNames = postData.tags.map((tagSlug) => getLocalizedTagName(tagSlug, currentLocale))
 const validImage = postData.image || m.site_default_og_image()
 const jsonLd = {
 	'@context': 'https://schema.org',
@@ -96,7 +96,7 @@ Astro.locals.localesOverride = allPosts
 		<meta name="twitter:label2" value={m.label_tags()} />
 		<meta
 			name="twitter:data2"
-			value={postData.tags.map((tagSlug) => getLocalizedTagName(tagSlug, currentLocale)).join(', ')}
+			value={tagNames.join(', ')}
 		/>
 		<meta name="article:published_time" content={datePublished} />
 		<meta name="article:modified_time" content={dateModified} />
@@ -121,7 +121,8 @@ Astro.locals.localesOverride = allPosts
 								uUrl: a.url,
 								uEmail: a.email,
 								pNote: a.note,
-							}}
+							}},
+							isAuthorCard={true}
 						/>
 					)
 				})
@@ -131,12 +132,31 @@ Astro.locals.localesOverride = allPosts
 			>
 			<time class="dt-updated hidden" data-pagefind-meta="modified_time" datetime={dateModified}>{dateModified}</time>
 			{
-				postData.syndications &&
-					postData.syndications.map((syndication) => {
-						return <USyndication {syndication} />
-					})
+				tagNames.map((tagName) => {
+					return <span class="p-category hidden">{tagName}</span>
+				})
 			}
-			{postData.hAdr && <HAdr hAdr={postData.hAdr} />}
+			{postData.pLocation && <PLocation intent={postData.pLocation.pStreetAddress ? 'h-adr' : 'h-geo'} pLocation={postData.pLocation} />}
+			{
+				postData.uInReplyTo && postData.uInReplyTo.map((target) => {
+					return <a class="u-in-reply-to hidden" href={target} target="_blank" rel="noopener noreferrer">{target}</a>
+				})
+			}
+			{
+				postData.uLikeOf && postData.uLikeOf.map((target) => {
+					return <a class="u-like-of hidden" href={target} target="_blank" rel="noopener noreferrer">{target}</a>
+				})
+			}
+			{
+				postData.uRepostOf && postData.uRepostOf.map((target) => {
+					return <a class="u-repost-of hidden" href={target} target="_blank" rel="noopener noreferrer">{target}</a>
+				})
+			}
+			{
+				postData.uSyndication && postData.uSyndication.map((syndication) => {
+					return <a class="u-syndication hidden" href={syndication} target="_blank" rel="noopener noreferrer">{new URL(syndication).hostname}</a>
+				})
+			}
 			<Spacer axis="vertical" size={12} />
 			<Content components={{ Aside, Playground }} />
 		</Prose>

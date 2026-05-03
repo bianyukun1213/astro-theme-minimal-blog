@@ -1,0 +1,21 @@
+---
+import type { PLocation as PLocationType } from '@types'
+
+interface Props {
+	intent: 'h-adr' | 'h-geo'
+	pLocation: PLocationType
+}
+
+const { pLocation, intent } = Astro.props
+---
+
+<div class={`p-location ${intent} hidden`}>
+	{pLocation.pStreetAddress && <span class="p-street-address">{pLocation.pStreetAddress}</span>}
+	{pLocation.pExtendedAddress && <span class="p-extended-address">{pLocation.pExtendedAddress}</span>}
+	{pLocation.pLocality && <span class="p-locality">{pLocation.pLocality}</span>}
+	{pLocation.pRegion && <span class="p-region">{pLocation.pRegion}</span>}
+	{pLocation.pCountryName && <span class="p-country-name">{pLocation.pCountryName}</span>}
+	{pLocation.pLongitude && <span class="p-longitude">{pLocation.pLongitude}</span>}
+	{pLocation.pLatitude && <span class="p-latitude">{pLocation.pLatitude}</span>}
+	{pLocation.pAltitude && <span class="p-altitude">{pLocation.pAltitude}</span>}
+</div>

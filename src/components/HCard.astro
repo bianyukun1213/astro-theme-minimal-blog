@@ -3,12 +3,13 @@ import type { HCard as HCardType } from '@types'
 
 interface Props {
 	hCard: HCardType
+	isAuthorCard?: boolean
 }
 
-const { hCard } = Astro.props
+const { hCard, isAuthorCard } = Astro.props
 ---
 
-<div class="h-card hidden">
+<div class:list={['h-card', isAuthorCard ? 'p-author' : '', 'hidden']}>
 	<span class="p-name">{hCard.pName}</span>
 	<img class="u-photo" src={hCard.uPhoto} alt={hCard.pName} />
 	<a class="u-url u-uid" href={hCard.uUrl} target="_blank" rel="noopener noreferrer">{hCard.uUrl}</a>
