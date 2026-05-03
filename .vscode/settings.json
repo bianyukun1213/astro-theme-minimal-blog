@@ -88,5 +88,6 @@
 		"scss",
 		"pcss",
 		"postcss"
-	]
+	],
+	"eslint.format.enable": true
 }
