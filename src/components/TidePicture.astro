@@ -80,5 +80,6 @@ delete attrs['tabindex']
 		:aria-hidden="$store.images.isRevealed(figureEle.dataset.imageId)?'false':'true'"
 		{...attrs}
 	/>
+	<!-- <Picture alt="" src="https://astro.build/_astro/astro-cap.jt5HlOg8_1PlEan.webp" width="300" height="300" /> -->
 	{(caption || title) && <figcaption class="tide-image-figure-caption">{caption || title}</figcaption>}
 </figure>

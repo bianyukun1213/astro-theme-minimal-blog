@@ -7,7 +7,6 @@ import sitemap from '@astrojs/sitemap'
 import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import remarkSandpack from '@lekoarts/remark-sandpack'
 import tailwindcss from '@tailwindcss/vite'
-import { imageService } from '@unpic/astro/service'
 import expressiveCode from 'astro-expressive-code'
 import { defineConfig, fontProviders } from 'astro/config'
 import { toString } from 'hast-util-to-string'
@@ -71,7 +70,8 @@ export default defineConfig({
 		],
 	},
 	image: {
-		service: imageService(),
+		responsiveStyles: true,
+		layout: 'constrained',
 	},
 	i18n: {
 		locales: LOCALES as unknown as string[],

@@ -28,6 +28,9 @@
 			"@types": [
 				"./src/types.ts"
 			],
+			"@generated/*": [
+				"./src/generated/*"
+			],
 			"@paraglide/*": [
 				"./src/paraglide/*"
 			]

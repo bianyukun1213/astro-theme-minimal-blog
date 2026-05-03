@@ -195,16 +195,46 @@ export const label_caution = /** @type {(inputs: Label_CautionInputs) => Localiz
 export const label_danger = /** @type {(inputs: Label_DangerInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`危险`)
 };
-export { label_tide_picture_default_mask } from "./en-US.js"
-export { btn_tide_picture_reveal_title } from "./en-US.js"
-export { btn_pswp_close_title } from "./en-US.js"
-export { btn_pswp_zoom_title } from "./en-US.js"
-export { btn_pswp_arrow_prev_title } from "./en-US.js"
-export { btn_pswp_arrow_next_title } from "./en-US.js"
-export { label_pswp_error_msg } from "./en-US.js"
-export { label_pswp_index_indicator_sep } from "./en-US.js"
-export { btn_pswp_caption_title } from "./en-US.js"
-export { btn_pswp_reveal_title } from "./en-US.js"
+
+export const label_tide_picture_default_mask = /** @type {(inputs: Label_Tide_Picture_Default_MaskInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`已隐藏`)
+};
+
+export const btn_tide_picture_reveal_title = /** @type {(inputs: Btn_Tide_Picture_Reveal_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`点击显示`)
+};
+
+export const btn_pswp_close_title = /** @type {(inputs: Btn_Pswp_Close_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`关闭`)
+};
+
+export const btn_pswp_zoom_title = /** @type {(inputs: Btn_Pswp_Zoom_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`放大`)
+};
+
+export const btn_pswp_arrow_prev_title = /** @type {(inputs: Btn_Pswp_Arrow_Prev_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`上一页`)
+};
+
+export const btn_pswp_arrow_next_title = /** @type {(inputs: Btn_Pswp_Arrow_Next_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`下一页`)
+};
+
+export const label_pswp_error_msg = /** @type {(inputs: Label_Pswp_Error_MsgInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`无法加载图像`)
+};
+
+export const label_pswp_index_indicator_sep = /** @type {(inputs: Label_Pswp_Index_Indicator_SepInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (` / `)
+};
+
+export const btn_pswp_caption_title = /** @type {(inputs: Btn_Pswp_Caption_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`注释`)
+};
+
+export const btn_pswp_reveal_title = /** @type {(inputs: Btn_Pswp_Reveal_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`显示`)
+};
 
 export const tag_general = /** @type {(inputs: Tag_GeneralInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`一般`)

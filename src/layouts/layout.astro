@@ -4,8 +4,11 @@ import Footer from '@components/footer.astro'
 import Header from '@components/header.astro'
 import ThemeIcons from '@components/theme-icons.astro'
 import ThemeProvider from '@components/theme-provider.astro'
+import TideDialogImageViewer from '@components/TideDialogImageViewer.astro'
+import { defaultTheme } from '@generated/tailwindcss'
 import '@styles/global.css'
-import { getLocaleDir, removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import type { TideMeta } from '@types'
+import { getLocaleDir, useTranslations, type Locale } from '@utils'
 import { Font } from 'astro:assets'
 import { ClientRouter } from 'astro:transitions'
 
@@ -36,6 +39,14 @@ const localeFonts = {
 	},
 } as const
 const localeFont = localeFonts[currentLocale as keyof typeof localeFonts] ?? localeFonts.default
+
+const sm = defaultTheme.breakpoints.sm
+const md = defaultTheme.breakpoints.md
+const lg = defaultTheme.breakpoints.lg
+const xl = defaultTheme.breakpoints.xl
+const xxl = defaultTheme.breakpoints['2xl']
+const breakpoints = { sm, md, lg, xl, '2xl': xxl }
+const tideMeta: TideMeta = { breakpoints }
 ---
 
 <!doctype html>
@@ -51,6 +62,7 @@ const localeFont = localeFonts[currentLocale as keyof typeof localeFonts] ?? loc
 		/>
 		<ThemeProvider />
 		<slot name="seo" />
+		<meta name="tide-meta" content={JSON.stringify(tideMeta)} />
 		<script>
 			import type { Locale } from '@paraglide/runtime'
 			import { m } from '@paraglide/messages.js'
@@ -65,6 +77,7 @@ const localeFont = localeFonts[currentLocale as keyof typeof localeFonts] ?? loc
 	<body class="font-(family-name:--font-global) min-h-screen bg-bg text-text">
 		<ClientRouter />
 		<ThemeIcons />
+		<TideDialogImageViewer />
 		<SkipNavLink />
 		<Header />
 		<slot />
