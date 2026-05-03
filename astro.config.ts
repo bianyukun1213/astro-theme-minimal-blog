@@ -14,8 +14,10 @@ import { h, s } from 'hastscript'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeSlug from 'rehype-slug'
+import remarkCollapse from 'remark-collapse'
 import remarkDirective from 'remark-directive'
 import remarkSmartypants from 'remark-smartypants'
+import remarkToc from 'remark-toc'
 import { tailwindResolver } from 'tailwind-resolver/vite'
 import { DEFAULT_LOCALE, LOCALES, SITE } from './src/constants'
 import { remarkAsides } from './src/remark'
@@ -86,7 +88,7 @@ export default defineConfig({
 	},
 	markdown: {
 		// @ts-expect-error: Astro types don't match remark plugin
-		remarkPlugins: [[remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkSandpack, { componentName: ['Playground'] }]],
+		remarkPlugins: [[remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkToc, { heading: '(Table of contents)|目录' }], [remarkCollapse, { test: '(Table of contents)|目录', summary: (str) => { return str } }], [remarkSandpack, { componentName: ['Playground'] }]],
 		rehypePlugins: [
 			rehypeSlug,
 			[
