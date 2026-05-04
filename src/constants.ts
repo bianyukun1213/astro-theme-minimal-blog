@@ -11,7 +11,7 @@ export const LOCALES = locales
 /**
  * Metadata for your site
  */
-export const SITE: Record<string, string> = {
+export const SITE: Record<string, any> = {
 	/**
 	 * Base URL of your site, used in sitemap generation
 	 */
@@ -24,10 +24,9 @@ export const SITE: Record<string, string> = {
 	 * Name of the image inside `public` folder that should be used as a default og:image
 	 */
 	defaultOgImage: '/og-image.png',
-	/**
-	 * Default author slug that gets added to meta tags
-	 */
-	// defaultAuthor: 'hollis',
+	relMe: ['aaa', 'bbb'],
+	relAuthEndpoint: '123',
+	relWebmention: '456',
 }
 
 const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
@@ -36,7 +35,7 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 			slug: 'hollis',
 			name: 'Hollis',
 			photo: 'https://avatars.githubusercontent.com/u/24708556',
-			url: 'https://yukun.bio/',
+			urls: ['https://yukun.bio/'],
 			email: 'bianyukun1213@outlook.com',
 			note: 'I am Hollis.',
 		},
@@ -44,7 +43,7 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 			slug: 'veronika',
 			name: 'Veronika',
 			photo: 'https://avatars.githubusercontent.com/u/24708556',
-			url: 'https://yukun.bio/',
+			urls: ['https://yukun.bio/'],
 			email: 'bianyukun1213@outlook.com',
 			note: 'I am Veronika.',
 		},
@@ -54,7 +53,7 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 			slug: 'hollis',
 			name: 'Hollis',
 			photo: 'https://avatars.githubusercontent.com/u/24708556',
-			url: 'https://yukun.bio/',
+			urls: ['https://yukun.bio/'],
 			email: 'bianyukun1213@outlook.com',
 			note: 'I am Hollis.',
 		},
@@ -62,7 +61,7 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 			slug: 'veronika',
 			name: 'Veronika',
 			photo: 'https://avatars.githubusercontent.com/u/24708556',
-			url: 'https://yukun.bio/',
+			urls: ['https://yukun.bio/'],
 			email: 'bianyukun1213@outlook.com',
 			note: 'I am Veronika.',
 		},
@@ -72,7 +71,7 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 			slug: 'hollis',
 			name: 'Hollis',
 			photo: 'https://avatars.githubusercontent.com/u/24708556',
-			url: 'https://yukun.bio/',
+			urls: ['https://yukun.bio/'],
 			email: 'bianyukun1213@outlook.com',
 			note: 'I am Hollis.',
 		},
@@ -82,7 +81,7 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 			slug: 'hollis',
 			name: 'Hollis',
 			photo: 'https://avatars.githubusercontent.com/u/24708556',
-			url: 'https://yukun.bio/',
+			urls: ['https://yukun.bio/'],
 			email: 'bianyukun1213@outlook.com',
 			note: 'I am Hollis.',
 		},

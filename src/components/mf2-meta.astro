@@ -1,0 +1,75 @@
+---
+import type { InferEntrySchema } from 'astro:content'
+import HCard from './h-card.astro'
+import PLocation from './p-location.astro'
+import type { Author } from '@types'
+import { type PLocation as PLocationType } from '@types'
+
+interface Props {
+	meta: {
+		url: string
+        description: string
+		authors: Author[]
+		datePublished: string
+		dateUpdated: string
+		tagNames: string[]
+		pLocation?: PLocationType
+		uInReplyTo?: string[]
+		uLikeOf?: string[]
+		uRepostOf?: string[]
+		uSyndication?: string[]
+	}
+}
+
+const { meta } = Astro.props
+---
+<div class="hidden">
+<a class="u-url" href={meta.url}>{meta.url}</a>
+<span class="p-summary">{meta.description}</span>
+{
+	meta.authors.map((a) => {
+		return (
+			<HCard
+				hCard={{
+					pName: a.name,
+					uPhoto: a.photo,
+					uUrls: a.urls,
+					uEmail: a.email,
+					pNote: a.note,
+				}},
+				isAuthorCard={true}
+			/>
+		)
+	})
+}
+<time class="dt-published" data-pagefind-meta="published_time" datetime={meta.datePublished}
+	>{meta.datePublished}</time
+>
+<time class="dt-updated" data-pagefind-meta="modified_time" datetime={meta.dateUpdated}>{meta.dateUpdated}</time>
+{
+	meta.tagNames.map((tagName) => {
+		return <span class="p-category">{tagName}</span>
+	})
+}
+{meta.pLocation && <PLocation intent={meta.pLocation.pStreetAddress ? 'h-adr' : 'h-geo'} pLocation={meta.pLocation} />}
+{
+	meta.uInReplyTo && meta.uInReplyTo.map((target) => {
+		return <a class="u-in-reply-to" href={target} target="_blank" rel="noopener noreferrer">{target}</a>
+	})
+}
+{
+	meta.uLikeOf && meta.uLikeOf.map((target) => {
+		return <a class="u-like-of" href={target} target="_blank" rel="noopener noreferrer">{target}</a>
+	})
+}
+{
+	meta.uRepostOf && meta.uRepostOf.map((target) => {
+		return <a class="u-repost-of" href={target} target="_blank" rel="noopener noreferrer">{target}</a>
+	})
+}
+{
+	meta.uSyndication && meta.uSyndication.map((syndication) => {
+		return <a class="u-syndication" href={syndication} target="_blank" rel="noopener noreferrer">{new URL(syndication).hostname}</a>
+	})
+}
+</div>

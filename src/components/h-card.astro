@@ -12,7 +12,13 @@ const { hCard, isAuthorCard } = Astro.props
 <div class:list={['h-card', isAuthorCard ? 'p-author' : '', 'hidden']}>
 	<span class="p-name">{hCard.pName}</span>
 	<img class="u-photo" src={hCard.uPhoto} alt={hCard.pName} />
-	<a class="u-url u-uid" href={hCard.uUrl} target="_blank" rel="noopener noreferrer">{hCard.uUrl}</a>
+	{
+		hCard.uUrls.map((url, index) => (
+			<a class:list={['u-url', index === 0 ? 'u-uid' : '']} href={url} target="_blank" rel="noopener noreferrer">
+				{url}
+			</a>
+		))
+	}
 	<a class="u-email" href={`mailto:${hCard.uEmail}`} target="_blank" rel="noopener noreferrer">{hCard.uEmail}</a>
 	<span class="p-note">{hCard.pNote}</span>
 </div>

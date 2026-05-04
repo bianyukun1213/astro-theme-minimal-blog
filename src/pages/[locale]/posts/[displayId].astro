@@ -12,18 +12,19 @@ import TagLinks from '@components/tag-links.astro'
 import { getAuthors, SITE } from '@constants'
 import Layout from '@layouts/layout.astro'
 import {
-defaultDateFormat,
-getLocaleFromFilePath,
-getLocalizedTagName,
-getPostsByLocale,
-isoDateFormat,
-removeTrailingSlash,
-sortAsc,
-useTranslations,
-type Locale,
+	defaultDateFormat,
+	getLocaleFromFilePath,
+	getLocalizedTagName,
+	getPostsByLocale,
+	isoDateFormat,
+	removeTrailingSlash,
+	sortAsc,
+	useTranslations,
+	type Locale,
 } from '@utils'
 import type { GetStaticPaths } from 'astro'
 import { getCollection, render } from 'astro:content'
+import Mf2Meta from '@components/mf2-meta.astro'
 
 export const getStaticPaths = (async () => {
 	const allPosts = await getCollection('blog')
@@ -94,10 +95,7 @@ Astro.locals.localesOverride = allPosts
 		<!-- <meta name="twitter:data1" data-pagefind-meta="author" value={postAuthors.map((author) => author.name).join(',')} /> -->
 		<meta name="twitter:data1" value={postAuthors.map((author) => author.name).join(', ')} />
 		<meta name="twitter:label2" value={m.label_tags()} />
-		<meta
-			name="twitter:data2"
-			value={tagNames.join(', ')}
-		/>
+		<meta name="twitter:data2" value={tagNames.join(', ')} />
 		<meta name="article:published_time" content={datePublished} />
 		<meta name="article:modified_time" content={dateModified} />
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -109,57 +107,24 @@ Astro.locals.localesOverride = allPosts
 			<div class="text-faded">
 				{defaultDateFormat(postData.date, currentLocale)} — <TagLinks slugs={postData.tags} />
 			</div>
-			<a class="u-url hidden" href={url}>{url}</a>
-			<span class="p-summary hidden">{description}</span>
-			{
-				authors.map((a) => {
-					return (
-						<HCard
-							hCard={{
-								pName: a.name,
-								uPhoto: a.photo,
-								uUrl: a.url,
-								uEmail: a.email,
-								pNote: a.note,
-							}},
-							isAuthorCard={true}
-						/>
-					)
-				})
-			}
-			<time class="dt-published hidden" data-pagefind-meta="published_time" datetime={datePublished}
-				>{datePublished}</time
-			>
-			<time class="dt-updated hidden" data-pagefind-meta="modified_time" datetime={dateModified}>{dateModified}</time>
-			{
-				tagNames.map((tagName) => {
-					return <span class="p-category hidden">{tagName}</span>
-				})
-			}
-			{postData.pLocation && <PLocation intent={postData.pLocation.pStreetAddress ? 'h-adr' : 'h-geo'} pLocation={postData.pLocation} />}
-			{
-				postData.uInReplyTo && postData.uInReplyTo.map((target) => {
-					return <a class="u-in-reply-to hidden" href={target} target="_blank" rel="noopener noreferrer">{target}</a>
-				})
-			}
-			{
-				postData.uLikeOf && postData.uLikeOf.map((target) => {
-					return <a class="u-like-of hidden" href={target} target="_blank" rel="noopener noreferrer">{target}</a>
-				})
-			}
-			{
-				postData.uRepostOf && postData.uRepostOf.map((target) => {
-					return <a class="u-repost-of hidden" href={target} target="_blank" rel="noopener noreferrer">{target}</a>
-				})
-			}
-			{
-				postData.uSyndication && postData.uSyndication.map((syndication) => {
-					return <a class="u-syndication hidden" href={syndication} target="_blank" rel="noopener noreferrer">{new URL(syndication).hostname}</a>
-				})
-			}
+			<Mf2Meta
+				meta={{
+					url: url.toString(),
+					description,
+					authors: postAuthors,
+					datePublished,
+					dateUpdated: dateModified,
+					tagNames,
+					pLocation: postData.pLocation,
+					uInReplyTo: postData.uInReplyTo,
+					uLikeOf: postData.uLikeOf,
+					uRepostOf: postData.uRepostOf,
+					uSyndication: postData.uSyndication,
+				}}
+			/>
 			<Spacer axis="vertical" size={12} />
 			<Content components={{ Aside, Playground }} />
+			<PostNavigation previousPost={previousPost} nextPost={nextPost} />
 		</Prose>
-		<PostNavigation previousPost={previousPost} nextPost={nextPost} />
 	</SkipNavContent>
 </Layout>

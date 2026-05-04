@@ -16,7 +16,7 @@ export const AuthorSchema = z.object({
 	slug: z.string(),
 	name: z.string(),
 	photo: z.url(),
-	url: z.url(),
+	urls: z.array(z.url()),
 	email: z.email(),
 	note: z.string(),
 })
@@ -31,7 +31,7 @@ export interface Header {
 export const HCardSchema = z.object({
 	pName: z.string(),
 	uPhoto: z.url(),
-	uUrl: z.url(),
+	uUrls: z.array(z.url()),
 	uEmail: z.email(),
 	pNote: z.string(),
 })

@@ -5,6 +5,7 @@ import Header from '@components/header.astro'
 import ThemeIcons from '@components/theme-icons.astro'
 import ThemeProvider from '@components/theme-provider.astro'
 import TideDialogImageViewer from '@components/tide-dialog-image-viewer.astro'
+import { SITE } from '@constants'
 import { defaultTheme } from '@generated/tailwindcss'
 import '@styles/global.css'
 import type { TideMeta } from '@types'
@@ -55,6 +56,9 @@ const tideMeta: TideMeta = { breakpoints }
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={m.site_favicon()} />
+		{Array.isArray(SITE.relMe) ? SITE.relMe.map((rel) => <link rel="me" href={rel} />) : null}
+		{SITE.relAuthEndpoint && <link rel="authorization_endpoint" href={SITE.relAuthEndpoint} />}
+		{SITE.relWebmention && <link rel="webmention" href={SITE.relWebmention} />}
 		<meta name="generator" content={Astro.generator} />
 		<Font
 			cssVariable={localeFont.cssVariable}

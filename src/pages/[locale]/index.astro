@@ -1,12 +1,13 @@
 ---
 import { Content as Hero } from '@assets/hero.mdx'
 import SkipNavContent from '@components/a11y/skip-nav-content.astro'
+import HCard from '@components/h-card.astro'
 import Link from '@components/link.astro'
 import PostListItem from '@components/post-list-item.astro'
 import Prose from '@components/prose.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
-import { LOCALES, POSTS_PER_PAGE } from '@constants'
+import { getAuthors, LOCALES, POSTS_PER_PAGE } from '@constants'
 import Layout from '@layouts/layout.astro'
 import { getPostsByLocale, removeTrailingSlash, sortAsc, useTranslations, type Locale } from '@utils'
 import type { GetStaticPaths } from 'astro'
@@ -45,12 +46,25 @@ const slash = trailingSlash === 'never' ? '' : '/'
 
 const allPost = await getCollection('blog')
 const posts = sortAsc(getPostsByLocale(allPost, currentLocale)).slice(0, POSTS_PER_PAGE)
+
+const defaultAuthor = getAuthors(currentLocale)[0]
 ---
 
 <Layout>
 	<Seo slot="seo" />
 	<SkipNavContent>
 		<h1 class="sr-only">{m.site_title()}</h1>
+		<HCard
+			hCard={{
+				pName: defaultAuthor.name,
+				uPhoto: defaultAuthor.photo,
+				uUrls: defaultAuthor.urls,
+				uEmail: defaultAuthor.email,
+				pNote: defaultAuthor.note,
+			}}
+			,
+			isAuthorCard={true}
+		/>
 		<Prose>
 			<Hero />
 		</Prose>
