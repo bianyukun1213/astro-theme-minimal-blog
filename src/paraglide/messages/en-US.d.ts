@@ -17,16 +17,17 @@
 /** @typedef {{ tagName: NonNullable<unknown> }} Label_Tag_TagnameInputs */
 /** @typedef {{ tagName: NonNullable<unknown>, pageNum: NonNullable<unknown> }} Label_Tag_Tagname_PagenumInputs */
 /** @typedef {{}} Label_AuthorsInputs */
-/** @typedef {{}} Label_Skip_To_ContentInputs */
-/** @typedef {{}} Label_Rss_FeedInputs */
-/** @typedef {{}} Label_Keep_ReadingInputs */
-/** @typedef {{ siteTitle: NonNullable<unknown> }} Label_Back_To_HomeInputs */
+/** @typedef {{}} Btn_Skip_To_Content_TitleInputs */
+/** @typedef {{}} Btn_Rss_Feed_TitleInputs */
+/** @typedef {{}} Btn_Keep_Reading_TitleInputs */
+/** @typedef {{ siteTitle: NonNullable<unknown> }} Btn_Back_To_Home_TitleInputs */
 /** @typedef {{}} Label_Primary_NavigationInputs */
 /** @typedef {{}} Label_Posts_PaginationInputs */
-/** @typedef {{}} Label_Previous_PageInputs */
-/** @typedef {{}} Label_Next_PageInputs */
+/** @typedef {{}} Btn_Previous_Page_TitleInputs */
+/** @typedef {{}} Btn_Next_Page_TitleInputs */
 /** @typedef {{}} Label_Select_ThemeInputs */
 /** @typedef {{}} Label_Select_LanguageInputs */
+/** @typedef {{}} Btn_Expand_Toc_TitleInputs */
 /** @typedef {{}} Label_LightInputs */
 /** @typedef {{}} Label_DarkInputs */
 /** @typedef {{}} Label_AutoInputs */
@@ -71,16 +72,17 @@ export const label_tags_tagname_count: (inputs: Label_Tags_Tagname_CountInputs) 
 export const label_tag_tagname: (inputs: Label_Tag_TagnameInputs) => LocalizedString;
 export const label_tag_tagname_pagenum: (inputs: Label_Tag_Tagname_PagenumInputs) => LocalizedString;
 export const label_authors: (inputs: Label_AuthorsInputs) => LocalizedString;
-export const label_skip_to_content: (inputs: Label_Skip_To_ContentInputs) => LocalizedString;
-export const label_rss_feed: (inputs: Label_Rss_FeedInputs) => LocalizedString;
-export const label_keep_reading: (inputs: Label_Keep_ReadingInputs) => LocalizedString;
-export const label_back_to_home: (inputs: Label_Back_To_HomeInputs) => LocalizedString;
+export const btn_skip_to_content_title: (inputs: Btn_Skip_To_Content_TitleInputs) => LocalizedString;
+export const btn_rss_feed_title: (inputs: Btn_Rss_Feed_TitleInputs) => LocalizedString;
+export const btn_keep_reading_title: (inputs: Btn_Keep_Reading_TitleInputs) => LocalizedString;
+export const btn_back_to_home_title: (inputs: Btn_Back_To_Home_TitleInputs) => LocalizedString;
 export const label_primary_navigation: (inputs: Label_Primary_NavigationInputs) => LocalizedString;
 export const label_posts_pagination: (inputs: Label_Posts_PaginationInputs) => LocalizedString;
-export const label_previous_page: (inputs: Label_Previous_PageInputs) => LocalizedString;
-export const label_next_page: (inputs: Label_Next_PageInputs) => LocalizedString;
+export const btn_previous_page_title: (inputs: Btn_Previous_Page_TitleInputs) => LocalizedString;
+export const btn_next_page_title: (inputs: Btn_Next_Page_TitleInputs) => LocalizedString;
 export const label_select_theme: (inputs: Label_Select_ThemeInputs) => LocalizedString;
 export const label_select_language: (inputs: Label_Select_LanguageInputs) => LocalizedString;
+export const btn_expand_toc_title: (inputs: Btn_Expand_Toc_TitleInputs) => LocalizedString;
 export const label_light: (inputs: Label_LightInputs) => LocalizedString;
 export const label_dark: (inputs: Label_DarkInputs) => LocalizedString;
 export const label_auto: (inputs: Label_AutoInputs) => LocalizedString;
@@ -138,18 +140,19 @@ export type Label_Tag_Tagname_PagenumInputs = {
     pageNum: NonNullable<unknown>;
 };
 export type Label_AuthorsInputs = {};
-export type Label_Skip_To_ContentInputs = {};
-export type Label_Rss_FeedInputs = {};
-export type Label_Keep_ReadingInputs = {};
-export type Label_Back_To_HomeInputs = {
+export type Btn_Skip_To_Content_TitleInputs = {};
+export type Btn_Rss_Feed_TitleInputs = {};
+export type Btn_Keep_Reading_TitleInputs = {};
+export type Btn_Back_To_Home_TitleInputs = {
     siteTitle: NonNullable<unknown>;
 };
 export type Label_Primary_NavigationInputs = {};
 export type Label_Posts_PaginationInputs = {};
-export type Label_Previous_PageInputs = {};
-export type Label_Next_PageInputs = {};
+export type Btn_Previous_Page_TitleInputs = {};
+export type Btn_Next_Page_TitleInputs = {};
 export type Label_Select_ThemeInputs = {};
 export type Label_Select_LanguageInputs = {};
+export type Btn_Expand_Toc_TitleInputs = {};
 export type Label_LightInputs = {};
 export type Label_DarkInputs = {};
 export type Label_AutoInputs = {};

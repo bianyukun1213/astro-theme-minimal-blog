@@ -27,6 +27,7 @@ export const SITE: Record<string, any> = {
 	relMe: ['aaa', 'bbb'],
 	relAuthEndpoint: '123',
 	relWebmention: '456',
+	tocHeading: '(Table of contents)|目录',
 }
 
 const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {

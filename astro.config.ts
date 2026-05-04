@@ -88,7 +88,7 @@ export default defineConfig({
 	},
 	markdown: {
 		// @ts-expect-error: Astro types don't match remark plugin
-		remarkPlugins: [[remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkToc, { heading: '(Table of contents)|目录' }], [remarkCollapse, { test: '(Table of contents)|目录', summary: (str) => { return str } }], [remarkSandpack, { componentName: ['Playground'] }]],
+		remarkPlugins: [[remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkToc, { heading: SITE.tocHeading }], [remarkCollapse, { test: SITE.tocHeading, summary: 'btn_expand_toc_title' }], [remarkSandpack, { componentName: ['Playground'] }]],
 		rehypePlugins: [
 			rehypeSlug,
 			[
@@ -97,7 +97,6 @@ export default defineConfig({
                 	target: '_blank',
                 	rel: ['nofollow'],
                 	properties: { className: ['external_link'] },
-                	contentProperties: { className: ['sr-only'] },
                 } satisfies ExternalLinkOptions,
 			],
 			[

@@ -1,6 +1,6 @@
 ---
 import { getHeader } from '@constants'
-import { removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import { cn, removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 import LangSelect from './lang-select.astro'
 import Link from './link.astro'
@@ -24,7 +24,7 @@ const header = getHeader(currentLocale)
 			<a
 				class="font-semibold text-xl md:text-2xl lg:text-3xl text-highlight"
 				href={`${removeTrailingSlash(base)}/${currentLocale}${slash}`}
-				aria-label={m.label_back_to_home({ siteTitle: m.site_title() })}>{m.site_title()}</a
+				aria-label={m.btn_back_to_home_title({ siteTitle: m.site_title() })}>{m.site_title()}</a
 			>
 		</div>
 		<Search />
@@ -36,7 +36,7 @@ const header = getHeader(currentLocale)
 				header.internal.map((link) => (
 					<Link
 						href={link.url}
-						class={pathname === link.url ? 'active' : ''}
+						class={cn(pathname === link.url && 'active')}
 						aria-current={pathname === link.url ? 'page' : 'false'}
 					>
 						{link.title}

@@ -1,3 +1,5 @@
+import type { Locale } from '@utils'
+import { useTranslations } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 import { defineMiddleware, sequence } from 'astro:middleware'
 
@@ -11,6 +13,22 @@ export const resRedirect = defineMiddleware((context, next) => {
 		return context.rewrite(`${pathname}/`)
 	}
 	return next()
+})
+
+export const tocHeadingProcessor = defineMiddleware(async (context, next) => {
+	const response = await next()
+	// 确保我们只处理 HTML 页面
+	if (response.headers.get('content-type')?.includes('text/html')) {
+		const currentLocale = context.currentLocale as Locale
+		const m = useTranslations(currentLocale)
+		let html = await response.text()
+		html = html.replace('btn_expand_toc_title', m.btn_expand_toc_title())
+		return new Response(html, {
+			status: response.status,
+			headers: response.headers,
+		})
+	}
+	return response
 })
 
 export const imageProcessor = defineMiddleware(async (context, next) => {
@@ -35,4 +53,4 @@ export const imageProcessor = defineMiddleware(async (context, next) => {
 	return response
 })
 
-export const onRequest = sequence(resRedirect, imageProcessor)
+export const onRequest = sequence(resRedirect, tocHeadingProcessor, imageProcessor)

@@ -20,16 +20,17 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{ tagName: NonNullable<unknown> }} Label_Tag_TagnameInputs */
 /** @typedef {{ tagName: NonNullable<unknown>, pageNum: NonNullable<unknown> }} Label_Tag_Tagname_PagenumInputs */
 /** @typedef {{}} Label_AuthorsInputs */
-/** @typedef {{}} Label_Skip_To_ContentInputs */
-/** @typedef {{}} Label_Rss_FeedInputs */
-/** @typedef {{}} Label_Keep_ReadingInputs */
-/** @typedef {{ siteTitle: NonNullable<unknown> }} Label_Back_To_HomeInputs */
+/** @typedef {{}} Btn_Skip_To_Content_TitleInputs */
+/** @typedef {{}} Btn_Rss_Feed_TitleInputs */
+/** @typedef {{}} Btn_Keep_Reading_TitleInputs */
+/** @typedef {{ siteTitle: NonNullable<unknown> }} Btn_Back_To_Home_TitleInputs */
 /** @typedef {{}} Label_Primary_NavigationInputs */
 /** @typedef {{}} Label_Posts_PaginationInputs */
-/** @typedef {{}} Label_Previous_PageInputs */
-/** @typedef {{}} Label_Next_PageInputs */
+/** @typedef {{}} Btn_Previous_Page_TitleInputs */
+/** @typedef {{}} Btn_Next_Page_TitleInputs */
 /** @typedef {{}} Label_Select_ThemeInputs */
 /** @typedef {{}} Label_Select_LanguageInputs */
+/** @typedef {{}} Btn_Expand_Toc_TitleInputs */
 /** @typedef {{}} Label_LightInputs */
 /** @typedef {{}} Label_DarkInputs */
 /** @typedef {{}} Label_AutoInputs */
@@ -353,64 +354,64 @@ export const label_authors = /** @type {((inputs?: Label_AuthorsInputs, options?
 * | --- |
 * | "Skip to content" |
 *
-* @param {Label_Skip_To_ContentInputs} inputs
+* @param {Btn_Skip_To_Content_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_skip_to_content = /** @type {((inputs?: Label_Skip_To_ContentInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Skip_To_ContentInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+export const btn_skip_to_content_title = /** @type {((inputs?: Btn_Skip_To_Content_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Skip_To_Content_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_skip_to_content(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_skip_to_content(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_skip_to_content(inputs)
-	return __he_il2.label_skip_to_content(inputs)
+	if (locale === "en-US") return __en_us2.btn_skip_to_content_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_skip_to_content_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_skip_to_content_title(inputs)
+	return __he_il2.btn_skip_to_content_title(inputs)
 });
 /**
 * | output |
 * | --- |
 * | "RSS feed" |
 *
-* @param {Label_Rss_FeedInputs} inputs
+* @param {Btn_Rss_Feed_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_rss_feed = /** @type {((inputs?: Label_Rss_FeedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Rss_FeedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+export const btn_rss_feed_title = /** @type {((inputs?: Btn_Rss_Feed_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Rss_Feed_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_rss_feed(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_rss_feed(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_rss_feed(inputs)
-	return __he_il2.label_rss_feed(inputs)
+	if (locale === "en-US") return __en_us2.btn_rss_feed_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_rss_feed_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_rss_feed_title(inputs)
+	return __he_il2.btn_rss_feed_title(inputs)
 });
 /**
 * | output |
 * | --- |
 * | "Keep reading" |
 *
-* @param {Label_Keep_ReadingInputs} inputs
+* @param {Btn_Keep_Reading_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_keep_reading = /** @type {((inputs?: Label_Keep_ReadingInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Keep_ReadingInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+export const btn_keep_reading_title = /** @type {((inputs?: Btn_Keep_Reading_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Keep_Reading_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_keep_reading(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_keep_reading(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_keep_reading(inputs)
-	return __he_il2.label_keep_reading(inputs)
+	if (locale === "en-US") return __en_us2.btn_keep_reading_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_keep_reading_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_keep_reading_title(inputs)
+	return __he_il2.btn_keep_reading_title(inputs)
 });
 /**
 * | output |
 * | --- |
 * | "{siteTitle} - Back to home" |
 *
-* @param {Label_Back_To_HomeInputs} inputs
+* @param {Btn_Back_To_Home_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_back_to_home = /** @type {((inputs: Label_Back_To_HomeInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Back_To_HomeInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs, options = {}) => {
+export const btn_back_to_home_title = /** @type {((inputs: Btn_Back_To_Home_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Back_To_Home_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_back_to_home(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_back_to_home(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_back_to_home(inputs)
-	return __he_il2.label_back_to_home(inputs)
+	if (locale === "en-US") return __en_us2.btn_back_to_home_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_back_to_home_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_back_to_home_title(inputs)
+	return __he_il2.btn_back_to_home_title(inputs)
 });
 /**
 * | output |
@@ -449,32 +450,32 @@ export const label_posts_pagination = /** @type {((inputs?: Label_Posts_Paginati
 * | --- |
 * | "Previous" |
 *
-* @param {Label_Previous_PageInputs} inputs
+* @param {Btn_Previous_Page_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_previous_page = /** @type {((inputs?: Label_Previous_PageInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Previous_PageInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+export const btn_previous_page_title = /** @type {((inputs?: Btn_Previous_Page_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Previous_Page_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_previous_page(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_previous_page(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_previous_page(inputs)
-	return __he_il2.label_previous_page(inputs)
+	if (locale === "en-US") return __en_us2.btn_previous_page_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_previous_page_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_previous_page_title(inputs)
+	return __he_il2.btn_previous_page_title(inputs)
 });
 /**
 * | output |
 * | --- |
 * | "Next" |
 *
-* @param {Label_Next_PageInputs} inputs
+* @param {Btn_Next_Page_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_next_page = /** @type {((inputs?: Label_Next_PageInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Next_PageInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+export const btn_next_page_title = /** @type {((inputs?: Btn_Next_Page_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Next_Page_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_next_page(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_next_page(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_next_page(inputs)
-	return __he_il2.label_next_page(inputs)
+	if (locale === "en-US") return __en_us2.btn_next_page_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_next_page_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_next_page_title(inputs)
+	return __he_il2.btn_next_page_title(inputs)
 });
 /**
 * | output |
@@ -507,6 +508,22 @@ export const label_select_language = /** @type {((inputs?: Label_Select_Language
 	if (locale === "zh-CN") return __zh_cn2.label_select_language(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_select_language(inputs)
 	return __he_il2.label_select_language(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Expand table of contents" |
+*
+* @param {Btn_Expand_Toc_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_expand_toc_title = /** @type {((inputs?: Btn_Expand_Toc_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Expand_Toc_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_expand_toc_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_expand_toc_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_expand_toc_title(inputs)
+	return __he_il2.btn_expand_toc_title(inputs)
 });
 /**
 * | output |

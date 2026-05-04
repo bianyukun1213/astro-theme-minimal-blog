@@ -255,13 +255,13 @@ export const label_authors: ((inputs?: Label_AuthorsInputs, options?: {
 * | --- |
 * | "Skip to content" |
 *
-* @param {Label_Skip_To_ContentInputs} inputs
+* @param {Btn_Skip_To_Content_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_skip_to_content: ((inputs?: Label_Skip_To_ContentInputs, options?: {
+export const btn_skip_to_content_title: ((inputs?: Btn_Skip_To_Content_TitleInputs, options?: {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Skip_To_ContentInputs, {
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Skip_To_Content_TitleInputs, {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 /**
@@ -269,13 +269,13 @@ export const label_skip_to_content: ((inputs?: Label_Skip_To_ContentInputs, opti
 * | --- |
 * | "RSS feed" |
 *
-* @param {Label_Rss_FeedInputs} inputs
+* @param {Btn_Rss_Feed_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_rss_feed: ((inputs?: Label_Rss_FeedInputs, options?: {
+export const btn_rss_feed_title: ((inputs?: Btn_Rss_Feed_TitleInputs, options?: {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Rss_FeedInputs, {
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Rss_Feed_TitleInputs, {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 /**
@@ -283,13 +283,13 @@ export const label_rss_feed: ((inputs?: Label_Rss_FeedInputs, options?: {
 * | --- |
 * | "Keep reading" |
 *
-* @param {Label_Keep_ReadingInputs} inputs
+* @param {Btn_Keep_Reading_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_keep_reading: ((inputs?: Label_Keep_ReadingInputs, options?: {
+export const btn_keep_reading_title: ((inputs?: Btn_Keep_Reading_TitleInputs, options?: {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Keep_ReadingInputs, {
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Keep_Reading_TitleInputs, {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 /**
@@ -297,13 +297,13 @@ export const label_keep_reading: ((inputs?: Label_Keep_ReadingInputs, options?: 
 * | --- |
 * | "{siteTitle} - Back to home" |
 *
-* @param {Label_Back_To_HomeInputs} inputs
+* @param {Btn_Back_To_Home_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_back_to_home: ((inputs: Label_Back_To_HomeInputs, options?: {
+export const btn_back_to_home_title: ((inputs: Btn_Back_To_Home_TitleInputs, options?: {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Back_To_HomeInputs, {
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Back_To_Home_TitleInputs, {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 /**
@@ -339,13 +339,13 @@ export const label_posts_pagination: ((inputs?: Label_Posts_PaginationInputs, op
 * | --- |
 * | "Previous" |
 *
-* @param {Label_Previous_PageInputs} inputs
+* @param {Btn_Previous_Page_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_previous_page: ((inputs?: Label_Previous_PageInputs, options?: {
+export const btn_previous_page_title: ((inputs?: Btn_Previous_Page_TitleInputs, options?: {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Previous_PageInputs, {
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Previous_Page_TitleInputs, {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 /**
@@ -353,13 +353,13 @@ export const label_previous_page: ((inputs?: Label_Previous_PageInputs, options?
 * | --- |
 * | "Next" |
 *
-* @param {Label_Next_PageInputs} inputs
+* @param {Btn_Next_Page_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_next_page: ((inputs?: Label_Next_PageInputs, options?: {
+export const btn_next_page_title: ((inputs?: Btn_Next_Page_TitleInputs, options?: {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Next_PageInputs, {
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Next_Page_TitleInputs, {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 /**
@@ -388,6 +388,20 @@ export const label_select_theme: ((inputs?: Label_Select_ThemeInputs, options?: 
 export const label_select_language: ((inputs?: Label_Select_LanguageInputs, options?: {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Select_LanguageInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Expand table of contents" |
+*
+* @param {Btn_Expand_Toc_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_expand_toc_title: ((inputs?: Btn_Expand_Toc_TitleInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Expand_Toc_TitleInputs, {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 /**
@@ -785,18 +799,19 @@ export type Label_Tag_Tagname_PagenumInputs = {
     pageNum: NonNullable<unknown>;
 };
 export type Label_AuthorsInputs = {};
-export type Label_Skip_To_ContentInputs = {};
-export type Label_Rss_FeedInputs = {};
-export type Label_Keep_ReadingInputs = {};
-export type Label_Back_To_HomeInputs = {
+export type Btn_Skip_To_Content_TitleInputs = {};
+export type Btn_Rss_Feed_TitleInputs = {};
+export type Btn_Keep_Reading_TitleInputs = {};
+export type Btn_Back_To_Home_TitleInputs = {
     siteTitle: NonNullable<unknown>;
 };
 export type Label_Primary_NavigationInputs = {};
 export type Label_Posts_PaginationInputs = {};
-export type Label_Previous_PageInputs = {};
-export type Label_Next_PageInputs = {};
+export type Btn_Previous_Page_TitleInputs = {};
+export type Btn_Next_Page_TitleInputs = {};
 export type Label_Select_ThemeInputs = {};
 export type Label_Select_LanguageInputs = {};
+export type Btn_Expand_Toc_TitleInputs = {};
 export type Label_LightInputs = {};
 export type Label_DarkInputs = {};
 export type Label_AutoInputs = {};

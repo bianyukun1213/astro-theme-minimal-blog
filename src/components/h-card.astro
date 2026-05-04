@@ -1,5 +1,6 @@
 ---
 import type { HCard as HCardType } from '@types'
+import { cn } from '@utils'
 
 interface Props {
 	hCard: HCardType
@@ -9,12 +10,12 @@ interface Props {
 const { hCard, isAuthorCard } = Astro.props
 ---
 
-<div class:list={['h-card', isAuthorCard ? 'p-author' : '', 'hidden']}>
+<div class={cn('h-card', isAuthorCard && 'p-author', 'hidden')}>
 	<span class="p-name">{hCard.pName}</span>
 	<img class="u-photo" src={hCard.uPhoto} alt={hCard.pName} />
 	{
 		hCard.uUrls.map((url, index) => (
-			<a class:list={['u-url', index === 0 ? 'u-uid' : '']} href={url} target="_blank" rel="noopener noreferrer">
+			<a class={cn('u-url', index === 0 && 'u-uid')} href={url} target="_blank" rel="noopener noreferrer">
 				{url}
 			</a>
 		))

@@ -16,6 +16,6 @@ const styleVariants: Record<Variant, string> = {
 ---
 
 <a
-	class:list={[styleVariants[variant], ' underline-offset-2 hover:underline-offset-4 hover:text-highlight', className]}
+	class:list={[styleVariants[variant], 'hover:underline hover:underline-offset-4 hover:text-highlight', className]}
 	{...rest}><slot /></a
 >

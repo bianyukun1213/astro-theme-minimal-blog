@@ -18,16 +18,17 @@
 /** @typedef {{ tagName: NonNullable<unknown> }} Label_Tag_TagnameInputs */
 /** @typedef {{ tagName: NonNullable<unknown>, pageNum: NonNullable<unknown> }} Label_Tag_Tagname_PagenumInputs */
 /** @typedef {{}} Label_AuthorsInputs */
-/** @typedef {{}} Label_Skip_To_ContentInputs */
-/** @typedef {{}} Label_Rss_FeedInputs */
-/** @typedef {{}} Label_Keep_ReadingInputs */
-/** @typedef {{ siteTitle: NonNullable<unknown> }} Label_Back_To_HomeInputs */
+/** @typedef {{}} Btn_Skip_To_Content_TitleInputs */
+/** @typedef {{}} Btn_Rss_Feed_TitleInputs */
+/** @typedef {{}} Btn_Keep_Reading_TitleInputs */
+/** @typedef {{ siteTitle: NonNullable<unknown> }} Btn_Back_To_Home_TitleInputs */
 /** @typedef {{}} Label_Primary_NavigationInputs */
 /** @typedef {{}} Label_Posts_PaginationInputs */
-/** @typedef {{}} Label_Previous_PageInputs */
-/** @typedef {{}} Label_Next_PageInputs */
+/** @typedef {{}} Btn_Previous_Page_TitleInputs */
+/** @typedef {{}} Btn_Next_Page_TitleInputs */
 /** @typedef {{}} Label_Select_ThemeInputs */
 /** @typedef {{}} Label_Select_LanguageInputs */
+/** @typedef {{}} Btn_Expand_Toc_TitleInputs */
 /** @typedef {{}} Label_LightInputs */
 /** @typedef {{}} Label_DarkInputs */
 /** @typedef {{}} Label_AutoInputs */
@@ -128,19 +129,19 @@ export const label_authors = /** @type {(inputs: Label_AuthorsInputs) => Localiz
 	return /** @type {LocalizedString} */ (`Authors`)
 };
 
-export const label_skip_to_content = /** @type {(inputs: Label_Skip_To_ContentInputs) => LocalizedString} */ () => {
+export const btn_skip_to_content_title = /** @type {(inputs: Btn_Skip_To_Content_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Skip to content`)
 };
 
-export const label_rss_feed = /** @type {(inputs: Label_Rss_FeedInputs) => LocalizedString} */ () => {
+export const btn_rss_feed_title = /** @type {(inputs: Btn_Rss_Feed_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`RSS feed`)
 };
 
-export const label_keep_reading = /** @type {(inputs: Label_Keep_ReadingInputs) => LocalizedString} */ () => {
+export const btn_keep_reading_title = /** @type {(inputs: Btn_Keep_Reading_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Keep reading`)
 };
 
-export const label_back_to_home = /** @type {(inputs: Label_Back_To_HomeInputs) => LocalizedString} */ (i) => {
+export const btn_back_to_home_title = /** @type {(inputs: Btn_Back_To_Home_TitleInputs) => LocalizedString} */ (i) => {
 	return /** @type {LocalizedString} */ (`${i?.siteTitle} - Back to home`)
 };
 
@@ -152,11 +153,11 @@ export const label_posts_pagination = /** @type {(inputs: Label_Posts_Pagination
 	return /** @type {LocalizedString} */ (`Posts pagination`)
 };
 
-export const label_previous_page = /** @type {(inputs: Label_Previous_PageInputs) => LocalizedString} */ () => {
+export const btn_previous_page_title = /** @type {(inputs: Btn_Previous_Page_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Previous`)
 };
 
-export const label_next_page = /** @type {(inputs: Label_Next_PageInputs) => LocalizedString} */ () => {
+export const btn_next_page_title = /** @type {(inputs: Btn_Next_Page_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Next`)
 };
 
@@ -166,6 +167,10 @@ export const label_select_theme = /** @type {(inputs: Label_Select_ThemeInputs) 
 
 export const label_select_language = /** @type {(inputs: Label_Select_LanguageInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Select language`)
+};
+
+export const btn_expand_toc_title = /** @type {(inputs: Btn_Expand_Toc_TitleInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Expand table of contents`)
 };
 
 export const label_light = /** @type {(inputs: Label_LightInputs) => LocalizedString} */ () => {

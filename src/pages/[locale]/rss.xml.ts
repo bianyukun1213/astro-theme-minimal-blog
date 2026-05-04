@@ -16,7 +16,7 @@ const slash = trailingSlash === 'never' ? '' : '/'
 
 function generateContent(description: string, link: string, locale: Locale) {
 	const m = useTranslations(locale)
-	return `<p>${description}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${new URL(`${removeTrailingSlash(base)}/${locale}/posts/${link}${slash}`, SITE.url)}">${m.label_keep_reading()}</a></strong></div>`
+	return `<p>${description}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${new URL(`${removeTrailingSlash(base)}/${locale}/posts/${link}${slash}`, SITE.url)}">${m.btn_keep_reading_title()}</a></strong></div>`
 }
 
 // bug，使用动态路由和 trailingSlash: always 时，生成的路由末尾带 /。
