@@ -2,23 +2,23 @@
 @plugin '@tailwindcss/typography';
 
 html {
-	--font-global: var(--font-noto-serif);
+	--default-font-family: var(--font-noto-serif), serif;
 }
 
 html[lang='en-US'] {
-	--font-global: var(--font-noto-serif);
+	--default-font-family: var(--font-noto-serif), serif;
 }
 
 html[lang='zh-CN'] {
-	--font-global: var(--font-noto-serif-sc);
+	--default-font-family: var(--font-noto-serif), var(--font-noto-serif-sc), serif;
 }
 
 html[lang='ru-RU'] {
-	--font-global: var(--font-noto-serif);
+	--default-font-family: var(--font-noto-serif), serif;
 }
 
 html[lang='he-IL'] {
-	--font-global: var(--font-noto-serif-hebrew);
+	--default-font-family: var(--font-noto-serif), var(--font-noto-serif-hebrew), serif;
 }
 
 @theme {

@@ -20,7 +20,7 @@ const m = useTranslations(currentLocale)
 const localeFonts = {
 	default: {
 		cssVariable: '--font-noto-serif',
-		preload: false,
+		preload: true,
 	},
 	'en-US': {
 		cssVariable: '--font-noto-serif',
@@ -60,6 +60,7 @@ const tideMeta: TideMeta = { breakpoints }
 		{SITE.relAuthEndpoint && <link rel="authorization_endpoint" href={SITE.relAuthEndpoint} />}
 		{SITE.relWebmention && <link rel="webmention" href={SITE.relWebmention} />}
 		<meta name="generator" content={Astro.generator} />
+		<Font cssVariable={localeFonts.default.cssVariable} preload={localeFonts.default.preload} />
 		<Font
 			cssVariable={localeFont.cssVariable}
 			preload={Array.isArray(localeFont.preload) ? [...localeFont.preload] : false}
@@ -78,7 +79,7 @@ const tideMeta: TideMeta = { breakpoints }
 			window.setLocale(document.documentElement.lang as Locale)
 		</script>
 	</head>
-	<body class="font-(family-name:--font-global) min-h-screen bg-bg text-text">
+	<body class="min-h-screen bg-bg text-text">
 		<ClientRouter />
 		<ThemeIcons />
 		<TideDialogImageViewer />

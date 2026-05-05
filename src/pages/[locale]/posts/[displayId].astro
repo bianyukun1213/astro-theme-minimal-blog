@@ -12,6 +12,7 @@ import TagLinks from '@components/tag-links.astro'
 import { getAuthors, SITE } from '@constants'
 import Layout from '@layouts/layout.astro'
 import {
+	cn,
 	defaultDateFormat,
 	getLocaleFromFilePath,
 	getLocalizedTagName,
@@ -105,7 +106,9 @@ Astro.locals.localesOverride = allPosts
 			<h1 class="p-name mb-0!" data-pagefind-meta="title">{title}</h1>
 			<Spacer axis="vertical" size={4} />
 			<div class="text-faded">
-				<span>{defaultDateFormat(postData.date, currentLocale)} — </span><TagLinks slugs={postData.tags} />
+				<div><span>{defaultDateFormat(postData.date, currentLocale)} — </span><TagLinks slugs={postData.tags} /></div>
+				<div class="p-summary">{description}</div>
+				<div class={cn('text-sm', !postData && 'hidden')}>{postData.copyright}</div>
 			</div>
 			<Mf2Meta
 				meta={{

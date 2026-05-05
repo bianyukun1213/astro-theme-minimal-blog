@@ -31,6 +31,7 @@ function getLocalizedLocale(localeKey: Locale) {
 			{
 				displayLocales.map((locale) => (
 					<option
+						lang={locale}
 						value={locale}
 						dir={getLocaleDir(locale)}
 						selected={locale === currentLocale}
