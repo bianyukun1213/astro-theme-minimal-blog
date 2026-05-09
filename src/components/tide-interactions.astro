@@ -1,0 +1,45 @@
+---
+import Spacer from './spacer.astro'
+---
+
+<aside id="tide-page-interactions">
+	<div class="border-b border-border pb-4">
+		<h2 class="inline-block m-0 me-2 font-medium text-xl md:text-2xl lg:text-3xl text-highlight">
+			<label for="tide-select-active-interactions">互动</label>
+		</h2>
+		<select id="tide-select-active-interactions" name="tide-active-interactions" class="">
+			<option>Waline</option>
+			<option>Webmentions</option>
+		</select>
+	</div>
+	<Spacer axis="vertical" size={4} />
+	<div id="tide-active-interactions"></div>
+	<script>
+		// (function () {
+		// 	if (document.readyState !== 'loading') domContentLoadedHandler()
+		// 	else document.addEventListener('DOMContentLoaded', domContentLoadedHandler)
+
+		// 	let activeInteraction
+
+		// 	function domContentLoadedHandler(eDomContentLoaded) {
+		// 		const selectActiveInteraction = document.getElementById('tide-select-active-interactions')
+		// 		selectActiveInteraction.addEventListener('change', (e) => {
+		// 			activeInteraction = selectActiveInteraction.value
+		// 			activateInteraction()
+		// 		})
+		// 		activeInteraction = selectActiveInteraction.value
+		// 		activateInteraction()
+
+		// 		function activateInteraction() {
+		// 			for (const interKey in window.tideInteractions) {
+		// 				if (Object.hasOwn(window.tideInteractions, interKey)) {
+		// 					const inter = window.tideInteractions[interKey]
+		// 					if (interKey === activeInteraction) inter.load()
+		// 					else inter.unload()
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// })()
+	</script>
+</aside>

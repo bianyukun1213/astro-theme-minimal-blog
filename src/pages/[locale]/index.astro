@@ -77,7 +77,7 @@ const defaultAuthor = getAuthors(currentLocale)[0]
 				</div>
 			</div>
 			<Spacer axis="vertical" size={8} />
-			<div class="flex gap-10 flex-col">
+			<div class="flex gap-12 flex-col">
 				{posts.map((post) => <PostListItem post={post} />)}
 			</div>
 		</section>
@@ -87,7 +87,7 @@ const defaultAuthor = getAuthors(currentLocale)[0]
 				<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">Open Source Projects</h2>
 			</div>
 			<Spacer axis="vertical" size={8} />
-			<div class="flex gap-10 flex-col">
+			<div class="flex gap-12 flex-col">
 				{
 					OSS_PROJECTS.map((oss) => (
 						<div>

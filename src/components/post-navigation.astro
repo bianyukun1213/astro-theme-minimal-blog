@@ -30,11 +30,7 @@ const nextHref = nextPost ? getPostHref(nextPost.data.displayId) : null
 {
 	(previousPost || nextPost) && (
 		<>
-			<Spacer axis="vertical" size={12} />
-			<nav
-				aria-label={m.label_posts_pagination()}
-				class="border-t border-border pt-4 flex items-start justify-between gap-4"
-			>
+			<nav aria-label={m.label_posts_pagination()} class="flex items-start justify-between gap-4">
 				<div class="min-w-16 text-start">
 					{previousPost && (
 						<Link href={prevHref} class="inline-flex items-center justify-start gap-2">

@@ -83,9 +83,10 @@ Astro.locals.localesOverride = localesOverride
 			<div><Link href={`${tagsBasePath}${slash}`}>{m.label_all_tags()}</Link></div>
 		</div>
 		<Spacer axis="vertical" size={8} />
-		<div class="flex gap-10 flex-col">
+		<div class="flex gap-12 flex-col">
 			{posts.map((post) => <PostListItem post={post} />)}
 		</div>
+		<Spacer axis="vertical" size={12} />
 		<Pagination basePath={tagBasePath} totalPages={totalPages} currentPage={currentPage} />
 	</SkipNavContent>
 </Layout>

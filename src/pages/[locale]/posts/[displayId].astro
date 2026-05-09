@@ -26,6 +26,7 @@ import {
 import type { GetStaticPaths } from 'astro'
 import { getCollection, render } from 'astro:content'
 import Mf2Meta from '@components/mf2-meta.astro'
+import TideInteractions from '@components/tide-interactions.astro'
 
 export const getStaticPaths = (async () => {
 	const allPosts = await getCollection('blog')
@@ -127,7 +128,10 @@ Astro.locals.localesOverride = allPosts
 			/>
 			<Spacer axis="vertical" size={12} />
 			<Content components={{ Aside, Playground }} />
-			<PostNavigation previousPost={previousPost} nextPost={nextPost} />
 		</Prose>
+		<Spacer axis="vertical" size={12} />
+		<PostNavigation previousPost={previousPost} nextPost={nextPost} />
+		<Spacer axis="vertical" size={12} />
+		<TideInteractions />
 	</SkipNavContent>
 </Layout>
