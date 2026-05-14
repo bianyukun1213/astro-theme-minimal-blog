@@ -28,6 +28,11 @@ export const SITE: Record<string, any> = {
 	relAuthEndpoint: '123',
 	relWebmention: '456',
 	tocHeading: '(Table of contents)|目录',
+	interactions: {
+		waline: {
+			serverURL: 'https://waline.his2nd.life',
+		},
+	},
 }
 
 const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {

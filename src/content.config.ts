@@ -23,6 +23,7 @@ const blog = defineCollection({
 		uRepostOf: z.array(z.url()).optional(),
 		// pRsvp: https://microformats.org/wiki/h-entry
 		uSyndication: z.array(z.url()).optional(),
+		interactions: z.boolean().optional().default(true),
 	}),
 })
 

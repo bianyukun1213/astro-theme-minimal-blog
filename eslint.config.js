@@ -8,6 +8,7 @@ export default antfu({
 		'src/scripts/',
 		'src/generated/',
 		'src/paraglide/',
+		'public/',
 	],
 	stylistic: {
 		indent: 'tab',

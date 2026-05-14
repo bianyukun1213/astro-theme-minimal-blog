@@ -1,3 +1,4 @@
+import type { WalineInstance } from '@waline/client'
 import { z } from 'astro/zod'
 
 export interface AlpineStoreImages {
@@ -10,6 +11,18 @@ export interface AlpineStoreImages {
 
 export interface TideMeta {
 	breakpoints: Record<string, string>
+}
+
+export interface TideInteractions {
+	waline: {
+		load: (update: boolean) => void
+		unload: () => void
+		instance: WalineInstance | null
+	}
+	webmentionjs: {
+		load: () => void
+		unload: () => void
+	}
 }
 
 export const AuthorSchema = z.object({

@@ -1,5 +1,16 @@
 ---
+import type { Locale } from '@utils'
 import Spacer from './spacer.astro'
+import Waline from './tide-interactions-waline.astro'
+import WebmentionJS from './tide-interactions-webmentionjs.astro'
+
+const currentLocale = Astro.currentLocale as Locale
+
+interface Props {
+	webmentions: boolean
+}
+
+const { webmentions } = Astro.props
 ---
 
 <aside id="tide-page-interactions">
@@ -8,12 +19,15 @@ import Spacer from './spacer.astro'
 			<label for="tide-select-active-interactions">互动</label>
 		</h2>
 		<select id="tide-select-active-interactions" name="tide-active-interactions" class="">
-			<option>Waline</option>
+			<option >Waline</option>
 			<option>Webmentions</option>
 		</select>
 	</div>
 	<Spacer axis="vertical" size={4} />
-	<div id="tide-active-interactions"></div>
+	<div id="tide-active-interactions">
+		<Waline />
+		{true && <WebmentionJS />}
+	</div>
 	<script>
 		// (function () {
 		// 	if (document.readyState !== 'loading') domContentLoadedHandler()
