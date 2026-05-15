@@ -17,18 +17,23 @@ const ru_ru2_tag_coding = /** @type {(inputs: Tag_CodingInputs) => LocalizedStri
 	return /** @type {LocalizedString} */ (`Программирование`)
 };
 
+const he_il2_tag_coding = /** @type {(inputs: Tag_CodingInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`תכנות`)
+};
+
 /**
 * | output |
 * | --- |
 * | "Coding" |
 *
 * @param {Tag_CodingInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const tag_coding = /** @type {((inputs?: Tag_CodingInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_CodingInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" }, {}>} */ ((inputs = {}, options = {}) => {
+export const tag_coding = /** @type {((inputs?: Tag_CodingInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_CodingInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
 	if (locale === "en-US") return en_us2_tag_coding(inputs)
 	if (locale === "zh-CN") return zh_cn2_tag_coding(inputs)
-	return ru_ru2_tag_coding(inputs)
+	if (locale === "ru-RU") return ru_ru2_tag_coding(inputs)
+	return he_il2_tag_coding(inputs)
 });

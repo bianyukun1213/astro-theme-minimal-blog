@@ -4,13 +4,13 @@
 * | "Dark" |
 *
 * @param {Label_DarkInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
 export const label_dark: ((inputs?: Label_DarkInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU";
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_DarkInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU";
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 export type LocalizedString = import("../runtime.js").LocalizedString;
 export type Label_DarkInputs = {};

@@ -17,18 +17,23 @@ const ru_ru2_label_light = /** @type {(inputs: Label_LightInputs) => LocalizedSt
 	return /** @type {LocalizedString} */ (`Светлая`)
 };
 
+const he_il2_label_light = /** @type {(inputs: Label_LightInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`בהיר`)
+};
+
 /**
 * | output |
 * | --- |
 * | "Light" |
 *
 * @param {Label_LightInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_light = /** @type {((inputs?: Label_LightInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_LightInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" }, {}>} */ ((inputs = {}, options = {}) => {
+export const label_light = /** @type {((inputs?: Label_LightInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_LightInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
 	if (locale === "en-US") return en_us2_label_light(inputs)
 	if (locale === "zh-CN") return zh_cn2_label_light(inputs)
-	return ru_ru2_label_light(inputs)
+	if (locale === "ru-RU") return ru_ru2_label_light(inputs)
+	return he_il2_label_light(inputs)
 });

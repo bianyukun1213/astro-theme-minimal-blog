@@ -10,11 +10,15 @@ const en_us2_tag_english = /** @type {(inputs: Tag_EnglishInputs) => LocalizedSt
 };
 
 const zh_cn2_tag_english = /** @type {(inputs: Tag_EnglishInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`英语`)
+	return /** @type {LocalizedString} */ (`English`)
 };
 
 const ru_ru2_tag_english = /** @type {(inputs: Tag_EnglishInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`Английский`)
+	return /** @type {LocalizedString} */ (`English`)
+};
+
+const he_il2_tag_english = /** @type {(inputs: Tag_EnglishInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`English`)
 };
 
 /**
@@ -23,12 +27,13 @@ const ru_ru2_tag_english = /** @type {(inputs: Tag_EnglishInputs) => LocalizedSt
 * | "English" |
 *
 * @param {Tag_EnglishInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const tag_english = /** @type {((inputs?: Tag_EnglishInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_EnglishInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" }, {}>} */ ((inputs = {}, options = {}) => {
+export const tag_english = /** @type {((inputs?: Tag_EnglishInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_EnglishInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
 	if (locale === "en-US") return en_us2_tag_english(inputs)
 	if (locale === "zh-CN") return zh_cn2_tag_english(inputs)
-	return ru_ru2_tag_english(inputs)
+	if (locale === "ru-RU") return ru_ru2_tag_english(inputs)
+	return he_il2_tag_english(inputs)
 });

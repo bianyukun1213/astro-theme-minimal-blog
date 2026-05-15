@@ -17,18 +17,23 @@ const ru_ru2_site_description = /** @type {(inputs: Site_DescriptionInputs) => L
 	return /** @type {LocalizedString} */ (`Минималистичная тема блога для Astro`)
 };
 
+const he_il2_site_description = /** @type {(inputs: Site_DescriptionInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`ערכת נושא מינימלית לבלוג עבור Astro`)
+};
+
 /**
 * | output |
 * | --- |
 * | "A minimal blog theme for Astro" |
 *
 * @param {Site_DescriptionInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const site_description = /** @type {((inputs?: Site_DescriptionInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_DescriptionInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" }, {}>} */ ((inputs = {}, options = {}) => {
+export const site_description = /** @type {((inputs?: Site_DescriptionInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_DescriptionInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
 	if (locale === "en-US") return en_us2_site_description(inputs)
 	if (locale === "zh-CN") return zh_cn2_site_description(inputs)
-	return ru_ru2_site_description(inputs)
+	if (locale === "ru-RU") return ru_ru2_site_description(inputs)
+	return he_il2_site_description(inputs)
 });

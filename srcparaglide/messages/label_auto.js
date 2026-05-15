@@ -17,18 +17,23 @@ const ru_ru2_label_auto = /** @type {(inputs: Label_AutoInputs) => LocalizedStri
 	return /** @type {LocalizedString} */ (`Авто`)
 };
 
+const he_il2_label_auto = /** @type {(inputs: Label_AutoInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`אוטומטי`)
+};
+
 /**
 * | output |
 * | --- |
 * | "Auto" |
 *
 * @param {Label_AutoInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_auto = /** @type {((inputs?: Label_AutoInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_AutoInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" }, {}>} */ ((inputs = {}, options = {}) => {
+export const label_auto = /** @type {((inputs?: Label_AutoInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_AutoInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
 	if (locale === "en-US") return en_us2_label_auto(inputs)
 	if (locale === "zh-CN") return zh_cn2_label_auto(inputs)
-	return ru_ru2_label_auto(inputs)
+	if (locale === "ru-RU") return ru_ru2_label_auto(inputs)
+	return he_il2_label_auto(inputs)
 });

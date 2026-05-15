@@ -40,6 +40,9 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Label_DangerInputs */
 /** @typedef {{}} Label_Tide_Picture_Default_MaskInputs */
 /** @typedef {{}} Btn_Tide_Picture_Reveal_TitleInputs */
+/** @typedef {{}} Label_Tide_InteractionsInputs */
+/** @typedef {{}} Label_Tide_Interactions_WalineInputs */
+/** @typedef {{}} Label_Tide_Interactions_WebmentionjsInputs */
 /** @typedef {{}} Const_Pswp_Close_TitleInputs */
 /** @typedef {{}} Const_Pswp_Zoom_TitleInputs */
 /** @typedef {{}} Const_Pswp_Arrow_Prev_TitleInputs */
@@ -110,6 +113,17 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Const_Waline_Subpostcomment2Inputs */
 /** @typedef {{}} Const_Waline_Subsitecomment2Inputs */
 /** @typedef {{}} Const_Waline_Subscribetoreplies2Inputs */
+/** @typedef {{}} Const_Webmentionjs_RepliedInputs */
+/** @typedef {{}} Const_Webmentionjs_LikedInputs */
+/** @typedef {{}} Const_Webmentionjs_RepostedInputs */
+/** @typedef {{}} Const_Webmentionjs_ReactedInputs */
+/** @typedef {{}} Const_Webmentionjs_BookmarkedInputs */
+/** @typedef {{}} Const_Webmentionjs_MentionedInputs */
+/** @typedef {{}} Const_Webmentionjs_RsvpedInputs */
+/** @typedef {{}} Const_Webmentionjs_FollowedInputs */
+/** @typedef {{}} Const_Webmentionjs_ResponsesInputs */
+/** @typedef {{}} Const_Webmentionjs_MentionInputs */
+/** @typedef {{}} Const_Webmentionjs_ReactionsInputs */
 /** @typedef {{}} Tag_GeneralInputs */
 /** @typedef {{}} Tag_CodingInputs */
 /** @typedef {{}} Tag_MdxInputs */
@@ -730,6 +744,54 @@ export const btn_tide_picture_reveal_title = /** @type {((inputs?: Btn_Tide_Pict
 	if (locale === "zh-CN") return __zh_cn2.btn_tide_picture_reveal_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_tide_picture_reveal_title(inputs)
 	return __he_il2.btn_tide_picture_reveal_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Interactions" |
+*
+* @param {Label_Tide_InteractionsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions = /** @type {((inputs?: Label_Tide_InteractionsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_InteractionsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_tide_interactions(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions(inputs)
+	return __he_il2.label_tide_interactions(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Waline" |
+*
+* @param {Label_Tide_Interactions_WalineInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions_waline = /** @type {((inputs?: Label_Tide_Interactions_WalineInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Interactions_WalineInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_tide_interactions_waline(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions_waline(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions_waline(inputs)
+	return __he_il2.label_tide_interactions_waline(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Webmentions" |
+*
+* @param {Label_Tide_Interactions_WebmentionjsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions_webmentionjs = /** @type {((inputs?: Label_Tide_Interactions_WebmentionjsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Interactions_WebmentionjsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_tide_interactions_webmentionjs(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions_webmentionjs(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions_webmentionjs(inputs)
+	return __he_il2.label_tide_interactions_webmentionjs(inputs)
 });
 /**
 * | output |
@@ -1863,6 +1925,182 @@ const const_waline_subscribetoreplies2 = /** @type {((inputs?: Const_Waline_Subs
 	return __he_il2.const_waline_subscribetoreplies2(inputs)
 });
 export { const_waline_subscribetoreplies2 as "const_waline_subscribeToReplies" }
+/**
+* | output |
+* | --- |
+* | "replied" |
+*
+* @param {Const_Webmentionjs_RepliedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_replied = /** @type {((inputs?: Const_Webmentionjs_RepliedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_RepliedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_replied(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_replied(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_replied(inputs)
+	return __he_il2.const_webmentionjs_replied(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "liked" |
+*
+* @param {Const_Webmentionjs_LikedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_liked = /** @type {((inputs?: Const_Webmentionjs_LikedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_LikedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_liked(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_liked(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_liked(inputs)
+	return __he_il2.const_webmentionjs_liked(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "reposted" |
+*
+* @param {Const_Webmentionjs_RepostedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_reposted = /** @type {((inputs?: Const_Webmentionjs_RepostedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_RepostedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_reposted(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_reposted(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_reposted(inputs)
+	return __he_il2.const_webmentionjs_reposted(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "reacted" |
+*
+* @param {Const_Webmentionjs_ReactedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_reacted = /** @type {((inputs?: Const_Webmentionjs_ReactedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_ReactedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_reacted(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_reacted(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_reacted(inputs)
+	return __he_il2.const_webmentionjs_reacted(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "bookmarked" |
+*
+* @param {Const_Webmentionjs_BookmarkedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_bookmarked = /** @type {((inputs?: Const_Webmentionjs_BookmarkedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_BookmarkedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_bookmarked(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_bookmarked(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_bookmarked(inputs)
+	return __he_il2.const_webmentionjs_bookmarked(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "mentioned" |
+*
+* @param {Const_Webmentionjs_MentionedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_mentioned = /** @type {((inputs?: Const_Webmentionjs_MentionedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_MentionedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_mentioned(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_mentioned(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_mentioned(inputs)
+	return __he_il2.const_webmentionjs_mentioned(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "RSVPed" |
+*
+* @param {Const_Webmentionjs_RsvpedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_rsvped = /** @type {((inputs?: Const_Webmentionjs_RsvpedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_RsvpedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_rsvped(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_rsvped(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_rsvped(inputs)
+	return __he_il2.const_webmentionjs_rsvped(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "followed" |
+*
+* @param {Const_Webmentionjs_FollowedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_followed = /** @type {((inputs?: Const_Webmentionjs_FollowedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_FollowedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_followed(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_followed(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_followed(inputs)
+	return __he_il2.const_webmentionjs_followed(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Responses" |
+*
+* @param {Const_Webmentionjs_ResponsesInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_responses = /** @type {((inputs?: Const_Webmentionjs_ResponsesInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_ResponsesInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_responses(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_responses(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_responses(inputs)
+	return __he_il2.const_webmentionjs_responses(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "mention" |
+*
+* @param {Const_Webmentionjs_MentionInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_mention = /** @type {((inputs?: Const_Webmentionjs_MentionInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_MentionInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_mention(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_mention(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_mention(inputs)
+	return __he_il2.const_webmentionjs_mention(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Reactions" |
+*
+* @param {Const_Webmentionjs_ReactionsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_reactions = /** @type {((inputs?: Const_Webmentionjs_ReactionsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_ReactionsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.const_webmentionjs_reactions(inputs)
+	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_reactions(inputs)
+	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_reactions(inputs)
+	return __he_il2.const_webmentionjs_reactions(inputs)
+});
 /**
 * | output |
 * | --- |

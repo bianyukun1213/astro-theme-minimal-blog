@@ -17,18 +17,23 @@ const ru_ru2_label_caution = /** @type {(inputs: Label_CautionInputs) => Localiz
 	return /** @type {LocalizedString} */ (`Предупреждение`)
 };
 
+const he_il2_label_caution = /** @type {(inputs: Label_CautionInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`זהירות`)
+};
+
 /**
 * | output |
 * | --- |
 * | "Caution" |
 *
 * @param {Label_CautionInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_caution = /** @type {((inputs?: Label_CautionInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_CautionInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" }, {}>} */ ((inputs = {}, options = {}) => {
+export const label_caution = /** @type {((inputs?: Label_CautionInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_CautionInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
 	if (locale === "en-US") return en_us2_label_caution(inputs)
 	if (locale === "zh-CN") return zh_cn2_label_caution(inputs)
-	return ru_ru2_label_caution(inputs)
+	if (locale === "ru-RU") return ru_ru2_label_caution(inputs)
+	return he_il2_label_caution(inputs)
 });

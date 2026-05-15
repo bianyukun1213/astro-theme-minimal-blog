@@ -106,7 +106,7 @@ A more detailed example:
   // }
   // const t = window.i18next.t.bind(window.i18next);
 	const t = (key) => {
-		const fnKey = `label_webmentionjs_${key}`
+		const fnKey = `const_webmentionjs_${key.toLowerCase()}`
 		if (window.m && typeof window.m[fnKey] === 'function') {
 			return window.m[fnKey]()
 		}

@@ -17,18 +17,23 @@ const ru_ru2_label_tag_tagname_pagenum = /** @type {(inputs: Label_Tag_Tagname_P
 	return /** @type {LocalizedString} */ (`Тег: ${i?.tagName} - страница ${i?.pageNum}`)
 };
 
+const he_il2_label_tag_tagname_pagenum = /** @type {(inputs: Label_Tag_Tagname_PagenumInputs) => LocalizedString} */ (i) => {
+	return /** @type {LocalizedString} */ (`תגית: ${i?.tagName} - עמוד ${i?.pageNum}`)
+};
+
 /**
 * | output |
 * | --- |
 * | "Tag: {tagName} - page {pageNum}" |
 *
 * @param {Label_Tag_Tagname_PagenumInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_tag_tagname_pagenum = /** @type {((inputs: Label_Tag_Tagname_PagenumInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tag_Tagname_PagenumInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" }, {}>} */ ((inputs, options = {}) => {
+export const label_tag_tagname_pagenum = /** @type {((inputs: Label_Tag_Tagname_PagenumInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tag_Tagname_PagenumInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
 	if (locale === "en-US") return en_us2_label_tag_tagname_pagenum(inputs)
 	if (locale === "zh-CN") return zh_cn2_label_tag_tagname_pagenum(inputs)
-	return ru_ru2_label_tag_tagname_pagenum(inputs)
+	if (locale === "ru-RU") return ru_ru2_label_tag_tagname_pagenum(inputs)
+	return he_il2_label_tag_tagname_pagenum(inputs)
 });

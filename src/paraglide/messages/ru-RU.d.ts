@@ -37,6 +37,9 @@
 /** @typedef {{}} Label_DangerInputs */
 /** @typedef {{}} Label_Tide_Picture_Default_MaskInputs */
 /** @typedef {{}} Btn_Tide_Picture_Reveal_TitleInputs */
+/** @typedef {{}} Label_Tide_InteractionsInputs */
+/** @typedef {{}} Label_Tide_Interactions_WalineInputs */
+/** @typedef {{}} Label_Tide_Interactions_WebmentionjsInputs */
 /** @typedef {{}} Const_Pswp_Close_TitleInputs */
 /** @typedef {{}} Const_Pswp_Zoom_TitleInputs */
 /** @typedef {{}} Const_Pswp_Arrow_Prev_TitleInputs */
@@ -107,6 +110,17 @@
 /** @typedef {{}} Const_Waline_Subpostcomment2Inputs */
 /** @typedef {{}} Const_Waline_Subsitecomment2Inputs */
 /** @typedef {{}} Const_Waline_Subscribetoreplies2Inputs */
+/** @typedef {{}} Const_Webmentionjs_RepliedInputs */
+/** @typedef {{}} Const_Webmentionjs_LikedInputs */
+/** @typedef {{}} Const_Webmentionjs_RepostedInputs */
+/** @typedef {{}} Const_Webmentionjs_ReactedInputs */
+/** @typedef {{}} Const_Webmentionjs_BookmarkedInputs */
+/** @typedef {{}} Const_Webmentionjs_MentionedInputs */
+/** @typedef {{}} Const_Webmentionjs_RsvpedInputs */
+/** @typedef {{}} Const_Webmentionjs_FollowedInputs */
+/** @typedef {{}} Const_Webmentionjs_ResponsesInputs */
+/** @typedef {{}} Const_Webmentionjs_MentionInputs */
+/** @typedef {{}} Const_Webmentionjs_ReactionsInputs */
 /** @typedef {{}} Tag_GeneralInputs */
 /** @typedef {{}} Tag_CodingInputs */
 /** @typedef {{}} Tag_MdxInputs */
@@ -154,6 +168,9 @@ export const label_caution: (inputs: Label_CautionInputs) => LocalizedString;
 export const label_danger: (inputs: Label_DangerInputs) => LocalizedString;
 export const label_tide_picture_default_mask: (inputs: Label_Tide_Picture_Default_MaskInputs) => LocalizedString;
 export const btn_tide_picture_reveal_title: (inputs: Btn_Tide_Picture_Reveal_TitleInputs) => LocalizedString;
+export const label_tide_interactions: (inputs: Label_Tide_InteractionsInputs) => LocalizedString;
+export const label_tide_interactions_waline: (inputs: Label_Tide_Interactions_WalineInputs) => LocalizedString;
+export const label_tide_interactions_webmentionjs: (inputs: Label_Tide_Interactions_WebmentionjsInputs) => LocalizedString;
 export const const_pswp_close_title: (inputs: Const_Pswp_Close_TitleInputs) => LocalizedString;
 export const const_pswp_zoom_title: (inputs: Const_Pswp_Zoom_TitleInputs) => LocalizedString;
 export const const_pswp_arrow_prev_title: (inputs: Const_Pswp_Arrow_Prev_TitleInputs) => LocalizedString;
@@ -224,6 +241,17 @@ export const const_waline_commentunderreview2: (inputs: Const_Waline_Commentunde
 export const const_waline_subpostcomment2: (inputs: Const_Waline_Subpostcomment2Inputs) => LocalizedString;
 export const const_waline_subsitecomment2: (inputs: Const_Waline_Subsitecomment2Inputs) => LocalizedString;
 export const const_waline_subscribetoreplies2: (inputs: Const_Waline_Subscribetoreplies2Inputs) => LocalizedString;
+export const const_webmentionjs_replied: (inputs: Const_Webmentionjs_RepliedInputs) => LocalizedString;
+export const const_webmentionjs_liked: (inputs: Const_Webmentionjs_LikedInputs) => LocalizedString;
+export const const_webmentionjs_reposted: (inputs: Const_Webmentionjs_RepostedInputs) => LocalizedString;
+export const const_webmentionjs_reacted: (inputs: Const_Webmentionjs_ReactedInputs) => LocalizedString;
+export const const_webmentionjs_bookmarked: (inputs: Const_Webmentionjs_BookmarkedInputs) => LocalizedString;
+export const const_webmentionjs_mentioned: (inputs: Const_Webmentionjs_MentionedInputs) => LocalizedString;
+export const const_webmentionjs_rsvped: (inputs: Const_Webmentionjs_RsvpedInputs) => LocalizedString;
+export const const_webmentionjs_followed: (inputs: Const_Webmentionjs_FollowedInputs) => LocalizedString;
+export const const_webmentionjs_responses: (inputs: Const_Webmentionjs_ResponsesInputs) => LocalizedString;
+export const const_webmentionjs_mention: (inputs: Const_Webmentionjs_MentionInputs) => LocalizedString;
+export const const_webmentionjs_reactions: (inputs: Const_Webmentionjs_ReactionsInputs) => LocalizedString;
 export const tag_general: (inputs: Tag_GeneralInputs) => LocalizedString;
 export const tag_coding: (inputs: Tag_CodingInputs) => LocalizedString;
 export const tag_mdx: (inputs: Tag_MdxInputs) => LocalizedString;
@@ -286,6 +314,9 @@ export type Label_CautionInputs = {};
 export type Label_DangerInputs = {};
 export type Label_Tide_Picture_Default_MaskInputs = {};
 export type Btn_Tide_Picture_Reveal_TitleInputs = {};
+export type Label_Tide_InteractionsInputs = {};
+export type Label_Tide_Interactions_WalineInputs = {};
+export type Label_Tide_Interactions_WebmentionjsInputs = {};
 export type Const_Pswp_Close_TitleInputs = {};
 export type Const_Pswp_Zoom_TitleInputs = {};
 export type Const_Pswp_Arrow_Prev_TitleInputs = {};
@@ -356,6 +387,17 @@ export type Const_Waline_Commentunderreview2Inputs = {};
 export type Const_Waline_Subpostcomment2Inputs = {};
 export type Const_Waline_Subsitecomment2Inputs = {};
 export type Const_Waline_Subscribetoreplies2Inputs = {};
+export type Const_Webmentionjs_RepliedInputs = {};
+export type Const_Webmentionjs_LikedInputs = {};
+export type Const_Webmentionjs_RepostedInputs = {};
+export type Const_Webmentionjs_ReactedInputs = {};
+export type Const_Webmentionjs_BookmarkedInputs = {};
+export type Const_Webmentionjs_MentionedInputs = {};
+export type Const_Webmentionjs_RsvpedInputs = {};
+export type Const_Webmentionjs_FollowedInputs = {};
+export type Const_Webmentionjs_ResponsesInputs = {};
+export type Const_Webmentionjs_MentionInputs = {};
+export type Const_Webmentionjs_ReactionsInputs = {};
 export type Tag_GeneralInputs = {};
 export type Tag_CodingInputs = {};
 export type Tag_MdxInputs = {};

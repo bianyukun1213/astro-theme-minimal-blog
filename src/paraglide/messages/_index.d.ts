@@ -533,6 +533,48 @@ export const btn_tide_picture_reveal_title: ((inputs?: Btn_Tide_Picture_Reveal_T
 /**
 * | output |
 * | --- |
+* | "Interactions" |
+*
+* @param {Label_Tide_InteractionsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions: ((inputs?: Label_Tide_InteractionsInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_InteractionsInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Waline" |
+*
+* @param {Label_Tide_Interactions_WalineInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions_waline: ((inputs?: Label_Tide_Interactions_WalineInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_Interactions_WalineInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Webmentions" |
+*
+* @param {Label_Tide_Interactions_WebmentionjsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions_webmentionjs: ((inputs?: Label_Tide_Interactions_WebmentionjsInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_Interactions_WebmentionjsInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
 * | "Close" |
 *
 * @param {Const_Pswp_Close_TitleInputs} inputs
@@ -1345,6 +1387,160 @@ export const const_waline_reaction8: ((inputs?: Const_Waline_Reaction8Inputs, op
 /**
 * | output |
 * | --- |
+* | "replied" |
+*
+* @param {Const_Webmentionjs_RepliedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_replied: ((inputs?: Const_Webmentionjs_RepliedInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_RepliedInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "liked" |
+*
+* @param {Const_Webmentionjs_LikedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_liked: ((inputs?: Const_Webmentionjs_LikedInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_LikedInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "reposted" |
+*
+* @param {Const_Webmentionjs_RepostedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_reposted: ((inputs?: Const_Webmentionjs_RepostedInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_RepostedInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "reacted" |
+*
+* @param {Const_Webmentionjs_ReactedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_reacted: ((inputs?: Const_Webmentionjs_ReactedInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_ReactedInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "bookmarked" |
+*
+* @param {Const_Webmentionjs_BookmarkedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_bookmarked: ((inputs?: Const_Webmentionjs_BookmarkedInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_BookmarkedInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "mentioned" |
+*
+* @param {Const_Webmentionjs_MentionedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_mentioned: ((inputs?: Const_Webmentionjs_MentionedInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_MentionedInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "RSVPed" |
+*
+* @param {Const_Webmentionjs_RsvpedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_rsvped: ((inputs?: Const_Webmentionjs_RsvpedInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_RsvpedInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "followed" |
+*
+* @param {Const_Webmentionjs_FollowedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_followed: ((inputs?: Const_Webmentionjs_FollowedInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_FollowedInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Responses" |
+*
+* @param {Const_Webmentionjs_ResponsesInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_responses: ((inputs?: Const_Webmentionjs_ResponsesInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_ResponsesInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "mention" |
+*
+* @param {Const_Webmentionjs_MentionInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_mention: ((inputs?: Const_Webmentionjs_MentionInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_MentionInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Reactions" |
+*
+* @param {Const_Webmentionjs_ReactionsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const const_webmentionjs_reactions: ((inputs?: Const_Webmentionjs_ReactionsInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Const_Webmentionjs_ReactionsInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
 * | "General" |
 *
 * @param {Tag_GeneralInputs} inputs
@@ -1521,6 +1717,9 @@ export type Label_CautionInputs = {};
 export type Label_DangerInputs = {};
 export type Label_Tide_Picture_Default_MaskInputs = {};
 export type Btn_Tide_Picture_Reveal_TitleInputs = {};
+export type Label_Tide_InteractionsInputs = {};
+export type Label_Tide_Interactions_WalineInputs = {};
+export type Label_Tide_Interactions_WebmentionjsInputs = {};
 export type Const_Pswp_Close_TitleInputs = {};
 export type Const_Pswp_Zoom_TitleInputs = {};
 export type Const_Pswp_Arrow_Prev_TitleInputs = {};
@@ -1591,6 +1790,17 @@ export type Const_Waline_Commentunderreview2Inputs = {};
 export type Const_Waline_Subpostcomment2Inputs = {};
 export type Const_Waline_Subsitecomment2Inputs = {};
 export type Const_Waline_Subscribetoreplies2Inputs = {};
+export type Const_Webmentionjs_RepliedInputs = {};
+export type Const_Webmentionjs_LikedInputs = {};
+export type Const_Webmentionjs_RepostedInputs = {};
+export type Const_Webmentionjs_ReactedInputs = {};
+export type Const_Webmentionjs_BookmarkedInputs = {};
+export type Const_Webmentionjs_MentionedInputs = {};
+export type Const_Webmentionjs_RsvpedInputs = {};
+export type Const_Webmentionjs_FollowedInputs = {};
+export type Const_Webmentionjs_ResponsesInputs = {};
+export type Const_Webmentionjs_MentionInputs = {};
+export type Const_Webmentionjs_ReactionsInputs = {};
 export type Tag_GeneralInputs = {};
 export type Tag_CodingInputs = {};
 export type Tag_MdxInputs = {};

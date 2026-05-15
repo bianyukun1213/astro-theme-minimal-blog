@@ -17,18 +17,23 @@ const ru_ru2_label_danger = /** @type {(inputs: Label_DangerInputs) => Localized
 	return /** @type {LocalizedString} */ (`Опасно`)
 };
 
+const he_il2_label_danger = /** @type {(inputs: Label_DangerInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`סכנה`)
+};
+
 /**
 * | output |
 * | --- |
 * | "Danger" |
 *
 * @param {Label_DangerInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_danger = /** @type {((inputs?: Label_DangerInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_DangerInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" }, {}>} */ ((inputs = {}, options = {}) => {
+export const label_danger = /** @type {((inputs?: Label_DangerInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_DangerInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
 	if (locale === "en-US") return en_us2_label_danger(inputs)
 	if (locale === "zh-CN") return zh_cn2_label_danger(inputs)
-	return ru_ru2_label_danger(inputs)
+	if (locale === "ru-RU") return ru_ru2_label_danger(inputs)
+	return he_il2_label_danger(inputs)
 });

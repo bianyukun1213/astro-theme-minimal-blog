@@ -17,18 +17,23 @@ const ru_ru2_site_default_og_image = /** @type {(inputs: Site_Default_Og_ImageIn
 	return /** @type {LocalizedString} */ (`https://placehold.co/400x300`)
 };
 
+const he_il2_site_default_og_image = /** @type {(inputs: Site_Default_Og_ImageInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`https://placehold.co/400x300`)
+};
+
 /**
 * | output |
 * | --- |
 * | "https://placehold.co/400x300" |
 *
 * @param {Site_Default_Og_ImageInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const site_default_og_image = /** @type {((inputs?: Site_Default_Og_ImageInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_Default_Og_ImageInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" }, {}>} */ ((inputs = {}, options = {}) => {
+export const site_default_og_image = /** @type {((inputs?: Site_Default_Og_ImageInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_Default_Og_ImageInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
 	if (locale === "en-US") return en_us2_site_default_og_image(inputs)
 	if (locale === "zh-CN") return zh_cn2_site_default_og_image(inputs)
-	return ru_ru2_site_default_og_image(inputs)
+	if (locale === "ru-RU") return ru_ru2_site_default_og_image(inputs)
+	return he_il2_site_default_og_image(inputs)
 });

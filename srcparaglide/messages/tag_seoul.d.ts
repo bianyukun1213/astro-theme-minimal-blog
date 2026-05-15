@@ -4,13 +4,13 @@
 * | "Seoul" |
 *
 * @param {Tag_SeoulInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
 export const tag_seoul: ((inputs?: Tag_SeoulInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU";
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }) => LocalizedString) & import("../runtime.js").MessageMetadata<Tag_SeoulInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU";
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 export type LocalizedString = import("../runtime.js").LocalizedString;
 export type Tag_SeoulInputs = {};

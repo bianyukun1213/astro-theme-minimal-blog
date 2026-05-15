@@ -38,6 +38,9 @@
 /** @typedef {{}} Label_DangerInputs */
 /** @typedef {{}} Label_Tide_Picture_Default_MaskInputs */
 /** @typedef {{}} Btn_Tide_Picture_Reveal_TitleInputs */
+/** @typedef {{}} Label_Tide_InteractionsInputs */
+/** @typedef {{}} Label_Tide_Interactions_WalineInputs */
+/** @typedef {{}} Label_Tide_Interactions_WebmentionjsInputs */
 /** @typedef {{}} Const_Pswp_Close_TitleInputs */
 /** @typedef {{}} Const_Pswp_Zoom_TitleInputs */
 /** @typedef {{}} Const_Pswp_Arrow_Prev_TitleInputs */
@@ -108,6 +111,17 @@
 /** @typedef {{}} Const_Waline_Subpostcomment2Inputs */
 /** @typedef {{}} Const_Waline_Subsitecomment2Inputs */
 /** @typedef {{}} Const_Waline_Subscribetoreplies2Inputs */
+/** @typedef {{}} Const_Webmentionjs_RepliedInputs */
+/** @typedef {{}} Const_Webmentionjs_LikedInputs */
+/** @typedef {{}} Const_Webmentionjs_RepostedInputs */
+/** @typedef {{}} Const_Webmentionjs_ReactedInputs */
+/** @typedef {{}} Const_Webmentionjs_BookmarkedInputs */
+/** @typedef {{}} Const_Webmentionjs_MentionedInputs */
+/** @typedef {{}} Const_Webmentionjs_RsvpedInputs */
+/** @typedef {{}} Const_Webmentionjs_FollowedInputs */
+/** @typedef {{}} Const_Webmentionjs_ResponsesInputs */
+/** @typedef {{}} Const_Webmentionjs_MentionInputs */
+/** @typedef {{}} Const_Webmentionjs_ReactionsInputs */
 /** @typedef {{}} Tag_GeneralInputs */
 /** @typedef {{}} Tag_CodingInputs */
 /** @typedef {{}} Tag_MdxInputs */
@@ -269,6 +283,18 @@ export const label_tide_picture_default_mask = /** @type {(inputs: Label_Tide_Pi
 
 export const btn_tide_picture_reveal_title = /** @type {(inputs: Btn_Tide_Picture_Reveal_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Click to reveal`)
+};
+
+export const label_tide_interactions = /** @type {(inputs: Label_Tide_InteractionsInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Interactions`)
+};
+
+export const label_tide_interactions_waline = /** @type {(inputs: Label_Tide_Interactions_WalineInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Waline`)
+};
+
+export const label_tide_interactions_webmentionjs = /** @type {(inputs: Label_Tide_Interactions_WebmentionjsInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Webmentions`)
 };
 
 export const const_pswp_close_title = /** @type {(inputs: Const_Pswp_Close_TitleInputs) => LocalizedString} */ () => {
@@ -550,6 +576,50 @@ export const const_waline_subsitecomment2 = /** @type {(inputs: Const_Waline_Sub
 
 export const const_waline_subscribetoreplies2 = /** @type {(inputs: Const_Waline_Subscribetoreplies2Inputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Subscribe to replies to your comments`)
+};
+
+export const const_webmentionjs_replied = /** @type {(inputs: Const_Webmentionjs_RepliedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`replied`)
+};
+
+export const const_webmentionjs_liked = /** @type {(inputs: Const_Webmentionjs_LikedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`liked`)
+};
+
+export const const_webmentionjs_reposted = /** @type {(inputs: Const_Webmentionjs_RepostedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`reposted`)
+};
+
+export const const_webmentionjs_reacted = /** @type {(inputs: Const_Webmentionjs_ReactedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`reacted`)
+};
+
+export const const_webmentionjs_bookmarked = /** @type {(inputs: Const_Webmentionjs_BookmarkedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`bookmarked`)
+};
+
+export const const_webmentionjs_mentioned = /** @type {(inputs: Const_Webmentionjs_MentionedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`mentioned`)
+};
+
+export const const_webmentionjs_rsvped = /** @type {(inputs: Const_Webmentionjs_RsvpedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`RSVPed`)
+};
+
+export const const_webmentionjs_followed = /** @type {(inputs: Const_Webmentionjs_FollowedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`followed`)
+};
+
+export const const_webmentionjs_responses = /** @type {(inputs: Const_Webmentionjs_ResponsesInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Responses`)
+};
+
+export const const_webmentionjs_mention = /** @type {(inputs: Const_Webmentionjs_MentionInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`mention`)
+};
+
+export const const_webmentionjs_reactions = /** @type {(inputs: Const_Webmentionjs_ReactionsInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Reactions`)
 };
 
 export const tag_general = /** @type {(inputs: Tag_GeneralInputs) => LocalizedString} */ () => {

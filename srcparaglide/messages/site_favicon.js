@@ -17,18 +17,23 @@ const ru_ru2_site_favicon = /** @type {(inputs: Site_FaviconInputs) => Localized
 	return /** @type {LocalizedString} */ (`https://placehold.co/32`)
 };
 
+const he_il2_site_favicon = /** @type {(inputs: Site_FaviconInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`https://placehold.co/32`)
+};
+
 /**
 * | output |
 * | --- |
 * | "https://placehold.co/32" |
 *
 * @param {Site_FaviconInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" }} options
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const site_favicon = /** @type {((inputs?: Site_FaviconInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_FaviconInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" }, {}>} */ ((inputs = {}, options = {}) => {
+export const site_favicon = /** @type {((inputs?: Site_FaviconInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_FaviconInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
 	if (locale === "en-US") return en_us2_site_favicon(inputs)
 	if (locale === "zh-CN") return zh_cn2_site_favicon(inputs)
-	return ru_ru2_site_favicon(inputs)
+	if (locale === "ru-RU") return ru_ru2_site_favicon(inputs)
+	return he_il2_site_favicon(inputs)
 });
