@@ -65,7 +65,8 @@ const m = useTranslations(currentLocale)
 	/** Update select menu UI, document theme, and local storage state. */
 	function onThemeChange(theme: Theme): void {
 		AtmbThemeProvider.updatePickers(theme)
-		document.documentElement.dataset.theme = theme === 'auto' ? getPreferredColorScheme() : theme
+		document.documentElement.dataset.pfTheme = document.documentElement.dataset.theme =
+			theme === 'auto' ? getPreferredColorScheme() : theme
 		storeTheme(theme)
 	}
 

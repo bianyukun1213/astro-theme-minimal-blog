@@ -10,7 +10,7 @@ interface Props {
 const { hCard, isAuthorCard } = Astro.props
 ---
 
-<div class={cn('h-card', isAuthorCard && 'p-author', 'hidden')}>
+<div class={cn('h-card', isAuthorCard && 'p-author', 'hidden')} data-pagefind-ignore>
 	<span class="p-name">{hCard.pName}</span>
 	<img class="u-photo" src={hCard.uPhoto} alt={hCard.pName} />
 	{

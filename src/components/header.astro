@@ -1,10 +1,10 @@
 ---
 import { getHeader } from '@constants'
 import { cn, removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import PagefindConfig from 'astro-pagefind/components/PagefindConfig.astro'
 import { trailingSlash } from 'astro:config/client'
 import LangSelect from './lang-select.astro'
 import Link from './link.astro'
-import Search from './search.astro'
 import Spacer from './spacer.astro'
 
 const currentLocale = Astro.currentLocale as Locale
@@ -27,8 +27,11 @@ const header = getHeader(currentLocale)
 				aria-label={m.btn_back_to_home_title({ siteTitle: m.site_title() })}>{m.site_title()}</a
 			>
 		</div>
-		<Search />
+		<pagefind-modal-trigger></pagefind-modal-trigger>
+		<pagefind-filter-pane></pagefind-filter-pane>
 	</div>
+	<PagefindConfig />
+	<pagefind-modal></pagefind-modal>
 	<Spacer axis="vertical" size={4} />
 	<div class="flex flex-row justify-between items-center border-b border-border pb-4 text-lg md:text-xl">
 		<nav aria-label={m.label_primary_navigation()} class="flex gap-4">

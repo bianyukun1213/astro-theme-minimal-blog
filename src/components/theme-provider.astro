@@ -12,7 +12,8 @@
 	window.AtmbThemeProvider = (() => {
 		const storedTheme = typeof localStorage !== 'undefined' && localStorage.getItem('atmb-theme')
 		const theme = storedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
-		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark'
+		document.documentElement.dataset.pfTheme = document.documentElement.dataset.theme =
+			theme === 'light' ? 'light' : 'dark'
 		return {
 			updatePickers(theme = storedTheme || 'auto') {
 				document.querySelectorAll('atmb-theme-select').forEach((picker) => {

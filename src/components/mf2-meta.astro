@@ -23,7 +23,7 @@ interface Props {
 
 const { meta } = Astro.props
 ---
-<div class="hidden">
+<div class="hidden" data-pagefind-ignore>
 <a class="u-url" href={meta.url}>{meta.url}</a>
 <!-- <span class="p-summary">{meta.description}</span> -->
 {
