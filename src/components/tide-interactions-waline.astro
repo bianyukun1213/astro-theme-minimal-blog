@@ -1,13 +1,13 @@
 ---
-
+import '@waline/client/style'
 ---
 
 <div id="tide-interactions-waline"></div>
+<style></style>
 <script>
 	import type { WalineInstance, WalineLocale } from '@waline/client'
 	import { SITE } from '@constants'
 	import { init } from '@waline/client'
-	import '@waline/client/style'
 
 	const locale: WalineLocale = {
 		nick: window.m.const_waline_nick(),
@@ -74,29 +74,41 @@
 		subscribeToReplies: window.m.const_waline_subscribeToReplies(),
 	}
 
-	let instanceInitialized = false
+	// let instanceInitialized = false
 	let walineInstance: WalineInstance | null = null
 
-	document.addEventListener('astro:page-load', () => {
-		if (instanceInitialized) {
-			walineInstance?.update()
-		} else {
-			walineInstance = init({
-				el: '#tide-interactions-waline',
-				serverURL: SITE.interactions.waline.serverURL,
-				lang: document.documentElement.lang,
-				locale,
-				dark: 'html[data-theme="dark"]',
-				reaction: [
-					'https://unpkg.com/@waline/emojis@1.4.0/tw/1f44d.png',
-					'https://unpkg.com/@waline/emojis@1.4.0/tw/1f44e.png',
-					'https://unpkg.com/@waline/emojis@1.4.0/tw/1f4a9.png',
-					'https://unpkg.com/@waline/emojis@1.4.0/tw/1f440.png',
-					'https://unpkg.com/@waline/emojis@1.4.0/tw/2764.png',
-					'https://unpkg.com/@waline/emojis@1.4.0/tw/1f680.png',
-				],
-			})
-			instanceInitialized = true
+	// https://github.com/xingwangzhe/stalux/blob/201228a0babcb35c35dedb4f22078b79798c9368/src/components/stalux/posts/WalineComment.astro#L83
+	function safeDestroy() {
+		try {
+			if (walineInstance?.destroy) {
+				const commentEl = document.getElementById('tide-interactions-waline')
+				if (commentEl && commentEl.parentNode) {
+					walineInstance.destroy()
+				}
+			}
+		} catch (e) {
+			console.warn('Waline destroy error:', e)
 		}
+		walineInstance = null
+	}
+
+	document.addEventListener('astro:before-swap', safeDestroy)
+	document.addEventListener('astro:page-load', () => {
+		// safeDestroy()
+		walineInstance = init({
+			el: '#tide-interactions-waline',
+			serverURL: SITE.interactions.waline.serverURL,
+			lang: document.documentElement.lang,
+			locale,
+			dark: 'html[data-theme="dark"]',
+			reaction: [
+				'https://unpkg.com/@waline/emojis@1.4.0/tw/1f44d.png',
+				'https://unpkg.com/@waline/emojis@1.4.0/tw/1f44e.png',
+				'https://unpkg.com/@waline/emojis@1.4.0/tw/1f4a9.png',
+				'https://unpkg.com/@waline/emojis@1.4.0/tw/1f440.png',
+				'https://unpkg.com/@waline/emojis@1.4.0/tw/2764.png',
+				'https://unpkg.com/@waline/emojis@1.4.0/tw/1f680.png',
+			],
+		})
 	})
 </script>
