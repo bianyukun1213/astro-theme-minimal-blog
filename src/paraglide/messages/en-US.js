@@ -38,14 +38,76 @@
 /** @typedef {{}} Label_DangerInputs */
 /** @typedef {{}} Label_Tide_Picture_Default_MaskInputs */
 /** @typedef {{}} Btn_Tide_Picture_Reveal_TitleInputs */
-/** @typedef {{}} Btn_Pswp_Close_TitleInputs */
-/** @typedef {{}} Btn_Pswp_Zoom_TitleInputs */
-/** @typedef {{}} Btn_Pswp_Arrow_Prev_TitleInputs */
-/** @typedef {{}} Btn_Pswp_Arrow_Next_TitleInputs */
-/** @typedef {{}} Label_Pswp_Error_MsgInputs */
-/** @typedef {{}} Label_Pswp_Index_Indicator_SepInputs */
-/** @typedef {{}} Btn_Pswp_Caption_TitleInputs */
-/** @typedef {{}} Btn_Pswp_Reveal_TitleInputs */
+/** @typedef {{}} Const_Pswp_Close_TitleInputs */
+/** @typedef {{}} Const_Pswp_Zoom_TitleInputs */
+/** @typedef {{}} Const_Pswp_Arrow_Prev_TitleInputs */
+/** @typedef {{}} Const_Pswp_Arrow_Next_TitleInputs */
+/** @typedef {{}} Const_Pswp_Error_MsgInputs */
+/** @typedef {{}} Const_Pswp_Index_Indicator_SepInputs */
+/** @typedef {{}} Const_Pswp_Caption_TitleInputs */
+/** @typedef {{}} Const_Pswp_Reveal_TitleInputs */
+/** @typedef {{}} Const_Waline_NickInputs */
+/** @typedef {{}} Const_Waline_Nickerror1Inputs */
+/** @typedef {{}} Const_Waline_MailInputs */
+/** @typedef {{}} Const_Waline_Mailerror1Inputs */
+/** @typedef {{}} Const_Waline_LinkInputs */
+/** @typedef {{}} Const_Waline_OptionalInputs */
+/** @typedef {{}} Const_Waline_PlaceholderInputs */
+/** @typedef {{}} Const_Waline_SofaInputs */
+/** @typedef {{}} Const_Waline_SubmitInputs */
+/** @typedef {{}} Const_Waline_LikeInputs */
+/** @typedef {{}} Const_Waline_Cancellike1Inputs */
+/** @typedef {{}} Const_Waline_ReplyInputs */
+/** @typedef {{}} Const_Waline_Cancelreply1Inputs */
+/** @typedef {{}} Const_Waline_CommentInputs */
+/** @typedef {{}} Const_Waline_RefreshInputs */
+/** @typedef {{}} Const_Waline_MoreInputs */
+/** @typedef {{}} Const_Waline_PreviewInputs */
+/** @typedef {{}} Const_Waline_EmojiInputs */
+/** @typedef {{}} Const_Waline_Uploadimage1Inputs */
+/** @typedef {{}} Const_Waline_SecondsInputs */
+/** @typedef {{}} Const_Waline_MinutesInputs */
+/** @typedef {{}} Const_Waline_HoursInputs */
+/** @typedef {{}} Const_Waline_DaysInputs */
+/** @typedef {{}} Const_Waline_NowInputs */
+/** @typedef {{}} Const_Waline_UploadingInputs */
+/** @typedef {{}} Const_Waline_LoginInputs */
+/** @typedef {{}} Const_Waline_LogoutInputs */
+/** @typedef {{}} Const_Waline_AdminInputs */
+/** @typedef {{}} Const_Waline_StickyInputs */
+/** @typedef {{}} Const_Waline_WordInputs */
+/** @typedef {{}} Const_Waline_Wordhint1Inputs */
+/** @typedef {{}} Const_Waline_AnonymousInputs */
+/** @typedef {{}} Const_Waline_Level0Inputs */
+/** @typedef {{}} Const_Waline_Level1Inputs */
+/** @typedef {{}} Const_Waline_Level2Inputs */
+/** @typedef {{}} Const_Waline_Level3Inputs */
+/** @typedef {{}} Const_Waline_Level4Inputs */
+/** @typedef {{}} Const_Waline_Level5Inputs */
+/** @typedef {{}} Const_Waline_GifInputs */
+/** @typedef {{}} Const_Waline_Gifsearchplaceholder2Inputs */
+/** @typedef {{}} Const_Waline_ProfileInputs */
+/** @typedef {{}} Const_Waline_ApprovedInputs */
+/** @typedef {{}} Const_Waline_WaitingInputs */
+/** @typedef {{}} Const_Waline_SpamInputs */
+/** @typedef {{}} Const_Waline_UnstickyInputs */
+/** @typedef {{}} Const_Waline_OldestInputs */
+/** @typedef {{}} Const_Waline_LatestInputs */
+/** @typedef {{}} Const_Waline_HottestInputs */
+/** @typedef {{}} Const_Waline_Reactiontitle1Inputs */
+/** @typedef {{}} Const_Waline_Reaction0Inputs */
+/** @typedef {{}} Const_Waline_Reaction1Inputs */
+/** @typedef {{}} Const_Waline_Reaction2Inputs */
+/** @typedef {{}} Const_Waline_Reaction3Inputs */
+/** @typedef {{}} Const_Waline_Reaction4Inputs */
+/** @typedef {{}} Const_Waline_Reaction5Inputs */
+/** @typedef {{}} Const_Waline_Reaction6Inputs */
+/** @typedef {{}} Const_Waline_Reaction7Inputs */
+/** @typedef {{}} Const_Waline_Reaction8Inputs */
+/** @typedef {{}} Const_Waline_Commentunderreview2Inputs */
+/** @typedef {{}} Const_Waline_Subpostcomment2Inputs */
+/** @typedef {{}} Const_Waline_Subsitecomment2Inputs */
+/** @typedef {{}} Const_Waline_Subscribetoreplies2Inputs */
 /** @typedef {{}} Tag_GeneralInputs */
 /** @typedef {{}} Tag_CodingInputs */
 /** @typedef {{}} Tag_MdxInputs */
@@ -209,36 +271,285 @@ export const btn_tide_picture_reveal_title = /** @type {(inputs: Btn_Tide_Pictur
 	return /** @type {LocalizedString} */ (`Click to reveal`)
 };
 
-export const btn_pswp_close_title = /** @type {(inputs: Btn_Pswp_Close_TitleInputs) => LocalizedString} */ () => {
+export const const_pswp_close_title = /** @type {(inputs: Const_Pswp_Close_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Close`)
 };
 
-export const btn_pswp_zoom_title = /** @type {(inputs: Btn_Pswp_Zoom_TitleInputs) => LocalizedString} */ () => {
+export const const_pswp_zoom_title = /** @type {(inputs: Const_Pswp_Zoom_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Zoom`)
 };
 
-export const btn_pswp_arrow_prev_title = /** @type {(inputs: Btn_Pswp_Arrow_Prev_TitleInputs) => LocalizedString} */ () => {
+export const const_pswp_arrow_prev_title = /** @type {(inputs: Const_Pswp_Arrow_Prev_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Previous`)
 };
 
-export const btn_pswp_arrow_next_title = /** @type {(inputs: Btn_Pswp_Arrow_Next_TitleInputs) => LocalizedString} */ () => {
+export const const_pswp_arrow_next_title = /** @type {(inputs: Const_Pswp_Arrow_Next_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Next`)
 };
 
-export const label_pswp_error_msg = /** @type {(inputs: Label_Pswp_Error_MsgInputs) => LocalizedString} */ () => {
+export const const_pswp_error_msg = /** @type {(inputs: Const_Pswp_Error_MsgInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`The image cannot be loaded`)
 };
 
-export const label_pswp_index_indicator_sep = /** @type {(inputs: Label_Pswp_Index_Indicator_SepInputs) => LocalizedString} */ () => {
+export const const_pswp_index_indicator_sep = /** @type {(inputs: Const_Pswp_Index_Indicator_SepInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (` / `)
 };
 
-export const btn_pswp_caption_title = /** @type {(inputs: Btn_Pswp_Caption_TitleInputs) => LocalizedString} */ () => {
+export const const_pswp_caption_title = /** @type {(inputs: Const_Pswp_Caption_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Caption`)
 };
 
-export const btn_pswp_reveal_title = /** @type {(inputs: Btn_Pswp_Reveal_TitleInputs) => LocalizedString} */ () => {
+export const const_pswp_reveal_title = /** @type {(inputs: Const_Pswp_Reveal_TitleInputs) => LocalizedString} */ () => {
 	return /** @type {LocalizedString} */ (`Reveal`)
+};
+
+export const const_waline_nick = /** @type {(inputs: Const_Waline_NickInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Nickname`)
+};
+
+export const const_waline_nickerror1 = /** @type {(inputs: Const_Waline_Nickerror1Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Nickname must be at least 3 characters`)
+};
+
+export const const_waline_mail = /** @type {(inputs: Const_Waline_MailInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Email`)
+};
+
+export const const_waline_mailerror1 = /** @type {(inputs: Const_Waline_Mailerror1Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Please enter a valid email address`)
+};
+
+export const const_waline_link = /** @type {(inputs: Const_Waline_LinkInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Website`)
+};
+
+export const const_waline_optional = /** @type {(inputs: Const_Waline_OptionalInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Optional`)
+};
+
+export const const_waline_placeholder = /** @type {(inputs: Const_Waline_PlaceholderInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Leave a comment`)
+};
+
+export const const_waline_sofa = /** @type {(inputs: Const_Waline_SofaInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Be the first to comment?`)
+};
+
+export const const_waline_submit = /** @type {(inputs: Const_Waline_SubmitInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Submit`)
+};
+
+export const const_waline_like = /** @type {(inputs: Const_Waline_LikeInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Like`)
+};
+
+export const const_waline_cancellike1 = /** @type {(inputs: Const_Waline_Cancellike1Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Unlike`)
+};
+
+export const const_waline_reply = /** @type {(inputs: Const_Waline_ReplyInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Reply`)
+};
+
+export const const_waline_cancelreply1 = /** @type {(inputs: Const_Waline_Cancelreply1Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Cancel reply`)
+};
+
+export const const_waline_comment = /** @type {(inputs: Const_Waline_CommentInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Comments`)
+};
+
+export const const_waline_refresh = /** @type {(inputs: Const_Waline_RefreshInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Refresh`)
+};
+
+export const const_waline_more = /** @type {(inputs: Const_Waline_MoreInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Load more…`)
+};
+
+export const const_waline_preview = /** @type {(inputs: Const_Waline_PreviewInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Preview`)
+};
+
+export const const_waline_emoji = /** @type {(inputs: Const_Waline_EmojiInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Emoji`)
+};
+
+export const const_waline_uploadimage1 = /** @type {(inputs: Const_Waline_Uploadimage1Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Upload images`)
+};
+
+export const const_waline_seconds = /** @type {(inputs: Const_Waline_SecondsInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`second(s) ago`)
+};
+
+export const const_waline_minutes = /** @type {(inputs: Const_Waline_MinutesInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`minute(s) ago`)
+};
+
+export const const_waline_hours = /** @type {(inputs: Const_Waline_HoursInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`hour(s) ago`)
+};
+
+export const const_waline_days = /** @type {(inputs: Const_Waline_DaysInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`day(s) ago`)
+};
+
+export const const_waline_now = /** @type {(inputs: Const_Waline_NowInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Just now`)
+};
+
+export const const_waline_uploading = /** @type {(inputs: Const_Waline_UploadingInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Uploading`)
+};
+
+export const const_waline_login = /** @type {(inputs: Const_Waline_LoginInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Login`)
+};
+
+export const const_waline_logout = /** @type {(inputs: Const_Waline_LogoutInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Logout`)
+};
+
+export const const_waline_admin = /** @type {(inputs: Const_Waline_AdminInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Admin`)
+};
+
+export const const_waline_sticky = /** @type {(inputs: Const_Waline_StickyInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Pin`)
+};
+
+export const const_waline_word = /** @type {(inputs: Const_Waline_WordInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`word(s)`)
+};
+
+export const const_waline_wordhint1 = /** @type {(inputs: Const_Waline_Wordhint1Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Comment should be between $0 and $1 word(s)!
+Current count: $2`)
+};
+
+export const const_waline_anonymous = /** @type {(inputs: Const_Waline_AnonymousInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Anonymous`)
+};
+
+export const const_waline_level0 = /** @type {(inputs: Const_Waline_Level0Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Level 0`)
+};
+
+export const const_waline_level1 = /** @type {(inputs: Const_Waline_Level1Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Level 1`)
+};
+
+export const const_waline_level2 = /** @type {(inputs: Const_Waline_Level2Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Level 2`)
+};
+
+export const const_waline_level3 = /** @type {(inputs: Const_Waline_Level3Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Level 3`)
+};
+
+export const const_waline_level4 = /** @type {(inputs: Const_Waline_Level4Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Level 4`)
+};
+
+export const const_waline_level5 = /** @type {(inputs: Const_Waline_Level5Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Level 5`)
+};
+
+export const const_waline_gif = /** @type {(inputs: Const_Waline_GifInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`GIF`)
+};
+
+export const const_waline_gifsearchplaceholder2 = /** @type {(inputs: Const_Waline_Gifsearchplaceholder2Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Search GIFs`)
+};
+
+export const const_waline_profile = /** @type {(inputs: Const_Waline_ProfileInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Profile`)
+};
+
+export const const_waline_approved = /** @type {(inputs: Const_Waline_ApprovedInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Approved`)
+};
+
+export const const_waline_waiting = /** @type {(inputs: Const_Waline_WaitingInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Pending`)
+};
+
+export const const_waline_spam = /** @type {(inputs: Const_Waline_SpamInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Spam`)
+};
+
+export const const_waline_unsticky = /** @type {(inputs: Const_Waline_UnstickyInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Unpin`)
+};
+
+export const const_waline_oldest = /** @type {(inputs: Const_Waline_OldestInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Oldest`)
+};
+
+export const const_waline_latest = /** @type {(inputs: Const_Waline_LatestInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Latest`)
+};
+
+export const const_waline_hottest = /** @type {(inputs: Const_Waline_HottestInputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Hottest`)
+};
+
+export const const_waline_reactiontitle1 = /** @type {(inputs: Const_Waline_Reactiontitle1Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Leave your reaction?`)
+};
+
+export const const_waline_reaction0 = /** @type {(inputs: Const_Waline_Reaction0Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Like`)
+};
+
+export const const_waline_reaction1 = /** @type {(inputs: Const_Waline_Reaction1Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Dislike`)
+};
+
+export const const_waline_reaction2 = /** @type {(inputs: Const_Waline_Reaction2Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Garbage`)
+};
+
+export const const_waline_reaction3 = /** @type {(inputs: Const_Waline_Reaction3Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Side-eye`)
+};
+
+export const const_waline_reaction4 = /** @type {(inputs: Const_Waline_Reaction4Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Thanks`)
+};
+
+export const const_waline_reaction5 = /** @type {(inputs: Const_Waline_Reaction5Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Awesome!`)
+};
+
+export const const_waline_reaction6 = /** @type {(inputs: Const_Waline_Reaction6Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (``)
+};
+
+export const const_waline_reaction7 = /** @type {(inputs: Const_Waline_Reaction7Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (``)
+};
+
+export const const_waline_reaction8 = /** @type {(inputs: Const_Waline_Reaction8Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (``)
+};
+
+export const const_waline_commentunderreview2 = /** @type {(inputs: Const_Waline_Commentunderreview2Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Your comment is under review. It is currently only visible to you and will be publicly visible once approved.`)
+};
+
+export const const_waline_subpostcomment2 = /** @type {(inputs: Const_Waline_Subpostcomment2Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Subscribe to comments on this post`)
+};
+
+export const const_waline_subsitecomment2 = /** @type {(inputs: Const_Waline_Subsitecomment2Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Subscribe to all site comments`)
+};
+
+export const const_waline_subscribetoreplies2 = /** @type {(inputs: Const_Waline_Subscribetoreplies2Inputs) => LocalizedString} */ () => {
+	return /** @type {LocalizedString} */ (`Subscribe to replies to your comments`)
 };
 
 export const tag_general = /** @type {(inputs: Tag_GeneralInputs) => LocalizedString} */ () => {

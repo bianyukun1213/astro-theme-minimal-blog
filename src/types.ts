@@ -13,17 +13,17 @@ export interface TideMeta {
 	breakpoints: Record<string, string>
 }
 
-export interface TideInteractions {
-	waline: {
-		load: (update: boolean) => void
-		unload: () => void
-		instance: WalineInstance | null
-	}
-	webmentionjs: {
-		load: () => void
-		unload: () => void
-	}
-}
+// export interface TideInteractions {
+// 	waline: {
+// 		load: (update: boolean) => void
+// 		unload: () => void
+// 		instance: WalineInstance | null
+// 	}
+// 	webmentionjs: {
+// 		load: () => void
+// 		unload: () => void
+// 	}
+// }
 
 export const AuthorSchema = z.object({
 	slug: z.string(),

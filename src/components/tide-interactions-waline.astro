@@ -4,31 +4,99 @@
 
 <div id="tide-interactions-waline"></div>
 <script>
+	import type { WalineInstance, WalineLocale } from '@waline/client'
 	import { SITE } from '@constants'
 	import { init } from '@waline/client'
 	import '@waline/client/style'
 
-	window.tideInteractions = window.tideInteractions ?? {}
-	window.tideInteractions.waline = {
-		load(update = false) {
-			if (update) {
-				this.instance?.update()
-			} else {
-				this.instance = init({
-					el: '#tide-interactions-waline',
-					serverURL: SITE.interactions.waline.serverURL,
-					lang: document.documentElement.lang,
-					dark: 'html[data-theme="dark"]',
-					reaction: true,
-				})
-			}
-		},
-		unload() {
-			this.instance?.destroy()
-		},
+	const locale: WalineLocale = {
+		nick: window.m.const_waline_nick(),
+		nickError: window.m.const_waline_nickError(),
+		mail: window.m.const_waline_mail(),
+		mailError: window.m.const_waline_mailError(),
+		link: window.m.const_waline_link(),
+		optional: window.m.const_waline_optional(),
+		placeholder: window.m.const_waline_placeholder(),
+		sofa: window.m.const_waline_sofa(),
+		submit: window.m.const_waline_submit(),
+		like: window.m.const_waline_like(),
+		cancelLike: window.m.const_waline_cancelLike(),
+		reply: window.m.const_waline_reply(),
+		cancelReply: window.m.const_waline_cancelReply(),
+		comment: window.m.const_waline_comment(),
+		refresh: window.m.const_waline_refresh(),
+		more: window.m.const_waline_more(),
+		preview: window.m.const_waline_preview(),
+		emoji: window.m.const_waline_emoji(),
+		uploadImage: window.m.const_waline_uploadImage(),
+		seconds: window.m.const_waline_seconds(),
+		minutes: window.m.const_waline_minutes(),
+		hours: window.m.const_waline_hours(),
+		days: window.m.const_waline_days(),
+		now: window.m.const_waline_now(),
+		uploading: window.m.const_waline_uploading(),
+		login: window.m.const_waline_login(),
+		logout: window.m.const_waline_logout(),
+		admin: window.m.const_waline_admin(),
+		sticky: window.m.const_waline_sticky(),
+		word: window.m.const_waline_word(),
+		wordHint: window.m.const_waline_wordHint(),
+		anonymous: window.m.const_waline_anonymous(),
+		level0: window.m.const_waline_level0(),
+		level1: window.m.const_waline_level1(),
+		level2: window.m.const_waline_level2(),
+		level3: window.m.const_waline_level3(),
+		level4: window.m.const_waline_level4(),
+		level5: window.m.const_waline_level5(),
+		gif: window.m.const_waline_gif(),
+		gifSearchPlaceholder: window.m.const_waline_gifSearchPlaceholder(),
+		profile: window.m.const_waline_profile(),
+		approved: window.m.const_waline_approved(),
+		waiting: window.m.const_waline_waiting(),
+		spam: window.m.const_waline_spam(),
+		unsticky: window.m.const_waline_unsticky(),
+		oldest: window.m.const_waline_oldest(),
+		latest: window.m.const_waline_latest(),
+		hottest: window.m.const_waline_hottest(),
+		reactionTitle: window.m.const_waline_reactionTitle(),
+		reaction0: window.m.const_waline_reaction0(),
+		reaction1: window.m.const_waline_reaction1(),
+		reaction2: window.m.const_waline_reaction2(),
+		reaction3: window.m.const_waline_reaction3(),
+		reaction4: window.m.const_waline_reaction4(),
+		reaction5: window.m.const_waline_reaction5(),
+		reaction6: window.m.const_waline_reaction6(),
+		reaction7: window.m.const_waline_reaction7(),
+		reaction8: window.m.const_waline_reaction8(),
+		commentUnderReview: window.m.const_waline_commentUnderReview(),
+		subPostComment: window.m.const_waline_subPostComment(),
+		subSiteComment: window.m.const_waline_subSiteComment(),
+		subscribeToReplies: window.m.const_waline_subscribeToReplies(),
 	}
 
+	let instanceInitialized = false
+	let walineInstance: WalineInstance | null = null
+
 	document.addEventListener('astro:page-load', () => {
-		window.tideInteractions.waline.load()
+		if (instanceInitialized) {
+			walineInstance?.update()
+		} else {
+			walineInstance = init({
+				el: '#tide-interactions-waline',
+				serverURL: SITE.interactions.waline.serverURL,
+				lang: document.documentElement.lang,
+				locale,
+				dark: 'html[data-theme="dark"]',
+				reaction: [
+					'https://unpkg.com/@waline/emojis@1.4.0/tw/1f44d.png',
+					'https://unpkg.com/@waline/emojis@1.4.0/tw/1f44e.png',
+					'https://unpkg.com/@waline/emojis@1.4.0/tw/1f4a9.png',
+					'https://unpkg.com/@waline/emojis@1.4.0/tw/1f440.png',
+					'https://unpkg.com/@waline/emojis@1.4.0/tw/2764.png',
+					'https://unpkg.com/@waline/emojis@1.4.0/tw/1f680.png',
+				],
+			})
+			instanceInitialized = true
+		}
 	})
 </script>

@@ -7,53 +7,33 @@ import WebmentionJS from './tide-interactions-webmentionjs.astro'
 const currentLocale = Astro.currentLocale as Locale
 
 interface Props {
-	webmentions: boolean
+	webmentions?: boolean
 }
 
-const { webmentions } = Astro.props
+const { webmentions = true } = Astro.props
 ---
 
-<aside id="tide-page-interactions">
+<aside id="tide-page-interactions" x-data="{active:'waline'}">
 	<div class="border-b border-border pb-4">
 		<h2 class="inline-block m-0 me-2 font-medium text-xl md:text-2xl lg:text-3xl text-highlight">
 			<label for="tide-select-active-interactions">互动</label>
 		</h2>
-		<select id="tide-select-active-interactions" name="tide-active-interactions" class="">
-			<option >Waline</option>
-			<option>Webmentions</option>
+		<select id="tide-select-active-interactions" name="tide-active-interactions" x-model="active">
+			<option value="waline">Waline</option>
+			{webmentions && <option value="webmentionjs">Webmentions</option>}
 		</select>
 	</div>
 	<Spacer axis="vertical" size={4} />
 	<div id="tide-active-interactions">
-		<Waline />
-		{true && <WebmentionJS />}
+		<div x-show="active==='waline'">
+			<Waline />
+		</div>
+		{
+			webmentions && (
+				<div x-show="active==='webmentionjs'">
+					<WebmentionJS />
+				</div>
+			)
+		}
 	</div>
-	<script>
-		// (function () {
-		// 	if (document.readyState !== 'loading') domContentLoadedHandler()
-		// 	else document.addEventListener('DOMContentLoaded', domContentLoadedHandler)
-
-		// 	let activeInteraction
-
-		// 	function domContentLoadedHandler(eDomContentLoaded) {
-		// 		const selectActiveInteraction = document.getElementById('tide-select-active-interactions')
-		// 		selectActiveInteraction.addEventListener('change', (e) => {
-		// 			activeInteraction = selectActiveInteraction.value
-		// 			activateInteraction()
-		// 		})
-		// 		activeInteraction = selectActiveInteraction.value
-		// 		activateInteraction()
-
-		// 		function activateInteraction() {
-		// 			for (const interKey in window.tideInteractions) {
-		// 				if (Object.hasOwn(window.tideInteractions, interKey)) {
-		// 					const inter = window.tideInteractions[interKey]
-		// 					if (interKey === activeInteraction) inter.load()
-		// 					else inter.unload()
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// })()
-	</script>
 </aside>
