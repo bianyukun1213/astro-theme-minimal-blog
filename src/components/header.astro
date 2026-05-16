@@ -27,11 +27,18 @@ const header = getHeader(currentLocale)
 				aria-label={m.btn_back_to_home_title({ siteTitle: m.site_title() })}>{m.site_title()}</a
 			>
 		</div>
-		<pagefind-modal-trigger></pagefind-modal-trigger>
-		<!-- <pagefind-filter-pane></pagefind-filter-pane> -->
+		<pagefind-modal-trigger transition:persist></pagefind-modal-trigger>
 	</div>
 	<PagefindConfig />
 	<pagefind-modal></pagefind-modal>
+	<script>
+		import { getInstanceManager } from '@pagefind/component-ui'
+
+		document.addEventListener('astro:before-swap', () => {
+			const manager = getInstanceManager()
+			manager.removeInstance('default')
+		})
+	</script>
 	<Spacer axis="vertical" size={4} />
 	<div class="flex flex-row justify-between items-center border-b border-border pb-4 text-lg md:text-xl">
 		<nav aria-label={m.label_primary_navigation()} class="flex gap-4">
