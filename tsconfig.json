@@ -1,46 +1,47 @@
 {
-	"extends": "astro/tsconfigs/strict",
-	"compilerOptions": {
-		"jsx": "react-jsx",
-		"jsxImportSource": "react",
-		"paths": {
-			"@assets/*": [
-				"./src/assets/*"
-			],
-			"@components/*": [
-				"./src/components/*"
-			],
-			"@layouts/*": [
-				"./src/layouts/*"
-			],
-			"@constants": [
-				"./src/constants.ts"
-			],
-			"@utils": [
-				"./src/utils.ts"
-			],
-			"@styles/*": [
-				"./src/styles/*"
-			],
-			"@scripts/*": [
-				"./src/scripts/*"
-			],
-			"@types": [
-				"./src/types.ts"
-			],
-			"@generated/*": [
-				"./src/generated/*"
-			],
-			"@paraglide/*": [
-				"./src/paraglide/*"
-			]
-		}
-	},
-	"include": [
-		".astro/types.d.ts",
-		"**/*"
-	],
-	"exclude": [
-		"dist"
-	]
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "paths": {
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@constants": [
+        "./src/constants.ts"
+      ],
+      "@utils": [
+        "./src/utils.ts"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@scripts/*": [
+        "./src/scripts/*"
+      ],
+      "@types": [
+        "./src/types.ts"
+      ],
+      "@generated/*": [
+        "./src/generated/*"
+      ],
+      "@paraglide/*": [
+        "./src/paraglide/*"
+      ]
+    }
+  },
+  "include": [
+    ".astro/types.d.ts",
+    "**/*",
+    "./worker-configuration.d.ts"
+  ],
+  "exclude": [
+    "dist"
+  ]
 }
