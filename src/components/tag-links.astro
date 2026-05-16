@@ -22,7 +22,7 @@ const slash = trailingSlash === 'never' ? '' : '/'
 			<Link
 				class="font-normal no-underline hover:underline!"
 				data-pagefind-filter="tag"
-				href={`${removeTrailingSlash(base)}/${currentLocale}/tags/${tagSlug}${slash}`}
+				href={`${removeTrailingSlash(base)}/${currentLocale}/tags/${tagSlug}/p/1${slash}`}
 			>
 				{getLocalizedTagName(tagSlug, currentLocale)}
 			</Link>

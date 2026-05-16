@@ -103,7 +103,7 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		internal: [
 			{
 				title: 'Posts',
-				url: '/base-test/en-US/posts/',
+				url: '/base-test/en-US/posts/p/1/',
 			},
 			{
 				title: 'Tags',
@@ -135,7 +135,7 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		internal: [
 			{
 				title: '文章',
-				url: '/base-test/zh-CN/posts/',
+				url: '/base-test/zh-CN/posts/p/1/',
 			},
 			{
 				title: '标签',
@@ -167,7 +167,7 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		internal: [
 			{
 				title: 'Посты',
-				url: '/base-test/ru-RU/posts/',
+				url: '/base-test/ru-RU/posts/p/1/',
 			},
 			{
 				title: 'Теги',
@@ -199,7 +199,7 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		internal: [
 			{
 				title: 'פוסטים',
-				url: '/base-test/he-IL/posts/',
+				url: '/base-test/he-IL/posts/p/1/',
 			},
 			{
 				title: 'תגיות',

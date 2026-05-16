@@ -38,7 +38,7 @@ const tags = getTags(posts, currentLocale)
 		<div class="flex gap-12 flex-col items-start">
 			{
 				tags.map(({ tagName, slug, count }) => (
-					<Link variant="highlight" href={`${removeTrailingSlash(base)}/${currentLocale}/tags/${slug}${slash}`}>
+					<Link variant="highlight" href={`${removeTrailingSlash(base)}/${currentLocale}/tags/${slug}/p/1${slash}`}>
 						{m.label_tags_tagname_count({ tagName, count })}
 					</Link>
 				))
