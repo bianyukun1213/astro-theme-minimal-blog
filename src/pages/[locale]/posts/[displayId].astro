@@ -70,6 +70,8 @@ const jsonLd = {
 	],
 }
 const { Content } = await render(post)
+const dataAttributes: DOMStringMap = {}
+if (postData.searchIndex) dataAttributes['data-pagefind-body'] = ''
 
 const sortedLocalePosts = sortAsc(getPostsByLocale(allPosts, currentLocale))
 const currentPostIndex = sortedLocalePosts.findIndex((entry) => entry.id === post.id)
@@ -92,7 +94,7 @@ Astro.locals.localesOverride = allPosts
 		<meta name="article:modified_time" content={dateModified} />
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 	</Seo>
-	<SkipNavContent searchIndex={postData.searchIndex}>
+	<SkipNavContent {...dataAttributes}>
 		<Prose class="h-entry">
 			<h1 class="p-name mb-0!" data-pagefind-meta="title">{title}</h1>
 			<Spacer axis="vertical" size={4} />

@@ -7,15 +7,19 @@ import Layout from '@layouts/layout.astro'
 
 interface Props {
 	title: string
+	searchIndex?: boolean
 }
 
-const { title } = Astro.props
+const { title, searchIndex = true } = Astro.props
+
+const dataAttributes: DOMStringMap = {}
+if (searchIndex) dataAttributes['data-pagefind-body'] = ''
 ---
 
 <Layout>
 	<Seo slot="seo" title={title} />
 	<SkipNavContent>
-		<Prose>
+		<Prose {...dataAttributes}>
 			<h1 class="mb-0!">{title}</h1>
 			<Spacer axis="vertical" size={12} />
 			<slot />

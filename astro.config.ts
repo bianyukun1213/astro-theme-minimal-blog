@@ -22,7 +22,6 @@ import remarkToc from 'remark-toc'
 import { tailwindResolver } from 'tailwind-resolver/vite'
 import { DEFAULT_LOCALE, LOCALES, SITE } from './src/constants'
 import { remarkAsides } from './src/remark'
-import { pagefindIntegration } from './src/serverUtils'
 
 export default defineConfig({
 	fonts: [
@@ -60,7 +59,7 @@ export default defineConfig({
 	trailingSlash: 'always',
 	site: SITE.url,
 	base: SITE.base,
-	integrations: [sitemap(), alpinejs({ entrypoint: '/src/entrypoint' }), react(), pagefindIntegration(), expressiveCode(), mdx()],
+	integrations: [sitemap(), alpinejs({ entrypoint: '/src/entrypoint' }), react(), expressiveCode(), mdx()],
 
 	vite: {
 		plugins: [
