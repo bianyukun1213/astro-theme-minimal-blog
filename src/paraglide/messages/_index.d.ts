@@ -393,6 +393,20 @@ export const label_select_language: ((inputs?: Label_Select_LanguageInputs, opti
 /**
 * | output |
 * | --- |
+* | "Search" |
+*
+* @param {Btn_Search_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_search_title: ((inputs?: Btn_Search_TitleInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Search_TitleInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
 * | "Expand table of contents" |
 *
 * @param {Btn_Expand_Toc_TitleInputs} inputs
@@ -1707,6 +1721,7 @@ export type Btn_Previous_Page_TitleInputs = {};
 export type Btn_Next_Page_TitleInputs = {};
 export type Label_Select_ThemeInputs = {};
 export type Label_Select_LanguageInputs = {};
+export type Btn_Search_TitleInputs = {};
 export type Btn_Expand_Toc_TitleInputs = {};
 export type Label_LightInputs = {};
 export type Label_DarkInputs = {};

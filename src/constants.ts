@@ -28,6 +28,7 @@ export const SITE: Record<string, any> = {
 	relAuthEndpoint: '123',
 	relWebmention: '456',
 	tocHeading: '(Table of contents)|目录',
+	searchUrl: 'https://www.bing.com/search?q=',
 	interactions: {
 		waline: {
 			serverURL: 'https://waline.his2nd.life',

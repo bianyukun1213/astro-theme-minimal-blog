@@ -1,0 +1,41 @@
+---
+import { SITE } from '@constants'
+import { useTranslations, type Locale } from '@utils'
+import Icon from './icon.astro'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
+
+const siteHost = Astro.site ? new URL(Astro.site).hostname : ''
+const searchUrl = SITE.searchUrl
+---
+
+<form id="search-form" role="search" class="flex gap-2 ht-8">
+	<label class="sr-only" for="search-input">{m.btn_search_title()}</label>
+	<input id="search-input" type="search" placeholder={m.btn_search_title()} autocomplete="off" class="w-32" />
+	<button
+		type="submit"
+		aria-label={m.btn_search_title()}
+		class="w-8 flex bg-red justify-center items-center text-subtle hover:text-highlight"
+	>
+		<Icon name="search" />
+	</button>
+</form>
+<script is:inline define:vars={{ siteHost, searchUrl }}>
+	document.addEventListener('astro:page-load', () => {
+		const form = document.getElementById('search-form')
+		if (!form) {
+			return
+		}
+		form.addEventListener('submit', (e) => {
+			e.preventDefault()
+			const input = document.getElementById('search-input')
+			const query = input?.value?.trim()
+			if (!query) {
+				return
+			}
+			const q = siteHost ? `site:${siteHost} ${query}` : query
+			window.open(`${searchUrl}${encodeURIComponent(q)}`, '_blank', 'noopener,noreferrer')
+		})
+	})
+</script>

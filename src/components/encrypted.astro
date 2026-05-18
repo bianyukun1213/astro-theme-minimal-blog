@@ -36,7 +36,7 @@ const base = import.meta.env.BASE_URL
 			<p class="text-faded mb-4">🔒 此内容已加密</p>
 			{hint && <p class="text-faded mb-4 text-sm">{hint}</p>}
 			{hasError && <p class="mb-3 text-sm text-red-500">密码错误，请重试</p>}
-			<form method="POST" action={`${base}api/unlock/`} class="flex flex-col items-center gap-3">
+			<form method="POST" action={`${base}api/unlock/`} class="flex flex-col items-center gap-4">
 				<input type="hidden" name="hash" value={passwordHash} />
 				<input type="hidden" name="cookieKey" value={cookieKey} />
 				<input type="hidden" name="redirectTo" value={Astro.url.toString()} />

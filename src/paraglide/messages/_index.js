@@ -30,6 +30,7 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Btn_Next_Page_TitleInputs */
 /** @typedef {{}} Label_Select_ThemeInputs */
 /** @typedef {{}} Label_Select_LanguageInputs */
+/** @typedef {{}} Btn_Search_TitleInputs */
 /** @typedef {{}} Btn_Expand_Toc_TitleInputs */
 /** @typedef {{}} Label_LightInputs */
 /** @typedef {{}} Label_DarkInputs */
@@ -584,6 +585,22 @@ export const label_select_language = /** @type {((inputs?: Label_Select_Language
 	if (locale === "zh-CN") return __zh_cn2.label_select_language(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_select_language(inputs)
 	return __he_il2.label_select_language(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Search" |
+*
+* @param {Btn_Search_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_search_title = /** @type {((inputs?: Btn_Search_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Search_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_search_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_search_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_search_title(inputs)
+	return __he_il2.btn_search_title(inputs)
 });
 /**
 * | output |

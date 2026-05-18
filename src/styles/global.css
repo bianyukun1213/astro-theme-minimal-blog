@@ -110,7 +110,7 @@ html[lang='he-IL'] {
 
 	.tide-image-figure-block .tide-image-mask {
 		/* @apply absolute z-10 size-full text-center backdrop-blur-3xl backdrop-brightness-50; */
-		@apply absolute z-10 ht-[calc(100%-var(--spacing)*6)] w-full text-center backdrop-blur-3xl backdrop-brightness-50;
+		@apply absolute z-10 ht-fs6 w-full text-center backdrop-blur-3xl backdrop-brightness-50;
 	}
 
 	.tide-image-figure-inline .tide-image-mask,
@@ -193,10 +193,23 @@ html[lang='he-IL'] {
 
 /* for microformats2 compatibility */
 /* need to replace h-* with ht-* manually */
-@utility ht-* {
-	height: --value([number]);
-	height: --value(number);
-	height: --value(--height-*);
+@utility ht-fs6 {
+	height: calc(100% - var(--spacing) * 6);
+}
+@utility ht-8 {
+	height: calc(var(--spacing) * 8);
+}
+@utility ht-5 {
+	height: calc(var(--spacing) * 5);
+}
+@utility ht-7 {
+	height: calc(var(--spacing) * 7);
+}
+@utility ht-24 {
+	height: calc(var(--spacing) * 24);
+}
+@utility ht-px {
+	height: 1px;
 }
 @utility ht-auto {
 	height: auto;
@@ -238,12 +251,6 @@ html[lang='he-IL'] {
 
 a.active {
 	color: var(--color-highlight);
-}
-
-@media (width >=--theme(--breakpoint-sm)) {
-	#search {
-		--search-cancel-space: 0px;
-	}
 }
 
 .markdown-heading {
@@ -290,4 +297,13 @@ select {
 select option {
 	background-color: var(--color-bg);
 	color: var(--color-text);
+}
+
+input {
+	border-radius: 0.25rem;
+	border-style: var(--tw-border-style);
+	border-color: var(--color-border);
+	border-width: 1px;
+	padding-inline: calc(var(--spacing) * 2);
+	padding-block: calc(var(--spacing) * 1);
 }
