@@ -16,6 +16,8 @@ const blog = defineCollection({
 		tags: z.array(z.enum(TAG_SLUGS)),
 		image: z.url().optional(),
 		searchIndex: z.boolean().optional().default(true),
+		draft: z.boolean().optional().default(false),
+		hidden: z.boolean().optional().default(false),
 		copyright: z.string().optional(),
 		pLocation: PLocationSchema.optional(),
 		uInReplyTo: z.array(z.url()).optional(),

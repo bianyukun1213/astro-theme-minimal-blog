@@ -5,9 +5,11 @@ import Pagination from '@components/pagination.astro'
 import PostListItem from '@components/post-list-item.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
-import { LOCALES, POSTS_PER_PAGE, SITE, type TagSlug } from '@constants'
+import { LOCALES, POSTS_PER_PAGE, type TagSlug } from '@constants'
 import Layout from '@layouts/layout.astro'
 import {
+	filterDrafts,
+	filterHidden,
 	getLocaleFromFilePath,
 	getPostsByLocale,
 	getPostsByTag,
@@ -21,7 +23,9 @@ import { trailingSlash } from 'astro:config/client'
 import { getCollection, type CollectionEntry } from 'astro:content'
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allPosts = await getCollection('blog')
+	let allPosts = await getCollection('blog')
+	allPosts = filterDrafts(allPosts)
+	allPosts = filterHidden(allPosts)
 	const localesInUse = [...new Set(allPosts.map((post) => getLocaleFromFilePath(post.filePath)))]
 	return localesInUse.flatMap((locale) => {
 		const localePosts = getPostsByLocale(allPosts, locale)
@@ -61,7 +65,9 @@ const pageTitle =
 	currentPage === 1 ? m.label_tag_tagname({ tagName }) : m.label_tag_tagname_pagenum({ tagName, pageNum: currentPage })
 
 const localesOverride: Locale[] = []
-const allPosts = await getCollection('blog')
+let allPosts = await getCollection('blog')
+allPosts = filterDrafts(allPosts)
+allPosts = filterHidden(allPosts)
 const postsByTag = getPostsByTag(allPosts, slug)
 for (const locale of LOCALES) {
 	const postsByTagAndLocale = getPostsByLocale(postsByTag, locale)

@@ -9,7 +9,15 @@ import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
 import { getAuthors, LOCALES, POSTS_PER_PAGE } from '@constants'
 import Layout from '@layouts/layout.astro'
-import { getPostsByLocale, removeTrailingSlash, sortAsc, useTranslations, type Locale } from '@utils'
+import {
+	filterDrafts,
+	filterHidden,
+	getPostsByLocale,
+	removeTrailingSlash,
+	sortAsc,
+	useTranslations,
+	type Locale,
+} from '@utils'
 import type { GetStaticPaths } from 'astro'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
@@ -26,26 +34,12 @@ const m = useTranslations(currentLocale)
 const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
 
-// const OSS_PROJECTS: Array<{ name: string; url: string; description: string }> = [
-// 	{
-// 		name: 'secco',
-// 		url: 'https://github.com/LekoArts/secco',
-// 		description: 'Local package testing made easy',
-// 	},
-// 	{
-// 		name: 'astro-loaders',
-// 		url: 'https://github.com/LekoArts/astro-loaders',
-// 		description: "Loaders for Astro's Content Layer",
-// 	},
-// 	{
-// 		name: 'annum',
-// 		url: 'https://github.com/LekoArts/annum',
-// 		description: 'Visualize your Trakt.tv history',
-// 	},
-// ]
-
-const allPost = await getCollection('blog')
-const posts = sortAsc(getPostsByLocale(allPost, currentLocale)).slice(0, POSTS_PER_PAGE)
+let allPosts = await getCollection('blog')
+allPosts = filterDrafts(allPosts)
+allPosts = filterHidden(allPosts)
+allPosts = getPostsByLocale(allPosts, currentLocale)
+allPosts = sortAsc(allPosts)
+const posts = allPosts.slice(0, POSTS_PER_PAGE)
 
 const defaultAuthor = getAuthors(currentLocale)[0]
 ---
@@ -82,24 +76,5 @@ const defaultAuthor = getAuthors(currentLocale)[0]
 			</div>
 		</section>
 		<Spacer axis="vertical" size={32} />
-		<!-- <section>
-			<div class="border-b border-border pb-4 flex justify-between items-center">
-				<h2 class="font-medium text-xl md:text-2xl lg:text-3xl text-highlight">Open Source Projects</h2>
-			</div>
-			<Spacer axis="vertical" size={8} />
-			<div class="flex gap-12 flex-col">
-				{
-					OSS_PROJECTS.map((oss) => (
-						<div>
-							<Link variant="highlight" href={oss.url}>
-								{oss.name}
-							</Link>
-							<Spacer axis="vertical" size={2} />
-							<div class="text-faded">{oss.description}</div>
-						</div>
-					))
-				}
-			</div>
-		</section> -->
 	</SkipNavContent>
 </Layout>

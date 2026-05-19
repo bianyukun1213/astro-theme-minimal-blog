@@ -7,6 +7,8 @@ import Spacer from '@components/spacer.astro'
 import { LOCALES, POSTS_PER_PAGE } from '@constants'
 import Layout from '@layouts/layout.astro'
 import {
+	filterDrafts,
+	filterHidden,
 	getLocaleFromFilePath,
 	getPostsByLocale,
 	removeTrailingSlash,
@@ -18,7 +20,9 @@ import type { GetStaticPaths } from 'astro'
 import { getCollection } from 'astro:content'
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allPosts = await getCollection('blog')
+	let allPosts = await getCollection('blog')
+	allPosts = filterDrafts(allPosts)
+	allPosts = filterHidden(allPosts)
 	const localesInUse = [...new Set(allPosts.map((post) => getLocaleFromFilePath(post.filePath)))]
 	return localesInUse.flatMap((locale) => {
 		const localePosts = getPostsByLocale(allPosts, locale)
@@ -45,7 +49,9 @@ const postsBasePath = `${removeTrailingSlash(base)}/${currentLocale}/posts`
 const pageTitle = currentPage === 1 ? m.label_all_posts() : m.label_all_posts_pagenum({ pageNum: currentPage })
 
 const localesOverride: Locale[] = []
-const allPosts = await getCollection('blog')
+let allPosts = await getCollection('blog')
+allPosts = filterDrafts(allPosts)
+allPosts = filterHidden(allPosts)
 for (const locale of LOCALES) {
 	const localePosts = getPostsByLocale(allPosts, locale)
 	const localePostsCount = localePosts.length

@@ -3,7 +3,7 @@ import type { Locale } from '@utils'
 import type { APIRoute } from 'astro'
 import rss from '@astrojs/rss'
 import { SITE } from '@constants'
-import { getPostsByLocale, removeTrailingSlash, sortAsc, useTranslations } from '@utils'
+import { filterDrafts, filterHidden, getPostsByLocale, removeTrailingSlash, sortAsc, useTranslations } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
 
@@ -18,15 +18,19 @@ function generateContent(description: string, link: string, locale: Locale) {
 }
 
 export const GET = (async ({ params }) => {
-	const locale = params.locale as Locale
-	const m = useTranslations(locale)
-	const allPosts = await getCollection('blog')
+	const currentLocale = params.locale as Locale
+	const m = useTranslations(currentLocale)
+	let allPosts = await getCollection('blog')
+	allPosts = filterDrafts(allPosts)
+	allPosts = filterHidden(allPosts)
+	allPosts = getPostsByLocale(allPosts, currentLocale)
+	allPosts = sortAsc(allPosts)
 
-	const items = sortAsc(getPostsByLocale(allPosts, locale)).map(post => ({
+	const items = allPosts.map(post => ({
 		title: post.data.title,
 		description: post.data.description,
-		content: generateContent(post.data.description, post.data.displayId, locale),
-		link: `${removeTrailingSlash(base)}/${locale}/posts/${post.data.displayId}${slash}`,
+		content: generateContent(post.data.description, post.data.displayId, currentLocale),
+		link: `${removeTrailingSlash(base)}/${currentLocale}/posts/${post.data.displayId}${slash}`,
 		pubDate: post.data.date,
 	} satisfies RSSFeedItem))
 
@@ -34,8 +38,8 @@ export const GET = (async ({ params }) => {
 		trailingSlash: trailingSlash !== 'never',
 		title: m.site_title(),
 		description: m.site_description(),
-		site: new URL(`${removeTrailingSlash(base)}/${locale}${slash}`, SITE.url),
+		site: new URL(`${removeTrailingSlash(base)}/${currentLocale}${slash}`, SITE.url),
 		items,
-		customData: `<language>${locale}</language>`,
+		customData: `<language>${currentLocale}</language>`,
 	})
 }) satisfies APIRoute

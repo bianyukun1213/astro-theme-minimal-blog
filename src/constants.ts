@@ -244,6 +244,8 @@ export const TAG_SLUGS = [
 	'chinese',
 	'russian',
 	'hebrew',
+	'hidden',
+	'draft',
 ] as const
 
 export type TagSlug = (typeof TAG_SLUGS)[number]

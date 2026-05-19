@@ -88,18 +88,6 @@ export function getLocaleDir(locale: Locale) {
 }
 
 /**
- * Returns a localized URL based on the given locale and path. It uses Astro's i18n utility to generate the URL for the specified locale and path, without normalizing the locale.
- * @param local The locale to use for the URL.
- * @param path The path to localize.
- * @returns The localized URL.
- */
-// export function getLocalizedUrl(local: Locale, path?: string) {
-// 	return getRelativeLocaleUrlImpl(local, path, {
-// 		normalizeLocale: false,
-// 	})
-// }
-
-/**
  * Get locale of a blog post
  * @param filePath - the blog post full file location
  * @returns locale, or default locale if locale is not found in the file path
@@ -289,4 +277,12 @@ export function getTags(data: Array<CollectionEntry<'blog'>>, locale: Locale) {
 		}
 	}
 	return output
+}
+
+export function filterDrafts(data: Array<CollectionEntry<'blog'>>) {
+	return data.filter(post => !post.data.draft)
+}
+
+export function filterHidden(data: Array<CollectionEntry<'blog'>>) {
+	return data.filter(post => !post.data.hidden)
 }
