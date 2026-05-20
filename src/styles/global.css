@@ -292,6 +292,7 @@ select {
 	background-color: var(--color-bg);
 	color: var(--color-text);
 	cursor: pointer;
+	@apply hover:outline-transparent hover:outline-1 hover:outline-offset-2;
 }
 
 select option {
@@ -300,10 +301,14 @@ select option {
 }
 
 input {
-	border-radius: 0.25rem;
-	border-style: var(--tw-border-style);
-	border-color: var(--color-border);
-	border-width: 1px;
-	padding-inline: calc(var(--spacing) * 2);
-	padding-block: calc(var(--spacing) * 1);
+	@apply rounded-sm border border-border px-2 py-1 focus-visible:outline-transparent focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:border-highlight;
+}
+
+button {
+	@apply flex justify-center items-center rounded-sm border border-border px-2 py-1 hover:outline-transparent hover:outline-1 hover:outline-offset-2 hover:border-highlight hover:text-highlight active:translate-y-0.5 active:border-highlight active:text-highlight;
+}
+
+button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
 }

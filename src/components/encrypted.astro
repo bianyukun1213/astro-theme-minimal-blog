@@ -1,4 +1,6 @@
 ---
+import Spacer from './spacer.astro'
+
 interface Props {
 	password: string
 	hint?: string
@@ -32,11 +34,12 @@ const base = import.meta.env.BASE_URL
 	isUnlocked ? (
 		<slot />
 	) : (
-		<div class="not-prose my-6 rounded-lg border border-dashed p-6 text-center">
-			<p class="text-faded mb-4">🔒 此内容已加密</p>
-			{hint && <p class="text-faded mb-4 text-sm">{hint}</p>}
-			{hasError && <p class="mb-3 text-sm text-red-500">密码错误，请重试</p>}
-			<form method="POST" action={`${base}api/unlock/`} class="flex flex-col items-center gap-4">
+		<div class="not-prose my-6 p-4 rounded-sm border border-border text-center">
+			<p>此内容已加密</p>
+			<Spacer axis="vertical" size={4} />
+			{hint && <p class="text-faded text-sm">{hint}</p> <Spacer axis="vertical" size={4} /> }
+			{hasError && <p class="text-sm text-red-500">密码错误，请重试</p> <Spacer axis="vertical" size={4} />}
+			<form method="POST" action={`${base}api/unlock/`} class="flex flex-col items-center">
 				<input type="hidden" name="hash" value={passwordHash} />
 				<input type="hidden" name="cookieKey" value={cookieKey} />
 				<input type="hidden" name="redirectTo" value={Astro.url.toString()} />
@@ -45,12 +48,10 @@ const base = import.meta.env.BASE_URL
 					name="password"
 					placeholder="请输入密码"
 					required
-					class="rounded border px-3 py-1.5 text-sm"
+					class="text-sm"
 				/>
-				<button type="submit" class="rounded px-4 py-1.5 text-sm font-medium">
-					{' '}
-					解锁{' '}
-				</button>
+				<Spacer axis="vertical" size={4} />
+				<button type="submit" class="text-sm">解锁</button>
 			</form>
 		</div>
 	)

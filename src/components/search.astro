@@ -13,11 +13,7 @@ const searchUrl = SITE.searchUrl
 <form id="search-form" role="search" class="flex gap-2 ht-8">
 	<label class="sr-only" for="search-input">{m.btn_search_title()}</label>
 	<input id="search-input" type="search" placeholder={m.btn_search_title()} autocomplete="off" class="w-32" />
-	<button
-		type="submit"
-		aria-label={m.btn_search_title()}
-		class="w-8 flex bg-red justify-center items-center text-subtle hover:text-highlight"
-	>
+	<button type="submit" aria-label={m.btn_search_title()} class="w-8">
 		<Icon name="search" />
 	</button>
 </form>
