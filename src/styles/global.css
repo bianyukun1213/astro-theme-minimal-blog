@@ -65,6 +65,18 @@ html[lang='he-IL'] {
 		@apply cursor-pointer;
 	}
 
+	[tabindex]:not([tabindex='-1']):focus-visible,
+	a:focus-visible,
+	button:focus-visible,
+	input:focus-visible,
+	select:focus-visible,
+	pre:focus-visible,
+	textarea:focus-visible,
+	summary:focus-visible,
+	.tide-table-wrapper:focus-visible {
+		@apply focus-visible:outline-transparent focus-visible:outline-1 focus-visible:outline-offset-2;
+	}
+
 	.tide-dynamic-hidden {
 		@apply hidden!;
 	}
@@ -75,6 +87,31 @@ html[lang='he-IL'] {
 }
 
 @layer components {
+	/* Theme select styling */
+	select {
+		background-color: var(--color-bg);
+		color: var(--color-text);
+		cursor: pointer;
+		@apply hover:outline-transparent hover:outline-1 hover:outline-offset-2;
+	}
+
+	select option {
+		background-color: var(--color-bg);
+		color: var(--color-text);
+	}
+
+	.atmb-input {
+		@apply bg-bg rounded-sm border border-border px-2 py-1 focus-visible:border-highlight;
+	}
+
+	.atmb-button {
+		@apply flex justify-center items-center bg-bg rounded-sm border border-border px-2 py-1 hover:border-highlight hover:text-highlight active:translate-y-0.5 active:border-highlight active:text-highlight;
+	}
+
+	.atmb-button:disabled {
+		@apply opacity-50 cursor-not-allowed;
+	}
+
 	.tide-button-link {
 		@apply border-0 bg-transparent text-primary underline hover:scale-none hover:underline-offset-4 active:scale-none disabled:hover:underline-offset-auto;
 	}
@@ -285,30 +322,4 @@ a.active {
 	fill: currentColor;
 	height: calc(var(--spacing) * 5);
 	width: calc(var(--spacing) * 5);
-}
-
-/* Theme select styling */
-select {
-	background-color: var(--color-bg);
-	color: var(--color-text);
-	cursor: pointer;
-	@apply hover:outline-transparent hover:outline-1 hover:outline-offset-2;
-}
-
-select option {
-	background-color: var(--color-bg);
-	color: var(--color-text);
-}
-
-input {
-	@apply rounded-sm border border-border px-2 py-1 focus-visible:outline-transparent focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:border-highlight;
-}
-
-button:not(.tide-button) {
-	@apply flex justify-center items-center rounded-sm border border-border px-2 py-1 hover:outline-transparent hover:outline-1 hover:outline-offset-2 hover:border-highlight hover:text-highlight active:translate-y-0.5 active:border-highlight active:text-highlight;
-}
-
-button:not(.tide-button):disabled {
-	opacity: 0.5;
-	cursor: not-allowed;
 }

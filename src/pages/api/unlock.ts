@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro'
 
 export const prerender = false
 
-export const POST: APIRoute = async ({ request, cookies, redirect }) => {
+export const POST = (async ({ request, cookies, redirect }) => {
 	const data = await request.formData()
 	const password = data.get('password')?.toString() ?? ''
 	const hash = data.get('hash')?.toString() ?? ''
@@ -71,4 +71,4 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
 	}
 
 	return redirect(successUrl.toString(), 303)
-}
+}) satisfies APIRoute

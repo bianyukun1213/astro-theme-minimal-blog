@@ -421,6 +421,76 @@ export const btn_expand_toc_title: ((inputs?: Btn_Expand_Toc_TitleInputs, option
 /**
 * | output |
 * | --- |
+* | "Content locked" |
+*
+* @param {Label_LockedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_locked: ((inputs?: Label_LockedInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_LockedInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Enter password" |
+*
+* @param {Label_Password_PlaceholderInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_password_placeholder: ((inputs?: Label_Password_PlaceholderInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Password_PlaceholderInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Unlock" |
+*
+* @param {Btn_Unlock_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_unlock_title: ((inputs?: Btn_Unlock_TitleInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Unlock_TitleInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Incorrect password, please try again." |
+*
+* @param {Label_Password_IncorrectInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_password_incorrect: ((inputs?: Label_Password_IncorrectInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Password_IncorrectInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Lock" |
+*
+* @param {Btn_Lock_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_lock_title: ((inputs?: Btn_Lock_TitleInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Lock_TitleInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
 * | "Light" |
 *
 * @param {Label_LightInputs} inputs
@@ -1723,6 +1793,11 @@ export type Label_Select_ThemeInputs = {};
 export type Label_Select_LanguageInputs = {};
 export type Btn_Search_TitleInputs = {};
 export type Btn_Expand_Toc_TitleInputs = {};
+export type Label_LockedInputs = {};
+export type Label_Password_PlaceholderInputs = {};
+export type Btn_Unlock_TitleInputs = {};
+export type Label_Password_IncorrectInputs = {};
+export type Btn_Lock_TitleInputs = {};
 export type Label_LightInputs = {};
 export type Label_DarkInputs = {};
 export type Label_AutoInputs = {};

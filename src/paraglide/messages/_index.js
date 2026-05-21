@@ -32,6 +32,11 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Label_Select_LanguageInputs */
 /** @typedef {{}} Btn_Search_TitleInputs */
 /** @typedef {{}} Btn_Expand_Toc_TitleInputs */
+/** @typedef {{}} Label_LockedInputs */
+/** @typedef {{}} Label_Password_PlaceholderInputs */
+/** @typedef {{}} Btn_Unlock_TitleInputs */
+/** @typedef {{}} Label_Password_IncorrectInputs */
+/** @typedef {{}} Btn_Lock_TitleInputs */
 /** @typedef {{}} Label_LightInputs */
 /** @typedef {{}} Label_DarkInputs */
 /** @typedef {{}} Label_AutoInputs */
@@ -617,6 +622,86 @@ export const btn_expand_toc_title = /** @type {((inputs?: Btn_Expand_Toc_TitleIn
 	if (locale === "zh-CN") return __zh_cn2.btn_expand_toc_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_expand_toc_title(inputs)
 	return __he_il2.btn_expand_toc_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Content locked" |
+*
+* @param {Label_LockedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_locked = /** @type {((inputs?: Label_LockedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_LockedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_locked(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_locked(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_locked(inputs)
+	return __he_il2.label_locked(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Enter password" |
+*
+* @param {Label_Password_PlaceholderInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_password_placeholder = /** @type {((inputs?: Label_Password_PlaceholderInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Password_PlaceholderInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_password_placeholder(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_password_placeholder(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_password_placeholder(inputs)
+	return __he_il2.label_password_placeholder(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Unlock" |
+*
+* @param {Btn_Unlock_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_unlock_title = /** @type {((inputs?: Btn_Unlock_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Unlock_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_unlock_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_unlock_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_unlock_title(inputs)
+	return __he_il2.btn_unlock_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Incorrect password, please try again." |
+*
+* @param {Label_Password_IncorrectInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_password_incorrect = /** @type {((inputs?: Label_Password_IncorrectInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Password_IncorrectInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_password_incorrect(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_password_incorrect(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_password_incorrect(inputs)
+	return __he_il2.label_password_incorrect(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Lock" |
+*
+* @param {Btn_Lock_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_lock_title = /** @type {((inputs?: Btn_Lock_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Lock_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_lock_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_lock_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_lock_title(inputs)
+	return __he_il2.btn_lock_title(inputs)
 });
 /**
 * | output |

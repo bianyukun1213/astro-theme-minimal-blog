@@ -17,25 +17,41 @@ import TideImageMasonry from "@components/tide-image-masonry.astro";
 import TideMasonryItem from "@components/tide-masonry-item.astro";
 import TidePicture from "@components/tide-picture.astro";
 import myImage from "D:\\Users\\Hollis\\Desktop\\astro-cap.jt5HlOg8_1PlEan.webp";
-// import Protected from "@components/Protected.astro";
 
 <Protected password="123456" hint="666">
-<TidePicture
-  src={myImage}
-  inferSize
-  formats={["avif", "webp"]}
-  alt="A description of my image."
-  caption="only caption"
-/>
-<TidePicture
-  mask="aaa"
-  src={myImage}
-  inferSize
-  formats={["avif", "webp"]}
-  alt="A description of my image."
-  title="title"
-  caption="caption"
-/>
+
+
+<TideImageMasonry>
+  <TideMasonryItem
+    class="bg-amber-500"
+    imgClass="bg-blue-500"
+    src={myImage}
+    formats={["avif", "webp"]}
+    alt="A description of my image."
+  />
+  <TideMasonryItem
+    class="bg-amber-500"
+    src={myImage}
+    inferSize
+    formats={["avif", "webp"]}
+    alt="A description of my image."
+  />
+  <TideMasonryItem
+    mask="aaa"
+    class="bg-amber-500"
+    src={myImage}
+    inferSize
+    formats={["avif", "webp"]}
+    alt="A description of my image."
+  />
+  <TideMasonryItem
+    class="bg-amber-500"
+    src={myImage}
+    inferSize
+    formats={["avif", "webp"]}
+    alt="A description of my image."
+  />
+</TideImageMasonry>
 </Protected>
 
 aaabbb
