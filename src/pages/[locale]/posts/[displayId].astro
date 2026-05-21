@@ -25,7 +25,7 @@ import {
 	type Locale,
 } from '@utils'
 import { getCollection, render } from 'astro:content'
-import Encrypted from '@components/encrypted.astro'
+import Protected from '@components/protected.astro'
 import Mf2Meta from '@components/mf2-meta.astro'
 import TideInteractions from '@components/tide-interactions.astro'
 
@@ -121,7 +121,7 @@ Astro.locals.localesOverride = allPosts
 				}}
 			/>
 			<Spacer axis="vertical" size={12} />
-			<Content components={{ Aside, Playground, Encrypted }} />
+			<Content components={{ Aside, Playground, Protected }} />
 		</Prose>
 		<Spacer axis="vertical" size={12} />
 		<PostNavigation previousPost={previousPost} nextPost={nextPost} />

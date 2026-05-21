@@ -36,12 +36,12 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
 
 	if (enteredHash !== hash) {
 		const errorUrl = new URL(safeRedirectTo)
-		errorUrl.searchParams.set(`enc_error_${cookieKey}`, '1')
+		errorUrl.searchParams.set(`protection_error_${cookieKey}`, '1')
 		return redirect(errorUrl.toString(), 303)
 	}
 
 	// Compute HMAC to sign the cookie value
-	const secret = import.meta.env.ENCRYPT_SECRET ?? 'dev-secret-change-in-prod'
+	const secret = import.meta.env.PROTECTION_SECRET ?? 'dev-secret-change-in-prod'
 	const signingKey = await crypto.subtle.importKey(
 		'raw',
 		encoder.encode(secret),
@@ -65,7 +65,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
 	// Remove any error params from the success redirect URL
 	const successUrl = new URL(safeRedirectTo)
 	for (const k of Array.from(successUrl.searchParams.keys())) {
-		if (k.startsWith('enc_error_')) {
+		if (k.startsWith('protection_error_')) {
 			successUrl.searchParams.delete(k)
 		}
 	}

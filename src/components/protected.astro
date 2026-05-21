@@ -14,9 +14,9 @@ const passwordHash = Array.from(new Uint8Array(hashBuffer))
 	.map((b) => b.toString(16).padStart(2, '0'))
 	.join('')
 
-const cookieKey = `enc_${passwordHash.slice(0, 16)}`
+const cookieKey = `protection_${passwordHash.slice(0, 16)}`
 
-const secret = import.meta.env.ENCRYPT_SECRET ?? 'dev-secret-change-in-prod'
+const secret = import.meta.env.PROTECTION_SECRET ?? 'dev-secret-change-in-prod'
 const key = await crypto.subtle.importKey('raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, [
 	'sign',
 ])
@@ -26,7 +26,7 @@ const expectedSig = Array.from(new Uint8Array(signBuffer))
 	.join('')
 
 const isUnlocked = Astro.cookies.get(cookieKey)?.value === expectedSig
-const hasError = Astro.url.searchParams.has(`enc_error_${cookieKey}`)
+const hasError = Astro.url.searchParams.has(`protection_error_${cookieKey}`)
 const base = import.meta.env.BASE_URL
 ---
 

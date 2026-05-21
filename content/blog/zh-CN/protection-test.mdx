@@ -1,6 +1,6 @@
 ---
 title: 加密测试
-displayId: encryption-test
+displayId: protection-test
 description: 本文用于测试加密功能。
 authors: [hollis,veronika]
 date: 2025-06-23
@@ -17,9 +17,9 @@ import TideImageMasonry from "@components/tide-image-masonry.astro";
 import TideMasonryItem from "@components/tide-masonry-item.astro";
 import TidePicture from "@components/tide-picture.astro";
 import myImage from "D:\\Users\\Hollis\\Desktop\\astro-cap.jt5HlOg8_1PlEan.webp";
-import Encrypted from "@components/encrypted.astro";
+// import Protected from "@components/Protected.astro";
 
-<Encrypted password="123456" hint="666">
+<Protected password="123456" hint="666">
 <TidePicture
   src={myImage}
   inferSize
@@ -36,11 +36,11 @@ import Encrypted from "@components/encrypted.astro";
   title="title"
   caption="caption"
 />
-</Encrypted>
+</Protected>
 
 aaabbb
 
-<Encrypted password="654321" hint="666">
-encrypted content
-</Encrypted>
+<Protected password="654321" hint="666">
+Protected content
+</Protected>
 
