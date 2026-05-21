@@ -74,7 +74,19 @@ html[lang='he-IL'] {
 	textarea:focus-visible,
 	summary:focus-visible,
 	.tide-table-wrapper:focus-visible {
-		@apply focus-visible:outline-transparent focus-visible:outline-1 focus-visible:outline-offset-2;
+		@apply outline-2 outline-dashed outline-highlight outline-offset-2;
+	}
+
+	[tabindex]:not([tabindex='-1']):hover:not(:focus-visible),
+	a:hover:not(:focus-visible),
+	button:hover:not(:focus-visible),
+	input:hover:not(:focus-visible),
+	select:hover:not(:focus-visible),
+	pre:hover:not(:focus-visible),
+	textarea:hover:not(:focus-visible),
+	summary:hover:not(:focus-visible),
+	.tide-table-wrapper:hover:not(:focus-visible) {
+		@apply outline-1 outline-transparent outline-offset-2;
 	}
 
 	.tide-dynamic-hidden {
@@ -87,12 +99,18 @@ html[lang='he-IL'] {
 }
 
 @layer components {
+	.tide-table-wrapper {
+		@apply overflow-auto;
+		/* prose 的 table 默认有 2em 0px 的 margin，转移到 wrapper 上。 */
+		@apply my-[2em];
+	}
+
 	/* Theme select styling */
 	select {
 		background-color: var(--color-bg);
 		color: var(--color-text);
 		cursor: pointer;
-		@apply hover:outline-transparent hover:outline-1 hover:outline-offset-2;
+		@apply hover:text-highlight;
 	}
 
 	select option {
@@ -101,7 +119,7 @@ html[lang='he-IL'] {
 	}
 
 	.atmb-input {
-		@apply bg-bg rounded-sm border border-border px-2 py-1 focus-visible:border-highlight;
+		@apply bg-bg rounded-sm border border-border px-2 py-1;
 	}
 
 	.atmb-button {
