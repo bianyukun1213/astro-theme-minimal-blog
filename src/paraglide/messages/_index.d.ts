@@ -1625,6 +1625,20 @@ export const const_webmentionjs_reactions: ((inputs?: Const_Webmentionjs_Reactio
 /**
 * | output |
 * | --- |
+* | "CC BY-SA 4.0" |
+*
+* @param {Copyright_Cc_By_Sa_4_0Inputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const copyright_cc_by_sa_4_0: ((inputs?: Copyright_Cc_By_Sa_4_0Inputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Copyright_Cc_By_Sa_4_0Inputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
 * | "General" |
 *
 * @param {Tag_GeneralInputs} inputs
@@ -1891,6 +1905,7 @@ export type Const_Webmentionjs_FollowedInputs = {};
 export type Const_Webmentionjs_ResponsesInputs = {};
 export type Const_Webmentionjs_MentionInputs = {};
 export type Const_Webmentionjs_ReactionsInputs = {};
+export type Copyright_Cc_By_Sa_4_0Inputs = {};
 export type Tag_GeneralInputs = {};
 export type Tag_CodingInputs = {};
 export type Tag_MdxInputs = {};

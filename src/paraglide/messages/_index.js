@@ -130,6 +130,7 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Const_Webmentionjs_ResponsesInputs */
 /** @typedef {{}} Const_Webmentionjs_MentionInputs */
 /** @typedef {{}} Const_Webmentionjs_ReactionsInputs */
+/** @typedef {{}} Copyright_Cc_By_Sa_4_0Inputs */
 /** @typedef {{}} Tag_GeneralInputs */
 /** @typedef {{}} Tag_CodingInputs */
 /** @typedef {{}} Tag_MdxInputs */
@@ -2202,6 +2203,22 @@ export const const_webmentionjs_reactions = /** @type {((inputs?: Const_Webmenti
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_reactions(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_reactions(inputs)
 	return __he_il2.const_webmentionjs_reactions(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "CC BY-SA 4.0" |
+*
+* @param {Copyright_Cc_By_Sa_4_0Inputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const copyright_cc_by_sa_4_0 = /** @type {((inputs?: Copyright_Cc_By_Sa_4_0Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Copyright_Cc_By_Sa_4_0Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.copyright_cc_by_sa_4_0(inputs)
+	if (locale === "zh-CN") return __zh_cn2.copyright_cc_by_sa_4_0(inputs)
+	if (locale === "ru-RU") return __ru_ru2.copyright_cc_by_sa_4_0(inputs)
+	return __he_il2.copyright_cc_by_sa_4_0(inputs)
 });
 /**
 * | output |

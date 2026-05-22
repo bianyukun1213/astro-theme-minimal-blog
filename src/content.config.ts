@@ -18,7 +18,7 @@ const blog = defineCollection({
 		searchIndex: z.boolean().optional().default(true),
 		draft: z.boolean().optional().default(false),
 		hidden: z.boolean().optional().default(false),
-		copyright: z.string().optional(),
+		copyright: z.string().optional().default('CC BY-SA 4.0'),
 		pLocation: PLocationSchema.optional(),
 		uInReplyTo: z.array(z.url()).optional(),
 		uLikeOf: z.array(z.url()).optional(),

@@ -1,18 +1,18 @@
 ---
 import SkipNavContent from '@components/a11y/skip-nav-content.astro'
 import Aside from '@components/aside.astro'
-import HCard from '@components/h-card.astro'
-import Playground from '@components/playground.astro'
-import PLocation from '@components/p-location.astro'
+import Mf2Meta from '@components/mf2-meta.astro'
 import PostNavigation from '@components/post-navigation.astro'
 import Prose from '@components/prose.astro'
+import Protected from '@components/protected.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
 import TagLinks from '@components/tag-links.astro'
+import TideInteractions from '@components/tide-interactions.astro'
 import { getAuthors, SITE } from '@constants'
 import Layout from '@layouts/layout.astro'
+import * as messages from '@paraglide/messages'
 import {
-	cn,
 	defaultDateFormat,
 	filterDrafts,
 	getLocaleFromFilePath,
@@ -25,9 +25,6 @@ import {
 	type Locale,
 } from '@utils'
 import { getCollection, render } from 'astro:content'
-import Protected from '@components/protected.astro'
-import Mf2Meta from '@components/mf2-meta.astro'
-import TideInteractions from '@components/tide-interactions.astro'
 
 export const prerender = false
 
@@ -55,6 +52,17 @@ const authorSlugs = postData.authors
 const postAuthors = authors.filter((author) => authorSlugs.includes(author.slug))
 const tagNames = postData.tags.map((tagSlug) => getLocalizedTagName(tagSlug, currentLocale))
 const validImage = postData.image || m.site_default_og_image()
+let copyright = ''
+if (postData.copyright) {
+	type crKey = Exclude<keyof typeof messages, 'm'>
+	const key = `copyright_${postData.copyright.toLowerCase().replace(/(-|\s|\.)/g, '_')}` as crKey
+	const localizationFunc = m[key]
+	if (typeof localizationFunc === 'function') {
+		copyright = (localizationFunc as () => string)()
+	} else {
+		copyright = postData.copyright
+	}
+}
 const jsonLd = {
 	'@context': 'https://schema.org',
 	'@type': 'BlogPosting',
@@ -64,7 +72,10 @@ const jsonLd = {
 	datePublished,
 	dateModified,
 	mainEntityOfPage: url,
-	author: postAuthors.map((author) => ({ '@type': 'Person', name: author.name })),
+	author: postAuthors.map((author) => ({
+		'@type': 'Person',
+		name: author.name,
+	})),
 	image: [
 		validImage.startsWith('http://') || validImage.startsWith('https://')
 			? validImage
@@ -101,9 +112,11 @@ Astro.locals.localesOverride = allPosts
 			<h1 class="p-name mb-0!" data-pagefind-meta="title">{title}</h1>
 			<Spacer axis="vertical" size={4} />
 			<div class="text-faded">
-				<div><span>{defaultDateFormat(postData.date, currentLocale)} — </span><TagLinks slugs={postData.tags} /></div>
+				<div>
+					<span>{defaultDateFormat(postData.date, currentLocale)} — </span><TagLinks slugs={postData.tags} />
+				</div>
+				{copyright && <div>{copyright}</div>}
 				<div class="p-summary">{description}</div>
-				<div class={cn('text-sm', !postData && 'hidden')}>{postData.copyright}</div>
 			</div>
 			<Mf2Meta
 				meta={{
@@ -121,7 +134,7 @@ Astro.locals.localesOverride = allPosts
 				}}
 			/>
 			<Spacer axis="vertical" size={12} />
-			<Content components={{ Aside, Playground, Protected }} />
+			<Content components={{ Aside, Protected }} />
 		</Prose>
 		<Spacer axis="vertical" size={12} />
 		<PostNavigation previousPost={previousPost} nextPost={nextPost} />

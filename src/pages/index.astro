@@ -1,0 +1,14 @@
+---
+import { DEFAULT_LOCALE } from '@constants'
+import { removeTrailingSlash } from '@utils'
+import { trailingSlash } from 'astro:config/client'
+
+const base = import.meta.env.BASE_URL
+const slash = trailingSlash === 'never' ? '' : '/'
+
+if (Astro.preferredLocale) {
+	return Astro.redirect(`${removeTrailingSlash(base)}/${Astro.preferredLocale}${slash}`)
+} else {
+	return Astro.redirect(`${removeTrailingSlash(base)}/${DEFAULT_LOCALE}${slash}`)
+}
+---

@@ -88,20 +88,20 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		internal: [
 			{
 				title: 'Posts',
-				url: '/base-test/en-US/posts/p/1/',
+				url: '/en-US/posts/p/1/',
 			},
 			{
 				title: 'Tags',
-				url: '/base-test/en-US/tags/',
+				url: '/en-US/tags/',
 			},
 			{
 				title: 'About',
-				url: '/base-test/en-US/about/',
+				url: '/en-US/about/',
 			},
 		],
 		external: [
 			{
-				title: 'Bio',
+				title: 'Biography',
 				url: 'https://yukun.bio/',
 				props: {
 					target: '_blank',
@@ -113,15 +113,15 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		internal: [
 			{
 				title: '文章',
-				url: '/base-test/zh-CN/posts/p/1/',
+				url: '/zh-CN/posts/p/1/',
 			},
 			{
 				title: '标签',
-				url: '/base-test/zh-CN/tags/',
+				url: '/zh-CN/tags/',
 			},
 			{
 				title: '关于',
-				url: '/base-test/zh-CN/about/',
+				url: '/zh-CN/about/',
 			},
 		],
 		external: [
@@ -138,15 +138,15 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		internal: [
 			{
 				title: 'Посты',
-				url: '/base-test/ru-RU/posts/p/1/',
+				url: '/ru-RU/posts/p/1/',
 			},
 			{
 				title: 'Теги',
-				url: '/base-test/ru-RU/tags/',
+				url: '/ru-RU/tags/',
 			},
 			{
 				title: 'О сайте',
-				url: '/base-test/ru-RU/about/',
+				url: '/ru-RU/about/',
 			},
 		],
 		external: [
@@ -163,15 +163,15 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		internal: [
 			{
 				title: 'פוסטים',
-				url: '/base-test/he-IL/posts/p/1/',
+				url: '/he-IL/posts/p/1/',
 			},
 			{
 				title: 'תגיות',
-				url: '/base-test/he-IL/tags/',
+				url: '/he-IL/tags/',
 			},
 			{
 				title: 'אודות',
-				url: '/base-test/he-IL/about/',
+				url: '/he-IL/about/',
 			},
 		],
 		external: [

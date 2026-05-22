@@ -6,7 +6,6 @@ import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import { paraglideVitePlugin } from '@inlang/paraglide-js'
-import remarkSandpack from '@lekoarts/remark-sandpack'
 import tailwindcss from '@tailwindcss/vite'
 import expressiveCode from 'astro-expressive-code'
 import { defineConfig, fontProviders } from 'astro/config'
@@ -88,7 +87,7 @@ export default defineConfig({
 		defaultLocale: DEFAULT_LOCALE,
 		routing: {
 			prefixDefaultLocale: true,
-			redirectToDefaultLocale: true,
+			redirectToDefaultLocale: false,
 		},
 	},
 
@@ -98,7 +97,7 @@ export default defineConfig({
 
 	markdown: {
 		// @ts-expect-error: Astro types don't match remark plugin
-		remarkPlugins: [[remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkToc, { heading: SITE.tocHeading }], [remarkCollapse, { test: SITE.tocHeading, summary: 'btn_expand_toc_title' }], [remarkSandpack, { componentName: ['Playground'] }]],
+		remarkPlugins: [[remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkToc, { heading: SITE.tocHeading }], [remarkCollapse, { test: SITE.tocHeading, summary: 'btn_expand_toc_title' }]],
 		rehypePlugins: [
 			rehypeSlug,
 			[
