@@ -15,18 +15,18 @@ export const SITE: Record<string, any> = {
 	/**
 	 * Base URL of your site, used in sitemap generation
 	 */
-	url: 'https://astro-theme-minimal-blog.lekoarts.de',
+	url: 'https://astro.his2nd.life',
 	/**
 	 * Base path of your site, if deployed to a subfolder
 	 */
-	base: '/base-test/',
+	base: '',
 	/**
 	 * Name of the image inside `public` folder that should be used as a default og:image
 	 */
 	defaultOgImage: '/og-image.png',
-	relMe: ['aaa', 'bbb'],
-	relAuthEndpoint: '123',
-	relWebmention: '456',
+	relMe: ['mailto:bianyukun1213@outlook.com', 'https://yukun.bio/', 'https://github.com/bianyukun1213'],
+	relAuthEndpoint: 'https://indieauth.com/auth',
+	relWebmention: 'https://webmention.io/his2nd.life/webmention',
 	tocHeading: '(Table of contents)|目录',
 	searchUrl: 'https://www.bing.com/search?q=',
 	interactions: {
@@ -40,57 +40,41 @@ const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 	'en-US': [
 		{
 			slug: 'hollis',
-			name: 'Hollis',
-			photo: 'https://avatars.githubusercontent.com/u/24708556',
+			name: 'Bian Yukun',
+			photo: 'https://bucket.hollisdevhub.com/avatars/avatar.webp',
 			urls: ['https://yukun.bio/'],
 			email: 'bianyukun1213@outlook.com',
-			note: 'I am Hollis.',
-		},
-		{
-			slug: 'veronika',
-			name: 'Veronika',
-			photo: 'https://avatars.githubusercontent.com/u/24708556',
-			urls: ['https://yukun.bio/'],
-			email: 'bianyukun1213@outlook.com',
-			note: 'I am Veronika.',
+			note: 'December 13, 2000, programmer',
 		},
 	],
 	'zh-CN': [
 		{
 			slug: 'hollis',
-			name: 'Hollis',
-			photo: 'https://avatars.githubusercontent.com/u/24708556',
+			name: '边宇琨',
+			photo: 'https://bucket.hollisdevhub.com/avatars/avatar.webp',
 			urls: ['https://yukun.bio/'],
 			email: 'bianyukun1213@outlook.com',
-			note: 'I am Hollis.',
-		},
-		{
-			slug: 'veronika',
-			name: 'Veronika',
-			photo: 'https://avatars.githubusercontent.com/u/24708556',
-			urls: ['https://yukun.bio/'],
-			email: 'bianyukun1213@outlook.com',
-			note: 'I am Veronika.',
+			note: '2000 年 12 月 13 日，程序员',
 		},
 	],
 	'ru-RU': [
 		{
 			slug: 'hollis',
-			name: 'Hollis',
-			photo: 'https://avatars.githubusercontent.com/u/24708556',
+			name: 'Бянь Юйкунь',
+			photo: 'https://bucket.hollisdevhub.com/avatars/avatar.webp',
 			urls: ['https://yukun.bio/'],
 			email: 'bianyukun1213@outlook.com',
-			note: 'I am Hollis.',
+			note: '13 декабря 2000 г., программист',
 		},
 	],
 	'he-IL': [
 		{
 			slug: 'hollis',
-			name: 'Hollis',
-			photo: 'https://avatars.githubusercontent.com/u/24708556',
+			name: 'Bian Yukun',
+			photo: 'https://bucket.hollisdevhub.com/avatars/avatar.webp',
 			urls: ['https://yukun.bio/'],
 			email: 'bianyukun1213@outlook.com',
-			note: 'I am Hollis.',
+			note: 'December 13, 2000, programmer',
 		},
 	],
 }
@@ -117,15 +101,8 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		],
 		external: [
 			{
-				title: 'Bluesky',
-				url: 'https://bsky.app/profile/lekoarts.de',
-				props: {
-					target: '_blank',
-				},
-			},
-			{
-				title: 'Homepage',
-				url: 'https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog',
+				title: 'Bio',
+				url: 'https://yukun.bio/',
 				props: {
 					target: '_blank',
 				},
@@ -149,15 +126,8 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		],
 		external: [
 			{
-				title: 'Bluesky',
-				url: 'https://bsky.app/profile/lekoarts.de',
-				props: {
-					target: '_blank',
-				},
-			},
-			{
-				title: 'Homepage',
-				url: 'https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog',
+				title: '个人主页',
+				url: 'https://yukun.bio/',
 				props: {
 					target: '_blank',
 				},
@@ -181,15 +151,8 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		],
 		external: [
 			{
-				title: 'Bluesky',
-				url: 'https://bsky.app/profile/lekoarts.de',
-				props: {
-					target: '_blank',
-				},
-			},
-			{
-				title: 'Homepage',
-				url: 'https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog',
+				title: 'Биография',
+				url: 'https://yukun.bio/',
 				props: {
 					target: '_blank',
 				},
@@ -213,15 +176,8 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		],
 		external: [
 			{
-				title: 'Bluesky',
-				url: 'https://bsky.app/profile/lekoarts.de',
-				props: {
-					target: '_blank',
-				},
-			},
-			{
-				title: 'Homepage',
-				url: 'https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog',
+				title: 'ביוגרפיה',
+				url: 'https://yukun.bio/',
 				props: {
 					target: '_blank',
 				},

@@ -77,6 +77,8 @@ export default defineConfig({
 	},
 
 	image: {
+		domains: ['astro.build'],
+		remotePatterns: [{ protocol: 'https' }],
 		responsiveStyles: true,
 		layout: 'constrained',
 	},

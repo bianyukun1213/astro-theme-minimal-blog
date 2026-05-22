@@ -71,6 +71,7 @@ delete attrs['tabindex']
 	}
 	<Picture
 		class={cn(imageVariants({ intent }), imgClass)}
+		inferSize
 		title={title}
 		data-caption={caption}
 		aria-hidden={mask || mask === '' ? 'true' : 'false'}
