@@ -1,6 +1,7 @@
 ---
 import SkipNavContent from '@components/a11y/skip-nav-content.astro'
 import Aside from '@components/aside.astro'
+import Icon from '@components/icon.astro'
 import Mf2Meta from '@components/mf2-meta.astro'
 import PostNavigation from '@components/post-navigation.astro'
 import Prose from '@components/prose.astro'
@@ -24,6 +25,7 @@ import {
 	useTranslations,
 	type Locale,
 } from '@utils'
+import { Picture } from 'astro:assets'
 import { getCollection, render } from 'astro:content'
 
 export const prerender = false
@@ -109,6 +111,29 @@ Astro.locals.localesOverride = allPosts
 	</Seo>
 	<SkipNavContent {...dataAttributes}>
 		<Prose class="h-entry">
+			{
+				postData.image && (
+					<>
+						<figure class="not-prose relative">
+							<Picture
+								pictureAttributes={{ class: 'not-prose' }}
+								class="not-prose block w-full aspect-3/1 mb-2 object-cover"
+								src={postData.image}
+								alt={postData.imageAlt}
+								layout="none"
+								inferSize
+							/>
+							{postData.imageCaption && (
+								<figcaption class="not-prose absolute inset-e-0 bottom-0 max-w-full px-1 bg-bg text-text text-sm rounded-ss-md text-nowrap overflow-auto">
+									<Icon name="image" class="inline-block" />
+									<span>{postData.imageCaption}</span>
+								</figcaption>
+							)}
+						</figure>
+						<Spacer axis="vertical" size={2} />
+					</>
+				)
+			}
 			<h1 class="p-name mb-0!" data-pagefind-meta="title">{title}</h1>
 			<Spacer axis="vertical" size={4} />
 			<div class="text-faded">

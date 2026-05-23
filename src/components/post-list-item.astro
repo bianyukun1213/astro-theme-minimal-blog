@@ -1,9 +1,11 @@
 ---
 import { defaultDateFormat, getLocalizedTagName, removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
+import { Picture } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import Link from './link.astro'
 import Spacer from './spacer.astro'
+import Icon from './icon.astro'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
@@ -20,7 +22,23 @@ const slash = trailingSlash === 'never' ? '' : '/'
 
 <div>
 	<Link variant="highlight" href={`${removeTrailingSlash(base)}/${currentLocale}/posts/${post.data.displayId}${slash}`}>
-		{post.data.title}
+		{
+			post.data.image && (
+				<>
+					<figure class="relative">
+						<Picture
+							class="block w-full aspect-3/1 mb-2 object-cover"
+							src={post.data.image}
+							alt={post.data.imageAlt}
+							layout="none"
+							inferSize
+						/>
+					</figure>
+					<Spacer axis="vertical" size={2} />
+				</>
+			)
+		}
+		<span>{post.data.title}</span>
 	</Link>
 	<Spacer axis="vertical" size={2} />
 	<div class="text-faded">
