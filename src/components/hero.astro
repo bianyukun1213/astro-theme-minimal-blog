@@ -1,0 +1,54 @@
+---
+import type { Locale } from '@utils'
+
+const currentLocale = Astro.currentLocale as Locale
+---
+
+{
+	currentLocale === 'en-US' ? (
+		<>
+			<h2>Hello 👋🏻</h2>
+			<p>
+				Welcome to <strong>Astro Theme: Minimal Blog</strong>, an ideal option to start sharing your ideas. It's easy to
+				set up and features everything you'd need for a blog.
+				<a href="/introducing-astro-theme-minimal-blog">Get started</a>.
+			</p>
+		</>
+	) : currentLocale === 'zh-CN' ? (
+		<>
+			<h2>你好 👋🏻</h2>
+			<p>
+				欢迎来到 <strong>Astro Theme: Minimal Blog</strong>
+				。这是一个极简的主题，非常适合用来分享你的灵感与想法。它不仅易于配置，还提供了博客所需的所有基础功能。
+				<a href="/zh-CN/introducing-astro-theme-minimal-blog">开始使用</a>。
+			</p>
+		</>
+	) : currentLocale === 'ru-RU' ? (
+		<>
+			<h2>Привет 👋🏻</h2>
+			<p>
+				Добро пожаловать в <strong>Astro Theme: Minimal Blog</strong>, идеальный вариант для старта вашего блога. Его
+				легко настроить, и он содержит всё необходимое для обмена идеями.
+				<a href="/ru-RU/introducing-astro-theme-minimal-blog">Начать</a>.
+			</p>
+		</>
+	) : currentLocale === 'he-IL' ? (
+		<>
+			<h2>שלום 👋🏻</h2>
+			<p>
+				ברוכים הבאים אל <strong>Astro Theme: Minimal Blog</strong>, אפשרות אידיאלית להתחיל לשתף את הרעיונות שלך. התבנית
+				קלה להגדרה וכוללת את כל מה שצריך עבור בלוג.
+				<a href="/he-IL/introducing-astro-theme-minimal-blog">התחילו כאן</a>.
+			</p>
+		</>
+	) : (
+		<>
+			<h2>Hello 👋🏻</h2>
+			<p>
+				Welcome to <strong>Astro Theme: Minimal Blog</strong>, an ideal option to start sharing your ideas. It's easy to
+				set up and features everything you'd need for a blog.
+				<a href="/introducing-astro-theme-minimal-blog">Get started</a>.
+			</p>
+		</>
+	)
+}
