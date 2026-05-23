@@ -147,7 +147,8 @@ html[lang='he-IL'] {
 	}
 
 	.tide-image-figure-block .tide-image-figure-caption {
-		@apply mx-auto mt-1 ht-5 max-w-4/5 text-center text-subtle;
+		/* 覆盖 prose */
+		@apply mx-auto mt-1! ht-5! max-w-4/5 text-center text-subtle;
 	}
 
 	.tide-image-figure-inline .tide-image-figure-caption,
