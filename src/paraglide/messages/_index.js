@@ -136,10 +136,6 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Tag_MdxInputs */
 /** @typedef {{}} Tag_Open_SourceInputs */
 /** @typedef {{}} Tag_SeoulInputs */
-/** @typedef {{}} Tag_EnglishInputs */
-/** @typedef {{}} Tag_ChineseInputs */
-/** @typedef {{}} Tag_RussianInputs */
-/** @typedef {{}} Tag_HebrewInputs */
 import * as __en_us2 from "./en-US.js"
 import * as __zh_cn2 from "./zh-CN.js"
 import * as __ru_ru2 from "./ru-RU.js"
@@ -2299,68 +2295,4 @@ export const tag_seoul = /** @type {((inputs?: Tag_SeoulInputs, options?: { loca
 	if (locale === "zh-CN") return __zh_cn2.tag_seoul(inputs)
 	if (locale === "ru-RU") return __ru_ru2.tag_seoul(inputs)
 	return __he_il2.tag_seoul(inputs)
-});
-/**
-* | output |
-* | --- |
-* | "English" |
-*
-* @param {Tag_EnglishInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const tag_english = /** @type {((inputs?: Tag_EnglishInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_EnglishInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
-	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.tag_english(inputs)
-	if (locale === "zh-CN") return __zh_cn2.tag_english(inputs)
-	if (locale === "ru-RU") return __ru_ru2.tag_english(inputs)
-	return __he_il2.tag_english(inputs)
-});
-/**
-* | output |
-* | --- |
-* | "中文" |
-*
-* @param {Tag_ChineseInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const tag_chinese = /** @type {((inputs?: Tag_ChineseInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_ChineseInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
-	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.tag_chinese(inputs)
-	if (locale === "zh-CN") return __zh_cn2.tag_chinese(inputs)
-	if (locale === "ru-RU") return __ru_ru2.tag_chinese(inputs)
-	return __he_il2.tag_chinese(inputs)
-});
-/**
-* | output |
-* | --- |
-* | "Русский" |
-*
-* @param {Tag_RussianInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const tag_russian = /** @type {((inputs?: Tag_RussianInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_RussianInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
-	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.tag_russian(inputs)
-	if (locale === "zh-CN") return __zh_cn2.tag_russian(inputs)
-	if (locale === "ru-RU") return __ru_ru2.tag_russian(inputs)
-	return __he_il2.tag_russian(inputs)
-});
-/**
-* | output |
-* | --- |
-* | "עברית" |
-*
-* @param {Tag_HebrewInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const tag_hebrew = /** @type {((inputs?: Tag_HebrewInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_HebrewInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
-	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.tag_hebrew(inputs)
-	if (locale === "zh-CN") return __zh_cn2.tag_hebrew(inputs)
-	if (locale === "ru-RU") return __ru_ru2.tag_hebrew(inputs)
-	return __he_il2.tag_hebrew(inputs)
 });

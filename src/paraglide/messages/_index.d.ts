@@ -1706,62 +1706,6 @@ export const tag_seoul: ((inputs?: Tag_SeoulInputs, options?: {
 }) => LocalizedString) & import("../runtime.js").MessageMetadata<Tag_SeoulInputs, {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
-/**
-* | output |
-* | --- |
-* | "English" |
-*
-* @param {Tag_EnglishInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const tag_english: ((inputs?: Tag_EnglishInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Tag_EnglishInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}, {}>;
-/**
-* | output |
-* | --- |
-* | "中文" |
-*
-* @param {Tag_ChineseInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const tag_chinese: ((inputs?: Tag_ChineseInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Tag_ChineseInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}, {}>;
-/**
-* | output |
-* | --- |
-* | "Русский" |
-*
-* @param {Tag_RussianInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const tag_russian: ((inputs?: Tag_RussianInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Tag_RussianInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}, {}>;
-/**
-* | output |
-* | --- |
-* | "עברית" |
-*
-* @param {Tag_HebrewInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const tag_hebrew: ((inputs?: Tag_HebrewInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Tag_HebrewInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}, {}>;
 export type LocalizedString = import("../runtime.js").LocalizedString;
 export type Lang_En_UsInputs = {};
 export type Lang_Zh_CnInputs = {};
@@ -1911,10 +1855,6 @@ export type Tag_CodingInputs = {};
 export type Tag_MdxInputs = {};
 export type Tag_Open_SourceInputs = {};
 export type Tag_SeoulInputs = {};
-export type Tag_EnglishInputs = {};
-export type Tag_ChineseInputs = {};
-export type Tag_RussianInputs = {};
-export type Tag_HebrewInputs = {};
 /**
 * | output |
 * | --- |

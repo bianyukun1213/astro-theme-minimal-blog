@@ -20,14 +20,10 @@ export const SITE: Record<string, any> = {
 	 * Base path of your site, if deployed to a subfolder
 	 */
 	base: '',
-	/**
-	 * Name of the image inside `public` folder that should be used as a default og:image
-	 */
-	defaultOgImage: '/og-image.png',
 	relMe: ['mailto:bianyukun1213@outlook.com', 'https://yukun.bio/', 'https://github.com/bianyukun1213'],
 	relAuthEndpoint: 'https://indieauth.com/auth',
 	relWebmention: 'https://webmention.io/his2nd.life/webmention',
-	tocHeading: '(Table of contents)|目录',
+	tocHeading: '(Table of contents)|目录|Содержание|תוכן',
 	searchUrl: 'https://www.bing.com/search?q=',
 	interactions: {
 		waline: {
@@ -196,12 +192,6 @@ export const TAG_SLUGS = [
 	'mdx',
 	'open-source',
 	'seoul',
-	'english',
-	'chinese',
-	'russian',
-	'hebrew',
-	'hidden',
-	'draft',
 ] as const
 
 export type TagSlug = (typeof TAG_SLUGS)[number]
