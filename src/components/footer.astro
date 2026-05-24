@@ -12,16 +12,36 @@ const base = import.meta.env.BASE_URL
 
 <footer class="container">
 	<Spacer axis="vertical" size={32} />
-	<div class="flex flex-row justify-between items-center pt-4 border-t border-border">
+	<div class="flex flex-row flex-wrap justify-between items-start gap-4 pt-4 border-t border-border">
 		<div class="flex gap-4">
 			<ThemeSelect />
 			<span class="w-px ht-auto bg-border"></span>
-			<Link href={`${removeTrailingSlash(base)}/${currentLocale}/rss.xml`}>{m.btn_rss_feed_title()}</Link>
-		</div>
-		<div>
-			<Link href="http://github.com/LekoArts/astro-theme-minimal-blog">Theme</Link> by <Link
-				href="https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog">LekoArts</Link
+			<Link href={`${removeTrailingSlash(base)}/${currentLocale}/rss.xml`} target="_blank"
+				>{m.btn_rss_feed_title()}</Link
 			>
+		</div>
+		<div class="grow shrink-0 text-center sm:text-end">
+			<Link href="http://github.com/LekoArts/astro-theme-minimal-blog" target="_blank" rel="noopener">Theme</Link> by <Link
+				href="https://www.lekoarts.de/?utm_source=astro-theme-minimal-blog"
+				target="_blank"
+				rel="noopener">LekoArts</Link
+			>, modified by <Link href="https://github.com/bianyukun1213" target="_blank" rel="noopener">Yukun</Link>
+			<div>
+				<Link href="https://xn--sr8hvo.ws/previous" target="_self" rel="noopener"
+					><span class="ltr:inline rtl:hidden">←</span><span class="ltr:hidden rtl:inline">→</span></Link
+				> An <Link href="https://xn--sr8hvo.ws" target="_blank" rel="noopener">IndieWeb Webring</Link> 🕸💍 <Link
+					class="indieweb-webring"
+					href="https://xn--sr8hvo.ws/next"
+					target="_self"
+					rel="noopener"><span class="ltr:inline rtl:hidden">→</span><span class="ltr:hidden rtl:inline">←</span></Link
+				>
+			</div>
+			<div>
+				<Link href="https://icp.gov.moe/?keyword=20230041" target="_blank" rel="noopener">萌ICP备20230041号</Link>
+			</div>
+			<div>
+				<Link href="https://www.travellings.cn/plain.html" target="_self" rel="noopener">开往 (Travelling)</Link>
+			</div>
 		</div>
 	</div>
 	<Spacer axis="vertical" size={8} />
