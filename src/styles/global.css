@@ -183,7 +183,7 @@ html[lang='he-IL'] {
     } */
 
 	.tide-image-mask-control {
-		@apply absolute inset-s-1/2 top-1/2 max-h-full w-full -translate-1/2 overflow-auto p-4 text-white;
+		@apply absolute inset-s-1/2 top-1/2 max-h-full w-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 overflow-auto p-4 text-white;
 	}
 
 	.tide-image-mask-title {
@@ -221,7 +221,7 @@ html[lang='he-IL'] {
 	}
 
 	.pswp__image-mask-title {
-		@apply absolute inset-s-1/2 top-1/2 mb-4 max-h-full w-4/5 -translate-1/2;
+		@apply absolute inset-s-1/2 top-1/2 mb-4 max-h-full w-4/5 ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2;
 	}
 }
 

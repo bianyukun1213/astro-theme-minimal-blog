@@ -32,6 +32,17 @@ export const SITE: Record<string, any> = {
 	},
 }
 
+const KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
+	'en-US': ['Personal blog', 'Journal', 'Programming', 'Movie reviews', 'TV show reviews', 'Video game reviews', 'Book reviews', 'Thoughts'],
+	'zh-CN': ['个人博客', '生活记录', '编程开发', '电影评论', '美剧评论', '电脑游戏', '读书笔记', '心得分享'],
+	'ru-RU': ['Личный блог', 'Дневник', 'Программирование', 'Рецензии на фильмы', 'Рецензии на сериалы', 'Рецензии на видеоигры', 'Рецензии на книги', 'Мысли'],
+	'he-IL': ['בלוג אישי', 'יומן', 'תכנות', 'ביקורות סרטים', 'ביקורות סדרות', 'ביקורות משחקי וידאו', 'ביקורות ספרים', 'מחשבות'],
+}
+
+export function getKeywords(locale: Locale): string[] {
+	return KEYWORDS_BY_LOCALE[locale]
+}
+
 const AUTHORS_BY_LOCALE: Record<Locale, Author[]> = {
 	'en-US': [
 		{
@@ -97,7 +108,7 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		],
 		external: [
 			{
-				title: 'Biography',
+				title: 'Bio',
 				url: 'https://yukun.bio/',
 				props: {
 					target: '_blank',
@@ -147,7 +158,7 @@ const HEADER_BY_LOCALE: Record<Locale, Header> = {
 		],
 		external: [
 			{
-				title: 'Биография',
+				title: 'Био',
 				url: 'https://yukun.bio/',
 				props: {
 					target: '_blank',

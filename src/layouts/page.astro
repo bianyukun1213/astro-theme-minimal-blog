@@ -4,13 +4,15 @@ import Prose from '@components/prose.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
 import Layout from '@layouts/layout.astro'
+import TideInteractions from '@components/tide-interactions.astro'
 
 interface Props {
 	title: string
 	searchIndex?: boolean
+	interactions?: boolean
 }
 
-const { title, searchIndex = true } = Astro.props
+const { title, searchIndex = true, interactions = true } = Astro.props
 
 const dataAttributes: DOMStringMap = {}
 if (searchIndex) dataAttributes['data-pagefind-body'] = ''
@@ -24,5 +26,7 @@ if (searchIndex) dataAttributes['data-pagefind-body'] = ''
 			<Spacer axis="vertical" size={12} />
 			<slot />
 		</Prose>
+		<Spacer axis="vertical" size={12} />
+		{interactions && <TideInteractions webmentions={false} />}
 	</SkipNavContent>
 </Layout>

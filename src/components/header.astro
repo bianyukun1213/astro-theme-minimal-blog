@@ -30,7 +30,7 @@ const header = getHeader(currentLocale)
 		<SearchBar />
 	</div>
 	<Spacer axis="vertical" size={4} />
-	<div class="flex flex-row justify-between items-center border-b border-border pb-4 text-lg md:text-xl">
+	<div class="flex flex-row flex-wrap justify-between items-center border-b border-border pb-4 text-lg md:text-xl">
 		<nav aria-label={m.label_primary_navigation()} class="flex gap-4">
 			{
 				header.internal.map((link) => (

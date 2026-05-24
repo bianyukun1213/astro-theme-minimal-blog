@@ -75,10 +75,18 @@ import 'photoswipe/style.css'
 					const imageId = figure.dataset.imageId || ''
 					const hasMask = !!maskTitle
 					const isRevealed = figure.dataset.revealed === 'true'
+					const realSrc = img.src
+					const width = Number.parseInt(img.getAttribute('width') as string, 10) || img.naturalWidth || 1920
+					const height = Number.parseInt(img.getAttribute('height') as string, 10) || img.naturalHeight || 1080
+					const src =
+						hasMask && !isRevealed
+							? `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect width="100%" height="100%" fill="#808080"/></svg>`)}`
+							: realSrc
 					return {
-						src: img.src,
-						width: Number.parseInt(img.getAttribute('width') as string, 10) || img.naturalWidth || 1920,
-						height: Number.parseInt(img.getAttribute('height') as string, 10) || img.naturalHeight || 1080,
+						src,
+						realSrc,
+						width,
+						height,
 						alt: img.alt,
 						imageId,
 						caption: img.dataset.caption || img.title,
@@ -115,10 +123,12 @@ import 'photoswipe/style.css'
 						}
 						const currData = pswpInstance.currSlide.data
 						currData.isRevealed = true
+						currData.src = currData.realSrc
 						if (window.Alpine) {
 							;(window.Alpine.store('images') as AlpineStoreImages).reveal(currData.imageId)
 						}
 						updateViewerState(pswpInstance)
+						pswpInstance.refreshSlideContent(pswpInstance.currIndex)
 					},
 				})
 				pswp.ui.registerElement({

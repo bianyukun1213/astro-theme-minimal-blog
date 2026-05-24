@@ -1,11 +1,31 @@
 ---
+import Link from '@components/link.astro'
 import Page from '@layouts/page.astro'
+import Tab from '@components/tab.astro'
+import TabContainer from '@components/tab-container.astro'
 ---
 
 <Page title="אודות">
 	<p>
-		זהו עיצוב בלוג מינימלי שנבנה עם Astro. הוא תומך ב-Markdown וב-MDX לכתיבת פוסטים, ומציע עיצוב פשוט ונקי שמתמקד
-		בקריאות. העיצוב רספונסיבי לחלוטין ועובד היטב בכל המכשירים. בנוסף, הוא כולל תמיכה במספר שפות, כך שתוכלו ליצור בקלות
-		בלוג רב-לשוני.
+		זהו הבלוג האישי של
+		<Link href="https://yukun.bio/" target="_blank" rel="noopener">ביאן יוקון</Link>
+		.
 	</p>
+	<TabContainer>
+		<Tab name="playlist" label="YouTube Music" checked={true}>
+			<Link
+				href="https://music.youtube.com/playlist?list=PL4b8BRd_yTniafEC1D1hsCTAESIygnjyc&feature=shared"
+				target="_blank"
+				rel="noopener">להאזין ב-YouTube Music</Link
+			>
+		</Tab>
+		<Tab name="playlist" label="NetEase Music">
+			<iframe
+				class="mx-auto"
+				width="330"
+				height="450"
+				src="//music.163.com/outchain/player?type=0&id=8789695885&auto=0&height=430"></iframe>
+			<script></script>
+		</Tab>
+	</TabContainer>
 </Page>

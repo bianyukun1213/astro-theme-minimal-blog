@@ -1,7 +1,7 @@
 /**
 * | output |
 * | --- |
-* | "Eng" |
+* | "🇺🇸 Eng" |
 *
 * @param {Lang_En_UsInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
@@ -15,7 +15,7 @@ export const lang_en_us: ((inputs?: Lang_En_UsInputs, options?: {
 /**
 * | output |
 * | --- |
-* | "简中" |
+* | "🇨🇳 简中" |
 *
 * @param {Lang_Zh_CnInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
@@ -29,7 +29,7 @@ export const lang_zh_cn: ((inputs?: Lang_Zh_CnInputs, options?: {
 /**
 * | output |
 * | --- |
-* | "Рус." |
+* | "🇷🇺 Рус." |
 *
 * @param {Lang_Ru_RuInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
@@ -43,7 +43,7 @@ export const lang_ru_ru: ((inputs?: Lang_Ru_RuInputs, options?: {
 /**
 * | output |
 * | --- |
-* | "עברית" |
+* | "🇮🇱 עברית" |
 *
 * @param {Lang_He_IlInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
@@ -57,7 +57,7 @@ export const lang_he_il: ((inputs?: Lang_He_IlInputs, options?: {
 /**
 * | output |
 * | --- |
-* | "My Blog" |
+* | "His 2nd Life" |
 *
 * @param {Site_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
@@ -71,7 +71,7 @@ export const site_title: ((inputs?: Site_TitleInputs, options?: {
 /**
 * | output |
 * | --- |
-* | "A minimal blog theme for Astro" |
+* | "Life is short. Live it twice as wide!" |
 *
 * @param {Site_DescriptionInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options

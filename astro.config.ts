@@ -60,6 +60,9 @@ export default defineConfig({
 	site: SITE.url,
 	base: SITE.base,
 	integrations: [sitemap(), alpinejs({ entrypoint: '/src/entrypoint' }), react(), expressiveCode(), mdx()],
+	server: {
+		host: true,
+	},
 
 	vite: {
 		plugins: [
@@ -92,7 +95,7 @@ export default defineConfig({
 	},
 
 	devToolbar: {
-		enabled: false,
+		enabled: true,
 	},
 
 	markdown: {

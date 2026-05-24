@@ -1,5 +1,6 @@
 ---
 import type { Locale } from '@utils'
+import Link from './link.astro'
 
 const currentLocale = Astro.currentLocale as Locale
 ---
@@ -7,48 +8,65 @@ const currentLocale = Astro.currentLocale as Locale
 {
 	currentLocale === 'en-US' ? (
 		<>
-			<h2>Hello 👋🏻</h2>
+			<h2>Welcome! 👋</h2>
 			<p>
-				Welcome to <strong>Astro Theme: Minimal Blog</strong>, an ideal option to start sharing your ideas. It's easy to
-				set up and features everything you'd need for a blog.
-				<a href="/introducing-astro-theme-minimal-blog">Get started</a>.
+				This is the personal blog of
+				<Link href="https://yukun.bio/" target="_blank" rel="noopener">
+					Bian Yukun
+				</Link>
+				.
+			</p>
+			<p>
+				Thank you for visiting! If you want to check the latest content, please go to the
+				<Link href="/zh-CN/">Chinese site</Link>. I could spend months doing other things before actually translating a
+				post.
 			</p>
 		</>
 	) : currentLocale === 'zh-CN' ? (
 		<>
-			<h2>你好 👋🏻</h2>
+			<h2>欢迎！👋</h2>
 			<p>
-				欢迎来到 <strong>Astro Theme: Minimal Blog</strong>
-				。这是一个极简的主题，非常适合用来分享你的灵感与想法。它不仅易于配置，还提供了博客所需的所有基础功能。
-				<a href="/zh-CN/introducing-astro-theme-minimal-blog">开始使用</a>。
+				这是
+				<Link href="https://yukun.bio/" target="_blank" rel="noopener">
+					边宇琨
+				</Link>
+				的个人博客。
 			</p>
 		</>
 	) : currentLocale === 'ru-RU' ? (
 		<>
-			<h2>Привет 👋🏻</h2>
+			<h2>Привет! 👋</h2>
 			<p>
-				Добро пожаловать в <strong>Astro Theme: Minimal Blog</strong>, идеальный вариант для старта вашего блога. Его
-				легко настроить, и он содержит всё необходимое для обмена идеями.
-				<a href="/ru-RU/introducing-astro-theme-minimal-blog">Начать</a>.
+				Это личный блог
+				<Link href="https://yukun.bio/" target="_blank" rel="noopener">
+					Бянь Юйкунь
+				</Link>
+				.
+			</p>
+			<p>
+				Спасибо за посещение! Если вы хотите ознакомиться с последними материалами, пожалуйста, перейдите на
+				<Link href="/zh-CN/">китайский сайт</Link>. Я могу потратить месяцы на другие дела, прежде чем действительно
+				перевести пост.
 			</p>
 		</>
 	) : currentLocale === 'he-IL' ? (
 		<>
-			<h2>שלום 👋🏻</h2>
+			<h2>שלום! 👋</h2>
 			<p>
-				ברוכים הבאים אל <strong>Astro Theme: Minimal Blog</strong>, אפשרות אידיאלית להתחיל לשתף את הרעיונות שלך. התבנית
-				קלה להגדרה וכוללת את כל מה שצריך עבור בלוג.
-				<a href="/he-IL/introducing-astro-theme-minimal-blog">התחילו כאן</a>.
+				זהו הבלוג האישי של
+				<Link href="https://yukun.bio/" target="_blank" rel="noopener">
+					ביאן יוקון
+				</Link>
+				.
+			</p>
+			<p>
+				תודה שביקרת! אם אתה רוצה לבדוק את התוכן האחרון, אנא עבור אל
+				<Link href="/zh-CN/">האתר הסיני</Link>. אני יכול לבלות חודשים בדברים אחרים לפני שאתרגם בפועל פוסט.
 			</p>
 		</>
 	) : (
 		<>
-			<h2>Hello 👋🏻</h2>
-			<p>
-				Welcome to <strong>Astro Theme: Minimal Blog</strong>, an ideal option to start sharing your ideas. It's easy to
-				set up and features everything you'd need for a blog.
-				<a href="/introducing-astro-theme-minimal-blog">Get started</a>.
-			</p>
+			<h2>PLACEHOLDER</h2>
 		</>
 	)
 }

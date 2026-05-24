@@ -1,12 +1,31 @@
 ---
+import Link from '@components/link.astro'
 import Page from '@layouts/page.astro'
+import Tab from '@components/tab.astro'
+import TabContainer from '@components/tab-container.astro'
 ---
 
 <Page title="О сайте">
 	<p>
-		Это минималистичная тема для блога, созданная на базе Astro. Она поддерживает Markdown и MDX для написания
-		публикаций и отличается простым, лаконичным дизайном, ориентированным на удобство чтения. Тема полностью адаптивна и
-		корректно отображается на любых устройствах. Кроме того, она поддерживает несколько языков, что позволяет легко
-		создать мультиязычный блог.
+		Это личный блог
+		<Link href="https://yukun.bio/" target="_blank" rel="noopener">Бянь Юйкунь</Link>
+		.
 	</p>
+	<TabContainer>
+		<Tab name="playlist" label="YouTube Music" checked={true}>
+			<Link
+				href="https://music.youtube.com/playlist?list=PL4b8BRd_yTniafEC1D1hsCTAESIygnjyc&feature=shared"
+				target="_blank"
+				rel="noopener">Слушать на YouTube Music</Link
+			>
+		</Tab>
+		<Tab name="playlist" label="NetEase Music">
+			<iframe
+				class="mx-auto"
+				width="330"
+				height="450"
+				src="//music.163.com/outchain/player?type=0&id=8789695885&auto=0&height=430"></iframe>
+			<script></script>
+		</Tab>
+	</TabContainer>
 </Page>
