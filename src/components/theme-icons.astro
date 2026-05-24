@@ -20,11 +20,13 @@
 // 你只需要修改 layout.astro，将 <ThemeProvider /> 从 <head> 中移出，放到 <body> 的最顶端即可 。<template> 标签在 <body> 顶部是完全合法的，这样 Astro 的头部注入器就不会再被它干扰了。
 //
 // 因此，theme-icons 单独拆分，放入 body。
-import Icon from './icon.astro'
+import Sun from './icons/sun.svg'
+import Moon from './icons/moon.svg'
+import Laptop from './icons/laptop.svg'
 ---
 
 <template id="theme-icons">
-	<Icon name="sun" class="light label-icon" />
-	<Icon name="moon" class="dark label-icon" />
-	<Icon name="laptop" class="auto label-icon" />
+	<Sun class="light label-icon" aria-hidden="true" />
+	<Moon class="dark label-icon" aria-hidden="true" />
+	<Laptop class="auto label-icon" aria-hidden="true" />
 </template>

@@ -1,9 +1,10 @@
 ---
-import Icon from '@components/icon.astro'
-import Link from '@components/link.astro'
 import { removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 import type { CollectionEntry } from 'astro:content'
+import ChevronLeft from './icons/chevron-left.svg'
+import ChevronRight from './icons/chevron-right.svg'
+import Link from './link.astro'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
@@ -33,7 +34,7 @@ const nextHref = nextPost ? getPostHref(nextPost.data.displayId) : null
 				<div class="min-w-16 text-start">
 					{previousPost && (
 						<Link href={prevHref} class="inline-flex items-center justify-start gap-2">
-							<Icon name="chevron-left" class="ltr:scale-x-100 rtl:-scale-x-100" />
+							<ChevronLeft class="ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
 							<span>{previousPost.data.title}</span>
 						</Link>
 					)}
@@ -42,7 +43,7 @@ const nextHref = nextPost ? getPostHref(nextPost.data.displayId) : null
 					{nextPost && (
 						<Link href={nextHref} class="inline-flex items-center justify-end gap-2">
 							<span>{nextPost.data.title}</span>
-							<Icon name="chevron-right" class="ltr:scale-x-100 rtl:-scale-x-100" />
+							<ChevronRight class="ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
 						</Link>
 					)}
 				</div>

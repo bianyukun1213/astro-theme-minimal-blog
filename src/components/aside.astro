@@ -2,7 +2,10 @@
 import type { AsideType } from '@constants'
 import * as messages from '@paraglide/messages'
 import { useTranslations, type Locale } from '@utils'
-import Icon from './icon.astro'
+import Info from './icons/info.svg'
+import Lightbulb from './icons/lightbulb.svg'
+import OctagonAlert from './icons/octagon-alert.svg'
+import TriangleAlert from './icons/triangle-alert.svg'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
@@ -44,8 +47,6 @@ const styleVariants: Record<AsideType, { bg: string; accent: string; border: str
 		border: 'border-red-400 dark:border-red-600',
 	},
 }
-
-const svgStyle = 'w-7 ht-7 shrink-0 fill-current'
 ---
 
 <aside
@@ -53,10 +54,20 @@ const svgStyle = 'w-7 ht-7 shrink-0 fill-current'
 	class={`${styleVariants[type].bg} p-4 my-6 rounded-sm border-s-4 ${styleVariants[type].border}`}
 >
 	<p aria-hidden="true" class={`flex gap-4 items-center font-semibold ${styleVariants[type].accent} mt-0!`}>
-		<Icon name={type} class={svgStyle} />
+		{
+			type === 'note' ? (
+				<Info aria-hidden="true" />
+			) : type === 'tip' ? (
+				<Lightbulb aria-hidden="true" />
+			) : type === 'caution' ? (
+				<TriangleAlert aria-hidden="true" />
+			) : (
+				<OctagonAlert aria-hidden="true" />
+			)
+		}
 		{title}
+		<div class="[&>:first-child]:mt-0 [&>:last-child]:mb-0">
+			<slot />
+		</div>
 	</p>
-	<div class="[&>:first-child]:mt-0 [&>:last-child]:mb-0">
-		<slot />
-	</div>
 </aside>

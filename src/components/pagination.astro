@@ -1,8 +1,9 @@
 ---
-import Icon from '@components/icon.astro'
-import Link from '@components/link.astro'
 import { useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
+import ChevronLeft from './icons/chevron-left.svg'
+import ChevronRight from './icons/chevron-right.svg'
+import Link from './link.astro'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
@@ -33,7 +34,7 @@ const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
 				<div class="min-w-16 text-start">
 					{prevHref && (
 						<Link href={prevHref} class="inline-flex items-center justify-start gap-2">
-							<Icon name="chevron-left" class="ltr:scale-x-100 rtl:-scale-x-100" />
+							<ChevronLeft class="ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
 							<span>{m.btn_previous_page_title()}</span>
 						</Link>
 					)}
@@ -53,7 +54,7 @@ const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
 					{nextHref && (
 						<Link href={nextHref} class="inline-flex items-center justify-end gap-2">
 							<span>{m.btn_next_page_title()}</span>
-							<Icon name="chevron-right" class="ltr:scale-x-100 rtl:-scale-x-100" />
+							<ChevronRight class="ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
 						</Link>
 					)}
 				</div>

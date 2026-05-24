@@ -7,7 +7,7 @@
  */
 
 import { useTranslations, type Locale } from '@utils'
-import Icon from './icon.astro'
+import Laptop from './icons/laptop.svg'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
@@ -16,7 +16,7 @@ const m = useTranslations(currentLocale)
 <atmb-theme-select>
 	<label class="relative flex items-center gap-2">
 		<span class="sr-only">{m.label_select_theme()}</span>
-		<Icon name="laptop" class="icon label-icon" />
+		<Laptop class="icon label-icon" aria-hidden="true" />
 		<select id="theme-select" value="auto" autocomplete="off">
 			{
 				[

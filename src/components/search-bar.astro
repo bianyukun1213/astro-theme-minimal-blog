@@ -1,7 +1,7 @@
 ---
 import { SITE } from '@constants'
 import { useTranslations, type Locale } from '@utils'
-import Icon from './icon.astro'
+import Search from './icons/search.svg'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
@@ -20,7 +20,7 @@ const searchUrl = SITE.searchUrl
 		autocomplete="off"
 	/>
 	<button type="submit" aria-label={m.btn_search_title()} class="atmb-button w-8">
-		<Icon name="search" />
+		<Search aria-hidden="true" />
 	</button>
 </form>
 <script is:inline define:vars={{ siteHost, searchUrl }}>
