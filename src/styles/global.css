@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+@plugin 'daisyui';
 
 html {
 	--default-font-family: var(--font-noto-serif), serif;
@@ -252,14 +253,17 @@ html[lang='he-IL'] {
 @utility ht-fs6 {
 	height: calc(100% - var(--spacing) * 6);
 }
-@utility ht-8 {
-	height: calc(var(--spacing) * 8);
+@utility ht-4 {
+	height: calc(var(--spacing) * 4);
 }
 @utility ht-5 {
 	height: calc(var(--spacing) * 5);
 }
 @utility ht-7 {
 	height: calc(var(--spacing) * 7);
+}
+@utility ht-8 {
+	height: calc(var(--spacing) * 8);
 }
 @utility ht-24 {
 	height: calc(var(--spacing) * 24);

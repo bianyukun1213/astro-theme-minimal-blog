@@ -54,6 +54,7 @@
 		"@types/react-dom": "^19.2.3",
 		"@waline/client": "^3.13.0",
 		"astro-eslint-parser": "^1.4.0",
+		"daisyui": "^5.5.20",
 		"eslint": "^10.4.0",
 		"eslint-plugin-astro": "^1.7.0",
 		"eslint-plugin-format": "^2.0.1",

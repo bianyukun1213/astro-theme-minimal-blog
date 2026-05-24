@@ -36,8 +36,27 @@ import TideDialogImageViewer from "@components/tide-dialog-image-viewer.astro";
 import TideImageMasonry from "@components/tide-image-masonry.astro";
 import TideMasonryItem from "@components/tide-masonry-item.astro";
 import TidePicture from "@components/tide-picture.astro";
+import Tab from "@components/tab.astro";
+import TabContainer from "@components/tab-container.astro";
+import Collapse from "@components/collapse.astro";
 
-<TideImageMasonry>
+<TabContainer>
+  <Tab name="tab" label="标签页 1" checked>标签页 1 内容</Tab>
+  <Tab name="tab" label="标签页 2">标签页 2 内容</Tab>
+  <Tab name="tab" label="标签页 3">标签页 3 内容</Tab>
+</TabContainer>
+<Collapse title="折叠面板测试">
+
+测试测试测试
+
+- 测试
+- 测试
+- 测试
+
+</Collapse>
+
+
+{/* <TideImageMasonry>
   <TideMasonryItem
     class="bg-amber-500"
     imgClass="bg-blue-500"
@@ -141,7 +160,7 @@ import TidePicture from "@components/tide-picture.astro";
     title="title"
     caption="caption"
   />
-</div>
+</div> */}
 
 ## 滚动表格测试
 

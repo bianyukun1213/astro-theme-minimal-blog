@@ -1,0 +1,12 @@
+---
+interface Props {
+	name: string
+	label: string
+	checked?: boolean
+}
+
+const { name, label, checked = false } = Astro.props
+---
+
+<input type="radio" name={name} class="tab" aria-label={label} checked={checked ? 'checked' : undefined} />
+<div class="tab-content border border-border p-4"><slot /></div>
