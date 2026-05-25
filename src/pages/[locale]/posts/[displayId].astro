@@ -1,6 +1,7 @@
 ---
 import SkipNavContent from '@components/a11y/skip-nav-content.astro'
 import Aside from '@components/aside.astro'
+import Collapse from '@components/collapse.astro'
 import Image from '@components/icons/image.svg'
 import Mf2Meta from '@components/mf2-meta.astro'
 import PostNavigation from '@components/post-navigation.astro'
@@ -8,6 +9,8 @@ import Prose from '@components/prose.astro'
 import Protected from '@components/protected.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
+import TabContainer from '@components/tab-container.astro'
+import Tab from '@components/tab.astro'
 import TagLinks from '@components/tag-links.astro'
 import TideImageMasonry from '@components/tide-image-masonry.astro'
 import TideInteractions from '@components/tide-interactions.astro'
@@ -161,7 +164,9 @@ Astro.locals.localesOverride = allPosts
 				}}
 			/>
 			<Spacer axis="vertical" size={12} />
-			<Content components={{ Aside, Protected, TideImageMasonry, TideMasonryItem, TidePicture }} />
+			<Content
+				components={{ Aside, Protected, TideImageMasonry, TideMasonryItem, TidePicture, TabContainer, Tab, Collapse }}
+			/>
 		</Prose>
 		<Spacer axis="vertical" size={12} />
 		<PostNavigation previousPost={previousPost} nextPost={nextPost} />

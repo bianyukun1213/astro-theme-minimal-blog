@@ -3,6 +3,7 @@
 		"dbaeumer.vscode-eslint",
 		"emeraldwalk.runonsave",
 		"astro-build.astro-vscode",
+		"unifiedjs.vscode-mdx",
 		"inlang.vs-code-extension"
 	],
 	"unwantedRecommendations": []
