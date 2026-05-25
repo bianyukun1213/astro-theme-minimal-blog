@@ -52,6 +52,7 @@ export const HCardSchema = z.object({
 export type HCard = z.infer<typeof HCardSchema>
 
 export const PLocationSchema = z.object({
+	pName: z.string().optional(),
 	pStreetAddress: z.string().optional(),
 	pExtendedAddress: z.string().optional().optional(),
 	pLocality: z.string().optional(),

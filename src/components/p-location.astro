@@ -10,6 +10,7 @@ const { pLocation, intent } = Astro.props
 ---
 
 <div class={`p-location ${intent} hidden`} data-pagefind-ignore>
+	{pLocation.pName && <span class="p-name">{pLocation.pName}</span>}
 	{pLocation.pStreetAddress && <span class="p-street-address">{pLocation.pStreetAddress}</span>}
 	{pLocation.pExtendedAddress && <span class="p-extended-address">{pLocation.pExtendedAddress}</span>}
 	{pLocation.pLocality && <span class="p-locality">{pLocation.pLocality}</span>}
