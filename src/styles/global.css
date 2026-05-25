@@ -90,6 +90,12 @@ html[lang='he-IL'] {
 		@apply outline-1 outline-transparent outline-offset-2;
 	}
 
+	/* Typography plugin doesn't support iframe */
+	iframe,
+	video {
+		@apply max-w-full mx-auto;
+	}
+
 	.tide-dynamic-hidden {
 		@apply hidden!;
 	}
