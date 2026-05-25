@@ -12,7 +12,7 @@ import Page from '@layouts/page.astro'
 		的个人博客。
 	</p>
 	<TabContainer>
-		<Tab name="playlist" label="网易云音乐" checked={true}>
+		<Tab name="music-playlist" label="网易云音乐" checked={true}>
 			<iframe
 				class="mx-auto"
 				width="330"
@@ -20,11 +20,11 @@ import Page from '@layouts/page.astro'
 				src="//music.163.com/outchain/player?type=0&id=8789695885&auto=0&height=430"></iframe>
 			<script></script>
 		</Tab>
-		<Tab name="playlist" label="YouTube Music">
+		<Tab name="music-playlist" label="YouTube Music">
 			<Link
 				href="https://music.youtube.com/playlist?list=PL4b8BRd_yTniafEC1D1hsCTAESIygnjyc&feature=shared"
 				target="_blank"
-				rel="noopener">在 YouTube Music 上收听</Link
+				rel="noopener">在 YouTube Music 上聆听</Link
 			>
 		</Tab>
 	</TabContainer>
