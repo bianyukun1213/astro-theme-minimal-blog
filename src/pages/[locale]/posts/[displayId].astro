@@ -9,7 +9,10 @@ import Protected from '@components/protected.astro'
 import Seo from '@components/seo.astro'
 import Spacer from '@components/spacer.astro'
 import TagLinks from '@components/tag-links.astro'
+import TideImageMasonry from '@components/tide-image-masonry.astro'
 import TideInteractions from '@components/tide-interactions.astro'
+import TideMasonryItem from '@components/tide-masonry-item.astro'
+import TidePicture from '@components/tide-picture.astro'
 import { getAuthors, SITE } from '@constants'
 import Layout from '@layouts/layout.astro'
 import * as messages from '@paraglide/messages'
@@ -158,7 +161,7 @@ Astro.locals.localesOverride = allPosts
 				}}
 			/>
 			<Spacer axis="vertical" size={12} />
-			<Content components={{ Aside, Protected }} />
+			<Content components={{ Aside, Protected, TideImageMasonry, TideMasonryItem, TidePicture }} />
 		</Prose>
 		<Spacer axis="vertical" size={12} />
 		<PostNavigation previousPost={previousPost} nextPost={nextPost} />
