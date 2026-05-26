@@ -80,9 +80,9 @@ const { class: className, ...attrs } = Astro.props
 				mobileFirst: true,
 				breakAt,
 			})
-			// intance.runOnImageLoad(() => {
-			// 	intance.recalculate(true)
-			// }, true)
+			intance.runOnImageLoad(() => {
+				intance.recalculate(true)
+			}, true)
 		}
 	}
 	document.addEventListener('astro:page-load', initMasonry)
