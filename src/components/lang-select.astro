@@ -28,10 +28,15 @@ function getLocalizedLocale(localeKey: Locale) {
 }
 ---
 
-<div>
+<div x-data>
 	<label class="relative flex items-center gap-2">
 		<span class="sr-only">{m.label_select_language()}</span>
-		<select id="lang-select" value="auto" autocomplete="off">
+		<select
+			id="lang-select"
+			value="auto"
+			autocomplete="off"
+			x-on:change="window.location.href=window.location.href.replace('/'+document.documentElement.lang+'/','/'+$event.target.value+'/')"
+		>
 			{
 				displayLocales.map((locale) => (
 					<option
@@ -46,16 +51,3 @@ function getLocalizedLocale(localeKey: Locale) {
 		</select>
 	</label>
 </div>
-
-<script>
-	document.addEventListener('astro:page-load', () => {
-		const langSelect = document.querySelector('#lang-select')
-		if (langSelect) {
-			langSelect.addEventListener('change', (event) => {
-				const locale = document.documentElement.lang
-				const targetLocale = (event.target as HTMLSelectElement).value
-				window.location.href = window.location.href.replace(`/${locale}/`, `/${targetLocale}/`)
-			})
-		}
-	})
-</script>

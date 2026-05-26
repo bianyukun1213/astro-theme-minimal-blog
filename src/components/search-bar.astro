@@ -10,7 +10,12 @@ const siteHost = Astro.site ? new URL(Astro.site).hostname : ''
 const searchUrl = SITE.searchUrl
 ---
 
-<form id="search-form" role="search" class="flex gap-2 ht-8">
+<form
+	role="search"
+	class="flex gap-2 ht-8"
+	x-data={JSON.stringify({ query: '', siteHost, searchUrl })}
+	x-on:submit.prevent="const q=query.trim();if(q)window.open(searchUrl+encodeURIComponent(siteHost?'site:'+siteHost+' '+q:q),'_blank','noopener,noreferrer')"
+>
 	<label class="sr-only" for="search-input">{m.btn_search_title()}</label>
 	<input
 		id="search-input"
@@ -18,26 +23,9 @@ const searchUrl = SITE.searchUrl
 		type="search"
 		placeholder={m.btn_search_title()}
 		autocomplete="off"
+		x-model="query"
 	/>
 	<button type="submit" aria-label={m.btn_search_title()} class="atmb-button w-8">
 		<Search aria-hidden="true" />
 	</button>
 </form>
-<script is:inline define:vars={{ siteHost, searchUrl }}>
-	document.addEventListener('astro:page-load', () => {
-		const form = document.getElementById('search-form')
-		if (!form) {
-			return
-		}
-		form.addEventListener('submit', (e) => {
-			e.preventDefault()
-			const input = document.getElementById('search-input')
-			const query = input?.value?.trim()
-			if (!query) {
-				return
-			}
-			const q = siteHost ? `site:${siteHost} ${query}` : query
-			window.open(`${searchUrl}${encodeURIComponent(q)}`, '_blank', 'noopener,noreferrer')
-		})
-	})
-</script>
