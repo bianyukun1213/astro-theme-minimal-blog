@@ -77,10 +77,23 @@ const tideMeta: TideMeta = { breakpoints }
 			window.m = m
 			window.setLocale = setLocale
 			window.setLocale(document.documentElement.lang as Locale)
+
+			const bar = document.getElementById('page-progress-bar')!
+
+			document.addEventListener('astro:before-preparation', () => {
+				bar.classList.remove('progress-bar-complete')
+				bar.classList.add('progress-bar-loading')
+			})
+
+			document.addEventListener('astro:page-load', () => {
+				bar.classList.remove('progress-bar-loading')
+				bar.classList.add('progress-bar-complete')
+			})
 		</script>
 	</head>
 	<body class="min-h-screen bg-bg text-text">
 		<ClientRouter />
+		<div id="page-progress-bar"></div>
 		<ThemeIcons />
 		<TideDialogImageViewer />
 		<SkipNavLink />

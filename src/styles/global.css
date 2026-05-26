@@ -2,6 +2,30 @@
 @plugin '@tailwindcss/typography';
 @plugin 'daisyui';
 
+/* Progress bar: always LTR regardless of dir attribute, uses physical `left` intentionally */
+#page-progress-bar {
+	@apply fixed top-0 left-0 h-0.75 w-0 bg-highlight z-100 transition-none;
+}
+
+#page-progress-bar.progress-bar-loading {
+	@apply animate-[progress-bar-indeterminate_1.2s_ease-in-out_infinite];
+}
+
+#page-progress-bar.progress-bar-complete {
+	@apply w-full! opacity-0 [transition:width_0.2s_ease,opacity_0.4s_ease_0.2s];
+}
+
+@keyframes progress-bar-indeterminate {
+	0% {
+		left: -30%;
+		width: 30%;
+	}
+	100% {
+		left: 100%;
+		width: 30%;
+	}
+}
+
 html {
 	--default-font-family: var(--font-noto-serif), serif;
 }
@@ -23,14 +47,13 @@ html[lang='he-IL'] {
 }
 
 @theme {
-	--color-bg: var(--color-gray-50);
-	--color-text: var(--color-gray-700);
-	--color-highlight: var(--color-black);
-	--color-primary: var(--color-blue-600);
-	--color-subtle: var(--color-gray-600);
-	--color-faded: var(--color-gray-500);
+	--color-bg: #ffffff;
+	--color-text: #333333;
+	--color-highlight: #1f5297;
+	--color-primary: #1f5297;
+	--color-subtle: #4b5563;
+	--color-faded: #6b7280;
 	--color-border: var(--color-gray-200);
-
 	--color-ic-bg: var(--color-white);
 	--color-ic-border: var(--color-gray-200);
 }
@@ -41,14 +64,13 @@ html[lang='he-IL'] {
 
 		@variant dark {
 			color-scheme: dark;
-			--color-bg: var(--color-gray-900);
-			--color-text: var(--color-gray-200);
-			--color-highlight: var(--color-white);
-			--color-primary: var(--color-blue-400);
-			--color-subtle: var(--color-gray-300);
-			--color-faded: var(--color-gray-400);
+			--color-bg: #171717;
+			--color-text: #e5e5e5;
+			--color-highlight: #3b82f6;
+			--color-primary: #3b82f6;
+			--color-subtle: #e5e5e5;
+			--color-faded: #a3a3a3;
 			--color-border: var(--color-gray-700);
-
 			--color-ic-bg: var(--color-gray-700);
 			--color-ic-border: var(--color-gray-600);
 		}
@@ -66,34 +88,38 @@ html[lang='he-IL'] {
 		@apply cursor-pointer;
 	}
 
-	[tabindex]:not([tabindex='-1']):focus-visible,
-	a:focus-visible,
-	button:focus-visible,
-	input:focus-visible,
-	select:focus-visible,
-	pre:focus-visible,
-	textarea:focus-visible,
-	summary:focus-visible,
-	.tide-table-wrapper:focus-visible {
+	[tabindex]:not([tabindex='-1']):focus,
+	a:focus,
+	button:focus,
+	input:focus,
+	select:focus,
+	pre:focus,
+	textarea:focus,
+	summary:focus,
+	.tide-table-wrapper:focus {
 		@apply outline-2 outline-dashed outline-highlight outline-offset-2;
 	}
 
-	[tabindex]:not([tabindex='-1']):hover:not(:focus-visible),
-	a:hover:not(:focus-visible),
-	button:hover:not(:focus-visible),
-	input:hover:not(:focus-visible),
-	select:hover:not(:focus-visible),
-	pre:hover:not(:focus-visible),
-	textarea:hover:not(:focus-visible),
-	summary:hover:not(:focus-visible),
-	.tide-table-wrapper:hover:not(:focus-visible) {
+	[tabindex]:not([tabindex='-1']):hover:not(:focus),
+	a:hover:not(:focus),
+	button:hover:not(:focus),
+	input:hover:not(:focus),
+	select:hover:not(:focus),
+	pre:hover:not(:focus),
+	textarea:hover:not(:focus),
+	summary:hover:not(:focus),
+	.tide-table-wrapper:hover:not(:focus) {
 		@apply outline-1 outline-transparent outline-offset-2;
 	}
 
+	.prose > * {
+		@apply max-w-full;
+	}
+
 	/* Typography plugin doesn't support iframe */
-	iframe,
-	video {
-		@apply max-w-full mx-auto;
+	.prose > iframe,
+	.prose > video {
+		@apply mx-auto;
 	}
 
 	.tide-dynamic-hidden {
@@ -115,14 +141,14 @@ html[lang='he-IL'] {
 	/* Theme select styling */
 	select {
 		background-color: var(--color-bg);
-		color: var(--color-text);
+		color: var(--color-subtle);
 		cursor: pointer;
 		@apply hover:text-highlight;
 	}
 
 	select option {
 		background-color: var(--color-bg);
-		color: var(--color-text);
+		color: var(--color-subtle);
 	}
 
 	.atmb-input {
@@ -138,7 +164,7 @@ html[lang='he-IL'] {
 	}
 
 	.tide-button-link {
-		@apply border-0 bg-transparent text-primary underline hover:scale-none hover:underline-offset-4 active:scale-none disabled:hover:underline-offset-auto;
+		@apply border-0 bg-transparent underline hover:scale-none hover:underline-offset-4 active:scale-none disabled:hover:underline-offset-auto;
 	}
 
 	.tide-image-figure {
@@ -171,9 +197,12 @@ html[lang='he-IL'] {
 		@apply inline align-baseline;
 	}
 
-	.tide-image-figure-block .tide-image-mask {
-		/* @apply absolute z-10 size-full text-center backdrop-blur-3xl backdrop-brightness-50; */
+	.tide-image-figure-block:has(.tide-image-figure-caption) .tide-image-mask {
 		@apply absolute z-10 ht-fs6 w-full text-center backdrop-blur-3xl backdrop-brightness-50;
+	}
+
+	.tide-image-figure-block:not(:has(.tide-image-figure-caption)) .tide-image-mask {
+		@apply absolute z-10 ht-full w-full text-center backdrop-blur-3xl backdrop-brightness-50;
 	}
 
 	.tide-image-figure-inline .tide-image-mask,
