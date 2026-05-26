@@ -15,7 +15,7 @@ const blog = defineCollection({
 		date: z.date(),
 		updated: z.date(),
 		tags: z.array(z.enum(TAG_SLUGS)),
-		image: z.url().optional(),
+		image: z.string().optional(),
 		imageAlt: z.string().optional().default(''),
 		imageCaption: z.string().optional(),
 		searchIndex: z.boolean().optional().default(true),
