@@ -117,8 +117,8 @@ html[lang='he-IL'] {
 	}
 
 	/* Typography plugin doesn't support iframe */
-	.prose > iframe,
-	.prose > video {
+	.prose iframe,
+	.prose video {
 		@apply mx-auto;
 	}
 
