@@ -1,0 +1,24 @@
+---
+// https://dev.vk.com/ru/widgets/playlist
+
+interface Props {
+	ownerId: string
+	playlistId: string
+	hash: string
+}
+
+const { ownerId, playlistId, hash } = Astro.props
+---
+
+<div id={`vk_playlist_${ownerId}_${playlistId}`}></div>
+<script is:inline data-astro-rerun src="https://vk.com/js/api/openapi.js?169"></script>
+<script is:inline define:vars={{ ownerId, playlistId, hash }} data-astro-rerun>
+	;(function () {
+		VK.Widgets.Playlist(
+			`vk_playlist_${ownerId}_${playlistId}`,
+			Number.parseInt(ownerId, 10),
+			Number.parseInt(playlistId, 10),
+			hash,
+		)
+	})()
+</script>

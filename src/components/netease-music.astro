@@ -1,0 +1,35 @@
+---
+interface Props {
+	id: string
+	type?: 'song' | 'playlist'
+	autoPlay?: boolean
+}
+
+const { id, type = 'song', autoPlay = false } = Astro.props
+
+const height = type === 'song' ? 86 : 450
+const musicType = type === 'song' ? 2 : 0
+const auto = autoPlay ? 1 : 0
+const innerHeight = type === 'song' ? 66 : 430
+const src = `//music.163.com/outchain/player?type=${musicType}&id=${id}&auto=${auto}&height=${innerHeight}`
+---
+
+<iframe frameborder="no" marginwidth="0" marginheight="0" width="330" {height} {src}></iframe>
+<script>
+	function isMobileUserAgent(ua: string) {
+		return !!ua.match(
+			/(phone|pad|pod|Mobile|iPhone|iPad|iPod|ios|Android|Windows Phone|Symbian|BlackBerry|WebOS|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG)/i,
+		)
+	}
+
+	function fixNetEaseMusic() {
+		if (isMobileUserAgent(navigator.userAgent)) {
+			;[...document.getElementsByTagName('iframe')].forEach((element) => {
+				if (element.src.includes('music.163.com/outchain/'))
+					element.src = element.src.replace('music.163.com/outchain/', 'music.163.com/m/outchain/')
+			})
+		}
+	}
+
+	document.addEventListener('astro:page-load', fixNetEaseMusic)
+</script>

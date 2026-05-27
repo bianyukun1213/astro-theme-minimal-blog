@@ -4,6 +4,7 @@ import Aside from '@components/aside.astro'
 import Collapse from '@components/collapse.astro'
 import Image from '@components/icons/image.svg'
 import Mf2Meta from '@components/mf2-meta.astro'
+import NeteaseMusic from '@components/netease-music.astro'
 import PostNavigation from '@components/post-navigation.astro'
 import Prose from '@components/prose.astro'
 import Protected from '@components/protected.astro'
@@ -16,6 +17,7 @@ import TideImageMasonry from '@components/tide-image-masonry.astro'
 import TideInteractions from '@components/tide-interactions.astro'
 import TideMasonryItem from '@components/tide-masonry-item.astro'
 import TidePicture from '@components/tide-picture.astro'
+import VkMusic from '@components/vk-music.astro'
 import { getAuthors, SITE } from '@constants'
 import Layout from '@layouts/layout.astro'
 import * as messages from '@paraglide/messages'
@@ -31,7 +33,6 @@ import {
 	useTranslations,
 	type Locale,
 } from '@utils'
-import { Picture } from 'astro:assets'
 import { getCollection, render } from 'astro:content'
 
 export const prerender = false
@@ -102,6 +103,19 @@ const nextPost = sortedLocalePosts.slice(0, currentPostIndex).findLast((p) => !p
 Astro.locals.localesOverride = allPosts
 	.filter((p) => p.data.displayId === postData.displayId)
 	.map((p) => getLocaleFromFilePath(p.filePath)) as Locale[]
+
+const components = {
+	Aside,
+	Protected,
+	TideImageMasonry,
+	TideMasonryItem,
+	TidePicture,
+	TabContainer,
+	Tab,
+	Collapse,
+	NeteaseMusic,
+	VkMusic,
+}
 ---
 
 <Layout>
@@ -158,9 +172,7 @@ Astro.locals.localesOverride = allPosts
 				}}
 			/>
 			<Spacer axis="vertical" size={12} />
-			<Content
-				components={{ Aside, Protected, TideImageMasonry, TideMasonryItem, TidePicture, TabContainer, Tab, Collapse }}
-			/>
+			<Content {components} />
 		</Prose>
 		<Spacer axis="vertical" size={12} />
 		<PostNavigation previousPost={previousPost} nextPost={nextPost} />

@@ -1,5 +1,6 @@
 ---
 import Link from '@components/link.astro'
+import NeteaseMusic from '@components/netease-music.astro'
 import TabContainer from '@components/tab-container.astro'
 import Tab from '@components/tab.astro'
 import Page from '@layouts/page.astro'
@@ -13,12 +14,7 @@ import Page from '@layouts/page.astro'
 	</p>
 	<TabContainer>
 		<Tab name="music-playlist" label="网易云音乐" checked={true}>
-			<iframe
-				class="mx-auto"
-				width="330"
-				height="450"
-				src="//music.163.com/outchain/player?type=0&id=8789695885&auto=0&height=430"></iframe>
-			<script></script>
+			<NeteaseMusic id="8789695885" type="playlist" />
 		</Tab>
 		<Tab name="music-playlist" label="YouTube Music">
 			<Link

@@ -1,8 +1,9 @@
 ---
 import Link from '@components/link.astro'
-import Page from '@layouts/page.astro'
-import Tab from '@components/tab.astro'
+import NeteaseMusic from '@components/netease-music.astro'
 import TabContainer from '@components/tab-container.astro'
+import Tab from '@components/tab.astro'
+import Page from '@layouts/page.astro'
 ---
 
 <Page title="About">
@@ -20,12 +21,7 @@ import TabContainer from '@components/tab-container.astro'
 			>
 		</Tab>
 		<Tab name="playlist" label="NetEase Music">
-			<iframe
-				class="mx-auto"
-				width="330"
-				height="450"
-				src="//music.163.com/outchain/player?type=0&id=8789695885&auto=0&height=430"></iframe>
-			<script></script>
+			<NeteaseMusic id="8789695885" type="playlist" />
 		</Tab>
 	</TabContainer>
 </Page>
