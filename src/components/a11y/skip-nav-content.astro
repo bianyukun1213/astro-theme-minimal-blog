@@ -13,4 +13,4 @@ const { id: idProp, class: className } = Astro.props
 const id = idProp || SKIP_NAV_ID
 ---
 
-<main id={id} class:list={['container', className]}><slot /></main>
+<main id={id} class:list={['container', 'grow', className]}><slot /></main>
