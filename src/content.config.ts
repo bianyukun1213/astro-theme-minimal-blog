@@ -14,7 +14,7 @@ const blog = defineCollection({
 		authors: z.array(z.string()),
 		date: z.date(),
 		updated: z.date(),
-		tags: z.array(z.enum(TAG_SLUGS)),
+		tags: z.array(z.enum(TAG_SLUGS)).optional().default(['untagged']),
 		image: z.string().optional(),
 		imageAlt: z.string().optional().default(''),
 		imageCaption: z.string().optional(),

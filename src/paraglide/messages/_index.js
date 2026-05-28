@@ -131,6 +131,7 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Const_Webmentionjs_MentionInputs */
 /** @typedef {{}} Const_Webmentionjs_ReactionsInputs */
 /** @typedef {{}} Copyright_Cc_By_Sa_4_0Inputs */
+/** @typedef {{}} Tag_UntaggedInputs */
 /** @typedef {{}} Tag_GeneralInputs */
 /** @typedef {{}} Tag_CodingInputs */
 /** @typedef {{}} Tag_MdxInputs */
@@ -2215,6 +2216,22 @@ export const copyright_cc_by_sa_4_0 = /** @type {((inputs?: Copyright_Cc_By_Sa_4
 	if (locale === "zh-CN") return __zh_cn2.copyright_cc_by_sa_4_0(inputs)
 	if (locale === "ru-RU") return __ru_ru2.copyright_cc_by_sa_4_0(inputs)
 	return __he_il2.copyright_cc_by_sa_4_0(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Untagged" |
+*
+* @param {Tag_UntaggedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const tag_untagged = /** @type {((inputs?: Tag_UntaggedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_UntaggedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.tag_untagged(inputs)
+	if (locale === "zh-CN") return __zh_cn2.tag_untagged(inputs)
+	if (locale === "ru-RU") return __ru_ru2.tag_untagged(inputs)
+	return __he_il2.tag_untagged(inputs)
 });
 /**
 * | output |

@@ -1639,6 +1639,20 @@ export const copyright_cc_by_sa_4_0: ((inputs?: Copyright_Cc_By_Sa_4_0Inputs, op
 /**
 * | output |
 * | --- |
+* | "Untagged" |
+*
+* @param {Tag_UntaggedInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const tag_untagged: ((inputs?: Tag_UntaggedInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Tag_UntaggedInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
 * | "General" |
 *
 * @param {Tag_GeneralInputs} inputs
@@ -1850,6 +1864,7 @@ export type Const_Webmentionjs_ResponsesInputs = {};
 export type Const_Webmentionjs_MentionInputs = {};
 export type Const_Webmentionjs_ReactionsInputs = {};
 export type Copyright_Cc_By_Sa_4_0Inputs = {};
+export type Tag_UntaggedInputs = {};
 export type Tag_GeneralInputs = {};
 export type Tag_CodingInputs = {};
 export type Tag_MdxInputs = {};

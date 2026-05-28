@@ -198,6 +198,7 @@ export function getHeader(locale: Locale): Header {
 }
 
 export const TAG_SLUGS = [
+	'untagged',
 	'general',
 	'coding',
 	'mdx',
