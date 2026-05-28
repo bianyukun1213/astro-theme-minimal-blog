@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '@utils'
 import Link from './link.astro'
+import Spacer from './spacer.astro'
 
 const currentLocale = Astro.currentLocale as Locale
 ---
@@ -8,7 +9,8 @@ const currentLocale = Astro.currentLocale as Locale
 {
 	currentLocale === 'en-US' ? (
 		<>
-			<h2>Welcome! 👋</h2>
+			<h2 class="mb-0! text-highlight">Welcome! 👋</h2>
+			<Spacer axis="vertical" size={12} />
 			<p>
 				This is the personal blog of
 				<Link href="https://yukun.bio/" target="_blank" rel="noopener">
@@ -24,7 +26,8 @@ const currentLocale = Astro.currentLocale as Locale
 		</>
 	) : currentLocale === 'zh-CN' ? (
 		<>
-			<h2>欢迎！👋</h2>
+			<h2 class="mb-0! text-highlight">欢迎！👋</h2>
+			<Spacer axis="vertical" size={12} />
 			<p>
 				这是
 				<Link href="https://yukun.bio/" target="_blank" rel="noopener">
@@ -35,7 +38,8 @@ const currentLocale = Astro.currentLocale as Locale
 		</>
 	) : currentLocale === 'ru-RU' ? (
 		<>
-			<h2>Привет! 👋</h2>
+			<h2 class="mb-0! text-highlight">Привет! 👋</h2>
+			<Spacer axis="vertical" size={12} />
 			<p>
 				Это личный блог
 				<Link href="https://yukun.bio/" target="_blank" rel="noopener">
@@ -51,7 +55,8 @@ const currentLocale = Astro.currentLocale as Locale
 		</>
 	) : currentLocale === 'he-IL' ? (
 		<>
-			<h2>שלום! 👋</h2>
+			<h2 class="mb-0! text-highlight">שלום! 👋</h2>
+			<Spacer axis="vertical" size={12} />
 			<p>
 				זהו הבלוג האישי של
 				<Link href="https://yukun.bio/" target="_blank" rel="noopener">
@@ -66,7 +71,9 @@ const currentLocale = Astro.currentLocale as Locale
 		</>
 	) : (
 		<>
-			<h2>PLACEHOLDER</h2>
+			<h2 class="mb-0! text-highlight">PLACEHOLDER</h2>
+			<Spacer axis="vertical" size={12} />
+			<p>PLACEHOLDER</p>
 		</>
 	)
 }
