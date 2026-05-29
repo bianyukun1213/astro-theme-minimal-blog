@@ -47,6 +47,8 @@
 	"label_tide_interactions": "Взаимодействия",
 	"label_tide_interactions_waline": "Waline",
 	"label_tide_interactions_webmentionjs": "Webmentions",
+	"label_footnotes": "Сноски",
+	"btn_footnote_back_title": "Вернуться к содержимому",
 	"const_pswp_close_title": "Закрыть",
 	"const_pswp_zoom_title": "Увеличить",
 	"const_pswp_arrow_prev_title": "Предыдущая",

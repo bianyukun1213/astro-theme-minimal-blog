@@ -14,6 +14,8 @@ import { h, s } from 'hastscript'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeSlug from 'rehype-slug'
+import remarkCjkFriendly from 'remark-cjk-friendly'
+import remarkCjkFriendlyGfmStrikethrough from 'remark-cjk-friendly-gfm-strikethrough'
 import remarkCollapse from 'remark-collapse'
 import remarkDirective from 'remark-directive'
 import { remarkRehypeWrap } from 'remark-rehype-wrap'
@@ -99,8 +101,9 @@ export default defineConfig({
 	},
 
 	markdown: {
+		gfm: true,
 		// @ts-expect-error: Astro types don't match remark plugin
-		remarkPlugins: [[remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkToc, { heading: SITE.tocHeading }], [remarkCollapse, { test: SITE.tocHeading, summary: 'btn_expand_toc_title' }]],
+		remarkPlugins: [remarkCjkFriendly, remarkCjkFriendlyGfmStrikethrough, [remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkToc, { heading: SITE.tocHeading }], [remarkCollapse, { test: SITE.tocHeading, summary: 'm.btn_expand_toc_title()' }]],
 		rehypePlugins: [
 			rehypeSlug,
 			[
@@ -139,5 +142,10 @@ export default defineConfig({
 				},
 			],
 		],
+		remarkRehype: {
+			footnoteLabel: 'm.label_footnotes()',
+			footnoteBackLabel: 'm.btn_footnote_back_title()',
+			footnoteBackContent: '↑',
+		},
 	},
 })

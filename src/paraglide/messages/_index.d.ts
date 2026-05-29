@@ -659,6 +659,34 @@ export const label_tide_interactions_webmentionjs: ((inputs?: Label_Tide_Interac
 /**
 * | output |
 * | --- |
+* | "Footnotes" |
+*
+* @param {Label_FootnotesInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_footnotes: ((inputs?: Label_FootnotesInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_FootnotesInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Back to content" |
+*
+* @param {Btn_Footnote_Back_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_footnote_back_title: ((inputs?: Btn_Footnote_Back_TitleInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Footnote_Back_TitleInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
 * | "Close" |
 *
 * @param {Const_Pswp_Close_TitleInputs} inputs
@@ -1782,6 +1810,8 @@ export type Btn_Tide_Picture_Reveal_TitleInputs = {};
 export type Label_Tide_InteractionsInputs = {};
 export type Label_Tide_Interactions_WalineInputs = {};
 export type Label_Tide_Interactions_WebmentionjsInputs = {};
+export type Label_FootnotesInputs = {};
+export type Btn_Footnote_Back_TitleInputs = {};
 export type Const_Pswp_Close_TitleInputs = {};
 export type Const_Pswp_Zoom_TitleInputs = {};
 export type Const_Pswp_Arrow_Prev_TitleInputs = {};

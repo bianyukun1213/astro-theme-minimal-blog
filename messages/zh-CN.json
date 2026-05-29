@@ -47,6 +47,8 @@
 	"label_tide_interactions": "互动",
 	"label_tide_interactions_waline": "Waline",
 	"label_tide_interactions_webmentionjs": "Webmentions",
+	"label_footnotes": "脚注",
+	"btn_footnote_back_title": "返回内容",
 	"const_pswp_close_title": "关闭",
 	"const_pswp_zoom_title": "放大",
 	"const_pswp_arrow_prev_title": "上一页",

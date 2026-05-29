@@ -47,6 +47,8 @@
 	"label_tide_interactions": "Interactions",
 	"label_tide_interactions_waline": "Waline",
 	"label_tide_interactions_webmentionjs": "Webmentions",
+	"label_footnotes": "Footnotes",
+	"btn_footnote_back_title": "Back to content",
 	"const_pswp_close_title": "Close",
 	"const_pswp_zoom_title": "Zoom",
 	"const_pswp_arrow_prev_title": "Previous",

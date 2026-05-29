@@ -15,14 +15,16 @@ export const resRedirect = defineMiddleware((context, next) => {
 	return next()
 })
 
-export const tocHeadingProcessor = defineMiddleware(async (context, next) => {
+export const i18nProcessor = defineMiddleware(async (context, next) => {
 	const response = await next()
 	// 确保我们只处理 HTML 页面
 	if (response.headers.get('content-type')?.includes('text/html')) {
 		const currentLocale = context.currentLocale as Locale
 		const m = useTranslations(currentLocale)
 		let html = await response.text()
-		html = html.replace('btn_expand_toc_title', m.btn_expand_toc_title())
+		html = html.replace(/m\.btn_expand_toc_title\(\)/g, m.btn_expand_toc_title())
+			.replace(/m\.label_footnotes\(\)/g, m.label_footnotes())
+			.replace(/m\.btn_footnote_back_title\(\)/g, m.btn_footnote_back_title())
 		return new Response(html, {
 			status: response.status,
 			headers: response.headers,
@@ -53,4 +55,4 @@ export const imageProcessor = defineMiddleware(async (context, next) => {
 	return response
 })
 
-export const onRequest = sequence(resRedirect, tocHeadingProcessor, imageProcessor)
+export const onRequest = sequence(resRedirect, i18nProcessor, imageProcessor)

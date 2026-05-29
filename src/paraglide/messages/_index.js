@@ -49,6 +49,8 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Label_Tide_InteractionsInputs */
 /** @typedef {{}} Label_Tide_Interactions_WalineInputs */
 /** @typedef {{}} Label_Tide_Interactions_WebmentionjsInputs */
+/** @typedef {{}} Label_FootnotesInputs */
+/** @typedef {{}} Btn_Footnote_Back_TitleInputs */
 /** @typedef {{}} Const_Pswp_Close_TitleInputs */
 /** @typedef {{}} Const_Pswp_Zoom_TitleInputs */
 /** @typedef {{}} Const_Pswp_Arrow_Prev_TitleInputs */
@@ -892,6 +894,38 @@ export const label_tide_interactions_webmentionjs = /** @type {((inputs?: Label_
 	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions_webmentionjs(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions_webmentionjs(inputs)
 	return __he_il2.label_tide_interactions_webmentionjs(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Footnotes" |
+*
+* @param {Label_FootnotesInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_footnotes = /** @type {((inputs?: Label_FootnotesInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_FootnotesInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_footnotes(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_footnotes(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_footnotes(inputs)
+	return __he_il2.label_footnotes(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Back to content" |
+*
+* @param {Btn_Footnote_Back_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_footnote_back_title = /** @type {((inputs?: Btn_Footnote_Back_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Footnote_Back_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_footnote_back_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_footnote_back_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_footnote_back_title(inputs)
+	return __he_il2.btn_footnote_back_title(inputs)
 });
 /**
 * | output |
