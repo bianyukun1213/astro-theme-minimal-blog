@@ -42,12 +42,12 @@ let useRemote = true
 delete attrs['data-mask']
 delete attrs['data-revealed']
 delete attrs['tabindex']
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif,webp,avif}')
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,JPG,png,gif,webp,avif}')
 if (localPath) {
 	if (images[localPath]) {
 		useRemote = false
 	} else {
-		throw new Error(`"${localPath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif,webp,avif}"`)
+		throw new Error(`"${localPath}" does not exist in glob: "src/assets/*.{jpeg,jpg,JPG,png,gif,webp,avif}"`)
 	}
 }
 ---
