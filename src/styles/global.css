@@ -112,7 +112,7 @@ html[lang='he-IL'] {
 		@apply outline-1 outline-transparent outline-offset-2;
 	}
 
-	.prose > * {
+	.prose * {
 		@apply max-w-full;
 	}
 
