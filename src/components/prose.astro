@@ -6,11 +6,13 @@ interface Props {
 const { class: className } = Astro.props
 ---
 
+<!-- https://github.com/tailwindlabs/tailwindcss-typography/issues/66#issuecomment-3545849995 -->
 <div
 	class:list={[
 		className,
 		"prose max-w-none dark:prose-invert prose-base md:prose-lg lg:prose-xl prose-a:underline-offset-2 prose-a:hover:underline-offset-4 prose-h1:[font-size:1.8em] md:prose-h1:[font-size:2.1em] lg:prose-h1:[font-size:2.4em] prose-inline-code:before:content-[''] prose-inline-code:after:content-[''] prose-inline-code:font-normal prose-inline-code:bg-(--color-ic-bg) prose-inline-code:rounded prose-inline-code:px-1.5 prose-inline-code:py-0.5 prose-inline-code:border-(length:--ec-brdWd) prose-inline-code:border-(--color-ic-border) prose-img:rounded-lg",
 		'prose-table:m-0 prose-table:whitespace-nowrap',
+		'prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:[&>p]:last-of-type:after:content-none',
 	]}
 >
 	<slot />
