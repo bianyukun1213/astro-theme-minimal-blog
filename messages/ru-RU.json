@@ -22,6 +22,7 @@
 	"btn_rss_feed_title": "RSS-лента",
 	"btn_keep_reading_title": "Читать далее",
 	"btn_back_to_home_title": "{siteTitle} - Назад на главную",
+	"btn_back_to_top_title": "Наверх",
 	"label_primary_navigation": "Основная навигация",
 	"label_posts_pagination": "Пагинация публикаций",
 	"btn_previous_page_title": "Предыдущая",

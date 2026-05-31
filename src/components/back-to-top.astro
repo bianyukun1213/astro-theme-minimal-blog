@@ -1,0 +1,37 @@
+---
+import { useTranslations, type Locale } from '@utils'
+import ArrowUpToLine from './icons/arrow-up-to-line.svg'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
+---
+
+<button
+	id="back-to-top"
+	transition:persist
+	title={m.btn_back_to_top_title()}
+	aria-label={m.btn_back_to_top_title()}
+	class="atmb-button fixed bottom-4 inset-e-4 z-10 size-10 hidden"
+>
+	<ArrowUpToLine aria-hidden="true" />
+</button>
+
+<script>
+	function initBackToTop() {
+		const btn = document.getElementById('back-to-top')
+		if (!btn) {
+			return
+		}
+		const onScroll = () => {
+			const visible = window.scrollY > 300
+			btn.classList.toggle('hidden', !visible)
+		}
+		window.addEventListener('scroll', onScroll, { passive: true })
+		onScroll()
+		btn.addEventListener('click', () => {
+			window.scrollTo({ top: 0 })
+		})
+	}
+
+	document.addEventListener('astro:page-load', initBackToTop)
+</script>

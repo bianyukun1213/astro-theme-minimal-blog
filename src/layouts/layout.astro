@@ -1,5 +1,6 @@
 ---
 import SkipNavLink from '@components/a11y/skip-nav-link.astro'
+import BackToTop from '@components/back-to-top.astro'
 import Footer from '@components/footer.astro'
 import Header from '@components/header.astro'
 import ThemeIcons from '@components/theme-icons.astro'
@@ -100,5 +101,6 @@ const tideMeta: TideMeta = { breakpoints }
 		<Header />
 		<slot />
 		<Footer />
+		<BackToTop />
 	</body>
 </html>

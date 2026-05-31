@@ -61,6 +61,7 @@ html[lang='he-IL'] {
 @layer theme {
 	:root {
 		color-scheme: light;
+		scroll-behavior: smooth;
 
 		@variant dark {
 			color-scheme: dark;

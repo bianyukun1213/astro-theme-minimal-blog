@@ -24,6 +24,7 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Btn_Rss_Feed_TitleInputs */
 /** @typedef {{}} Btn_Keep_Reading_TitleInputs */
 /** @typedef {{ siteTitle: NonNullable<unknown> }} Btn_Back_To_Home_TitleInputs */
+/** @typedef {{}} Btn_Back_To_Top_TitleInputs */
 /** @typedef {{}} Label_Primary_NavigationInputs */
 /** @typedef {{}} Label_Posts_PaginationInputs */
 /** @typedef {{}} Btn_Previous_Page_TitleInputs */
@@ -496,6 +497,22 @@ export const btn_back_to_home_title = /** @type {((inputs: Btn_Back_To_Home_Titl
 	if (locale === "zh-CN") return __zh_cn2.btn_back_to_home_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_back_to_home_title(inputs)
 	return __he_il2.btn_back_to_home_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Back to top" |
+*
+* @param {Btn_Back_To_Top_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_back_to_top_title = /** @type {((inputs?: Btn_Back_To_Top_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Back_To_Top_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_back_to_top_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_back_to_top_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_back_to_top_title(inputs)
+	return __he_il2.btn_back_to_top_title(inputs)
 });
 /**
 * | output |

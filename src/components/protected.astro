@@ -7,7 +7,7 @@ const m = useTranslations(currentLocale)
 
 interface Props {
 	password: string
-	hint?: string,
+	hint?: string
 	hidden?: boolean
 }
 
@@ -38,22 +38,33 @@ const base = import.meta.env.BASE_URL
 {
 	isUnlocked ? (
 		<div class="relative rounded-sm border border-border">
-			<div class="absolute z-20 inset-e-2 top-0 -mt-4">
+			<div class="absolute z-10 inset-e-2 top-0 -mt-4">
 				<form method="POST" action={`${base}api/lock/`}>
 					<input type="hidden" name="cookieKey" value={cookieKey} />
 					<input type="hidden" name="redirectTo" value={Astro.url.toString()} />
-					<button type="submit" class="atmb-button text-sm">{m.btn_lock_title()}</button>
+					<button type="submit" class="atmb-button text-sm">
+						{m.btn_lock_title()}
+					</button>
 				</form>
 			</div>
 			<slot />
 		</div>
-			// <slot />
 	) : (
 		<div class={cn('not-prose my-6 p-4 rounded-sm border border-border text-center', hidden && 'hidden')}>
 			<p>{m.label_locked()}</p>
 			<Spacer axis="vertical" size={4} />
-			{hint && <p class="text-faded text-sm">{hint}</p> <Spacer axis="vertical" size={4} /> }
-			{hasError && <p class="text-sm text-red-500">{m.label_password_incorrect()}</p> <Spacer axis="vertical" size={4} />}
+			{hint && (
+				<>
+					<p class="text-faded text-sm">{hint}</p>
+					<Spacer axis="vertical" size={4} />
+				</>
+			)}
+			{hasError && (
+				<>
+					<p class="text-sm text-red-500">{m.label_password_incorrect()}</p>
+					<Spacer axis="vertical" size={4} />
+				</>
+			)}
 			<form method="POST" action={`${base}api/unlock/`} class="flex flex-col items-center">
 				<input type="hidden" name="hash" value={passwordHash} />
 				<input type="hidden" name="cookieKey" value={cookieKey} />
@@ -66,7 +77,9 @@ const base = import.meta.env.BASE_URL
 					required
 				/>
 				<Spacer axis="vertical" size={4} />
-				<button type="submit" class="atmb-button text-sm">{m.btn_unlock_title()}</button>
+				<button type="submit" class="atmb-button text-sm">
+					{m.btn_unlock_title()}
+				</button>
 			</form>
 		</div>
 	)
