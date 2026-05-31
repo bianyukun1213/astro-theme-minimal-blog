@@ -1,11 +1,9 @@
 ---
 import { defaultDateFormat, getLocalizedTagName, removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
-import { Picture } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import Link from './link.astro'
 import Spacer from './spacer.astro'
-import Icon from './icon.astro'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
