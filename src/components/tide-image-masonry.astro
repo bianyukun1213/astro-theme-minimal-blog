@@ -71,6 +71,9 @@ const { class: className, ...attrs } = Astro.props
 	function initMasonry() {
 		const masonryElements = document.getElementsByClassName('tide-image-masonry')
 		for (const masonryElement of masonryElements) {
+			if ((masonryElement as HTMLElement).dataset.masonryInitialized === 'true') {
+				continue
+			}
 			const intance = new Macy({
 				container: masonryElement,
 				useContainerForBreakpoints: false,
@@ -80,10 +83,11 @@ const { class: className, ...attrs } = Astro.props
 				mobileFirst: true,
 				breakAt,
 			})
-			intance.runOnImageLoad(() => {
-				intance.recalculate(true)
-			}, true)
+			;(masonryElement as HTMLElement).dataset.masonryInitialized = 'true'
+			intance.recalculate(true)
 		}
 	}
+	initMasonry()
+	document.addEventListener('astro:after-swap', initMasonry)
 	document.addEventListener('astro:page-load', initMasonry)
 </script>
