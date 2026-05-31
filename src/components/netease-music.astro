@@ -1,4 +1,9 @@
 ---
+import { useTranslations, type Locale } from '@utils'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
+
 interface Props {
 	id: string
 	type?: 'song' | 'playlist'
@@ -14,7 +19,7 @@ const innerHeight = type === 'song' ? 66 : 430
 const src = `//music.163.com/outchain/player?type=${musicType}&id=${id}&auto=${auto}&height=${innerHeight}`
 ---
 
-<iframe frameborder="no" marginwidth="0" marginheight="0" width="330" {height} {src}></iframe>
+<iframe title={m.label_netease_music()} loading="lazy" width="330" {height} {src}></iframe>
 <script>
 	function isMobileUserAgent(ua: string) {
 		return !!ua.match(

@@ -37,13 +37,6 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Btn_Unlock_TitleInputs */
 /** @typedef {{}} Label_Password_IncorrectInputs */
 /** @typedef {{}} Btn_Lock_TitleInputs */
-/** @typedef {{}} Label_LightInputs */
-/** @typedef {{}} Label_DarkInputs */
-/** @typedef {{}} Label_AutoInputs */
-/** @typedef {{}} Label_NoteInputs */
-/** @typedef {{}} Label_TipInputs */
-/** @typedef {{}} Label_CautionInputs */
-/** @typedef {{}} Label_DangerInputs */
 /** @typedef {{}} Label_Tide_Picture_Default_MaskInputs */
 /** @typedef {{}} Btn_Tide_Picture_Reveal_TitleInputs */
 /** @typedef {{}} Label_Tide_InteractionsInputs */
@@ -51,6 +44,15 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Label_Tide_Interactions_WebmentionjsInputs */
 /** @typedef {{}} Label_FootnotesInputs */
 /** @typedef {{}} Btn_Footnote_Back_TitleInputs */
+/** @typedef {{}} Label_LightInputs */
+/** @typedef {{}} Label_DarkInputs */
+/** @typedef {{}} Label_AutoInputs */
+/** @typedef {{}} Label_NoteInputs */
+/** @typedef {{}} Label_TipInputs */
+/** @typedef {{}} Label_CautionInputs */
+/** @typedef {{}} Label_DangerInputs */
+/** @typedef {{}} Label_YoutubeInputs */
+/** @typedef {{}} Label_Netease_MusicInputs */
 /** @typedef {{}} Const_Pswp_Close_TitleInputs */
 /** @typedef {{}} Const_Pswp_Zoom_TitleInputs */
 /** @typedef {{}} Const_Pswp_Arrow_Prev_TitleInputs */
@@ -706,6 +708,118 @@ export const btn_lock_title = /** @type {((inputs?: Btn_Lock_TitleInputs, option
 /**
 * | output |
 * | --- |
+* | "Hidden" |
+*
+* @param {Label_Tide_Picture_Default_MaskInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_picture_default_mask = /** @type {((inputs?: Label_Tide_Picture_Default_MaskInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Picture_Default_MaskInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_tide_picture_default_mask(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_tide_picture_default_mask(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_tide_picture_default_mask(inputs)
+	return __he_il2.label_tide_picture_default_mask(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Click to reveal" |
+*
+* @param {Btn_Tide_Picture_Reveal_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_tide_picture_reveal_title = /** @type {((inputs?: Btn_Tide_Picture_Reveal_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Tide_Picture_Reveal_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_tide_picture_reveal_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_tide_picture_reveal_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_tide_picture_reveal_title(inputs)
+	return __he_il2.btn_tide_picture_reveal_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Interactions" |
+*
+* @param {Label_Tide_InteractionsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions = /** @type {((inputs?: Label_Tide_InteractionsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_InteractionsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_tide_interactions(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions(inputs)
+	return __he_il2.label_tide_interactions(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Waline" |
+*
+* @param {Label_Tide_Interactions_WalineInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions_waline = /** @type {((inputs?: Label_Tide_Interactions_WalineInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Interactions_WalineInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_tide_interactions_waline(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions_waline(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions_waline(inputs)
+	return __he_il2.label_tide_interactions_waline(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Webmentions" |
+*
+* @param {Label_Tide_Interactions_WebmentionjsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions_webmentionjs = /** @type {((inputs?: Label_Tide_Interactions_WebmentionjsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Interactions_WebmentionjsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_tide_interactions_webmentionjs(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions_webmentionjs(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions_webmentionjs(inputs)
+	return __he_il2.label_tide_interactions_webmentionjs(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Footnotes" |
+*
+* @param {Label_FootnotesInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_footnotes = /** @type {((inputs?: Label_FootnotesInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_FootnotesInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_footnotes(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_footnotes(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_footnotes(inputs)
+	return __he_il2.label_footnotes(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Back to content" |
+*
+* @param {Btn_Footnote_Back_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_footnote_back_title = /** @type {((inputs?: Btn_Footnote_Back_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Footnote_Back_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.btn_footnote_back_title(inputs)
+	if (locale === "zh-CN") return __zh_cn2.btn_footnote_back_title(inputs)
+	if (locale === "ru-RU") return __ru_ru2.btn_footnote_back_title(inputs)
+	return __he_il2.btn_footnote_back_title(inputs)
+});
+/**
+* | output |
+* | --- |
 * | "Light" |
 *
 * @param {Label_LightInputs} inputs
@@ -818,114 +932,34 @@ export const label_danger = /** @type {((inputs?: Label_DangerInputs, options?: 
 /**
 * | output |
 * | --- |
-* | "Hidden" |
+* | "YouTube video player" |
 *
-* @param {Label_Tide_Picture_Default_MaskInputs} inputs
+* @param {Label_YoutubeInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_tide_picture_default_mask = /** @type {((inputs?: Label_Tide_Picture_Default_MaskInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Picture_Default_MaskInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+export const label_youtube = /** @type {((inputs?: Label_YoutubeInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_YoutubeInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tide_picture_default_mask(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_tide_picture_default_mask(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_tide_picture_default_mask(inputs)
-	return __he_il2.label_tide_picture_default_mask(inputs)
+	if (locale === "en-US") return __en_us2.label_youtube(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_youtube(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_youtube(inputs)
+	return __he_il2.label_youtube(inputs)
 });
 /**
 * | output |
 * | --- |
-* | "Click to reveal" |
+* | "NetEase Music" |
 *
-* @param {Btn_Tide_Picture_Reveal_TitleInputs} inputs
+* @param {Label_Netease_MusicInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const btn_tide_picture_reveal_title = /** @type {((inputs?: Btn_Tide_Picture_Reveal_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Tide_Picture_Reveal_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+export const label_netease_music = /** @type {((inputs?: Label_Netease_MusicInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Netease_MusicInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_tide_picture_reveal_title(inputs)
-	if (locale === "zh-CN") return __zh_cn2.btn_tide_picture_reveal_title(inputs)
-	if (locale === "ru-RU") return __ru_ru2.btn_tide_picture_reveal_title(inputs)
-	return __he_il2.btn_tide_picture_reveal_title(inputs)
-});
-/**
-* | output |
-* | --- |
-* | "Interactions" |
-*
-* @param {Label_Tide_InteractionsInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const label_tide_interactions = /** @type {((inputs?: Label_Tide_InteractionsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_InteractionsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
-	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tide_interactions(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions(inputs)
-	return __he_il2.label_tide_interactions(inputs)
-});
-/**
-* | output |
-* | --- |
-* | "Waline" |
-*
-* @param {Label_Tide_Interactions_WalineInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const label_tide_interactions_waline = /** @type {((inputs?: Label_Tide_Interactions_WalineInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Interactions_WalineInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
-	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tide_interactions_waline(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions_waline(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions_waline(inputs)
-	return __he_il2.label_tide_interactions_waline(inputs)
-});
-/**
-* | output |
-* | --- |
-* | "Webmentions" |
-*
-* @param {Label_Tide_Interactions_WebmentionjsInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const label_tide_interactions_webmentionjs = /** @type {((inputs?: Label_Tide_Interactions_WebmentionjsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Interactions_WebmentionjsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
-	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tide_interactions_webmentionjs(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions_webmentionjs(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions_webmentionjs(inputs)
-	return __he_il2.label_tide_interactions_webmentionjs(inputs)
-});
-/**
-* | output |
-* | --- |
-* | "Footnotes" |
-*
-* @param {Label_FootnotesInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const label_footnotes = /** @type {((inputs?: Label_FootnotesInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_FootnotesInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
-	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_footnotes(inputs)
-	if (locale === "zh-CN") return __zh_cn2.label_footnotes(inputs)
-	if (locale === "ru-RU") return __ru_ru2.label_footnotes(inputs)
-	return __he_il2.label_footnotes(inputs)
-});
-/**
-* | output |
-* | --- |
-* | "Back to content" |
-*
-* @param {Btn_Footnote_Back_TitleInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const btn_footnote_back_title = /** @type {((inputs?: Btn_Footnote_Back_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Footnote_Back_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
-	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_footnote_back_title(inputs)
-	if (locale === "zh-CN") return __zh_cn2.btn_footnote_back_title(inputs)
-	if (locale === "ru-RU") return __ru_ru2.btn_footnote_back_title(inputs)
-	return __he_il2.btn_footnote_back_title(inputs)
+	if (locale === "en-US") return __en_us2.label_netease_music(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_netease_music(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_netease_music(inputs)
+	return __he_il2.label_netease_music(inputs)
 });
 /**
 * | output |

@@ -491,6 +491,104 @@ export const btn_lock_title: ((inputs?: Btn_Lock_TitleInputs, options?: {
 /**
 * | output |
 * | --- |
+* | "Hidden" |
+*
+* @param {Label_Tide_Picture_Default_MaskInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_picture_default_mask: ((inputs?: Label_Tide_Picture_Default_MaskInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_Picture_Default_MaskInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Click to reveal" |
+*
+* @param {Btn_Tide_Picture_Reveal_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_tide_picture_reveal_title: ((inputs?: Btn_Tide_Picture_Reveal_TitleInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Tide_Picture_Reveal_TitleInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Interactions" |
+*
+* @param {Label_Tide_InteractionsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions: ((inputs?: Label_Tide_InteractionsInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_InteractionsInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Waline" |
+*
+* @param {Label_Tide_Interactions_WalineInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions_waline: ((inputs?: Label_Tide_Interactions_WalineInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_Interactions_WalineInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Webmentions" |
+*
+* @param {Label_Tide_Interactions_WebmentionjsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_tide_interactions_webmentionjs: ((inputs?: Label_Tide_Interactions_WebmentionjsInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_Interactions_WebmentionjsInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Footnotes" |
+*
+* @param {Label_FootnotesInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_footnotes: ((inputs?: Label_FootnotesInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_FootnotesInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
+* | "Back to content" |
+*
+* @param {Btn_Footnote_Back_TitleInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const btn_footnote_back_title: ((inputs?: Btn_Footnote_Back_TitleInputs, options?: {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Footnote_Back_TitleInputs, {
+    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
+}, {}>;
+/**
+* | output |
+* | --- |
 * | "Light" |
 *
 * @param {Label_LightInputs} inputs
@@ -589,99 +687,29 @@ export const label_danger: ((inputs?: Label_DangerInputs, options?: {
 /**
 * | output |
 * | --- |
-* | "Hidden" |
+* | "YouTube video player" |
 *
-* @param {Label_Tide_Picture_Default_MaskInputs} inputs
+* @param {Label_YoutubeInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const label_tide_picture_default_mask: ((inputs?: Label_Tide_Picture_Default_MaskInputs, options?: {
+export const label_youtube: ((inputs?: Label_YoutubeInputs, options?: {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_Picture_Default_MaskInputs, {
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_YoutubeInputs, {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 /**
 * | output |
 * | --- |
-* | "Click to reveal" |
+* | "NetEase Music" |
 *
-* @param {Btn_Tide_Picture_Reveal_TitleInputs} inputs
+* @param {Label_Netease_MusicInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
 * @returns {LocalizedString}
 */
-export const btn_tide_picture_reveal_title: ((inputs?: Btn_Tide_Picture_Reveal_TitleInputs, options?: {
+export const label_netease_music: ((inputs?: Label_Netease_MusicInputs, options?: {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Tide_Picture_Reveal_TitleInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}, {}>;
-/**
-* | output |
-* | --- |
-* | "Interactions" |
-*
-* @param {Label_Tide_InteractionsInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const label_tide_interactions: ((inputs?: Label_Tide_InteractionsInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_InteractionsInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}, {}>;
-/**
-* | output |
-* | --- |
-* | "Waline" |
-*
-* @param {Label_Tide_Interactions_WalineInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const label_tide_interactions_waline: ((inputs?: Label_Tide_Interactions_WalineInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_Interactions_WalineInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}, {}>;
-/**
-* | output |
-* | --- |
-* | "Webmentions" |
-*
-* @param {Label_Tide_Interactions_WebmentionjsInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const label_tide_interactions_webmentionjs: ((inputs?: Label_Tide_Interactions_WebmentionjsInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Tide_Interactions_WebmentionjsInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}, {}>;
-/**
-* | output |
-* | --- |
-* | "Footnotes" |
-*
-* @param {Label_FootnotesInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const label_footnotes: ((inputs?: Label_FootnotesInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_FootnotesInputs, {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}, {}>;
-/**
-* | output |
-* | --- |
-* | "Back to content" |
-*
-* @param {Btn_Footnote_Back_TitleInputs} inputs
-* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
-* @returns {LocalizedString}
-*/
-export const btn_footnote_back_title: ((inputs?: Btn_Footnote_Back_TitleInputs, options?: {
-    locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
-}) => LocalizedString) & import("../runtime.js").MessageMetadata<Btn_Footnote_Back_TitleInputs, {
+}) => LocalizedString) & import("../runtime.js").MessageMetadata<Label_Netease_MusicInputs, {
     locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL";
 }, {}>;
 /**
@@ -1798,13 +1826,6 @@ export type Label_Password_PlaceholderInputs = {};
 export type Btn_Unlock_TitleInputs = {};
 export type Label_Password_IncorrectInputs = {};
 export type Btn_Lock_TitleInputs = {};
-export type Label_LightInputs = {};
-export type Label_DarkInputs = {};
-export type Label_AutoInputs = {};
-export type Label_NoteInputs = {};
-export type Label_TipInputs = {};
-export type Label_CautionInputs = {};
-export type Label_DangerInputs = {};
 export type Label_Tide_Picture_Default_MaskInputs = {};
 export type Btn_Tide_Picture_Reveal_TitleInputs = {};
 export type Label_Tide_InteractionsInputs = {};
@@ -1812,6 +1833,15 @@ export type Label_Tide_Interactions_WalineInputs = {};
 export type Label_Tide_Interactions_WebmentionjsInputs = {};
 export type Label_FootnotesInputs = {};
 export type Btn_Footnote_Back_TitleInputs = {};
+export type Label_LightInputs = {};
+export type Label_DarkInputs = {};
+export type Label_AutoInputs = {};
+export type Label_NoteInputs = {};
+export type Label_TipInputs = {};
+export type Label_CautionInputs = {};
+export type Label_DangerInputs = {};
+export type Label_YoutubeInputs = {};
+export type Label_Netease_MusicInputs = {};
 export type Const_Pswp_Close_TitleInputs = {};
 export type Const_Pswp_Zoom_TitleInputs = {};
 export type Const_Pswp_Arrow_Prev_TitleInputs = {};

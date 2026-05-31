@@ -1,0 +1,24 @@
+---
+import { useTranslations, type Locale } from '@utils'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
+
+interface Props {
+	query: string
+}
+
+const { query } = Astro.props
+---
+
+<iframe
+	title={m.label_youtube()}
+	loading="lazy"
+	width="560"
+	height="315"
+	src={`https://www.youtube.com/embed/videoseries?${query}`}
+	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+	referrerpolicy="strict-origin-when-cross-origin"
+	allowfullscreen
+>
+</iframe>
