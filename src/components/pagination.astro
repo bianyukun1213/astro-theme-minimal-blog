@@ -30,13 +30,15 @@ const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
 {
 	totalPages > 1 && (
 		<>
-			<nav aria-label={m.label_posts_pagination()} class="flex items-start justify-between gap-4">
-				<div class="min-w-16 text-start">
+			<nav aria-label={m.label_posts_pagination()} class="flex flex-wrap items-start justify-between gap-4">
+				<div class="min-w-16 me-auto text-start">
 					{prevHref && (
-						<Link href={prevHref} class="inline-flex items-center justify-start gap-2">
-							<ChevronLeft class="ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
-							<span>{m.btn_previous_page_title()}</span>
-						</Link>
+						<>
+							<ChevronLeft class="inline-block ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
+							<Link href={prevHref} class="inline-flex items-center justify-start gap-2">
+								{m.btn_previous_page_title()}
+							</Link>
+						</>
 					)}
 				</div>
 				<div class="flex items-center gap-2 flex-wrap justify-center">
@@ -50,12 +52,14 @@ const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
 						),
 					)}
 				</div>
-				<div class="min-w-16 text-end">
+				<div class="min-w-16 ms-auto text-end">
 					{nextHref && (
-						<Link href={nextHref} class="inline-flex items-center justify-end gap-2">
-							<span>{m.btn_next_page_title()}</span>
-							<ChevronRight class="ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
-						</Link>
+						<>
+							<Link href={nextHref} class="inline-flex items-center justify-end gap-2">
+								{m.btn_next_page_title()}
+							</Link>
+							<ChevronRight class="inline-block ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
+						</>
 					)}
 				</div>
 			</nav>
