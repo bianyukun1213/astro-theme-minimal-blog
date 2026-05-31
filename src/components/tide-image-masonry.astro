@@ -74,7 +74,7 @@ const { class: className, ...attrs } = Astro.props
 			if ((masonryElement as HTMLElement).dataset.masonryInitialized === 'true') {
 				continue
 			}
-			const intance = new Macy({
+			const instance = new Macy({
 				container: masonryElement,
 				useContainerForBreakpoints: false,
 				columns: 1,
@@ -84,7 +84,7 @@ const { class: className, ...attrs } = Astro.props
 				breakAt,
 			})
 			;(masonryElement as HTMLElement).dataset.masonryInitialized = 'true'
-			intance.recalculate(true)
+			instance.recalculate(true)
 		}
 	}
 	initMasonry()
