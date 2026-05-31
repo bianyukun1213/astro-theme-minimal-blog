@@ -11,7 +11,7 @@ const m = useTranslations(currentLocale)
 	transition:persist
 	title={m.btn_back_to_top_title()}
 	aria-label={m.btn_back_to_top_title()}
-	class="atmb-button fixed bottom-4 inset-e-4 z-10 size-10 hidden"
+	class="atmb-button fixed bottom-4 inset-e-4 size-10 z-10 hidden"
 >
 	<ArrowUpToLine aria-hidden="true" />
 </button>
@@ -23,7 +23,7 @@ const m = useTranslations(currentLocale)
 			return
 		}
 		const onScroll = () => {
-			const visible = window.scrollY > 300
+			const visible = window.scrollY > 1200
 			btn.classList.toggle('hidden', !visible)
 		}
 		window.addEventListener('scroll', onScroll, { passive: true })
