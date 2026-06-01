@@ -120,7 +120,7 @@ html[lang='he-IL'] {
 	/* Typography plugin doesn't support iframe */
 	.prose iframe,
 	.prose video {
-		@apply mx-auto;
+		@apply mx-auto my-6;
 	}
 
 	.tide-dynamic-hidden {

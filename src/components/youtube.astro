@@ -16,7 +16,7 @@ const { query } = Astro.props
 	loading="lazy"
 	width="560"
 	height="315"
-	src={`https://www.youtube.com/embed/videoseries?${query}`}
+	src={`https://www.youtube.com/embed/${query.includes('list=') ? 'videoseries?' : ''}${query}`}
 	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 	referrerpolicy="strict-origin-when-cross-origin"
 	allowfullscreen
