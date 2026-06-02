@@ -15,7 +15,7 @@ export const SITE: Record<string, any> = {
 	/**
 	 * Base URL of your site, used in sitemap generation
 	 */
-	url: 'https://astro.his2nd.life',
+	url: 'https://his2nd.life',
 	/**
 	 * Base path of your site, if deployed to a subfolder
 	 */
