@@ -25,6 +25,7 @@ export const i18nProcessor = defineMiddleware(async (context, next) => {
 		html = html.replace(/m\.btn_expand_toc_title\(\)/g, m.btn_expand_toc_title())
 			.replace(/m\.label_footnotes\(\)/g, m.label_footnotes())
 			.replace(/m\.btn_footnote_back_title\(\)/g, m.btn_footnote_back_title())
+			.replace(/<p>\u2003\u2003/g, '<p class="tide-text-indent">')
 		return new Response(html, {
 			status: response.status,
 			headers: response.headers,

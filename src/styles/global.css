@@ -130,6 +130,10 @@ html[lang='he-IL'] {
 	.tide-dynamic-cursor-zoom-in {
 		@apply cursor-zoom-in!;
 	}
+
+	.tide-text-indent {
+		text-indent: 2em;
+	}
 }
 
 @layer components {
