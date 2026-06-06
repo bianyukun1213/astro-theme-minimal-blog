@@ -31,6 +31,7 @@ import {
 	isoDateFormat,
 	removeTrailingSlash,
 	sortAsc,
+	sortSticky,
 	useTranslations,
 	type Locale,
 } from '@utils'
@@ -97,7 +98,7 @@ const { Content } = await render(post)
 const dataAttributes: DOMStringMap = {}
 if (postData.searchIndex) dataAttributes['data-pagefind-body'] = ''
 
-const sortedLocalePosts = sortAsc(getPostsByLocale(allPosts, currentLocale))
+const sortedLocalePosts = sortSticky(sortAsc(getPostsByLocale(allPosts, currentLocale)))
 const currentPostIndex = sortedLocalePosts.findIndex((entry) => entry.id === post.id)
 const previousPost = sortedLocalePosts.slice(currentPostIndex + 1).find((p) => !p.data.hidden) ?? null
 const nextPost = sortedLocalePosts.slice(0, currentPostIndex).findLast((p) => !p.data.hidden) ?? null

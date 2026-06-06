@@ -15,6 +15,8 @@ import {
 	getPostsByTag,
 	getTags,
 	removeTrailingSlash,
+	sortAsc,
+	sortSticky,
 	useTranslations,
 	type Locale,
 } from '@utils'
@@ -31,7 +33,8 @@ export const getStaticPaths = (async ({ paginate }) => {
 		const localePosts = getPostsByLocale(allPosts, locale)
 		const usedTags = getTags(localePosts, locale)
 		return usedTags.flatMap(({ slug: tagSlug, tagName }) => {
-			const posts = getPostsByTag(localePosts, tagSlug)
+			const postsByTag = getPostsByTag(localePosts, tagSlug)
+			const posts = sortSticky(sortAsc(postsByTag))
 			return paginate(posts, {
 				pageSize: POSTS_PER_PAGE,
 				params: { locale, tag: tagSlug },
@@ -90,7 +93,7 @@ Astro.locals.localesOverride = localesOverride
 		</div>
 		<Spacer axis="vertical" size={8} />
 		<div class="flex gap-12 flex-col">
-			{posts.map((post) => <PostListItem post={post} />)}
+			{posts.map((post) => <PostListItem post={post} showSticky={true} />)}
 		</div>
 		<Spacer axis="vertical" size={12} />
 		<Pagination basePath={tagBasePath} totalPages={totalPages} currentPage={currentPage} />
