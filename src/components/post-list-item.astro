@@ -1,10 +1,11 @@
 ---
 import { defaultDateFormat, getLocalizedTagName, removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import Picture from 'astro/components/Picture.astro'
 import { trailingSlash } from 'astro:config/client'
 import type { CollectionEntry } from 'astro:content'
+import Pin from './icons/pin.svg'
 import Link from './link.astro'
 import Spacer from './spacer.astro'
-import Pin from './icons/pin.svg'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
@@ -26,7 +27,13 @@ const slash = trailingSlash === 'never' ? '' : '/'
 			post.data.image && (
 				<>
 					<figure class="relative">
-						<img class="block w-full aspect-3/1 object-cover" src={post.data.image} alt={post.data.imageAlt} />
+						<Picture
+							class="w-full aspect-3/1"
+							src={post.data.image}
+							alt={post.data.imageAlt}
+							layout="full-width"
+							inferSize={true}
+						/>
 					</figure>
 					<Spacer axis="vertical" size={2} />
 				</>

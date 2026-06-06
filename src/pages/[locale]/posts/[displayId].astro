@@ -34,6 +34,7 @@ import {
 	useTranslations,
 	type Locale,
 } from '@utils'
+import Picture from 'astro/components/Picture.astro'
 import { getCollection, render } from 'astro:content'
 
 export const prerender = false
@@ -137,10 +138,16 @@ const components = {
 				postData.image && (
 					<>
 						<figure class="not-prose relative">
-							<img class="block w-full aspect-3/1 object-cover" src={postData.image} alt={postData.imageAlt} />
+							<Picture
+								class="w-full aspect-3/1"
+								src={postData.image}
+								alt={postData.imageAlt}
+								layout="full-width"
+								inferSize={true}
+							/>
 							{postData.imageCaption && (
 								<figcaption class="absolute inset-e-0 bottom-0 max-w-full px-1 bg-bg text-text text-sm rounded-ss-md text-nowrap overflow-auto">
-									<ImageIcon class="inline-block w-4 ht-4 me-2" aria-hidden="true" />
+									<ImageIcon class="inline-block w-4 ht-4" aria-hidden="true" />
 									<span>{postData.imageCaption}</span>
 								</figcaption>
 							)}
