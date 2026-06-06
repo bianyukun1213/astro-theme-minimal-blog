@@ -11,7 +11,8 @@ const m = useTranslations(currentLocale)
 	transition:persist
 	title={m.btn_back_to_top_title()}
 	aria-label={m.btn_back_to_top_title()}
-	class="atmb-button fixed bottom-4 inset-e-4 size-10 z-10 hidden"
+	class="atmb-button fixed bottom-4 inset-e-4 size-10 z-10 ltr:translate-x-14 rtl:-translate-x-14"
+	disabled
 >
 	<ArrowUpToLine aria-hidden="true" />
 </button>
@@ -24,7 +25,13 @@ const m = useTranslations(currentLocale)
 		}
 		const onScroll = () => {
 			const visible = window.scrollY > 1200
-			btn.classList.toggle('hidden', !visible)
+			btn.classList.toggle('ltr:translate-x-14', !visible)
+			btn.classList.toggle('rtl:-translate-x-14', !visible)
+			if (visible) {
+				btn.removeAttribute('disabled')
+			} else {
+				btn.setAttribute('disabled', '')
+			}
 		}
 		window.addEventListener('scroll', onScroll, { passive: true })
 		onScroll()

@@ -157,7 +157,7 @@ html[lang='he-IL'] {
 	}
 
 	.atmb-button {
-		@apply flex justify-center items-center bg-bg rounded-sm border border-border px-2 py-1 hover:border-highlight hover:text-highlight active:translate-y-0.5 active:border-highlight active:text-highlight;
+		@apply flex justify-center items-center bg-bg rounded-sm border border-border px-2 py-1 hover:border-highlight hover:text-highlight active:translate-y-0.5 active:border-highlight active:text-highlight motion-safe:transition-transform;
 	}
 
 	.atmb-button:disabled {
