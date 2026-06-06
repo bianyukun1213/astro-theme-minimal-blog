@@ -3,7 +3,7 @@ import type { Locale } from '@utils'
 import type { APIRoute } from 'astro'
 import rss from '@astrojs/rss'
 import { SITE } from '@constants'
-import { filterDrafts, filterHidden, getPostsByLocale, removeTrailingSlash, sortAsc, useTranslations } from '@utils'
+import { filterDrafts, filterHidden, getPostsByLocale, removeTrailingSlash, sortAsc, sortSticky, useTranslations } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
 
@@ -25,6 +25,7 @@ export const GET = (async ({ params }) => {
 	allPosts = filterHidden(allPosts)
 	allPosts = getPostsByLocale(allPosts, currentLocale)
 	allPosts = sortAsc(allPosts)
+	allPosts = sortSticky(allPosts)
 
 	const items = allPosts.map(post => ({
 		title: post.data.title,

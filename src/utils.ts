@@ -234,6 +234,13 @@ export function frontmatterToString(data: Record<string, any>): string {
 }
 
 /**
+ * Sort the 'blog' collection ASC by sticky
+ */
+export function sortSticky(data: Array<CollectionEntry<'blog'>>) {
+	return data.sort((a, b) => b.data.sticky - a.data.sticky)
+}
+
+/**
  * Sort the 'blog' collection ASC by date
  */
 export function sortAsc(data: Array<CollectionEntry<'blog'>>) {

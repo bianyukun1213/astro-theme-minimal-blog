@@ -20,6 +20,7 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{ tagName: NonNullable<unknown> }} Label_Tag_TagnameInputs */
 /** @typedef {{ tagName: NonNullable<unknown>, pageNum: NonNullable<unknown> }} Label_Tag_Tagname_PagenumInputs */
 /** @typedef {{}} Label_AuthorsInputs */
+/** @typedef {{}} Label_StickyInputs */
 /** @typedef {{}} Btn_Skip_To_Content_TitleInputs */
 /** @typedef {{}} Btn_Rss_Feed_TitleInputs */
 /** @typedef {{}} Btn_Keep_Reading_TitleInputs */
@@ -245,7 +246,7 @@ export const site_description = /** @type {((inputs?: Site_DescriptionInputs, op
 /**
 * | output |
 * | --- |
-* | "https://placehold.co/32" |
+* | "/images/favicon-32.webp" |
 *
 * @param {Site_FaviconInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
@@ -261,7 +262,7 @@ export const site_favicon = /** @type {((inputs?: Site_FaviconInputs, options?: 
 /**
 * | output |
 * | --- |
-* | "https://placehold.co/400x300" |
+* | "/images/og-image.jpg" |
 *
 * @param {Site_Default_Og_ImageInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
@@ -433,6 +434,22 @@ export const label_authors = /** @type {((inputs?: Label_AuthorsInputs, options?
 	if (locale === "zh-CN") return __zh_cn2.label_authors(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_authors(inputs)
 	return __he_il2.label_authors(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Sticky" |
+*
+* @param {Label_StickyInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_sticky = /** @type {((inputs?: Label_StickyInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_StickyInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_sticky(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_sticky(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_sticky(inputs)
+	return __he_il2.label_sticky(inputs)
 });
 /**
 * | output |

@@ -18,6 +18,7 @@
 	"label_tag_tagname": "Тег: {tagName}",
 	"label_tag_tagname_pagenum": "Тег: {tagName} - страница {pageNum}",
 	"label_authors": "Авторы",
+	"label_sticky": "Закреплено",
 	"btn_skip_to_content_title": "Перейти к содержимому",
 	"btn_rss_feed_title": "RSS-лента",
 	"btn_keep_reading_title": "Читать далее",

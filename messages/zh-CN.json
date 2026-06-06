@@ -18,6 +18,7 @@
 	"label_tag_tagname": "标签：{tagName}",
 	"label_tag_tagname_pagenum": "标签：{tagName} - 第 {pageNum} 页",
 	"label_authors": "作者",
+	"label_sticky": "置顶",
 	"btn_skip_to_content_title": "跳转到内容",
 	"btn_rss_feed_title": "RSS 订阅",
 	"btn_keep_reading_title": "继续阅读",

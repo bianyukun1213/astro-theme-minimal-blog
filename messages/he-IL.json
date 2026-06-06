@@ -18,6 +18,7 @@
 	"label_tag_tagname": "תגית: {tagName}",
 	"label_tag_tagname_pagenum": "תגית: {tagName} - עמוד {pageNum}",
 	"label_authors": "מחברים",
+	"label_sticky": "מוצמד",
 	"btn_skip_to_content_title": "דלג לתוכן",
 	"btn_rss_feed_title": "פיד RSS",
 	"btn_keep_reading_title": "המשך לקרוא",
