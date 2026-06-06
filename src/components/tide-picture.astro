@@ -32,22 +32,25 @@ const imageVariants = cva('tide-image', {
 
 export type Props = Parameters<typeof Picture>[0] &
 	VariantProps<typeof figureVariants> & {
-		localPath?: string
 		imgClass?: string
 		caption?: string
 		mask?: string | boolean
 	}
-const { localPath, src: remotePath, class: className, imgClass, intent, title, caption, mask, ...attrs } = Astro.props
-let useRemote = true
+const { src, class: className, imgClass, intent, title, caption, mask, ...attrs } = Astro.props
 delete attrs['data-mask']
 delete attrs['data-revealed']
 delete attrs['tabindex']
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,JPG,png,gif,webp,avif}')
-if (localPath) {
-	if (images[localPath]) {
-		useRemote = false
+let useRemote = true
+let parsedSrc: typeof src = src
+if (typeof src !== 'string') {
+	useRemote = false
+} else if (src.startsWith('/src')) {
+	useRemote = false
+	if (images[src]) {
+		parsedSrc = images[src]()
 	} else {
-		throw new Error(`"${localPath}" does not exist in glob: "src/assets/*.{jpeg,jpg,JPG,png,gif,webp,avif}"`)
+		throw new Error(`"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,JPG,png,gif,webp,avif}"`)
 	}
 }
 ---
@@ -83,7 +86,7 @@ if (localPath) {
 	{/* @ts-ignore */}
 	<Picture
 		class={cn(imageVariants({ intent }), imgClass)}
-		src={useRemote ? remotePath : images[localPath as string]()}
+		src={parsedSrc}
 		inferSize={useRemote}
 		{title}
 		data-caption={caption}
