@@ -4,7 +4,7 @@ import { trailingSlash } from 'astro:config/client'
 import { defineMiddleware, sequence } from 'astro:middleware'
 
 // bug，使用动态路由和 trailingSlash: always 时，生成的路由末尾带 /。暂时使用这种方式来缓解问题，使得去掉 / 也能访问 rss 数据和 og。
-export const resRedirect = defineMiddleware((context, next) => {
+export const resRedirection = defineMiddleware((context, next) => {
 	if (trailingSlash !== 'always') {
 		return next()
 	}
@@ -34,7 +34,7 @@ export const i18nProcessor = defineMiddleware(async (context, next) => {
 	return response
 })
 
-export const imageProcessor = defineMiddleware(async (context, next) => {
+export const imagesProcessor = defineMiddleware(async (context, next) => {
 	const response = await next()
 	// 确保我们只处理 HTML 页面
 	if (response.headers.get('content-type')?.includes('text/html')) {
@@ -56,4 +56,4 @@ export const imageProcessor = defineMiddleware(async (context, next) => {
 	return response
 })
 
-export const onRequest = sequence(resRedirect, i18nProcessor, imageProcessor)
+export const onRequest = sequence(resRedirection, i18nProcessor, imagesProcessor)
