@@ -49,8 +49,8 @@ function getLocalizedLocale(localeKey: Locale) {
 							lang={locale}
 							value={locale}
 							dir={getLocaleDir(locale)}
-							selected={locale === currentLocale}
 							data-available={available ? 'true' : 'false'}
+							selected={locale === currentLocale}
 							set:html={getLocalizedLocale(locale)}
 						/>
 					)
