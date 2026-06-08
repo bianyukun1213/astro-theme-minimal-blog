@@ -1,7 +1,8 @@
 ---
 import { LOCALES } from '@constants'
 import * as messages from '@paraglide/messages'
-import { getLocaleDir, useTranslations, type Locale } from '@utils'
+import { getLocaleDir, removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import { trailingSlash } from 'astro:config/client'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
@@ -10,8 +11,11 @@ type Props = {
 	localesOverride?: Locale[]
 }
 
+const base = import.meta.env.BASE_URL
+const slash = trailingSlash === 'never' ? '' : '/'
+
 const { localesOverride } = Astro.props
-const displayLocales = (localesOverride ?? LOCALES).slice().sort((a, b) => {
+const displayLocales = LOCALES.slice().sort((a, b) => {
 	if (a === currentLocale) return -1
 	if (b === currentLocale) return 1
 	return LOCALES.indexOf(a) - LOCALES.indexOf(b)
@@ -35,18 +39,22 @@ function getLocalizedLocale(localeKey: Locale) {
 			id="lang-select"
 			value="auto"
 			autocomplete="off"
-			x-on:change="window.location.href=window.location.href.replace('/'+document.documentElement.lang+'/','/'+$event.target.value+'/')"
+			x-on:change={`const opt=$event.target.selectedOptions[0],locale=$event.target.value;opt.dataset.unavailable==='true'?(window.location.href='${removeTrailingSlash(base)}/'+locale+'${slash}'):(window.location.href=window.location.href.replace('/'+document.documentElement.lang+'/','/'+locale+'/'));`}
 		>
 			{
-				displayLocales.map((locale) => (
-					<option
-						lang={locale}
-						value={locale}
-						dir={getLocaleDir(locale)}
-						selected={locale === currentLocale}
-						set:html={getLocalizedLocale(locale)}
-					/>
-				))
+				displayLocales.map((locale) => {
+					const unavailable = localesOverride != null && !localesOverride.includes(locale)
+					return (
+						<option
+							lang={locale}
+							value={locale}
+							dir={getLocaleDir(locale)}
+							selected={locale === currentLocale}
+							data-unavailable={unavailable ? 'true' : undefined}
+							set:html={getLocalizedLocale(locale)}
+						/>
+					)
+				})
 			}
 		</select>
 	</label>
