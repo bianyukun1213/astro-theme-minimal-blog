@@ -39,18 +39,18 @@ function getLocalizedLocale(localeKey: Locale) {
 			id="lang-select"
 			value="auto"
 			autocomplete="off"
-			x-on:change={`const opt=$event.target.selectedOptions[0],locale=$event.target.value;opt.dataset.unavailable==='true'?(window.location.href='${removeTrailingSlash(base)}/'+locale+'${slash}'):(window.location.href=window.location.href.replace('/'+document.documentElement.lang+'/','/'+locale+'/'));`}
+			x-on:change={`const opt=$event.target.selectedOptions[0],locale=$event.target.value;opt.dataset.available==='true'?(window.location.href=window.location.href.replace('/'+document.documentElement.lang+'/','/'+locale+'/')):(window.location.href='${removeTrailingSlash(base)}/'+locale+'${slash}');`}
 		>
 			{
 				displayLocales.map((locale) => {
-					const unavailable = localesOverride != null && !localesOverride.includes(locale)
+					const available = localesOverride == null || localesOverride.includes(locale)
 					return (
 						<option
 							lang={locale}
 							value={locale}
 							dir={getLocaleDir(locale)}
 							selected={locale === currentLocale}
-							data-unavailable={unavailable ? 'true' : undefined}
+							data-available={available ? 'true' : 'false'}
 							set:html={getLocalizedLocale(locale)}
 						/>
 					)
