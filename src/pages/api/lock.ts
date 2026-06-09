@@ -13,17 +13,24 @@ export const POST = (async ({ request, cookies, redirect }) => {
 	const cookieKey = data.get('cookieKey')?.toString() ?? ''
 	const redirectTo = data.get('redirectTo')?.toString() ?? basePath
 
-	// 确保 redirectTo 是由于同源以防止开放重定向
+	// Validate redirectTo is same origin to prevent open redirect.
+	// When behind a reverse proxy (e.g. EdgeOne → Cloudflare), request.url reflects
+	// the origin hostname, while the browser's Origin header reflects the frontend domain.
+	// We validate against the server-side origin, then rewrite to the client-side origin
+	// so the 303 redirect goes back to wherever the browser actually came from.
 	const requestOrigin = new URL(request.url).origin
+	const clientOrigin = request.headers.get('origin') ?? requestOrigin
 	let safeRedirectTo = basePath
 	try {
 		const redirectUrl = new URL(redirectTo)
 		if (redirectUrl.origin === requestOrigin) {
-			safeRedirectTo = redirectTo
+			redirectUrl.host = new URL(clientOrigin).host
+			redirectUrl.protocol = new URL(clientOrigin).protocol
+			safeRedirectTo = redirectUrl.toString()
 		}
 	}
 	catch {
-		// URL 无效，使用默认的 basePath
+		// invalid URL, use default
 	}
 
 	if (cookieKey) {
