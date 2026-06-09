@@ -15,19 +15,30 @@ export const POST = (async ({ request, cookies, redirect }) => {
 	const cookieKey = data.get('cookieKey')?.toString() ?? ''
 	const redirectTo = data.get('redirectTo')?.toString() ?? basePath
 
-	// Validate redirectTo is same origin to prevent open redirect.
+	// Validate redirectTo to prevent open redirect.
+	// ALLOWED_ORIGINS is a comma-separated list of trusted frontend origins
+	// (e.g. "https://his2nd.life,https://blog.hollisdevhub.com").
 	// When behind a reverse proxy (e.g. EdgeOne → Cloudflare), request.url reflects
-	// the origin hostname, while the browser's Origin header reflects the frontend domain.
-	// We validate against the server-side origin, then rewrite to the client-side origin
-	// so the 303 redirect goes back to wherever the browser actually came from.
-	const requestOrigin = new URL(request.url).origin
-	const clientOrigin = request.headers.get('origin') ?? requestOrigin
+	// the backend hostname. We validate redirectTo against all allowed origins,
+	// then rewrite its origin to match the browser's actual Origin header
+	// (verified to be in the allowlist) so the 303 goes back to the right domain.
+	const allowedOrigins = [
+		new URL(request.url).origin,
+		...(import.meta.env.ALLOWED_ORIGINS ?? '')
+			.split(',')
+			.map((s: string) => s.trim())
+			.filter(Boolean),
+	]
+	const requestClientOrigin = request.headers.get('origin') ?? new URL(request.url).origin
+	const trustedClientOrigin = allowedOrigins.includes(requestClientOrigin)
+		? requestClientOrigin
+		: new URL(request.url).origin
 	let safeRedirectTo = basePath
 	try {
 		const redirectUrl = new URL(redirectTo)
-		if (redirectUrl.origin === requestOrigin) {
-			redirectUrl.host = new URL(clientOrigin).host
-			redirectUrl.protocol = new URL(clientOrigin).protocol
+		if (allowedOrigins.includes(redirectUrl.origin)) {
+			redirectUrl.host = new URL(trustedClientOrigin).host
+			redirectUrl.protocol = new URL(trustedClientOrigin).protocol
 			safeRedirectTo = redirectUrl.toString()
 		}
 	}
