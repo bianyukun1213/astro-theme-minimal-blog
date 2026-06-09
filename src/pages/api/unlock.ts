@@ -1,17 +1,23 @@
 import type { APIRoute } from 'astro'
+import { removeTrailingSlash } from '@utils'
+import { trailingSlash } from 'astro:config/client'
 
 export const prerender = false
+
+const base = import.meta.env.BASE_URL
+const slash = trailingSlash === 'never' ? '' : '/'
+const basePath = removeTrailingSlash(base) + slash
 
 export const POST = (async ({ request, cookies, redirect }) => {
 	const data = await request.formData()
 	const password = data.get('password')?.toString() ?? ''
 	const hash = data.get('hash')?.toString() ?? ''
 	const cookieKey = data.get('cookieKey')?.toString() ?? ''
-	const redirectTo = data.get('redirectTo')?.toString() ?? '/'
+	const redirectTo = data.get('redirectTo')?.toString() ?? basePath
 
 	// Validate redirectTo is same origin to prevent open redirect
 	const requestOrigin = new URL(request.url).origin
-	let safeRedirectTo = '/'
+	let safeRedirectTo = basePath
 	try {
 		const redirectUrl = new URL(redirectTo)
 		if (redirectUrl.origin === requestOrigin) {
@@ -59,7 +65,7 @@ export const POST = (async ({ request, cookies, redirect }) => {
 		sameSite: 'strict',
 		secure: import.meta.env.PROD,
 		maxAge: 60 * 60 * 24 * 7, // 7 days
-		path: '/',
+		path: basePath,
 	})
 
 	// Remove any error params from the success redirect URL
