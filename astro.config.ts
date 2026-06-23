@@ -2,6 +2,7 @@ import type { Options as AutolinkHeadingsOptions } from 'rehype-autolink-heading
 import type { Options as ExternalLinkOptions } from 'rehype-external-links'
 import alpinejs from '@astrojs/alpinejs'
 import cloudflare from '@astrojs/cloudflare'
+import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
@@ -101,21 +102,21 @@ export default defineConfig({
 	},
 
 	markdown: {
-		gfm: true,
-		// @ts-expect-error: Astro types don't match remark plugin
-		remarkPlugins: [remarkCjkFriendly, remarkCjkFriendlyGfmStrikethrough, [remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkToc, { heading: SITE.tocHeading }], [remarkCollapse, { test: SITE.tocHeading, summary: 'm.btn_expand_toc_title()' }]],
-		rehypePlugins: [
-			rehypeSlug,
-			[
-				rehypeExternalLinks,
+		processor: unified({
+			gfm: true,
+			remarkPlugins: [remarkCjkFriendly, remarkCjkFriendlyGfmStrikethrough, [remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkToc, { heading: SITE.tocHeading }], [remarkCollapse, { test: SITE.tocHeading, summary: 'm.btn_expand_toc_title()' }]],
+			rehypePlugins: [
+				rehypeSlug,
+				[
+					rehypeExternalLinks,
 				{
 					target: '_blank',
 					rel: ['nofollow'],
 					properties: { className: ['external_link'] },
 				} satisfies ExternalLinkOptions,
-			],
-			[
-				rehypeAutolinkHeadings,
+				],
+				[
+					rehypeAutolinkHeadings,
 				{
 					behavior: 'after',
 					group() {
@@ -133,19 +134,20 @@ export default defineConfig({
 						])
 					},
 				} satisfies AutolinkHeadingsOptions,
+				],
+				[
+					remarkRehypeWrap,
+					{
+						node: { type: 'element', tagName: 'div', properties: { className: 'tide-table-wrapper' } },
+						start: 'element[tagName=table]',
+					},
+				],
 			],
-			[
-				remarkRehypeWrap,
-				{
-					node: { type: 'element', tagName: 'div', properties: { className: 'tide-table-wrapper' } },
-					start: 'element[tagName=table]',
-				},
-			],
-		],
-		remarkRehype: {
-			footnoteLabel: 'm.label_footnotes()',
-			footnoteBackLabel: 'm.btn_footnote_back_title()',
-			footnoteBackContent: '↑',
-		},
+			remarkRehype: {
+				footnoteLabel: 'm.label_footnotes()',
+				footnoteBackLabel: 'm.btn_footnote_back_title()',
+				footnoteBackContent: '↑',
+			},
+		}),
 	},
 })
