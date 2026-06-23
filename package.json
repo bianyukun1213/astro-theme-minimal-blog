@@ -79,8 +79,5 @@
 		"typescript": "^6.0.3",
 		"unist-util-visit": "^5.1.0",
 		"valid-filename": "^4.0.0"
-	},
-	"overrides": {
-		"vite": "^7"
 	}
 }

@@ -58,7 +58,7 @@ export default defineConfig({
 	],
 
 	output: 'static',
-	adapter: cloudflare(),
+	adapter: cloudflare({ prerenderEnvironment: 'node' }),
 	trailingSlash: 'always',
 	site: SITE.url,
 	base: SITE.base,

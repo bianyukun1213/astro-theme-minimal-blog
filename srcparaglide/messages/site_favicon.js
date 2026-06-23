@@ -6,25 +6,25 @@ import { getLocale, experimentalStaticLocale } from '../runtime.js';
 /** @typedef {{}} Site_FaviconInputs */
 
 const en_us2_site_favicon = /** @type {(inputs: Site_FaviconInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`https://placehold.co/32`)
+	return /** @type {LocalizedString} */ (`/images/favicon-32.webp`)
 };
 
 const zh_cn2_site_favicon = /** @type {(inputs: Site_FaviconInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`https://placehold.co/32`)
+	return /** @type {LocalizedString} */ (`/images/favicon-32.webp`)
 };
 
 const ru_ru2_site_favicon = /** @type {(inputs: Site_FaviconInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`https://placehold.co/32`)
+	return /** @type {LocalizedString} */ (`/images/favicon-32.webp`)
 };
 
 const he_il2_site_favicon = /** @type {(inputs: Site_FaviconInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`https://placehold.co/32`)
+	return /** @type {LocalizedString} */ (`/images/favicon-32.webp`)
 };
 
 /**
 * | output |
 * | --- |
-* | "https://placehold.co/32" |
+* | "/images/favicon-32.webp" |
 *
 * @param {Site_FaviconInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options

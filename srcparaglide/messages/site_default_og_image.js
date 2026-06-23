@@ -6,25 +6,25 @@ import { getLocale, experimentalStaticLocale } from '../runtime.js';
 /** @typedef {{}} Site_Default_Og_ImageInputs */
 
 const en_us2_site_default_og_image = /** @type {(inputs: Site_Default_Og_ImageInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`https://placehold.co/400x300`)
+	return /** @type {LocalizedString} */ (`/images/og-image.jpg`)
 };
 
 const zh_cn2_site_default_og_image = /** @type {(inputs: Site_Default_Og_ImageInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`https://placehold.co/400x300`)
+	return /** @type {LocalizedString} */ (`/images/og-image.jpg`)
 };
 
 const ru_ru2_site_default_og_image = /** @type {(inputs: Site_Default_Og_ImageInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`https://placehold.co/400x300`)
+	return /** @type {LocalizedString} */ (`/images/og-image.jpg`)
 };
 
 const he_il2_site_default_og_image = /** @type {(inputs: Site_Default_Og_ImageInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`https://placehold.co/400x300`)
+	return /** @type {LocalizedString} */ (`/images/og-image.jpg`)
 };
 
 /**
 * | output |
 * | --- |
-* | "https://placehold.co/400x300" |
+* | "/images/og-image.jpg" |
 *
 * @param {Site_Default_Og_ImageInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options

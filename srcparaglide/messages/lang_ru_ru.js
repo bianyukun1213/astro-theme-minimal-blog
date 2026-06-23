@@ -6,25 +6,25 @@ import { getLocale, experimentalStaticLocale } from '../runtime.js';
 /** @typedef {{}} Lang_Ru_RuInputs */
 
 const en_us2_lang_ru_ru = /** @type {(inputs: Lang_Ru_RuInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`Рус.`)
+	return /** @type {LocalizedString} */ (`🇷🇺 Рус.`)
 };
 
 const zh_cn2_lang_ru_ru = /** @type {(inputs: Lang_Ru_RuInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`Рус.`)
+	return /** @type {LocalizedString} */ (`🇷🇺 Рус.`)
 };
 
 const ru_ru2_lang_ru_ru = /** @type {(inputs: Lang_Ru_RuInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`Рус.`)
+	return /** @type {LocalizedString} */ (`🇷🇺 Рус.`)
 };
 
 const he_il2_lang_ru_ru = /** @type {(inputs: Lang_Ru_RuInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`Рус.`)
+	return /** @type {LocalizedString} */ (`🇷🇺 Рус.`)
 };
 
 /**
 * | output |
 * | --- |
-* | "Рус." |
+* | "🇷🇺 Рус." |
 *
 * @param {Lang_Ru_RuInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options

@@ -6,25 +6,25 @@ import { getLocale, experimentalStaticLocale } from '../runtime.js';
 /** @typedef {{}} Site_DescriptionInputs */
 
 const en_us2_site_description = /** @type {(inputs: Site_DescriptionInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`A minimal blog theme for Astro`)
+	return /** @type {LocalizedString} */ (`Life is short. Live it twice as wide!`)
 };
 
 const zh_cn2_site_description = /** @type {(inputs: Site_DescriptionInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`一个用于 Astro 的极简博客主题`)
+	return /** @type {LocalizedString} */ (`人生苦短，我要活出双倍精彩！`)
 };
 
 const ru_ru2_site_description = /** @type {(inputs: Site_DescriptionInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`Минималистичная тема блога для Astro`)
+	return /** @type {LocalizedString} */ (`Жизнь коротка. Живи вдвойне шире!`)
 };
 
 const he_il2_site_description = /** @type {(inputs: Site_DescriptionInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`ערכת נושא מינימלית לבלוג עבור Astro`)
+	return /** @type {LocalizedString} */ (`חיים קצרים. לחיות לרוחב כפול!`)
 };
 
 /**
 * | output |
 * | --- |
-* | "A minimal blog theme for Astro" |
+* | "Life is short. Live it twice as wide!" |
 *
 * @param {Site_DescriptionInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options

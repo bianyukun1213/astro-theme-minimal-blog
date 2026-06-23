@@ -6,25 +6,25 @@ import { getLocale, experimentalStaticLocale } from '../runtime.js';
 /** @typedef {{}} Site_TitleInputs */
 
 const en_us2_site_title = /** @type {(inputs: Site_TitleInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`My Blog`)
+	return /** @type {LocalizedString} */ (`His 2nd Life`)
 };
 
 const zh_cn2_site_title = /** @type {(inputs: Site_TitleInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`我的博客`)
+	return /** @type {LocalizedString} */ (`他的第二人生`)
 };
 
 const ru_ru2_site_title = /** @type {(inputs: Site_TitleInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`Мой блог`)
+	return /** @type {LocalizedString} */ (`Его 2-я Жизнь`)
 };
 
 const he_il2_site_title = /** @type {(inputs: Site_TitleInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`הבלוג שלי`)
+	return /** @type {LocalizedString} */ (`החיים השניים שלו`)
 };
 
 /**
 * | output |
 * | --- |
-* | "My Blog" |
+* | "His 2nd Life" |
 *
 * @param {Site_TitleInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options

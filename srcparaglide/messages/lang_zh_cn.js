@@ -6,25 +6,25 @@ import { getLocale, experimentalStaticLocale } from '../runtime.js';
 /** @typedef {{}} Lang_Zh_CnInputs */
 
 const en_us2_lang_zh_cn = /** @type {(inputs: Lang_Zh_CnInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`简中`)
+	return /** @type {LocalizedString} */ (`🇨🇳 简中`)
 };
 
 const zh_cn2_lang_zh_cn = /** @type {(inputs: Lang_Zh_CnInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`简中`)
+	return /** @type {LocalizedString} */ (`🇨🇳 简中`)
 };
 
 const ru_ru2_lang_zh_cn = /** @type {(inputs: Lang_Zh_CnInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`简中`)
+	return /** @type {LocalizedString} */ (`🇨🇳 简中`)
 };
 
 const he_il2_lang_zh_cn = /** @type {(inputs: Lang_Zh_CnInputs) => LocalizedString} */ () => {
-	return /** @type {LocalizedString} */ (`简中`)
+	return /** @type {LocalizedString} */ (`🇨🇳 简中`)
 };
 
 /**
 * | output |
 * | --- |
-* | "简中" |
+* | "🇨🇳 简中" |
 *
 * @param {Lang_Zh_CnInputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
