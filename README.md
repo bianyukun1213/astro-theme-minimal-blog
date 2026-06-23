@@ -18,7 +18,8 @@ This is a fork of [the original project](https://github.com/LekoArts/astro-theme
 
 ## ✨ Newly added features
 
-- i18n with Paraglide JS
+- Astro 7 support
+- i18n (for `en-US`, `zh-CN`, `ru-RU`, and `he-IL`) with Paraglide JS
 - `base` and `trailingSlash` support
 - microformats2 and Indie Web support
 - Keywords for SEO
