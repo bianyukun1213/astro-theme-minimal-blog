@@ -1,6 +1,12 @@
 ---
 import { removeTrailingSlash } from '@utils'
 
+interface Props {
+	alternativeUrls?: string[]
+}
+
+const { alternativeUrls = [] } = Astro.props
+
 const base = import.meta.env.BASE_URL
 ---
 
@@ -120,4 +126,5 @@ const base = import.meta.env.BASE_URL
 	is:inline
 	data-astro-rerun
 	src=`${removeTrailingSlash(base)}/scripts/webmention.js`
-	data-id="tide-interactions-webmentionjs"></script>
+	data-id="tide-interactions-webmentionjs"
+	data-add-urls={alternativeUrls.join('|')}></script>

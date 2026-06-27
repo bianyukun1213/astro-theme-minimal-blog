@@ -123,7 +123,14 @@ const components = {
 ---
 
 <Layout>
-	<Seo slot="seo" titleOverride={title} {description} image={postData.image} noIndex={postData.hidden}>
+	<Seo
+		slot="seo"
+		titleOverride={title}
+		keywords={postData.keywords}
+		{description}
+		image={postData.image}
+		noIndex={postData.hidden}
+	>
 		<meta name="twitter:label1" value={m.label_authors()} />
 		<!-- <meta name="twitter:data1" data-pagefind-meta="author" value={postAuthors.map((author) => author.name).join(',')} /> -->
 		<meta name="twitter:data1" value={postAuthors.map((author) => author.name).join(', ')} />
@@ -139,7 +146,7 @@ const components = {
 				postData.image && (
 					<>
 						<figure class="not-prose relative">
-							<img class="block w-full aspect-3/1 object-cover" src={postData.image} alt={postData.imageAlt} />
+							<img class="block w-full aspect-3/1 object-cover" src={postData.image} alt={postData.imageAlt ?? ''} />
 							{postData.imageCaption && (
 								<figcaption class="absolute inset-e-0 bottom-0 max-w-full px-1 bg-bg text-text text-sm rounded-ss-md text-nowrap overflow-auto">
 									<ImageIcon class="inline-block w-4 ht-4" aria-hidden="true" />
@@ -151,7 +158,9 @@ const components = {
 					</>
 				)
 			}
-			<h1 class="p-name mb-0! text-highlight" data-pagefind-meta="title">{title}</h1>
+			<h1 class="p-name mb-0! text-highlight" data-pagefind-meta="title">
+				{title}
+			</h1>
 			<Spacer axis="vertical" size={4} />
 			<div class="text-faded">
 				<div>

@@ -9,9 +9,10 @@ const m = useTranslations(currentLocale)
 
 interface Props {
 	webmentions?: boolean
+	alternativeUrls?: string[]
 }
 
-const { webmentions = true } = Astro.props
+const { webmentions = true, alternativeUrls = [] } = Astro.props
 ---
 
 <aside id="tide-page-interactions" x-data="{active:'waline'}">
@@ -32,7 +33,7 @@ const { webmentions = true } = Astro.props
 		{
 			webmentions && (
 				<div x-show="active==='webmentionjs'">
-					<WebmentionJS />
+					<WebmentionJS {alternativeUrls} />
 				</div>
 			)
 		}
