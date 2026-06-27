@@ -35,7 +35,6 @@ import {
 	useTranslations,
 	type Locale,
 } from '@utils'
-import Picture from 'astro/components/Picture.astro'
 import { getCollection, render } from 'astro:content'
 
 export const prerender = false
@@ -192,6 +191,6 @@ const components = {
 		<Spacer axis="vertical" size={12} />
 		<PostNavigation previousPost={previousPost} nextPost={nextPost} />
 		<Spacer axis="vertical" size={12} />
-		{postData.interactions && <TideInteractions />}
+		{postData.interactions && <TideInteractions alternativeUrls={postData.alternativeUrls} />}
 	</SkipNavContent>
 </Layout>

@@ -3,6 +3,8 @@ import { DEFAULT_LOCALE } from '@constants'
 import { removeTrailingSlash } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 
+export const prerender = false
+
 const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
 
