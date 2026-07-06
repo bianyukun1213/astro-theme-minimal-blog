@@ -33,9 +33,9 @@ const slash = trailingSlash === 'never' ? '' : '/'
 				</>
 			)
 		}
-		{showSticky && post.data.sticky > 0 && <Pin class="inline-block me-2" aria-label={m.label_sticky()} />}<span
-			>{post.data.title}</span
-		>
+		{
+			showSticky && post.data.sticky > 0 && <Pin class="inline-block align-middle me-2" aria-label={m.label_sticky()} />
+		}<span class="align-middle">{post.data.title}</span>
 	</Link>
 	<Spacer axis="vertical" size={2} />
 	<div class="text-faded">

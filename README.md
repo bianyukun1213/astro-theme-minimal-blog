@@ -30,6 +30,7 @@ This is a fork of [the original project](https://github.com/LekoArts/astro-theme
 - Drafts
 - Table of contents
 - Post header image
+- Sticky posts
 - Image masonry and image viewer
 - Tab and Collapse components
 - Components for YouTube, VK Music, and NetEase Music
