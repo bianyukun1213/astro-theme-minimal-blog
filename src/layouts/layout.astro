@@ -18,12 +18,6 @@ const currentLocale = Astro.currentLocale as Locale
 const dir = getLocaleDir(currentLocale)
 const m = useTranslations(currentLocale)
 
-interface Props {
-	showFwInteractions?: boolean
-}
-
-const { showFwInteractions = false } = Astro.props
-
 const localeFonts = {
 	default: {
 		cssVariable: '--font-noto-serif',
@@ -107,6 +101,6 @@ const tideMeta: TideMeta = { breakpoints }
 		<Header />
 		<slot />
 		<Footer />
-		<FloatingWidgets {showFwInteractions} />
+		<FloatingWidgets />
 	</body>
 </html>

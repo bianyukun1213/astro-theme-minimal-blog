@@ -1,22 +1,15 @@
 ---
-import { cn, useTranslations, type Locale } from '@utils'
+import { useTranslations, type Locale } from '@utils'
 import ArrowUpToLine from './icons/arrow-up-to-line.svg'
 import MessageCircleMore from './icons/message-circle-more.svg'
 
 const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
-
-interface Props {
-	showFwInteractions?: boolean
-}
-
-const { showFwInteractions = false } = Astro.props
 ---
 
 <div
 	id="floating-widgets"
 	class="fixed z-10 bottom-4 inset-e-4 ltr:translate-x-14 rtl:-translate-x-14 motion-safe:transition-transform"
-	transition:persist
 >
 	<button
 		id="btn-back-to-top"
@@ -29,7 +22,7 @@ const { showFwInteractions = false } = Astro.props
 	</button>
 	<button
 		id="btn-interactions"
-		class={cn('atmb-button size-10 mt-2', !showFwInteractions && 'hidden')}
+		class="atmb-button size-10 mt-2"
 		title={m.btn_interactions_title()}
 		aria-label={m.btn_interactions_title()}
 		disabled
@@ -43,8 +36,14 @@ const { showFwInteractions = false } = Astro.props
 		const floatingWidgets = document.getElementById('floating-widgets')
 		const btnBackToTop = document.getElementById('btn-back-to-top')
 		const btnInteractions = document.getElementById('btn-interactions')
+		const interactions = document.getElementById('tide-page-interactions')
 		if (!floatingWidgets || !btnBackToTop || !btnInteractions) {
 			return
+		}
+		if (interactions) {
+			btnInteractions.classList.remove('tide-dynamic-hidden')
+		} else {
+			btnInteractions.classList.add('tide-dynamic-hidden')
 		}
 		const onScroll = () => {
 			const visible = window.scrollY > 1200
@@ -64,7 +63,6 @@ const { showFwInteractions = false } = Astro.props
 			window.scrollTo({ top: 0 })
 		})
 		btnInteractions.addEventListener('click', () => {
-			const interactions = document.getElementById('tide-page-interactions')
 			if (interactions) interactions.scrollIntoView()
 		})
 	}
