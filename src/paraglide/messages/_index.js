@@ -13,6 +13,7 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Label_Latest_PostsInputs */
 /** @typedef {{}} Label_All_PostsInputs */
 /** @typedef {{ pageNum: NonNullable<unknown> }} Label_All_Posts_PagenumInputs */
+/** @typedef {{}} Label_More_PostsInputs */
 /** @typedef {{}} Label_All_TagsInputs */
 /** @typedef {{ pageNum: NonNullable<unknown> }} Label_All_Tags_PagenumInputs */
 /** @typedef {{}} Label_TagsInputs */
@@ -323,6 +324,22 @@ export const label_all_posts_pagenum = /** @type {((inputs: Label_All_Posts_Page
 	if (locale === "zh-CN") return __zh_cn2.label_all_posts_pagenum(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_all_posts_pagenum(inputs)
 	return __he_il2.label_all_posts_pagenum(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "More posts" |
+*
+* @param {Label_More_PostsInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_more_posts = /** @type {((inputs?: Label_More_PostsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_More_PostsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_more_posts(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_more_posts(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_more_posts(inputs)
+	return __he_il2.label_more_posts(inputs)
 });
 /**
 * | output |

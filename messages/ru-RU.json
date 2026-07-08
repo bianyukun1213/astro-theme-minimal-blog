@@ -11,6 +11,7 @@
 	"label_latest_posts": "Последние публикации",
 	"label_all_posts": "Все публикации",
 	"label_all_posts_pagenum": "Все публикации - страница {pageNum}",
+	"label_more_posts": "больше публикации",
 	"label_all_tags": "Все теги",
 	"label_all_tags_pagenum": "Все теги - страница {pageNum}",
 	"label_tags": "Теги",

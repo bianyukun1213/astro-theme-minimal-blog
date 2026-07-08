@@ -78,13 +78,15 @@ const defaultAuthor = getAuthors(currentLocale)[0]
 			<Spacer axis="vertical" size={8} />
 			<div class="flex gap-12 flex-col">
 				{posts.map((post) => <PostListItem post={post} showSticky={true} />)}
-			</div>
-			<Spacer axis="vertical" size={12} />
-			<div class="flex justify-center">
-				<Link class="align-middle me-1" href={`${removeTrailingSlash(base)}/${currentLocale}/posts/p/1${slash}`}
-					>{m.label_all_posts()}</Link
-				>
-				<ArrowRight class="inline-block align-middle ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
+				<div class="flex justify-center">
+					<Link
+						class="align-middle me-1"
+						href={`${removeTrailingSlash(base)}/${currentLocale}/posts/p/${allPosts.length > posts.length ? 2 : 1}${slash}`}
+					>
+						{m.label_more_posts()}
+					</Link>
+					<ArrowRight class="inline-block align-middle ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
+				</div>
 			</div>
 		</section>
 	</SkipNavContent>

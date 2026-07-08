@@ -11,6 +11,7 @@
 	"label_latest_posts": "Latest posts",
 	"label_all_posts": "All posts",
 	"label_all_posts_pagenum": "All posts - page {pageNum}",
+	"label_more_posts": "More posts",
 	"label_all_tags": "All tags",
 	"label_all_tags_pagenum": "All tags - page {pageNum}",
 	"label_tags": "Tags",

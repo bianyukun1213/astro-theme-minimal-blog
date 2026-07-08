@@ -11,6 +11,7 @@
 	"label_latest_posts": "最新文章",
 	"label_all_posts": "全部文章",
 	"label_all_posts_pagenum": "全部文章 - 第 {pageNum} 页",
+	"label_more_posts": "更多文章",
 	"label_all_tags": "全部标签",
 	"label_all_tags_pagenum": "全部标签 - 第 {pageNum} 页",
 	"label_tags": "标签",
