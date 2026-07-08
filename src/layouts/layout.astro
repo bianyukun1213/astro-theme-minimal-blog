@@ -1,6 +1,6 @@
 ---
 import SkipNavLink from '@components/a11y/skip-nav-link.astro'
-import BackToTop from '@components/back-to-top.astro'
+import FloatingWidgets from '@components/floating-widgets.astro'
 import Footer from '@components/footer.astro'
 import Header from '@components/header.astro'
 import ThemeIcons from '@components/theme-icons.astro'
@@ -17,6 +17,12 @@ import { ClientRouter } from 'astro:transitions'
 const currentLocale = Astro.currentLocale as Locale
 const dir = getLocaleDir(currentLocale)
 const m = useTranslations(currentLocale)
+
+interface Props {
+	showFwInteractions?: boolean
+}
+
+const { showFwInteractions = false } = Astro.props
 
 const localeFonts = {
 	default: {
@@ -101,6 +107,6 @@ const tideMeta: TideMeta = { breakpoints }
 		<Header />
 		<slot />
 		<Footer />
-		<BackToTop />
+		<FloatingWidgets {showFwInteractions} />
 	</body>
 </html>

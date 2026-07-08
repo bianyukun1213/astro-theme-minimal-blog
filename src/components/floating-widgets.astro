@@ -1,0 +1,73 @@
+---
+import { cn, useTranslations, type Locale } from '@utils'
+import ArrowUpToLine from './icons/arrow-up-to-line.svg'
+import MessageCircleMore from './icons/message-circle-more.svg'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
+
+interface Props {
+	showFwInteractions?: boolean
+}
+
+const { showFwInteractions = false } = Astro.props
+---
+
+<div
+	id="floating-widgets"
+	class="fixed z-10 bottom-4 inset-e-4 ltr:translate-x-14 rtl:-translate-x-14 motion-safe:transition-transform"
+	transition:persist
+>
+	<button
+		id="btn-back-to-top"
+		class="atmb-button size-10"
+		title={m.btn_back_to_top_title()}
+		aria-label={m.btn_back_to_top_title()}
+		disabled
+	>
+		<ArrowUpToLine aria-hidden="true" />
+	</button>
+	<button
+		id="btn-interactions"
+		class={cn('atmb-button size-10 mt-2', !showFwInteractions && 'hidden')}
+		title={m.btn_interactions_title()}
+		aria-label={m.btn_interactions_title()}
+		disabled
+	>
+		<MessageCircleMore aria-hidden="true" />
+	</button>
+</div>
+
+<script>
+	function initFloatingWidgets() {
+		const floatingWidgets = document.getElementById('floating-widgets')
+		const btnBackToTop = document.getElementById('btn-back-to-top')
+		const btnInteractions = document.getElementById('btn-interactions')
+		if (!floatingWidgets || !btnBackToTop || !btnInteractions) {
+			return
+		}
+		const onScroll = () => {
+			const visible = window.scrollY > 1200
+			floatingWidgets.classList.toggle('ltr:translate-x-14', !visible)
+			floatingWidgets.classList.toggle('rtl:-translate-x-14', !visible)
+			if (visible) {
+				btnBackToTop.removeAttribute('disabled')
+				btnInteractions.removeAttribute('disabled')
+			} else {
+				btnBackToTop.setAttribute('disabled', '')
+				btnInteractions.setAttribute('disabled', '')
+			}
+		}
+		window.addEventListener('scroll', onScroll, { passive: true })
+		onScroll()
+		btnBackToTop.addEventListener('click', () => {
+			window.scrollTo({ top: 0 })
+		})
+		btnInteractions.addEventListener('click', () => {
+			const interactions = document.getElementById('tide-page-interactions')
+			if (interactions) interactions.scrollIntoView()
+		})
+	}
+
+	document.addEventListener('astro:page-load', initFloatingWidgets)
+</script>

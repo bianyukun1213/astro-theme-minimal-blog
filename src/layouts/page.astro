@@ -18,7 +18,7 @@ const dataAttributes: DOMStringMap = {}
 if (searchIndex) dataAttributes['data-pagefind-body'] = ''
 ---
 
-<Layout>
+<Layout showFwInteractions={interactions}>
 	<Seo slot="seo" title={title} />
 	<SkipNavContent>
 		<Prose {...dataAttributes}>
