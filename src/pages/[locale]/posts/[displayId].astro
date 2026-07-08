@@ -140,6 +140,8 @@ const components = {
 		<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 	</Seo>
 	<SkipNavContent {...dataAttributes}>
+		<PostNavigation previousPost={previousPost} nextPost={nextPost} />
+		<Spacer axis="vertical" size={12} />
 		<Prose class="h-entry">
 			{
 				postData.image && (

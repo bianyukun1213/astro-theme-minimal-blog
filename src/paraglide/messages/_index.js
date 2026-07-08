@@ -32,6 +32,7 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{}} Label_Posts_PaginationInputs */
 /** @typedef {{}} Btn_Previous_Page_TitleInputs */
 /** @typedef {{}} Btn_Next_Page_TitleInputs */
+/** @typedef {{}} Label_Post_NavigationInputs */
 /** @typedef {{}} Label_Select_ThemeInputs */
 /** @typedef {{}} Label_Select_LanguageInputs */
 /** @typedef {{}} Btn_Search_TitleInputs */
@@ -628,6 +629,22 @@ export const btn_next_page_title = /** @type {((inputs?: Btn_Next_Page_TitleInpu
 	if (locale === "zh-CN") return __zh_cn2.btn_next_page_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_next_page_title(inputs)
 	return __he_il2.btn_next_page_title(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Post navigation" |
+*
+* @param {Label_Post_NavigationInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_post_navigation = /** @type {((inputs?: Label_Post_NavigationInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Post_NavigationInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_post_navigation(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_post_navigation(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_post_navigation(inputs)
+	return __he_il2.label_post_navigation(inputs)
 });
 /**
 * | output |
