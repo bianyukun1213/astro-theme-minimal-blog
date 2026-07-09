@@ -1,4 +1,5 @@
 ---
+import { cn } from '@utils'
 import type { HTMLAttributes } from 'astro/types'
 
 type Variant = 'highlight' | 'subtle'
@@ -16,6 +17,6 @@ const styleVariants: Record<Variant, string> = {
 ---
 
 <a
-	class:list={[styleVariants[variant], 'hover:underline hover:underline-offset-4 hover:text-highlight', className]}
+	class={cn(styleVariants[variant], 'hover:underline hover:underline-offset-4 hover:text-highlight', className)}
 	{...rest}><slot /></a
 >

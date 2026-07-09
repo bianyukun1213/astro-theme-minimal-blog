@@ -1,5 +1,5 @@
 ---
-import { removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import { cn, removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 import type { CollectionEntry } from 'astro:content'
 import ChevronLeft from './icons/chevron-left.svg'
@@ -10,11 +10,12 @@ const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
 
 interface Props {
+	class?: string
 	previousPost: CollectionEntry<'blog'> | null
 	nextPost: CollectionEntry<'blog'> | null
 }
 
-const { previousPost, nextPost } = Astro.props
+const { class: className, previousPost, nextPost } = Astro.props
 
 const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
@@ -30,7 +31,10 @@ const nextHref = nextPost ? getPostHref(nextPost.data.displayId) : null
 {
 	(previousPost || nextPost) && (
 		<>
-			<nav aria-label={m.label_post_navigation()} class="flex flex-wrap items-center justify-between gap-4">
+			<nav
+				aria-label={m.label_post_navigation()}
+				class={cn('flex flex-wrap items-center justify-between gap-4', className)}
+			>
 				<div class="min-w-16 me-auto text-start">
 					{previousPost && (
 						<>

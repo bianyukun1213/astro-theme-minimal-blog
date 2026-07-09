@@ -25,7 +25,7 @@ const { webmentions = true, alternativeUrls = [] } = Astro.props
 			{webmentions && <option value="webmentionjs">{m.label_tide_interactions_webmentionjs()}</option>}
 		</select>
 	</div>
-	<Spacer axis="vertical" size={4} />
+	<Spacer axis="vertical" size={8} />
 	<div id="tide-active-interactions">
 		<div x-show="active==='waline'">
 			<Waline />

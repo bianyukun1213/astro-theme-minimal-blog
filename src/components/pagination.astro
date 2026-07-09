@@ -1,5 +1,5 @@
 ---
-import { useTranslations, type Locale } from '@utils'
+import { cn, useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 import ChevronLeft from './icons/chevron-left.svg'
 import ChevronRight from './icons/chevron-right.svg'
@@ -9,12 +9,13 @@ const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
 
 interface Props {
+	class?: string
 	basePath: string
 	totalPages: number
 	currentPage: number
 }
 
-const { basePath, totalPages, currentPage } = Astro.props
+const { class: className, basePath, totalPages, currentPage } = Astro.props
 
 const slash = trailingSlash === 'never' ? '' : '/'
 
@@ -30,7 +31,10 @@ const pages = Array.from({ length: totalPages }, (_, index) => index + 1)
 {
 	totalPages > 1 && (
 		<>
-			<nav aria-label={m.label_posts_pagination()} class="flex flex-wrap items-center justify-between gap-4">
+			<nav
+				aria-label={m.label_posts_pagination()}
+				class={cn('flex flex-wrap items-center justify-between gap-4', className)}
+			>
 				<div class="min-w-16 me-auto text-start">
 					{prevHref && (
 						<>

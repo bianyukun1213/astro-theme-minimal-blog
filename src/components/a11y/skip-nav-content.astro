@@ -1,5 +1,6 @@
 ---
 import { SKIP_NAV_ID } from '@constants'
+import { cn } from '@utils'
 import type { HTMLAttributes } from 'astro/types'
 
 /**
@@ -13,4 +14,4 @@ const { id: idProp, class: className } = Astro.props
 const id = idProp || SKIP_NAV_ID
 ---
 
-<main id={id} class:list={['container', 'grow', className]}><slot /></main>
+<main id={id} class={cn('container', 'grow', className)}><slot /></main>

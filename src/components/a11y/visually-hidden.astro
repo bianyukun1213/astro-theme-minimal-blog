@@ -1,4 +1,5 @@
 ---
+import { cn } from '@utils'
 import type { HTMLAttributes } from 'astro/types'
 
 interface Props extends HTMLAttributes<'span'> {}
@@ -6,4 +7,4 @@ interface Props extends HTMLAttributes<'span'> {}
 const { class: className, ...rest } = Astro.props
 ---
 
-<span class:list={['sr-only', className]} {...rest}><slot /></span>
+<span class={cn('sr-only', className)} {...rest}><slot /></span>
