@@ -12,7 +12,7 @@ interface Props {
 	hint?: string
 }
 
-const { class:className, password, hint } = Astro.props
+const { class: className, password, hint } = Astro.props
 
 const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
