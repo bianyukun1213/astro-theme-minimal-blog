@@ -7,12 +7,12 @@ const currentLocale = Astro.currentLocale as Locale
 const m = useTranslations(currentLocale)
 
 interface Props {
+	class?: string
 	password: string
 	hint?: string
-	hidden?: boolean
 }
 
-const { password, hint, hidden = false } = Astro.props
+const { class:className, password, hint } = Astro.props
 
 const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
@@ -40,7 +40,7 @@ const hasError = Astro.url.searchParams.has(`protection_error_${cookieKey}`)
 
 {
 	isUnlocked ? (
-		<div class="unlocked relative rounded-sm border border-border">
+		<div class={cn('unlocked relative rounded-sm border border-border', className)}>
 			<div class="absolute z-10 inset-e-2 top-0 -mt-4">
 				<form method="POST" action={`${removeTrailingSlash(base)}/api/lock${slash}`}>
 					<input type="hidden" name="cookieKey" value={cookieKey} />
@@ -53,7 +53,7 @@ const hasError = Astro.url.searchParams.has(`protection_error_${cookieKey}`)
 			<slot />
 		</div>
 	) : (
-		<div class={cn('protected not-prose my-6 p-4 rounded-sm border border-border text-center', hidden && 'hidden')}>
+		<div class={cn('protected not-prose my-6 p-4 rounded-sm border border-border text-center', className)}>
 			<p>{m.label_locked()}</p>
 			<Spacer axis="vertical" size={4} />
 			{hint && (
