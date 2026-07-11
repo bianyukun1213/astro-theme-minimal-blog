@@ -287,6 +287,8 @@ export function getTags(data: Array<CollectionEntry<'blog'>>, locale: Locale) {
 }
 
 export function filterDrafts(data: Array<CollectionEntry<'blog'>>) {
+	if (import.meta.env.DISPLAY_DRAFTS === 'true')
+		return data
 	return data.filter(post => !post.data.draft)
 }
 

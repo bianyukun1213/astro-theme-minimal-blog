@@ -20,6 +20,7 @@
 	"label_tag_tagname_pagenum": "Tag: {tagName} - page {pageNum}",
 	"label_authors": "Authors",
 	"label_sticky": "Sticky",
+	"label_draft": "Draft",
 	"btn_skip_to_content_title": "Skip to content",
 	"btn_rss_feed_title": "RSS feed",
 	"btn_keep_reading_title": "Keep reading",

@@ -19,6 +19,8 @@ const { post, showSticky = false } = Astro.props
 
 const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
+
+const title = post.data.title || m.site_title()
 ---
 
 <div>
@@ -35,7 +37,7 @@ const slash = trailingSlash === 'never' ? '' : '/'
 		}
 		{
 			showSticky && post.data.sticky > 0 && <Pin class="inline-block align-middle me-2" aria-label={m.label_sticky()} />
-		}<span class="align-middle">{post.data.title}</span>
+		}<span class="align-middle">{`${post.data.draft ? '[' + m.label_draft() + '] ' : ''}${title}`}</span>
 	</Link>
 	<Spacer axis="vertical" size={2} />
 	<div class="text-faded">

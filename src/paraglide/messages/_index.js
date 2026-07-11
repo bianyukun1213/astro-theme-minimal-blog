@@ -22,6 +22,7 @@ import { getLocale, experimentalStaticLocale } from "../runtime.js"
 /** @typedef {{ tagName: NonNullable<unknown>, pageNum: NonNullable<unknown> }} Label_Tag_Tagname_PagenumInputs */
 /** @typedef {{}} Label_AuthorsInputs */
 /** @typedef {{}} Label_StickyInputs */
+/** @typedef {{}} Label_DraftInputs */
 /** @typedef {{}} Btn_Skip_To_Content_TitleInputs */
 /** @typedef {{}} Btn_Rss_Feed_TitleInputs */
 /** @typedef {{}} Btn_Keep_Reading_TitleInputs */
@@ -469,6 +470,22 @@ export const label_sticky = /** @type {((inputs?: Label_StickyInputs, options?: 
 	if (locale === "zh-CN") return __zh_cn2.label_sticky(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_sticky(inputs)
 	return __he_il2.label_sticky(inputs)
+});
+/**
+* | output |
+* | --- |
+* | "Draft" |
+*
+* @param {Label_DraftInputs} inputs
+* @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
+* @returns {LocalizedString}
+*/
+export const label_draft = /** @type {((inputs?: Label_DraftInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_DraftInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
+	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
+	if (locale === "en-US") return __en_us2.label_draft(inputs)
+	if (locale === "zh-CN") return __zh_cn2.label_draft(inputs)
+	if (locale === "ru-RU") return __ru_ru2.label_draft(inputs)
+	return __he_il2.label_draft(inputs)
 });
 /**
 * | output |

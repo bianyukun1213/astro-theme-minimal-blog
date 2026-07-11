@@ -161,7 +161,7 @@ const components = {
 				)
 			}
 			<h1 class="p-name mb-0! text-highlight" data-pagefind-meta="title">
-				{title}
+				{`${post.data.draft ? '[' + m.label_draft() + '] ' : ''}${title}`}
 			</h1>
 			<Spacer axis="vertical" size={4} />
 			<div class="text-faded">
