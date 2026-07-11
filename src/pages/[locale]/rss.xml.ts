@@ -27,13 +27,18 @@ export const GET = (async ({ params }) => {
 	allPosts = sortAsc(allPosts)
 	allPosts = sortSticky(allPosts)
 
-	const items = allPosts.map(post => ({
-		title: post.data.title,
-		description: post.data.description,
-		content: generateContent(post.data.description, post.data.displayId, currentLocale),
-		link: `${removeTrailingSlash(base)}/${currentLocale}/posts/${post.data.displayId}${slash}`,
-		pubDate: post.data.date,
-	} satisfies RSSFeedItem))
+	const items = allPosts.map(post => {
+		const title = post.data.title || m.site_title()
+		const description = post.data.description || m.site_description()
+		return ({
+			title,
+			description,
+			content: generateContent(description, post.data.displayId, currentLocale),
+			link: `${removeTrailingSlash(base)}/${currentLocale}/posts/${post.data.displayId}${slash}`,
+			pubDate: post.data.date,
+		} satisfies RSSFeedItem)
+	}
+	)
 
 	return rss({
 		trailingSlash: trailingSlash !== 'never',
