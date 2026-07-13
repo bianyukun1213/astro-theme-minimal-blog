@@ -27,10 +27,10 @@ const description = post.data.description || m.site_description()
 <div>
 	<Link variant="highlight" href={`${removeTrailingSlash(base)}/${currentLocale}/posts/${post.data.displayId}${slash}`}>
 		{
-			post.data.image && (
+			(post.data.cover || post.data.image) && (
 				<>
 					<figure class="relative">
-						<img class="block w-full aspect-3/1 object-cover" src={post.data.image} alt={post.data.imageAlt ?? ''} title={post.data.imageTitle} />
+						<img class="block w-full aspect-3/1 object-cover" src={post.data.cover || post.data.image} alt={post.data.coverAlt ?? ''} title={post.data.coverTitle} />
 					</figure>
 					<Spacer axis="vertical" size={2} />
 				</>

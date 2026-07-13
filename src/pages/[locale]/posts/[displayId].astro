@@ -52,26 +52,25 @@ if (!post) {
 
 const base = import.meta.env.BASE_URL
 
-const { data: postData } = post
 const url = Astro.url
-const title = postData.title || m.site_title()
-const description = postData.description || m.site_description()
-const datePublished = isoDateFormat(postData.date)
-const dateModified = isoDateFormat(postData.updated)
+const title = post.data.title || m.site_title()
+const description = post.data.description || m.site_description()
+const datePublished = isoDateFormat(post.data.date)
+const dateModified = isoDateFormat(post.data.updated)
 const authors = getAuthors(currentLocale)
-const authorSlugs = postData.authors
+const authorSlugs = post.data.authors
 const postAuthors = authors.filter((author) => authorSlugs.includes(author.slug))
-const tagNames = postData.tags.map((tagSlug) => getLocalizedTagName(tagSlug, currentLocale))
-const validImage = postData.image || m.site_default_og_image()
+const tagNames = post.data.tags.map((tagSlug) => getLocalizedTagName(tagSlug, currentLocale))
+const validImage = post.data.image || m.site_default_og_image()
 let copyright = ''
-if (postData.copyright) {
+if (post.data.copyright) {
 	type crKey = Exclude<keyof typeof messages, 'm'>
-	const key = `copyright_${postData.copyright.toLowerCase().replace(/(-|\s|\.)/g, '_')}` as crKey
+	const key = `copyright_${post.data.copyright.toLowerCase().replace(/(-|\s|\.)/g, '_')}` as crKey
 	const localizationFunc = m[key]
 	if (typeof localizationFunc === 'function') {
 		copyright = (localizationFunc as () => string)()
 	} else {
-		copyright = postData.copyright
+		copyright = post.data.copyright
 	}
 }
 const jsonLd = {
@@ -95,7 +94,7 @@ const jsonLd = {
 }
 const { Content } = await render(post)
 const dataAttributes: DOMStringMap = {}
-if (postData.searchIndex) dataAttributes['data-pagefind-body'] = ''
+if (post.data.searchIndex) dataAttributes['data-pagefind-body'] = ''
 
 const sortedLocalePosts = sortSticky(sortAsc(getPostsByLocale(allPosts, currentLocale)))
 const currentPostIndex = sortedLocalePosts.findIndex((entry) => entry.id === post.id)
@@ -103,7 +102,7 @@ const previousPost = sortedLocalePosts.slice(currentPostIndex + 1).find((p) => !
 const nextPost = sortedLocalePosts.slice(0, currentPostIndex).findLast((p) => !p.data.hidden) ?? null
 
 Astro.locals.localesOverride = allPosts
-	.filter((p) => p.data.displayId === postData.displayId)
+	.filter((p) => p.data.displayId === post.data.displayId)
 	.map((p) => getLocaleFromFilePath(p.filePath)) as Locale[]
 
 const components = {
@@ -125,10 +124,10 @@ const components = {
 	<Seo
 		slot="seo"
 		titleOverride={title}
-		keywords={postData.keywords}
+		keywords={post.data.keywords}
 		{description}
-		image={postData.image}
-		noIndex={postData.hidden}
+		image={post.data.image || post.data.cover}
+		noIndex={post.data.hidden}
 	>
 		<meta name="twitter:label1" value={m.label_authors()} />
 		<!-- <meta name="twitter:data1" data-pagefind-meta="author" value={postAuthors.map((author) => author.name).join(',')} /> -->
@@ -145,14 +144,14 @@ const components = {
 		<Spacer class="hidden sm:block" axis="vertical" size={8} />
 		<Prose class="h-entry">
 			{
-				postData.image && (
+				(post.data.cover || post.data.image) && (
 					<>
 						<figure class="not-prose relative">
-							<img class="block w-full aspect-3/1 object-cover" src={postData.image} alt={postData.imageAlt ?? ''} title={post.data.imageTitle} />
-							{(postData.imageTitle || postData.imageCaption) && (
+							<img class="block w-full aspect-3/1 object-cover" src={post.data.cover || post.data.image} alt={post.data.coverAlt ?? ''} title={post.data.coverTitle} />
+							{(post.data.coverTitle || post.data.coverCaption) && (
 								<figcaption class="absolute inset-e-0 bottom-0 max-w-full px-1 bg-bg text-text text-sm rounded-ss-md text-nowrap overflow-auto">
 									<ImageIcon class="inline-block align-middle w-4 ht-4" aria-hidden="true" />
-									<span class="align-middle ms-1">{postData.imageTitle || postData.imageCaption}</span>
+									<span class="align-middle ms-1">{post.data.coverTitle || post.data.coverCaption}</span>
 								</figcaption>
 							)}
 						</figure>
@@ -166,7 +165,7 @@ const components = {
 			<Spacer axis="vertical" size={4} />
 			<div class="text-faded">
 				<div>
-					<span>{defaultDateFormat(postData.date, currentLocale)} — </span><TagLinks slugs={postData.tags} />
+					<span>{defaultDateFormat(post.data.date, currentLocale)} — </span><TagLinks slugs={post.data.tags} />
 				</div>
 				{copyright && <div>{copyright}</div>}
 				<div class="p-summary">{description}</div>
@@ -179,11 +178,11 @@ const components = {
 					datePublished,
 					dateUpdated: dateModified,
 					tagNames,
-					pLocation: postData.pLocation,
-					uInReplyTo: postData.uInReplyTo,
-					uLikeOf: postData.uLikeOf,
-					uRepostOf: postData.uRepostOf,
-					uSyndication: postData.uSyndication,
+					pLocation: post.data.pLocation,
+					uInReplyTo: post.data.uInReplyTo,
+					uLikeOf: post.data.uLikeOf,
+					uRepostOf: post.data.uRepostOf,
+					uSyndication: post.data.uSyndication,
 				}}
 			/>
 			<Spacer axis="vertical" size={12} />
@@ -194,6 +193,6 @@ const components = {
 		<Spacer axis="vertical" size={12} />
 		<PostNavigation previousPost={previousPost} nextPost={nextPost} />
 		<Spacer axis="vertical" size={12} />
-		{postData.interactions && <TideInteractions alternativeUrls={postData.alternativeUrls} />}
+		{post.data.interactions && <TideInteractions alternativeUrls={post.data.alternativeUrls} />}
 	</SkipNavContent>
 </Layout>
