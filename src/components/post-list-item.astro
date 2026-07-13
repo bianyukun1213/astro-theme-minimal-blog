@@ -30,7 +30,7 @@ const description = post.data.description || m.site_description()
 			post.data.image && (
 				<>
 					<figure class="relative">
-						<img class="block w-full aspect-3/1 object-cover" src={post.data.image} alt={post.data.imageAlt} />
+						<img class="block w-full aspect-3/1 object-cover" src={post.data.image} alt={post.data.imageAlt ?? ''} title={post.data.imageTitle} />
 					</figure>
 					<Spacer axis="vertical" size={2} />
 				</>

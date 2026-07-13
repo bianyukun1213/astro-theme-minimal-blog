@@ -148,11 +148,11 @@ const components = {
 				postData.image && (
 					<>
 						<figure class="not-prose relative">
-							<img class="block w-full aspect-3/1 object-cover" src={postData.image} alt={postData.imageAlt ?? ''} />
-							{postData.imageCaption && (
+							<img class="block w-full aspect-3/1 object-cover" src={postData.image} alt={postData.imageAlt ?? ''} title={post.data.imageTitle} />
+							{(postData.imageTitle || postData.imageCaption) && (
 								<figcaption class="absolute inset-e-0 bottom-0 max-w-full px-1 bg-bg text-text text-sm rounded-ss-md text-nowrap overflow-auto">
 									<ImageIcon class="inline-block align-middle w-4 ht-4" aria-hidden="true" />
-									<span class="align-middle ms-1">{postData.imageCaption}</span>
+									<span class="align-middle ms-1">{postData.imageTitle || postData.imageCaption}</span>
 								</figcaption>
 							)}
 						</figure>

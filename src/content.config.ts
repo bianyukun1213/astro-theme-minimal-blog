@@ -17,6 +17,7 @@ const blog = defineCollection({
 		tags: z.array(z.enum(TAG_SLUGS)).optional().default(['untagged']),
 		image: z.string().optional(),
 		imageAlt: z.string().optional(),
+		imageTitle: z.string().optional(),
 		imageCaption: z.string().optional(),
 		searchIndex: z.boolean().optional().default(true),
 		draft: z.boolean().optional().default(false),

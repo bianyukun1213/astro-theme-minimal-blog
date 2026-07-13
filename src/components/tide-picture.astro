@@ -89,7 +89,7 @@ if (typeof src !== 'string') {
 		src={parsedSrc}
 		inferSize={useRemote}
 		{title}
-		data-caption={caption}
+		data-caption={caption || title}
 		aria-hidden={mask || mask === '' ? 'true' : 'false'}
 		:class="$store.images.isRevealed(figureEle.dataset.imageId)?'tide-dynamic-cursor-zoom-in':''"
 		:tabindex="$store.images.isRevealed(figureEle.dataset.imageId)?0:-1"
@@ -97,5 +97,6 @@ if (typeof src !== 'string') {
 		:aria-hidden="$store.images.isRevealed(figureEle.dataset.imageId)?'false':'true'"
 		{...attrs}
 	/>
-	{(caption || title) && <figcaption class="tide-image-figure-caption">{caption || title}</figcaption>}
+	{/* image-viewer 优先展示 caption，figcaption 优先展示 title */}
+	{(title || caption) && <figcaption class="tide-image-figure-caption">{title || caption}</figcaption>}
 </figure>
