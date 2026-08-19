@@ -143,7 +143,7 @@ const components = {
 		<Spacer class="sm:hidden" axis="vertical" size={4} />
 		<Spacer class="hidden sm:block" axis="vertical" size={8} />
 		<Prose class="h-entry">
-			<div transition:name={`post-${post.data.displayId}`}>
+			<div transition:name={`post-title-${post.data.displayId}`}>
 				{
 					(post.data.cover || post.data.image) && (
 						<>
@@ -166,11 +166,11 @@ const components = {
 			</div>
 			<Spacer axis="vertical" size={4} />
 			<div class="text-faded">
-				<div>
+				<div transition:name={`post-tags-${post.data.displayId}`}>
 					<span>{defaultDateFormat(post.data.date, currentLocale)} — </span><TagLinks slugs={post.data.tags} />
 				</div>
 				{copyright && <div>{copyright}</div>}
-				<div class="p-summary">{description}</div>
+				<div class="p-summary" transition:name={`post-description-${post.data.displayId}`}>{description}</div>
 			</div>
 			<Mf2Meta
 				meta={{
