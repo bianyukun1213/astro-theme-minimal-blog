@@ -143,25 +143,27 @@ const components = {
 		<Spacer class="sm:hidden" axis="vertical" size={4} />
 		<Spacer class="hidden sm:block" axis="vertical" size={8} />
 		<Prose class="h-entry">
-			{
-				(post.data.cover || post.data.image) && (
-					<>
-						<figure class="not-prose relative">
-							<img class="block w-full aspect-3/1 object-cover" src={post.data.cover || post.data.image} alt={post.data.coverAlt ?? ''} title={post.data.coverTitle} />
-							{(post.data.coverTitle || post.data.coverCaption) && (
-								<figcaption class="absolute inset-e-0 bottom-0 max-w-full px-1 bg-bg text-text text-sm rounded-ss-md text-nowrap overflow-auto">
-									<ImageIcon class="inline-block align-middle w-4 ht-4" aria-hidden="true" />
-									<span class="align-middle ms-1">{post.data.coverTitle || post.data.coverCaption}</span>
-								</figcaption>
-							)}
-						</figure>
-						<Spacer axis="vertical" size={2} />
-					</>
-				)
-			}
-			<h1 class="p-name mb-0! text-highlight" data-pagefind-meta="title">
-				{`${post.data.draft ? '[' + m.label_draft() + '] ' : ''}${title}`}
-			</h1>
+			<div transition:name={`post-${post.data.displayId}`}>
+				{
+					(post.data.cover || post.data.image) && (
+						<>
+							<figure class="not-prose relative">
+								<img class="block w-full aspect-3/1 object-cover" src={post.data.cover || post.data.image} alt={post.data.coverAlt ?? ''} title={post.data.coverTitle} />
+								{(post.data.coverTitle || post.data.coverCaption) && (
+									<figcaption class="absolute inset-e-0 bottom-0 max-w-full px-1 bg-bg text-text text-sm rounded-ss-md text-nowrap overflow-auto">
+										<ImageIcon class="inline-block align-middle w-4 ht-4" aria-hidden="true" />
+										<span class="align-middle ms-1">{post.data.coverTitle || post.data.coverCaption}</span>
+									</figcaption>
+								)}
+							</figure>
+							<Spacer axis="vertical" size={2} />
+						</>
+					)
+				}
+				<h1 class="p-name mb-0! text-highlight" data-pagefind-meta="title">
+					{`${post.data.draft ? '[' + m.label_draft() + '] ' : ''}${title}`}
+				</h1>
+			</div>
 			<Spacer axis="vertical" size={4} />
 			<div class="text-faded">
 				<div>

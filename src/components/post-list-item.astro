@@ -25,7 +25,7 @@ const description = post.data.description || m.site_description()
 ---
 
 <div>
-	<Link variant="highlight" href={`${removeTrailingSlash(base)}/${currentLocale}/posts/${post.data.displayId}${slash}`}>
+	<Link variant="highlight" href={`${removeTrailingSlash(base)}/${currentLocale}/posts/${post.data.displayId}${slash}`} transition:name={`post-${post.data.displayId}`}>
 		{
 			(post.data.cover || post.data.image) && (
 				<>
