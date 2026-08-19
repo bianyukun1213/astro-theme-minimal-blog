@@ -162,10 +162,10 @@ import * as __he_il2 from "./he-IL.js"
 */
 export const lang_en_us = /** @type {((inputs?: Lang_En_UsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Lang_En_UsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.lang_en_us(inputs)
 	if (locale === "zh-CN") return __zh_cn2.lang_en_us(inputs)
 	if (locale === "ru-RU") return __ru_ru2.lang_en_us(inputs)
-	return __he_il2.lang_en_us(inputs)
+	if (locale === "he-IL") return __he_il2.lang_en_us(inputs)
+	return __en_us2.lang_en_us(inputs)
 });
 /**
 * | output |
@@ -178,10 +178,10 @@ export const lang_en_us = /** @type {((inputs?: Lang_En_UsInputs, options?: { lo
 */
 export const lang_zh_cn = /** @type {((inputs?: Lang_Zh_CnInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Lang_Zh_CnInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.lang_zh_cn(inputs)
 	if (locale === "zh-CN") return __zh_cn2.lang_zh_cn(inputs)
 	if (locale === "ru-RU") return __ru_ru2.lang_zh_cn(inputs)
-	return __he_il2.lang_zh_cn(inputs)
+	if (locale === "he-IL") return __he_il2.lang_zh_cn(inputs)
+	return __en_us2.lang_zh_cn(inputs)
 });
 /**
 * | output |
@@ -194,10 +194,10 @@ export const lang_zh_cn = /** @type {((inputs?: Lang_Zh_CnInputs, options?: { lo
 */
 export const lang_ru_ru = /** @type {((inputs?: Lang_Ru_RuInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Lang_Ru_RuInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.lang_ru_ru(inputs)
 	if (locale === "zh-CN") return __zh_cn2.lang_ru_ru(inputs)
 	if (locale === "ru-RU") return __ru_ru2.lang_ru_ru(inputs)
-	return __he_il2.lang_ru_ru(inputs)
+	if (locale === "he-IL") return __he_il2.lang_ru_ru(inputs)
+	return __en_us2.lang_ru_ru(inputs)
 });
 /**
 * | output |
@@ -210,10 +210,10 @@ export const lang_ru_ru = /** @type {((inputs?: Lang_Ru_RuInputs, options?: { lo
 */
 export const lang_he_il = /** @type {((inputs?: Lang_He_IlInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Lang_He_IlInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.lang_he_il(inputs)
 	if (locale === "zh-CN") return __zh_cn2.lang_he_il(inputs)
 	if (locale === "ru-RU") return __ru_ru2.lang_he_il(inputs)
-	return __he_il2.lang_he_il(inputs)
+	if (locale === "he-IL") return __he_il2.lang_he_il(inputs)
+	return __en_us2.lang_he_il(inputs)
 });
 /**
 * | output |
@@ -226,10 +226,10 @@ export const lang_he_il = /** @type {((inputs?: Lang_He_IlInputs, options?: { lo
 */
 export const site_title = /** @type {((inputs?: Site_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.site_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.site_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.site_title(inputs)
-	return __he_il2.site_title(inputs)
+	if (locale === "he-IL") return __he_il2.site_title(inputs)
+	return __en_us2.site_title(inputs)
 });
 /**
 * | output |
@@ -242,10 +242,10 @@ export const site_title = /** @type {((inputs?: Site_TitleInputs, options?: { lo
 */
 export const site_description = /** @type {((inputs?: Site_DescriptionInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_DescriptionInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.site_description(inputs)
 	if (locale === "zh-CN") return __zh_cn2.site_description(inputs)
 	if (locale === "ru-RU") return __ru_ru2.site_description(inputs)
-	return __he_il2.site_description(inputs)
+	if (locale === "he-IL") return __he_il2.site_description(inputs)
+	return __en_us2.site_description(inputs)
 });
 /**
 * | output |
@@ -258,10 +258,10 @@ export const site_description = /** @type {((inputs?: Site_DescriptionInputs, op
 */
 export const site_favicon = /** @type {((inputs?: Site_FaviconInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_FaviconInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.site_favicon(inputs)
 	if (locale === "zh-CN") return __zh_cn2.site_favicon(inputs)
 	if (locale === "ru-RU") return __ru_ru2.site_favicon(inputs)
-	return __he_il2.site_favicon(inputs)
+	if (locale === "he-IL") return __he_il2.site_favicon(inputs)
+	return __en_us2.site_favicon(inputs)
 });
 /**
 * | output |
@@ -274,10 +274,10 @@ export const site_favicon = /** @type {((inputs?: Site_FaviconInputs, options?: 
 */
 export const site_default_og_image = /** @type {((inputs?: Site_Default_Og_ImageInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_Default_Og_ImageInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.site_default_og_image(inputs)
 	if (locale === "zh-CN") return __zh_cn2.site_default_og_image(inputs)
 	if (locale === "ru-RU") return __ru_ru2.site_default_og_image(inputs)
-	return __he_il2.site_default_og_image(inputs)
+	if (locale === "he-IL") return __he_il2.site_default_og_image(inputs)
+	return __en_us2.site_default_og_image(inputs)
 });
 /**
 * | output |
@@ -290,10 +290,10 @@ export const site_default_og_image = /** @type {((inputs?: Site_Default_Og_Image
 */
 export const label_latest_posts = /** @type {((inputs?: Label_Latest_PostsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Latest_PostsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_latest_posts(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_latest_posts(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_latest_posts(inputs)
-	return __he_il2.label_latest_posts(inputs)
+	if (locale === "he-IL") return __he_il2.label_latest_posts(inputs)
+	return __en_us2.label_latest_posts(inputs)
 });
 /**
 * | output |
@@ -306,10 +306,10 @@ export const label_latest_posts = /** @type {((inputs?: Label_Latest_PostsInputs
 */
 export const label_all_posts = /** @type {((inputs?: Label_All_PostsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_All_PostsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_all_posts(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_all_posts(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_all_posts(inputs)
-	return __he_il2.label_all_posts(inputs)
+	if (locale === "he-IL") return __he_il2.label_all_posts(inputs)
+	return __en_us2.label_all_posts(inputs)
 });
 /**
 * | output |
@@ -322,10 +322,10 @@ export const label_all_posts = /** @type {((inputs?: Label_All_PostsInputs, opti
 */
 export const label_all_posts_pagenum = /** @type {((inputs: Label_All_Posts_PagenumInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_All_Posts_PagenumInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_all_posts_pagenum(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_all_posts_pagenum(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_all_posts_pagenum(inputs)
-	return __he_il2.label_all_posts_pagenum(inputs)
+	if (locale === "he-IL") return __he_il2.label_all_posts_pagenum(inputs)
+	return __en_us2.label_all_posts_pagenum(inputs)
 });
 /**
 * | output |
@@ -338,10 +338,10 @@ export const label_all_posts_pagenum = /** @type {((inputs: Label_All_Posts_Page
 */
 export const label_more_posts = /** @type {((inputs?: Label_More_PostsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_More_PostsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_more_posts(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_more_posts(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_more_posts(inputs)
-	return __he_il2.label_more_posts(inputs)
+	if (locale === "he-IL") return __he_il2.label_more_posts(inputs)
+	return __en_us2.label_more_posts(inputs)
 });
 /**
 * | output |
@@ -354,10 +354,10 @@ export const label_more_posts = /** @type {((inputs?: Label_More_PostsInputs, op
 */
 export const label_all_tags = /** @type {((inputs?: Label_All_TagsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_All_TagsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_all_tags(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_all_tags(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_all_tags(inputs)
-	return __he_il2.label_all_tags(inputs)
+	if (locale === "he-IL") return __he_il2.label_all_tags(inputs)
+	return __en_us2.label_all_tags(inputs)
 });
 /**
 * | output |
@@ -370,10 +370,10 @@ export const label_all_tags = /** @type {((inputs?: Label_All_TagsInputs, option
 */
 export const label_all_tags_pagenum = /** @type {((inputs: Label_All_Tags_PagenumInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_All_Tags_PagenumInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_all_tags_pagenum(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_all_tags_pagenum(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_all_tags_pagenum(inputs)
-	return __he_il2.label_all_tags_pagenum(inputs)
+	if (locale === "he-IL") return __he_il2.label_all_tags_pagenum(inputs)
+	return __en_us2.label_all_tags_pagenum(inputs)
 });
 /**
 * | output |
@@ -386,10 +386,10 @@ export const label_all_tags_pagenum = /** @type {((inputs: Label_All_Tags_Pagenu
 */
 export const label_tags = /** @type {((inputs?: Label_TagsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_TagsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tags(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_tags(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_tags(inputs)
-	return __he_il2.label_tags(inputs)
+	if (locale === "he-IL") return __he_il2.label_tags(inputs)
+	return __en_us2.label_tags(inputs)
 });
 /**
 * | output |
@@ -402,10 +402,10 @@ export const label_tags = /** @type {((inputs?: Label_TagsInputs, options?: { lo
 */
 export const label_tags_tagname_count = /** @type {((inputs: Label_Tags_Tagname_CountInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tags_Tagname_CountInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tags_tagname_count(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_tags_tagname_count(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_tags_tagname_count(inputs)
-	return __he_il2.label_tags_tagname_count(inputs)
+	if (locale === "he-IL") return __he_il2.label_tags_tagname_count(inputs)
+	return __en_us2.label_tags_tagname_count(inputs)
 });
 /**
 * | output |
@@ -418,10 +418,10 @@ export const label_tags_tagname_count = /** @type {((inputs: Label_Tags_Tagname_
 */
 export const label_tag_tagname = /** @type {((inputs: Label_Tag_TagnameInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tag_TagnameInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tag_tagname(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_tag_tagname(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_tag_tagname(inputs)
-	return __he_il2.label_tag_tagname(inputs)
+	if (locale === "he-IL") return __he_il2.label_tag_tagname(inputs)
+	return __en_us2.label_tag_tagname(inputs)
 });
 /**
 * | output |
@@ -434,10 +434,10 @@ export const label_tag_tagname = /** @type {((inputs: Label_Tag_TagnameInputs, o
 */
 export const label_tag_tagname_pagenum = /** @type {((inputs: Label_Tag_Tagname_PagenumInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tag_Tagname_PagenumInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tag_tagname_pagenum(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_tag_tagname_pagenum(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_tag_tagname_pagenum(inputs)
-	return __he_il2.label_tag_tagname_pagenum(inputs)
+	if (locale === "he-IL") return __he_il2.label_tag_tagname_pagenum(inputs)
+	return __en_us2.label_tag_tagname_pagenum(inputs)
 });
 /**
 * | output |
@@ -450,10 +450,10 @@ export const label_tag_tagname_pagenum = /** @type {((inputs: Label_Tag_Tagname_
 */
 export const label_authors = /** @type {((inputs?: Label_AuthorsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_AuthorsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_authors(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_authors(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_authors(inputs)
-	return __he_il2.label_authors(inputs)
+	if (locale === "he-IL") return __he_il2.label_authors(inputs)
+	return __en_us2.label_authors(inputs)
 });
 /**
 * | output |
@@ -466,10 +466,10 @@ export const label_authors = /** @type {((inputs?: Label_AuthorsInputs, options?
 */
 export const label_sticky = /** @type {((inputs?: Label_StickyInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_StickyInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_sticky(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_sticky(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_sticky(inputs)
-	return __he_il2.label_sticky(inputs)
+	if (locale === "he-IL") return __he_il2.label_sticky(inputs)
+	return __en_us2.label_sticky(inputs)
 });
 /**
 * | output |
@@ -482,10 +482,10 @@ export const label_sticky = /** @type {((inputs?: Label_StickyInputs, options?: 
 */
 export const label_draft = /** @type {((inputs?: Label_DraftInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_DraftInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_draft(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_draft(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_draft(inputs)
-	return __he_il2.label_draft(inputs)
+	if (locale === "he-IL") return __he_il2.label_draft(inputs)
+	return __en_us2.label_draft(inputs)
 });
 /**
 * | output |
@@ -498,10 +498,10 @@ export const label_draft = /** @type {((inputs?: Label_DraftInputs, options?: { 
 */
 export const btn_skip_to_content_title = /** @type {((inputs?: Btn_Skip_To_Content_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Skip_To_Content_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_skip_to_content_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_skip_to_content_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_skip_to_content_title(inputs)
-	return __he_il2.btn_skip_to_content_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_skip_to_content_title(inputs)
+	return __en_us2.btn_skip_to_content_title(inputs)
 });
 /**
 * | output |
@@ -514,10 +514,10 @@ export const btn_skip_to_content_title = /** @type {((inputs?: Btn_Skip_To_Conte
 */
 export const btn_rss_feed_title = /** @type {((inputs?: Btn_Rss_Feed_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Rss_Feed_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_rss_feed_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_rss_feed_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_rss_feed_title(inputs)
-	return __he_il2.btn_rss_feed_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_rss_feed_title(inputs)
+	return __en_us2.btn_rss_feed_title(inputs)
 });
 /**
 * | output |
@@ -530,10 +530,10 @@ export const btn_rss_feed_title = /** @type {((inputs?: Btn_Rss_Feed_TitleInputs
 */
 export const btn_keep_reading_title = /** @type {((inputs?: Btn_Keep_Reading_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Keep_Reading_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_keep_reading_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_keep_reading_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_keep_reading_title(inputs)
-	return __he_il2.btn_keep_reading_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_keep_reading_title(inputs)
+	return __en_us2.btn_keep_reading_title(inputs)
 });
 /**
 * | output |
@@ -546,10 +546,10 @@ export const btn_keep_reading_title = /** @type {((inputs?: Btn_Keep_Reading_Tit
 */
 export const btn_back_to_home_title = /** @type {((inputs: Btn_Back_To_Home_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Back_To_Home_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_back_to_home_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_back_to_home_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_back_to_home_title(inputs)
-	return __he_il2.btn_back_to_home_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_back_to_home_title(inputs)
+	return __en_us2.btn_back_to_home_title(inputs)
 });
 /**
 * | output |
@@ -562,10 +562,10 @@ export const btn_back_to_home_title = /** @type {((inputs: Btn_Back_To_Home_Titl
 */
 export const btn_back_to_top_title = /** @type {((inputs?: Btn_Back_To_Top_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Back_To_Top_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_back_to_top_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_back_to_top_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_back_to_top_title(inputs)
-	return __he_il2.btn_back_to_top_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_back_to_top_title(inputs)
+	return __en_us2.btn_back_to_top_title(inputs)
 });
 /**
 * | output |
@@ -578,10 +578,10 @@ export const btn_back_to_top_title = /** @type {((inputs?: Btn_Back_To_Top_Title
 */
 export const btn_interactions_title = /** @type {((inputs?: Btn_Interactions_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Interactions_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_interactions_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_interactions_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_interactions_title(inputs)
-	return __he_il2.btn_interactions_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_interactions_title(inputs)
+	return __en_us2.btn_interactions_title(inputs)
 });
 /**
 * | output |
@@ -594,10 +594,10 @@ export const btn_interactions_title = /** @type {((inputs?: Btn_Interactions_Tit
 */
 export const label_primary_navigation = /** @type {((inputs?: Label_Primary_NavigationInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Primary_NavigationInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_primary_navigation(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_primary_navigation(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_primary_navigation(inputs)
-	return __he_il2.label_primary_navigation(inputs)
+	if (locale === "he-IL") return __he_il2.label_primary_navigation(inputs)
+	return __en_us2.label_primary_navigation(inputs)
 });
 /**
 * | output |
@@ -610,10 +610,10 @@ export const label_primary_navigation = /** @type {((inputs?: Label_Primary_Navi
 */
 export const label_posts_pagination = /** @type {((inputs?: Label_Posts_PaginationInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Posts_PaginationInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_posts_pagination(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_posts_pagination(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_posts_pagination(inputs)
-	return __he_il2.label_posts_pagination(inputs)
+	if (locale === "he-IL") return __he_il2.label_posts_pagination(inputs)
+	return __en_us2.label_posts_pagination(inputs)
 });
 /**
 * | output |
@@ -626,10 +626,10 @@ export const label_posts_pagination = /** @type {((inputs?: Label_Posts_Paginati
 */
 export const btn_previous_page_title = /** @type {((inputs?: Btn_Previous_Page_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Previous_Page_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_previous_page_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_previous_page_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_previous_page_title(inputs)
-	return __he_il2.btn_previous_page_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_previous_page_title(inputs)
+	return __en_us2.btn_previous_page_title(inputs)
 });
 /**
 * | output |
@@ -642,10 +642,10 @@ export const btn_previous_page_title = /** @type {((inputs?: Btn_Previous_Page_T
 */
 export const btn_next_page_title = /** @type {((inputs?: Btn_Next_Page_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Next_Page_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_next_page_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_next_page_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_next_page_title(inputs)
-	return __he_il2.btn_next_page_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_next_page_title(inputs)
+	return __en_us2.btn_next_page_title(inputs)
 });
 /**
 * | output |
@@ -658,10 +658,10 @@ export const btn_next_page_title = /** @type {((inputs?: Btn_Next_Page_TitleInpu
 */
 export const label_post_navigation = /** @type {((inputs?: Label_Post_NavigationInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Post_NavigationInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_post_navigation(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_post_navigation(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_post_navigation(inputs)
-	return __he_il2.label_post_navigation(inputs)
+	if (locale === "he-IL") return __he_il2.label_post_navigation(inputs)
+	return __en_us2.label_post_navigation(inputs)
 });
 /**
 * | output |
@@ -674,10 +674,10 @@ export const label_post_navigation = /** @type {((inputs?: Label_Post_Navigation
 */
 export const label_select_theme = /** @type {((inputs?: Label_Select_ThemeInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Select_ThemeInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_select_theme(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_select_theme(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_select_theme(inputs)
-	return __he_il2.label_select_theme(inputs)
+	if (locale === "he-IL") return __he_il2.label_select_theme(inputs)
+	return __en_us2.label_select_theme(inputs)
 });
 /**
 * | output |
@@ -690,10 +690,10 @@ export const label_select_theme = /** @type {((inputs?: Label_Select_ThemeInputs
 */
 export const label_select_language = /** @type {((inputs?: Label_Select_LanguageInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Select_LanguageInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_select_language(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_select_language(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_select_language(inputs)
-	return __he_il2.label_select_language(inputs)
+	if (locale === "he-IL") return __he_il2.label_select_language(inputs)
+	return __en_us2.label_select_language(inputs)
 });
 /**
 * | output |
@@ -706,10 +706,10 @@ export const label_select_language = /** @type {((inputs?: Label_Select_Language
 */
 export const btn_search_title = /** @type {((inputs?: Btn_Search_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Search_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_search_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_search_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_search_title(inputs)
-	return __he_il2.btn_search_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_search_title(inputs)
+	return __en_us2.btn_search_title(inputs)
 });
 /**
 * | output |
@@ -722,10 +722,10 @@ export const btn_search_title = /** @type {((inputs?: Btn_Search_TitleInputs, op
 */
 export const btn_expand_toc_title = /** @type {((inputs?: Btn_Expand_Toc_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Expand_Toc_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_expand_toc_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_expand_toc_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_expand_toc_title(inputs)
-	return __he_il2.btn_expand_toc_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_expand_toc_title(inputs)
+	return __en_us2.btn_expand_toc_title(inputs)
 });
 /**
 * | output |
@@ -738,10 +738,10 @@ export const btn_expand_toc_title = /** @type {((inputs?: Btn_Expand_Toc_TitleIn
 */
 export const label_locked = /** @type {((inputs?: Label_LockedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_LockedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_locked(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_locked(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_locked(inputs)
-	return __he_il2.label_locked(inputs)
+	if (locale === "he-IL") return __he_il2.label_locked(inputs)
+	return __en_us2.label_locked(inputs)
 });
 /**
 * | output |
@@ -754,10 +754,10 @@ export const label_locked = /** @type {((inputs?: Label_LockedInputs, options?: 
 */
 export const label_password_placeholder = /** @type {((inputs?: Label_Password_PlaceholderInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Password_PlaceholderInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_password_placeholder(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_password_placeholder(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_password_placeholder(inputs)
-	return __he_il2.label_password_placeholder(inputs)
+	if (locale === "he-IL") return __he_il2.label_password_placeholder(inputs)
+	return __en_us2.label_password_placeholder(inputs)
 });
 /**
 * | output |
@@ -770,10 +770,10 @@ export const label_password_placeholder = /** @type {((inputs?: Label_Password_P
 */
 export const btn_unlock_title = /** @type {((inputs?: Btn_Unlock_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Unlock_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_unlock_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_unlock_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_unlock_title(inputs)
-	return __he_il2.btn_unlock_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_unlock_title(inputs)
+	return __en_us2.btn_unlock_title(inputs)
 });
 /**
 * | output |
@@ -786,10 +786,10 @@ export const btn_unlock_title = /** @type {((inputs?: Btn_Unlock_TitleInputs, op
 */
 export const label_password_incorrect = /** @type {((inputs?: Label_Password_IncorrectInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Password_IncorrectInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_password_incorrect(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_password_incorrect(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_password_incorrect(inputs)
-	return __he_il2.label_password_incorrect(inputs)
+	if (locale === "he-IL") return __he_il2.label_password_incorrect(inputs)
+	return __en_us2.label_password_incorrect(inputs)
 });
 /**
 * | output |
@@ -802,10 +802,10 @@ export const label_password_incorrect = /** @type {((inputs?: Label_Password_Inc
 */
 export const btn_lock_title = /** @type {((inputs?: Btn_Lock_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Lock_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_lock_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_lock_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_lock_title(inputs)
-	return __he_il2.btn_lock_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_lock_title(inputs)
+	return __en_us2.btn_lock_title(inputs)
 });
 /**
 * | output |
@@ -818,10 +818,10 @@ export const btn_lock_title = /** @type {((inputs?: Btn_Lock_TitleInputs, option
 */
 export const label_tide_picture_default_mask = /** @type {((inputs?: Label_Tide_Picture_Default_MaskInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Picture_Default_MaskInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tide_picture_default_mask(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_tide_picture_default_mask(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_tide_picture_default_mask(inputs)
-	return __he_il2.label_tide_picture_default_mask(inputs)
+	if (locale === "he-IL") return __he_il2.label_tide_picture_default_mask(inputs)
+	return __en_us2.label_tide_picture_default_mask(inputs)
 });
 /**
 * | output |
@@ -834,10 +834,10 @@ export const label_tide_picture_default_mask = /** @type {((inputs?: Label_Tide_
 */
 export const btn_tide_picture_reveal_title = /** @type {((inputs?: Btn_Tide_Picture_Reveal_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Tide_Picture_Reveal_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_tide_picture_reveal_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_tide_picture_reveal_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_tide_picture_reveal_title(inputs)
-	return __he_il2.btn_tide_picture_reveal_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_tide_picture_reveal_title(inputs)
+	return __en_us2.btn_tide_picture_reveal_title(inputs)
 });
 /**
 * | output |
@@ -850,10 +850,10 @@ export const btn_tide_picture_reveal_title = /** @type {((inputs?: Btn_Tide_Pict
 */
 export const label_tide_interactions = /** @type {((inputs?: Label_Tide_InteractionsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_InteractionsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tide_interactions(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions(inputs)
-	return __he_il2.label_tide_interactions(inputs)
+	if (locale === "he-IL") return __he_il2.label_tide_interactions(inputs)
+	return __en_us2.label_tide_interactions(inputs)
 });
 /**
 * | output |
@@ -866,10 +866,10 @@ export const label_tide_interactions = /** @type {((inputs?: Label_Tide_Interact
 */
 export const label_tide_interactions_waline = /** @type {((inputs?: Label_Tide_Interactions_WalineInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Interactions_WalineInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tide_interactions_waline(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions_waline(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions_waline(inputs)
-	return __he_il2.label_tide_interactions_waline(inputs)
+	if (locale === "he-IL") return __he_il2.label_tide_interactions_waline(inputs)
+	return __en_us2.label_tide_interactions_waline(inputs)
 });
 /**
 * | output |
@@ -882,10 +882,10 @@ export const label_tide_interactions_waline = /** @type {((inputs?: Label_Tide_I
 */
 export const label_tide_interactions_webmentionjs = /** @type {((inputs?: Label_Tide_Interactions_WebmentionjsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Tide_Interactions_WebmentionjsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tide_interactions_webmentionjs(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_tide_interactions_webmentionjs(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_tide_interactions_webmentionjs(inputs)
-	return __he_il2.label_tide_interactions_webmentionjs(inputs)
+	if (locale === "he-IL") return __he_il2.label_tide_interactions_webmentionjs(inputs)
+	return __en_us2.label_tide_interactions_webmentionjs(inputs)
 });
 /**
 * | output |
@@ -898,10 +898,10 @@ export const label_tide_interactions_webmentionjs = /** @type {((inputs?: Label_
 */
 export const label_footnotes = /** @type {((inputs?: Label_FootnotesInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_FootnotesInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_footnotes(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_footnotes(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_footnotes(inputs)
-	return __he_il2.label_footnotes(inputs)
+	if (locale === "he-IL") return __he_il2.label_footnotes(inputs)
+	return __en_us2.label_footnotes(inputs)
 });
 /**
 * | output |
@@ -914,10 +914,10 @@ export const label_footnotes = /** @type {((inputs?: Label_FootnotesInputs, opti
 */
 export const btn_footnote_back_title = /** @type {((inputs?: Btn_Footnote_Back_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Btn_Footnote_Back_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.btn_footnote_back_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.btn_footnote_back_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.btn_footnote_back_title(inputs)
-	return __he_il2.btn_footnote_back_title(inputs)
+	if (locale === "he-IL") return __he_il2.btn_footnote_back_title(inputs)
+	return __en_us2.btn_footnote_back_title(inputs)
 });
 /**
 * | output |
@@ -930,10 +930,10 @@ export const btn_footnote_back_title = /** @type {((inputs?: Btn_Footnote_Back_T
 */
 export const label_light = /** @type {((inputs?: Label_LightInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_LightInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_light(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_light(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_light(inputs)
-	return __he_il2.label_light(inputs)
+	if (locale === "he-IL") return __he_il2.label_light(inputs)
+	return __en_us2.label_light(inputs)
 });
 /**
 * | output |
@@ -946,10 +946,10 @@ export const label_light = /** @type {((inputs?: Label_LightInputs, options?: { 
 */
 export const label_dark = /** @type {((inputs?: Label_DarkInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_DarkInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_dark(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_dark(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_dark(inputs)
-	return __he_il2.label_dark(inputs)
+	if (locale === "he-IL") return __he_il2.label_dark(inputs)
+	return __en_us2.label_dark(inputs)
 });
 /**
 * | output |
@@ -962,10 +962,10 @@ export const label_dark = /** @type {((inputs?: Label_DarkInputs, options?: { lo
 */
 export const label_auto = /** @type {((inputs?: Label_AutoInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_AutoInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_auto(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_auto(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_auto(inputs)
-	return __he_il2.label_auto(inputs)
+	if (locale === "he-IL") return __he_il2.label_auto(inputs)
+	return __en_us2.label_auto(inputs)
 });
 /**
 * | output |
@@ -978,10 +978,10 @@ export const label_auto = /** @type {((inputs?: Label_AutoInputs, options?: { lo
 */
 export const label_note = /** @type {((inputs?: Label_NoteInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_NoteInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_note(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_note(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_note(inputs)
-	return __he_il2.label_note(inputs)
+	if (locale === "he-IL") return __he_il2.label_note(inputs)
+	return __en_us2.label_note(inputs)
 });
 /**
 * | output |
@@ -994,10 +994,10 @@ export const label_note = /** @type {((inputs?: Label_NoteInputs, options?: { lo
 */
 export const label_tip = /** @type {((inputs?: Label_TipInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_TipInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_tip(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_tip(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_tip(inputs)
-	return __he_il2.label_tip(inputs)
+	if (locale === "he-IL") return __he_il2.label_tip(inputs)
+	return __en_us2.label_tip(inputs)
 });
 /**
 * | output |
@@ -1010,10 +1010,10 @@ export const label_tip = /** @type {((inputs?: Label_TipInputs, options?: { loca
 */
 export const label_caution = /** @type {((inputs?: Label_CautionInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_CautionInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_caution(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_caution(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_caution(inputs)
-	return __he_il2.label_caution(inputs)
+	if (locale === "he-IL") return __he_il2.label_caution(inputs)
+	return __en_us2.label_caution(inputs)
 });
 /**
 * | output |
@@ -1026,10 +1026,10 @@ export const label_caution = /** @type {((inputs?: Label_CautionInputs, options?
 */
 export const label_danger = /** @type {((inputs?: Label_DangerInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_DangerInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_danger(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_danger(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_danger(inputs)
-	return __he_il2.label_danger(inputs)
+	if (locale === "he-IL") return __he_il2.label_danger(inputs)
+	return __en_us2.label_danger(inputs)
 });
 /**
 * | output |
@@ -1042,10 +1042,10 @@ export const label_danger = /** @type {((inputs?: Label_DangerInputs, options?: 
 */
 export const label_youtube = /** @type {((inputs?: Label_YoutubeInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_YoutubeInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_youtube(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_youtube(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_youtube(inputs)
-	return __he_il2.label_youtube(inputs)
+	if (locale === "he-IL") return __he_il2.label_youtube(inputs)
+	return __en_us2.label_youtube(inputs)
 });
 /**
 * | output |
@@ -1058,10 +1058,10 @@ export const label_youtube = /** @type {((inputs?: Label_YoutubeInputs, options?
 */
 export const label_netease_music = /** @type {((inputs?: Label_Netease_MusicInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Label_Netease_MusicInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.label_netease_music(inputs)
 	if (locale === "zh-CN") return __zh_cn2.label_netease_music(inputs)
 	if (locale === "ru-RU") return __ru_ru2.label_netease_music(inputs)
-	return __he_il2.label_netease_music(inputs)
+	if (locale === "he-IL") return __he_il2.label_netease_music(inputs)
+	return __en_us2.label_netease_music(inputs)
 });
 /**
 * | output |
@@ -1074,10 +1074,10 @@ export const label_netease_music = /** @type {((inputs?: Label_Netease_MusicInpu
 */
 export const const_pswp_close_title = /** @type {((inputs?: Const_Pswp_Close_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Pswp_Close_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_pswp_close_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_pswp_close_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_pswp_close_title(inputs)
-	return __he_il2.const_pswp_close_title(inputs)
+	if (locale === "he-IL") return __he_il2.const_pswp_close_title(inputs)
+	return __en_us2.const_pswp_close_title(inputs)
 });
 /**
 * | output |
@@ -1090,10 +1090,10 @@ export const const_pswp_close_title = /** @type {((inputs?: Const_Pswp_Close_Tit
 */
 export const const_pswp_zoom_title = /** @type {((inputs?: Const_Pswp_Zoom_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Pswp_Zoom_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_pswp_zoom_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_pswp_zoom_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_pswp_zoom_title(inputs)
-	return __he_il2.const_pswp_zoom_title(inputs)
+	if (locale === "he-IL") return __he_il2.const_pswp_zoom_title(inputs)
+	return __en_us2.const_pswp_zoom_title(inputs)
 });
 /**
 * | output |
@@ -1106,10 +1106,10 @@ export const const_pswp_zoom_title = /** @type {((inputs?: Const_Pswp_Zoom_Title
 */
 export const const_pswp_arrow_prev_title = /** @type {((inputs?: Const_Pswp_Arrow_Prev_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Pswp_Arrow_Prev_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_pswp_arrow_prev_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_pswp_arrow_prev_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_pswp_arrow_prev_title(inputs)
-	return __he_il2.const_pswp_arrow_prev_title(inputs)
+	if (locale === "he-IL") return __he_il2.const_pswp_arrow_prev_title(inputs)
+	return __en_us2.const_pswp_arrow_prev_title(inputs)
 });
 /**
 * | output |
@@ -1122,10 +1122,10 @@ export const const_pswp_arrow_prev_title = /** @type {((inputs?: Const_Pswp_Arro
 */
 export const const_pswp_arrow_next_title = /** @type {((inputs?: Const_Pswp_Arrow_Next_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Pswp_Arrow_Next_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_pswp_arrow_next_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_pswp_arrow_next_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_pswp_arrow_next_title(inputs)
-	return __he_il2.const_pswp_arrow_next_title(inputs)
+	if (locale === "he-IL") return __he_il2.const_pswp_arrow_next_title(inputs)
+	return __en_us2.const_pswp_arrow_next_title(inputs)
 });
 /**
 * | output |
@@ -1138,10 +1138,10 @@ export const const_pswp_arrow_next_title = /** @type {((inputs?: Const_Pswp_Arro
 */
 export const const_pswp_error_msg = /** @type {((inputs?: Const_Pswp_Error_MsgInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Pswp_Error_MsgInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_pswp_error_msg(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_pswp_error_msg(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_pswp_error_msg(inputs)
-	return __he_il2.const_pswp_error_msg(inputs)
+	if (locale === "he-IL") return __he_il2.const_pswp_error_msg(inputs)
+	return __en_us2.const_pswp_error_msg(inputs)
 });
 /**
 * | output |
@@ -1154,10 +1154,10 @@ export const const_pswp_error_msg = /** @type {((inputs?: Const_Pswp_Error_MsgIn
 */
 export const const_pswp_index_indicator_sep = /** @type {((inputs?: Const_Pswp_Index_Indicator_SepInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Pswp_Index_Indicator_SepInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_pswp_index_indicator_sep(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_pswp_index_indicator_sep(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_pswp_index_indicator_sep(inputs)
-	return __he_il2.const_pswp_index_indicator_sep(inputs)
+	if (locale === "he-IL") return __he_il2.const_pswp_index_indicator_sep(inputs)
+	return __en_us2.const_pswp_index_indicator_sep(inputs)
 });
 /**
 * | output |
@@ -1170,10 +1170,10 @@ export const const_pswp_index_indicator_sep = /** @type {((inputs?: Const_Pswp_I
 */
 export const const_pswp_caption_title = /** @type {((inputs?: Const_Pswp_Caption_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Pswp_Caption_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_pswp_caption_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_pswp_caption_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_pswp_caption_title(inputs)
-	return __he_il2.const_pswp_caption_title(inputs)
+	if (locale === "he-IL") return __he_il2.const_pswp_caption_title(inputs)
+	return __en_us2.const_pswp_caption_title(inputs)
 });
 /**
 * | output |
@@ -1186,10 +1186,10 @@ export const const_pswp_caption_title = /** @type {((inputs?: Const_Pswp_Caption
 */
 export const const_pswp_reveal_title = /** @type {((inputs?: Const_Pswp_Reveal_TitleInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Pswp_Reveal_TitleInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_pswp_reveal_title(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_pswp_reveal_title(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_pswp_reveal_title(inputs)
-	return __he_il2.const_pswp_reveal_title(inputs)
+	if (locale === "he-IL") return __he_il2.const_pswp_reveal_title(inputs)
+	return __en_us2.const_pswp_reveal_title(inputs)
 });
 /**
 * | output |
@@ -1202,10 +1202,10 @@ export const const_pswp_reveal_title = /** @type {((inputs?: Const_Pswp_Reveal_T
 */
 export const const_waline_nick = /** @type {((inputs?: Const_Waline_NickInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_NickInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_nick(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_nick(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_nick(inputs)
-	return __he_il2.const_waline_nick(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_nick(inputs)
+	return __en_us2.const_waline_nick(inputs)
 });
 /**
 * | output |
@@ -1218,10 +1218,10 @@ export const const_waline_nick = /** @type {((inputs?: Const_Waline_NickInputs, 
 */
 const const_waline_nickerror1 = /** @type {((inputs?: Const_Waline_Nickerror1Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Nickerror1Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_nickerror1(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_nickerror1(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_nickerror1(inputs)
-	return __he_il2.const_waline_nickerror1(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_nickerror1(inputs)
+	return __en_us2.const_waline_nickerror1(inputs)
 });
 export { const_waline_nickerror1 as "const_waline_nickError" }
 /**
@@ -1235,10 +1235,10 @@ export { const_waline_nickerror1 as "const_waline_nickError" }
 */
 export const const_waline_mail = /** @type {((inputs?: Const_Waline_MailInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_MailInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_mail(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_mail(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_mail(inputs)
-	return __he_il2.const_waline_mail(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_mail(inputs)
+	return __en_us2.const_waline_mail(inputs)
 });
 /**
 * | output |
@@ -1251,10 +1251,10 @@ export const const_waline_mail = /** @type {((inputs?: Const_Waline_MailInputs, 
 */
 const const_waline_mailerror1 = /** @type {((inputs?: Const_Waline_Mailerror1Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Mailerror1Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_mailerror1(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_mailerror1(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_mailerror1(inputs)
-	return __he_il2.const_waline_mailerror1(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_mailerror1(inputs)
+	return __en_us2.const_waline_mailerror1(inputs)
 });
 export { const_waline_mailerror1 as "const_waline_mailError" }
 /**
@@ -1268,10 +1268,10 @@ export { const_waline_mailerror1 as "const_waline_mailError" }
 */
 export const const_waline_link = /** @type {((inputs?: Const_Waline_LinkInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_LinkInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_link(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_link(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_link(inputs)
-	return __he_il2.const_waline_link(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_link(inputs)
+	return __en_us2.const_waline_link(inputs)
 });
 /**
 * | output |
@@ -1284,10 +1284,10 @@ export const const_waline_link = /** @type {((inputs?: Const_Waline_LinkInputs, 
 */
 export const const_waline_optional = /** @type {((inputs?: Const_Waline_OptionalInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_OptionalInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_optional(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_optional(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_optional(inputs)
-	return __he_il2.const_waline_optional(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_optional(inputs)
+	return __en_us2.const_waline_optional(inputs)
 });
 /**
 * | output |
@@ -1300,10 +1300,10 @@ export const const_waline_optional = /** @type {((inputs?: Const_Waline_Optional
 */
 export const const_waline_placeholder = /** @type {((inputs?: Const_Waline_PlaceholderInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_PlaceholderInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_placeholder(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_placeholder(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_placeholder(inputs)
-	return __he_il2.const_waline_placeholder(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_placeholder(inputs)
+	return __en_us2.const_waline_placeholder(inputs)
 });
 /**
 * | output |
@@ -1316,10 +1316,10 @@ export const const_waline_placeholder = /** @type {((inputs?: Const_Waline_Place
 */
 export const const_waline_sofa = /** @type {((inputs?: Const_Waline_SofaInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_SofaInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_sofa(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_sofa(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_sofa(inputs)
-	return __he_il2.const_waline_sofa(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_sofa(inputs)
+	return __en_us2.const_waline_sofa(inputs)
 });
 /**
 * | output |
@@ -1332,10 +1332,10 @@ export const const_waline_sofa = /** @type {((inputs?: Const_Waline_SofaInputs, 
 */
 export const const_waline_submit = /** @type {((inputs?: Const_Waline_SubmitInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_SubmitInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_submit(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_submit(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_submit(inputs)
-	return __he_il2.const_waline_submit(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_submit(inputs)
+	return __en_us2.const_waline_submit(inputs)
 });
 /**
 * | output |
@@ -1348,10 +1348,10 @@ export const const_waline_submit = /** @type {((inputs?: Const_Waline_SubmitInpu
 */
 export const const_waline_like = /** @type {((inputs?: Const_Waline_LikeInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_LikeInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_like(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_like(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_like(inputs)
-	return __he_il2.const_waline_like(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_like(inputs)
+	return __en_us2.const_waline_like(inputs)
 });
 /**
 * | output |
@@ -1364,10 +1364,10 @@ export const const_waline_like = /** @type {((inputs?: Const_Waline_LikeInputs, 
 */
 const const_waline_cancellike1 = /** @type {((inputs?: Const_Waline_Cancellike1Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Cancellike1Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_cancellike1(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_cancellike1(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_cancellike1(inputs)
-	return __he_il2.const_waline_cancellike1(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_cancellike1(inputs)
+	return __en_us2.const_waline_cancellike1(inputs)
 });
 export { const_waline_cancellike1 as "const_waline_cancelLike" }
 /**
@@ -1381,10 +1381,10 @@ export { const_waline_cancellike1 as "const_waline_cancelLike" }
 */
 export const const_waline_reply = /** @type {((inputs?: Const_Waline_ReplyInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_ReplyInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reply(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reply(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reply(inputs)
-	return __he_il2.const_waline_reply(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reply(inputs)
+	return __en_us2.const_waline_reply(inputs)
 });
 /**
 * | output |
@@ -1397,10 +1397,10 @@ export const const_waline_reply = /** @type {((inputs?: Const_Waline_ReplyInputs
 */
 const const_waline_cancelreply1 = /** @type {((inputs?: Const_Waline_Cancelreply1Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Cancelreply1Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_cancelreply1(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_cancelreply1(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_cancelreply1(inputs)
-	return __he_il2.const_waline_cancelreply1(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_cancelreply1(inputs)
+	return __en_us2.const_waline_cancelreply1(inputs)
 });
 export { const_waline_cancelreply1 as "const_waline_cancelReply" }
 /**
@@ -1414,10 +1414,10 @@ export { const_waline_cancelreply1 as "const_waline_cancelReply" }
 */
 export const const_waline_comment = /** @type {((inputs?: Const_Waline_CommentInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_CommentInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_comment(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_comment(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_comment(inputs)
-	return __he_il2.const_waline_comment(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_comment(inputs)
+	return __en_us2.const_waline_comment(inputs)
 });
 /**
 * | output |
@@ -1430,10 +1430,10 @@ export const const_waline_comment = /** @type {((inputs?: Const_Waline_CommentIn
 */
 export const const_waline_refresh = /** @type {((inputs?: Const_Waline_RefreshInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_RefreshInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_refresh(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_refresh(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_refresh(inputs)
-	return __he_il2.const_waline_refresh(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_refresh(inputs)
+	return __en_us2.const_waline_refresh(inputs)
 });
 /**
 * | output |
@@ -1446,10 +1446,10 @@ export const const_waline_refresh = /** @type {((inputs?: Const_Waline_RefreshIn
 */
 export const const_waline_more = /** @type {((inputs?: Const_Waline_MoreInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_MoreInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_more(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_more(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_more(inputs)
-	return __he_il2.const_waline_more(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_more(inputs)
+	return __en_us2.const_waline_more(inputs)
 });
 /**
 * | output |
@@ -1462,10 +1462,10 @@ export const const_waline_more = /** @type {((inputs?: Const_Waline_MoreInputs, 
 */
 export const const_waline_preview = /** @type {((inputs?: Const_Waline_PreviewInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_PreviewInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_preview(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_preview(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_preview(inputs)
-	return __he_il2.const_waline_preview(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_preview(inputs)
+	return __en_us2.const_waline_preview(inputs)
 });
 /**
 * | output |
@@ -1478,10 +1478,10 @@ export const const_waline_preview = /** @type {((inputs?: Const_Waline_PreviewIn
 */
 export const const_waline_emoji = /** @type {((inputs?: Const_Waline_EmojiInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_EmojiInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_emoji(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_emoji(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_emoji(inputs)
-	return __he_il2.const_waline_emoji(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_emoji(inputs)
+	return __en_us2.const_waline_emoji(inputs)
 });
 /**
 * | output |
@@ -1494,10 +1494,10 @@ export const const_waline_emoji = /** @type {((inputs?: Const_Waline_EmojiInputs
 */
 const const_waline_uploadimage1 = /** @type {((inputs?: Const_Waline_Uploadimage1Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Uploadimage1Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_uploadimage1(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_uploadimage1(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_uploadimage1(inputs)
-	return __he_il2.const_waline_uploadimage1(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_uploadimage1(inputs)
+	return __en_us2.const_waline_uploadimage1(inputs)
 });
 export { const_waline_uploadimage1 as "const_waline_uploadImage" }
 /**
@@ -1511,10 +1511,10 @@ export { const_waline_uploadimage1 as "const_waline_uploadImage" }
 */
 export const const_waline_seconds = /** @type {((inputs?: Const_Waline_SecondsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_SecondsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_seconds(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_seconds(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_seconds(inputs)
-	return __he_il2.const_waline_seconds(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_seconds(inputs)
+	return __en_us2.const_waline_seconds(inputs)
 });
 /**
 * | output |
@@ -1527,10 +1527,10 @@ export const const_waline_seconds = /** @type {((inputs?: Const_Waline_SecondsIn
 */
 export const const_waline_minutes = /** @type {((inputs?: Const_Waline_MinutesInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_MinutesInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_minutes(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_minutes(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_minutes(inputs)
-	return __he_il2.const_waline_minutes(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_minutes(inputs)
+	return __en_us2.const_waline_minutes(inputs)
 });
 /**
 * | output |
@@ -1543,10 +1543,10 @@ export const const_waline_minutes = /** @type {((inputs?: Const_Waline_MinutesIn
 */
 export const const_waline_hours = /** @type {((inputs?: Const_Waline_HoursInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_HoursInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_hours(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_hours(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_hours(inputs)
-	return __he_il2.const_waline_hours(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_hours(inputs)
+	return __en_us2.const_waline_hours(inputs)
 });
 /**
 * | output |
@@ -1559,10 +1559,10 @@ export const const_waline_hours = /** @type {((inputs?: Const_Waline_HoursInputs
 */
 export const const_waline_days = /** @type {((inputs?: Const_Waline_DaysInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_DaysInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_days(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_days(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_days(inputs)
-	return __he_il2.const_waline_days(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_days(inputs)
+	return __en_us2.const_waline_days(inputs)
 });
 /**
 * | output |
@@ -1575,10 +1575,10 @@ export const const_waline_days = /** @type {((inputs?: Const_Waline_DaysInputs, 
 */
 export const const_waline_now = /** @type {((inputs?: Const_Waline_NowInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_NowInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_now(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_now(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_now(inputs)
-	return __he_il2.const_waline_now(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_now(inputs)
+	return __en_us2.const_waline_now(inputs)
 });
 /**
 * | output |
@@ -1591,10 +1591,10 @@ export const const_waline_now = /** @type {((inputs?: Const_Waline_NowInputs, op
 */
 export const const_waline_uploading = /** @type {((inputs?: Const_Waline_UploadingInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_UploadingInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_uploading(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_uploading(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_uploading(inputs)
-	return __he_il2.const_waline_uploading(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_uploading(inputs)
+	return __en_us2.const_waline_uploading(inputs)
 });
 /**
 * | output |
@@ -1607,10 +1607,10 @@ export const const_waline_uploading = /** @type {((inputs?: Const_Waline_Uploadi
 */
 export const const_waline_login = /** @type {((inputs?: Const_Waline_LoginInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_LoginInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_login(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_login(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_login(inputs)
-	return __he_il2.const_waline_login(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_login(inputs)
+	return __en_us2.const_waline_login(inputs)
 });
 /**
 * | output |
@@ -1623,10 +1623,10 @@ export const const_waline_login = /** @type {((inputs?: Const_Waline_LoginInputs
 */
 export const const_waline_logout = /** @type {((inputs?: Const_Waline_LogoutInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_LogoutInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_logout(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_logout(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_logout(inputs)
-	return __he_il2.const_waline_logout(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_logout(inputs)
+	return __en_us2.const_waline_logout(inputs)
 });
 /**
 * | output |
@@ -1639,10 +1639,10 @@ export const const_waline_logout = /** @type {((inputs?: Const_Waline_LogoutInpu
 */
 export const const_waline_admin = /** @type {((inputs?: Const_Waline_AdminInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_AdminInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_admin(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_admin(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_admin(inputs)
-	return __he_il2.const_waline_admin(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_admin(inputs)
+	return __en_us2.const_waline_admin(inputs)
 });
 /**
 * | output |
@@ -1655,10 +1655,10 @@ export const const_waline_admin = /** @type {((inputs?: Const_Waline_AdminInputs
 */
 export const const_waline_sticky = /** @type {((inputs?: Const_Waline_StickyInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_StickyInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_sticky(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_sticky(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_sticky(inputs)
-	return __he_il2.const_waline_sticky(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_sticky(inputs)
+	return __en_us2.const_waline_sticky(inputs)
 });
 /**
 * | output |
@@ -1671,10 +1671,10 @@ export const const_waline_sticky = /** @type {((inputs?: Const_Waline_StickyInpu
 */
 export const const_waline_word = /** @type {((inputs?: Const_Waline_WordInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_WordInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_word(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_word(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_word(inputs)
-	return __he_il2.const_waline_word(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_word(inputs)
+	return __en_us2.const_waline_word(inputs)
 });
 /**
 * | output |
@@ -1687,10 +1687,10 @@ export const const_waline_word = /** @type {((inputs?: Const_Waline_WordInputs, 
 */
 const const_waline_wordhint1 = /** @type {((inputs?: Const_Waline_Wordhint1Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Wordhint1Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_wordhint1(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_wordhint1(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_wordhint1(inputs)
-	return __he_il2.const_waline_wordhint1(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_wordhint1(inputs)
+	return __en_us2.const_waline_wordhint1(inputs)
 });
 export { const_waline_wordhint1 as "const_waline_wordHint" }
 /**
@@ -1704,10 +1704,10 @@ export { const_waline_wordhint1 as "const_waline_wordHint" }
 */
 export const const_waline_anonymous = /** @type {((inputs?: Const_Waline_AnonymousInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_AnonymousInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_anonymous(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_anonymous(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_anonymous(inputs)
-	return __he_il2.const_waline_anonymous(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_anonymous(inputs)
+	return __en_us2.const_waline_anonymous(inputs)
 });
 /**
 * | output |
@@ -1720,10 +1720,10 @@ export const const_waline_anonymous = /** @type {((inputs?: Const_Waline_Anonymo
 */
 export const const_waline_level0 = /** @type {((inputs?: Const_Waline_Level0Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Level0Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_level0(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_level0(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_level0(inputs)
-	return __he_il2.const_waline_level0(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_level0(inputs)
+	return __en_us2.const_waline_level0(inputs)
 });
 /**
 * | output |
@@ -1736,10 +1736,10 @@ export const const_waline_level0 = /** @type {((inputs?: Const_Waline_Level0Inpu
 */
 export const const_waline_level1 = /** @type {((inputs?: Const_Waline_Level1Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Level1Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_level1(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_level1(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_level1(inputs)
-	return __he_il2.const_waline_level1(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_level1(inputs)
+	return __en_us2.const_waline_level1(inputs)
 });
 /**
 * | output |
@@ -1752,10 +1752,10 @@ export const const_waline_level1 = /** @type {((inputs?: Const_Waline_Level1Inpu
 */
 export const const_waline_level2 = /** @type {((inputs?: Const_Waline_Level2Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Level2Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_level2(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_level2(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_level2(inputs)
-	return __he_il2.const_waline_level2(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_level2(inputs)
+	return __en_us2.const_waline_level2(inputs)
 });
 /**
 * | output |
@@ -1768,10 +1768,10 @@ export const const_waline_level2 = /** @type {((inputs?: Const_Waline_Level2Inpu
 */
 export const const_waline_level3 = /** @type {((inputs?: Const_Waline_Level3Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Level3Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_level3(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_level3(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_level3(inputs)
-	return __he_il2.const_waline_level3(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_level3(inputs)
+	return __en_us2.const_waline_level3(inputs)
 });
 /**
 * | output |
@@ -1784,10 +1784,10 @@ export const const_waline_level3 = /** @type {((inputs?: Const_Waline_Level3Inpu
 */
 export const const_waline_level4 = /** @type {((inputs?: Const_Waline_Level4Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Level4Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_level4(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_level4(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_level4(inputs)
-	return __he_il2.const_waline_level4(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_level4(inputs)
+	return __en_us2.const_waline_level4(inputs)
 });
 /**
 * | output |
@@ -1800,10 +1800,10 @@ export const const_waline_level4 = /** @type {((inputs?: Const_Waline_Level4Inpu
 */
 export const const_waline_level5 = /** @type {((inputs?: Const_Waline_Level5Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Level5Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_level5(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_level5(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_level5(inputs)
-	return __he_il2.const_waline_level5(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_level5(inputs)
+	return __en_us2.const_waline_level5(inputs)
 });
 /**
 * | output |
@@ -1816,10 +1816,10 @@ export const const_waline_level5 = /** @type {((inputs?: Const_Waline_Level5Inpu
 */
 export const const_waline_gif = /** @type {((inputs?: Const_Waline_GifInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_GifInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_gif(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_gif(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_gif(inputs)
-	return __he_il2.const_waline_gif(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_gif(inputs)
+	return __en_us2.const_waline_gif(inputs)
 });
 /**
 * | output |
@@ -1832,10 +1832,10 @@ export const const_waline_gif = /** @type {((inputs?: Const_Waline_GifInputs, op
 */
 const const_waline_gifsearchplaceholder2 = /** @type {((inputs?: Const_Waline_Gifsearchplaceholder2Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Gifsearchplaceholder2Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_gifsearchplaceholder2(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_gifsearchplaceholder2(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_gifsearchplaceholder2(inputs)
-	return __he_il2.const_waline_gifsearchplaceholder2(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_gifsearchplaceholder2(inputs)
+	return __en_us2.const_waline_gifsearchplaceholder2(inputs)
 });
 export { const_waline_gifsearchplaceholder2 as "const_waline_gifSearchPlaceholder" }
 /**
@@ -1849,10 +1849,10 @@ export { const_waline_gifsearchplaceholder2 as "const_waline_gifSearchPlaceholde
 */
 export const const_waline_profile = /** @type {((inputs?: Const_Waline_ProfileInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_ProfileInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_profile(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_profile(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_profile(inputs)
-	return __he_il2.const_waline_profile(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_profile(inputs)
+	return __en_us2.const_waline_profile(inputs)
 });
 /**
 * | output |
@@ -1865,10 +1865,10 @@ export const const_waline_profile = /** @type {((inputs?: Const_Waline_ProfileIn
 */
 export const const_waline_approved = /** @type {((inputs?: Const_Waline_ApprovedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_ApprovedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_approved(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_approved(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_approved(inputs)
-	return __he_il2.const_waline_approved(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_approved(inputs)
+	return __en_us2.const_waline_approved(inputs)
 });
 /**
 * | output |
@@ -1881,10 +1881,10 @@ export const const_waline_approved = /** @type {((inputs?: Const_Waline_Approved
 */
 export const const_waline_waiting = /** @type {((inputs?: Const_Waline_WaitingInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_WaitingInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_waiting(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_waiting(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_waiting(inputs)
-	return __he_il2.const_waline_waiting(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_waiting(inputs)
+	return __en_us2.const_waline_waiting(inputs)
 });
 /**
 * | output |
@@ -1897,10 +1897,10 @@ export const const_waline_waiting = /** @type {((inputs?: Const_Waline_WaitingIn
 */
 export const const_waline_spam = /** @type {((inputs?: Const_Waline_SpamInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_SpamInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_spam(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_spam(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_spam(inputs)
-	return __he_il2.const_waline_spam(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_spam(inputs)
+	return __en_us2.const_waline_spam(inputs)
 });
 /**
 * | output |
@@ -1913,10 +1913,10 @@ export const const_waline_spam = /** @type {((inputs?: Const_Waline_SpamInputs, 
 */
 export const const_waline_unsticky = /** @type {((inputs?: Const_Waline_UnstickyInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_UnstickyInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_unsticky(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_unsticky(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_unsticky(inputs)
-	return __he_il2.const_waline_unsticky(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_unsticky(inputs)
+	return __en_us2.const_waline_unsticky(inputs)
 });
 /**
 * | output |
@@ -1929,10 +1929,10 @@ export const const_waline_unsticky = /** @type {((inputs?: Const_Waline_Unsticky
 */
 export const const_waline_oldest = /** @type {((inputs?: Const_Waline_OldestInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_OldestInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_oldest(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_oldest(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_oldest(inputs)
-	return __he_il2.const_waline_oldest(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_oldest(inputs)
+	return __en_us2.const_waline_oldest(inputs)
 });
 /**
 * | output |
@@ -1945,10 +1945,10 @@ export const const_waline_oldest = /** @type {((inputs?: Const_Waline_OldestInpu
 */
 export const const_waline_latest = /** @type {((inputs?: Const_Waline_LatestInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_LatestInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_latest(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_latest(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_latest(inputs)
-	return __he_il2.const_waline_latest(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_latest(inputs)
+	return __en_us2.const_waline_latest(inputs)
 });
 /**
 * | output |
@@ -1961,10 +1961,10 @@ export const const_waline_latest = /** @type {((inputs?: Const_Waline_LatestInpu
 */
 export const const_waline_hottest = /** @type {((inputs?: Const_Waline_HottestInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_HottestInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_hottest(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_hottest(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_hottest(inputs)
-	return __he_il2.const_waline_hottest(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_hottest(inputs)
+	return __en_us2.const_waline_hottest(inputs)
 });
 /**
 * | output |
@@ -1977,10 +1977,10 @@ export const const_waline_hottest = /** @type {((inputs?: Const_Waline_HottestIn
 */
 const const_waline_reactiontitle1 = /** @type {((inputs?: Const_Waline_Reactiontitle1Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Reactiontitle1Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reactiontitle1(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reactiontitle1(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reactiontitle1(inputs)
-	return __he_il2.const_waline_reactiontitle1(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reactiontitle1(inputs)
+	return __en_us2.const_waline_reactiontitle1(inputs)
 });
 export { const_waline_reactiontitle1 as "const_waline_reactionTitle" }
 /**
@@ -1994,10 +1994,10 @@ export { const_waline_reactiontitle1 as "const_waline_reactionTitle" }
 */
 export const const_waline_reaction0 = /** @type {((inputs?: Const_Waline_Reaction0Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Reaction0Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reaction0(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reaction0(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reaction0(inputs)
-	return __he_il2.const_waline_reaction0(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reaction0(inputs)
+	return __en_us2.const_waline_reaction0(inputs)
 });
 /**
 * | output |
@@ -2010,15 +2010,15 @@ export const const_waline_reaction0 = /** @type {((inputs?: Const_Waline_Reactio
 */
 export const const_waline_reaction1 = /** @type {((inputs?: Const_Waline_Reaction1Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Reaction1Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reaction1(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reaction1(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reaction1(inputs)
-	return __he_il2.const_waline_reaction1(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reaction1(inputs)
+	return __en_us2.const_waline_reaction1(inputs)
 });
 /**
 * | output |
 * | --- |
-* | "Garbage" |
+* | "Crap" |
 *
 * @param {Const_Waline_Reaction2Inputs} inputs
 * @param {{ locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }} options
@@ -2026,10 +2026,10 @@ export const const_waline_reaction1 = /** @type {((inputs?: Const_Waline_Reactio
 */
 export const const_waline_reaction2 = /** @type {((inputs?: Const_Waline_Reaction2Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Reaction2Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reaction2(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reaction2(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reaction2(inputs)
-	return __he_il2.const_waline_reaction2(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reaction2(inputs)
+	return __en_us2.const_waline_reaction2(inputs)
 });
 /**
 * | output |
@@ -2042,10 +2042,10 @@ export const const_waline_reaction2 = /** @type {((inputs?: Const_Waline_Reactio
 */
 export const const_waline_reaction3 = /** @type {((inputs?: Const_Waline_Reaction3Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Reaction3Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reaction3(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reaction3(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reaction3(inputs)
-	return __he_il2.const_waline_reaction3(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reaction3(inputs)
+	return __en_us2.const_waline_reaction3(inputs)
 });
 /**
 * | output |
@@ -2058,10 +2058,10 @@ export const const_waline_reaction3 = /** @type {((inputs?: Const_Waline_Reactio
 */
 export const const_waline_reaction4 = /** @type {((inputs?: Const_Waline_Reaction4Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Reaction4Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reaction4(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reaction4(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reaction4(inputs)
-	return __he_il2.const_waline_reaction4(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reaction4(inputs)
+	return __en_us2.const_waline_reaction4(inputs)
 });
 /**
 * | output |
@@ -2074,10 +2074,10 @@ export const const_waline_reaction4 = /** @type {((inputs?: Const_Waline_Reactio
 */
 export const const_waline_reaction5 = /** @type {((inputs?: Const_Waline_Reaction5Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Reaction5Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reaction5(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reaction5(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reaction5(inputs)
-	return __he_il2.const_waline_reaction5(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reaction5(inputs)
+	return __en_us2.const_waline_reaction5(inputs)
 });
 /**
 * | output |
@@ -2090,10 +2090,10 @@ export const const_waline_reaction5 = /** @type {((inputs?: Const_Waline_Reactio
 */
 export const const_waline_reaction6 = /** @type {((inputs?: Const_Waline_Reaction6Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Reaction6Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reaction6(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reaction6(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reaction6(inputs)
-	return __he_il2.const_waline_reaction6(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reaction6(inputs)
+	return __en_us2.const_waline_reaction6(inputs)
 });
 /**
 * | output |
@@ -2106,10 +2106,10 @@ export const const_waline_reaction6 = /** @type {((inputs?: Const_Waline_Reactio
 */
 export const const_waline_reaction7 = /** @type {((inputs?: Const_Waline_Reaction7Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Reaction7Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reaction7(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reaction7(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reaction7(inputs)
-	return __he_il2.const_waline_reaction7(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reaction7(inputs)
+	return __en_us2.const_waline_reaction7(inputs)
 });
 /**
 * | output |
@@ -2122,10 +2122,10 @@ export const const_waline_reaction7 = /** @type {((inputs?: Const_Waline_Reactio
 */
 export const const_waline_reaction8 = /** @type {((inputs?: Const_Waline_Reaction8Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Reaction8Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_reaction8(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_reaction8(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_reaction8(inputs)
-	return __he_il2.const_waline_reaction8(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_reaction8(inputs)
+	return __en_us2.const_waline_reaction8(inputs)
 });
 /**
 * | output |
@@ -2138,10 +2138,10 @@ export const const_waline_reaction8 = /** @type {((inputs?: Const_Waline_Reactio
 */
 const const_waline_commentunderreview2 = /** @type {((inputs?: Const_Waline_Commentunderreview2Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Commentunderreview2Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_commentunderreview2(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_commentunderreview2(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_commentunderreview2(inputs)
-	return __he_il2.const_waline_commentunderreview2(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_commentunderreview2(inputs)
+	return __en_us2.const_waline_commentunderreview2(inputs)
 });
 export { const_waline_commentunderreview2 as "const_waline_commentUnderReview" }
 /**
@@ -2155,10 +2155,10 @@ export { const_waline_commentunderreview2 as "const_waline_commentUnderReview" }
 */
 const const_waline_subpostcomment2 = /** @type {((inputs?: Const_Waline_Subpostcomment2Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Subpostcomment2Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_subpostcomment2(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_subpostcomment2(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_subpostcomment2(inputs)
-	return __he_il2.const_waline_subpostcomment2(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_subpostcomment2(inputs)
+	return __en_us2.const_waline_subpostcomment2(inputs)
 });
 export { const_waline_subpostcomment2 as "const_waline_subPostComment" }
 /**
@@ -2172,10 +2172,10 @@ export { const_waline_subpostcomment2 as "const_waline_subPostComment" }
 */
 const const_waline_subsitecomment2 = /** @type {((inputs?: Const_Waline_Subsitecomment2Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Subsitecomment2Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_subsitecomment2(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_subsitecomment2(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_subsitecomment2(inputs)
-	return __he_il2.const_waline_subsitecomment2(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_subsitecomment2(inputs)
+	return __en_us2.const_waline_subsitecomment2(inputs)
 });
 export { const_waline_subsitecomment2 as "const_waline_subSiteComment" }
 /**
@@ -2189,10 +2189,10 @@ export { const_waline_subsitecomment2 as "const_waline_subSiteComment" }
 */
 const const_waline_subscribetoreplies2 = /** @type {((inputs?: Const_Waline_Subscribetoreplies2Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Waline_Subscribetoreplies2Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_waline_subscribetoreplies2(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_waline_subscribetoreplies2(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_waline_subscribetoreplies2(inputs)
-	return __he_il2.const_waline_subscribetoreplies2(inputs)
+	if (locale === "he-IL") return __he_il2.const_waline_subscribetoreplies2(inputs)
+	return __en_us2.const_waline_subscribetoreplies2(inputs)
 });
 export { const_waline_subscribetoreplies2 as "const_waline_subscribeToReplies" }
 /**
@@ -2206,10 +2206,10 @@ export { const_waline_subscribetoreplies2 as "const_waline_subscribeToReplies" }
 */
 export const const_webmentionjs_replied = /** @type {((inputs?: Const_Webmentionjs_RepliedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_RepliedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_replied(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_replied(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_replied(inputs)
-	return __he_il2.const_webmentionjs_replied(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_replied(inputs)
+	return __en_us2.const_webmentionjs_replied(inputs)
 });
 /**
 * | output |
@@ -2222,10 +2222,10 @@ export const const_webmentionjs_replied = /** @type {((inputs?: Const_Webmention
 */
 export const const_webmentionjs_liked = /** @type {((inputs?: Const_Webmentionjs_LikedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_LikedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_liked(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_liked(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_liked(inputs)
-	return __he_il2.const_webmentionjs_liked(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_liked(inputs)
+	return __en_us2.const_webmentionjs_liked(inputs)
 });
 /**
 * | output |
@@ -2238,10 +2238,10 @@ export const const_webmentionjs_liked = /** @type {((inputs?: Const_Webmentionjs
 */
 export const const_webmentionjs_reposted = /** @type {((inputs?: Const_Webmentionjs_RepostedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_RepostedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_reposted(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_reposted(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_reposted(inputs)
-	return __he_il2.const_webmentionjs_reposted(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_reposted(inputs)
+	return __en_us2.const_webmentionjs_reposted(inputs)
 });
 /**
 * | output |
@@ -2254,10 +2254,10 @@ export const const_webmentionjs_reposted = /** @type {((inputs?: Const_Webmentio
 */
 export const const_webmentionjs_reacted = /** @type {((inputs?: Const_Webmentionjs_ReactedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_ReactedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_reacted(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_reacted(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_reacted(inputs)
-	return __he_il2.const_webmentionjs_reacted(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_reacted(inputs)
+	return __en_us2.const_webmentionjs_reacted(inputs)
 });
 /**
 * | output |
@@ -2270,10 +2270,10 @@ export const const_webmentionjs_reacted = /** @type {((inputs?: Const_Webmention
 */
 export const const_webmentionjs_bookmarked = /** @type {((inputs?: Const_Webmentionjs_BookmarkedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_BookmarkedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_bookmarked(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_bookmarked(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_bookmarked(inputs)
-	return __he_il2.const_webmentionjs_bookmarked(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_bookmarked(inputs)
+	return __en_us2.const_webmentionjs_bookmarked(inputs)
 });
 /**
 * | output |
@@ -2286,10 +2286,10 @@ export const const_webmentionjs_bookmarked = /** @type {((inputs?: Const_Webment
 */
 export const const_webmentionjs_mentioned = /** @type {((inputs?: Const_Webmentionjs_MentionedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_MentionedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_mentioned(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_mentioned(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_mentioned(inputs)
-	return __he_il2.const_webmentionjs_mentioned(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_mentioned(inputs)
+	return __en_us2.const_webmentionjs_mentioned(inputs)
 });
 /**
 * | output |
@@ -2302,10 +2302,10 @@ export const const_webmentionjs_mentioned = /** @type {((inputs?: Const_Webmenti
 */
 export const const_webmentionjs_rsvped = /** @type {((inputs?: Const_Webmentionjs_RsvpedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_RsvpedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_rsvped(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_rsvped(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_rsvped(inputs)
-	return __he_il2.const_webmentionjs_rsvped(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_rsvped(inputs)
+	return __en_us2.const_webmentionjs_rsvped(inputs)
 });
 /**
 * | output |
@@ -2318,10 +2318,10 @@ export const const_webmentionjs_rsvped = /** @type {((inputs?: Const_Webmentionj
 */
 export const const_webmentionjs_followed = /** @type {((inputs?: Const_Webmentionjs_FollowedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_FollowedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_followed(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_followed(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_followed(inputs)
-	return __he_il2.const_webmentionjs_followed(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_followed(inputs)
+	return __en_us2.const_webmentionjs_followed(inputs)
 });
 /**
 * | output |
@@ -2334,10 +2334,10 @@ export const const_webmentionjs_followed = /** @type {((inputs?: Const_Webmentio
 */
 export const const_webmentionjs_responses = /** @type {((inputs?: Const_Webmentionjs_ResponsesInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_ResponsesInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_responses(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_responses(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_responses(inputs)
-	return __he_il2.const_webmentionjs_responses(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_responses(inputs)
+	return __en_us2.const_webmentionjs_responses(inputs)
 });
 /**
 * | output |
@@ -2350,10 +2350,10 @@ export const const_webmentionjs_responses = /** @type {((inputs?: Const_Webmenti
 */
 export const const_webmentionjs_mention = /** @type {((inputs?: Const_Webmentionjs_MentionInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_MentionInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_mention(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_mention(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_mention(inputs)
-	return __he_il2.const_webmentionjs_mention(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_mention(inputs)
+	return __en_us2.const_webmentionjs_mention(inputs)
 });
 /**
 * | output |
@@ -2366,10 +2366,10 @@ export const const_webmentionjs_mention = /** @type {((inputs?: Const_Webmention
 */
 export const const_webmentionjs_reactions = /** @type {((inputs?: Const_Webmentionjs_ReactionsInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Const_Webmentionjs_ReactionsInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.const_webmentionjs_reactions(inputs)
 	if (locale === "zh-CN") return __zh_cn2.const_webmentionjs_reactions(inputs)
 	if (locale === "ru-RU") return __ru_ru2.const_webmentionjs_reactions(inputs)
-	return __he_il2.const_webmentionjs_reactions(inputs)
+	if (locale === "he-IL") return __he_il2.const_webmentionjs_reactions(inputs)
+	return __en_us2.const_webmentionjs_reactions(inputs)
 });
 /**
 * | output |
@@ -2382,10 +2382,10 @@ export const const_webmentionjs_reactions = /** @type {((inputs?: Const_Webmenti
 */
 export const copyright_cc_by_sa_4_0 = /** @type {((inputs?: Copyright_Cc_By_Sa_4_0Inputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Copyright_Cc_By_Sa_4_0Inputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.copyright_cc_by_sa_4_0(inputs)
 	if (locale === "zh-CN") return __zh_cn2.copyright_cc_by_sa_4_0(inputs)
 	if (locale === "ru-RU") return __ru_ru2.copyright_cc_by_sa_4_0(inputs)
-	return __he_il2.copyright_cc_by_sa_4_0(inputs)
+	if (locale === "he-IL") return __he_il2.copyright_cc_by_sa_4_0(inputs)
+	return __en_us2.copyright_cc_by_sa_4_0(inputs)
 });
 /**
 * | output |
@@ -2398,10 +2398,10 @@ export const copyright_cc_by_sa_4_0 = /** @type {((inputs?: Copyright_Cc_By_Sa_4
 */
 export const tag_untagged = /** @type {((inputs?: Tag_UntaggedInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_UntaggedInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.tag_untagged(inputs)
 	if (locale === "zh-CN") return __zh_cn2.tag_untagged(inputs)
 	if (locale === "ru-RU") return __ru_ru2.tag_untagged(inputs)
-	return __he_il2.tag_untagged(inputs)
+	if (locale === "he-IL") return __he_il2.tag_untagged(inputs)
+	return __en_us2.tag_untagged(inputs)
 });
 /**
 * | output |
@@ -2414,10 +2414,10 @@ export const tag_untagged = /** @type {((inputs?: Tag_UntaggedInputs, options?: 
 */
 export const tag_general = /** @type {((inputs?: Tag_GeneralInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_GeneralInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.tag_general(inputs)
 	if (locale === "zh-CN") return __zh_cn2.tag_general(inputs)
 	if (locale === "ru-RU") return __ru_ru2.tag_general(inputs)
-	return __he_il2.tag_general(inputs)
+	if (locale === "he-IL") return __he_il2.tag_general(inputs)
+	return __en_us2.tag_general(inputs)
 });
 /**
 * | output |
@@ -2430,10 +2430,10 @@ export const tag_general = /** @type {((inputs?: Tag_GeneralInputs, options?: { 
 */
 export const tag_coding = /** @type {((inputs?: Tag_CodingInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_CodingInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.tag_coding(inputs)
 	if (locale === "zh-CN") return __zh_cn2.tag_coding(inputs)
 	if (locale === "ru-RU") return __ru_ru2.tag_coding(inputs)
-	return __he_il2.tag_coding(inputs)
+	if (locale === "he-IL") return __he_il2.tag_coding(inputs)
+	return __en_us2.tag_coding(inputs)
 });
 /**
 * | output |
@@ -2446,10 +2446,10 @@ export const tag_coding = /** @type {((inputs?: Tag_CodingInputs, options?: { lo
 */
 export const tag_mdx = /** @type {((inputs?: Tag_MdxInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_MdxInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.tag_mdx(inputs)
 	if (locale === "zh-CN") return __zh_cn2.tag_mdx(inputs)
 	if (locale === "ru-RU") return __ru_ru2.tag_mdx(inputs)
-	return __he_il2.tag_mdx(inputs)
+	if (locale === "he-IL") return __he_il2.tag_mdx(inputs)
+	return __en_us2.tag_mdx(inputs)
 });
 /**
 * | output |
@@ -2462,10 +2462,10 @@ export const tag_mdx = /** @type {((inputs?: Tag_MdxInputs, options?: { locale?:
 */
 export const tag_open_source = /** @type {((inputs?: Tag_Open_SourceInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_Open_SourceInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.tag_open_source(inputs)
 	if (locale === "zh-CN") return __zh_cn2.tag_open_source(inputs)
 	if (locale === "ru-RU") return __ru_ru2.tag_open_source(inputs)
-	return __he_il2.tag_open_source(inputs)
+	if (locale === "he-IL") return __he_il2.tag_open_source(inputs)
+	return __en_us2.tag_open_source(inputs)
 });
 /**
 * | output |
@@ -2478,8 +2478,8 @@ export const tag_open_source = /** @type {((inputs?: Tag_Open_SourceInputs, opti
 */
 export const tag_seoul = /** @type {((inputs?: Tag_SeoulInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Tag_SeoulInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return __en_us2.tag_seoul(inputs)
 	if (locale === "zh-CN") return __zh_cn2.tag_seoul(inputs)
 	if (locale === "ru-RU") return __ru_ru2.tag_seoul(inputs)
-	return __he_il2.tag_seoul(inputs)
+	if (locale === "he-IL") return __he_il2.tag_seoul(inputs)
+	return __en_us2.tag_seoul(inputs)
 });

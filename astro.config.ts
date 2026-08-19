@@ -63,7 +63,7 @@ export default defineConfig({
 	trailingSlash: 'always',
 	site: SITE.url,
 	base: SITE.base,
-	integrations: [sitemap(), alpinejs({ entrypoint: '/src/entrypoint' }), react(), expressiveCode(), mdx()],
+	integrations: [sitemap(), alpinejs({ entrypoint: './src/entrypoint' }), react(), expressiveCode(), mdx()],
 	server: {
 		host: true,
 	},
