@@ -61,7 +61,7 @@ const authors = getAuthors(currentLocale)
 const authorSlugs = post.data.authors
 const postAuthors = authors.filter((author) => authorSlugs.includes(author.slug))
 const tagNames = post.data.tags.map((tagSlug) => getLocalizedTagName(tagSlug, currentLocale))
-const validImage = post.data.image || m.site_default_og_image()
+const validImage = post.data.image || post.data.cover || m.site_default_og_image()
 let copyright = ''
 if (post.data.copyright) {
 	type crKey = Exclude<keyof typeof messages, 'm'>
