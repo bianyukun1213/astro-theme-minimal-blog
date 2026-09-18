@@ -1,5 +1,5 @@
 {
-	"compatibility_date": "2026-05-16",
+	"compatibility_date": "2026-08-04",
 	"compatibility_flags": ["global_fetch_strictly_public"],
 	"name": "astro-theme-minimal-blog",
 	"main": "@astrojs/cloudflare/entrypoints/server",

@@ -2,7 +2,7 @@
 
 > Auto-generated i18n message functions. Import `messages.js` to use translated strings.
 
-Compiled from: `./project.inlang`
+Compiled from: `D:\Users\Hollis\Documents\GitHub\astro-theme-minimal-blog\project.inlang`
 
 
 ## What is this folder?
