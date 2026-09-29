@@ -1,7 +1,7 @@
-import type { AsideType } from './constants'
+import type { Heading, PhrasingContent } from 'mdast'
 import GithubSlugger from 'github-slugger'
-import { defineHastPlugin, defineMdastPlugin } from 'satteri'
-import { ASIDE_TYPES, SITE } from './constants'
+import { defineHastPlugin, defineMdastPlugin, type Custom } from 'satteri'
+import { ASIDE_TYPES, SITE, type AsideType } from './constants'
 
 /**
  * Sätteri replacements for the remark/rehype plugins this theme used before.
@@ -19,7 +19,23 @@ import { ASIDE_TYPES, SITE } from './constants'
  * behaviour is reproduced from those plugins' own sources.
  */
 
-type PlainNode = Record<string, any>
+/**
+ * A loosely-typed mdast node used while assembling table-of-contents nodes.
+ *
+ * It extends satteri's `Custom` — the "any mdast-shaped node" type — because
+ * `Custom` requires `type`, and a required property is what makes the result
+ * assignable to `MdastContent` at the `ctx.*` call sites. A bare
+ * `Record<string, any>` is not assignable: an index signature does not satisfy
+ * a required property.
+ */
+interface PlainNode extends Custom {
+	alt?: string | null
+	ordered?: boolean
+	spread?: boolean
+	title?: string | null
+	url?: string
+	children?: PlainNode[]
+}
 
 export const satteriAsides = defineMdastPlugin({
 	name: 'asides',
@@ -130,11 +146,11 @@ export const satteriHeadingPermalinks = defineHastPlugin({
 const TOC_EXPRESSION = new RegExp(`^(${SITE.tocHeading})$`, 'i')
 
 /**
- * Mirror of `mdast-util-toc`'s internal `one()`: strip `position`, drop footnote
- * references and inline nested links, so heading contents can be reused as the
- * link label of a table-of-contents entry.
+ * Mirror of `mdast-util-toc`'s internal `one()`, which yields either the nodes
+ * a section was replaced with (a list) or a single rebuilt node. Callers always
+ * consume the result through `flatMap`, which handles both shapes.
  */
-function toPlainPhrasing(node: any): PlainNode[] {
+function toPlainPhrasing(node: any): PlainNode | PlainNode[] {
 	const { type } = node
 
 	if (type === 'footnoteReference')
@@ -163,7 +179,7 @@ function toPlainPhrasing(node: any): PlainNode[] {
 
 interface TocEntry {
 	depth: number
-	children: any[]
+	children: PhrasingContent[]
 	slug: string
 }
 
@@ -172,6 +188,9 @@ interface TocEntry {
  * `tight: true` (its default), so every list and item ends up `spread: false`.
  */
 function insertTocEntry(entry: TocEntry, parent: PlainNode) {
+	// Lists and list items always carry children; defaulting here keeps the
+	// optional `children` of the shared node type out of every access below.
+	parent.children ??= []
 	const tail = parent.children[parent.children.length - 1]
 
 	if (parent.type === 'list') {
@@ -248,7 +267,7 @@ export const satteriToc = defineMdastPlugin({
 
 		// Pre-order walk, mirroring `unist-util-visit` so slug order matches the
 		// later heading-id pass.
-		const headings: Array<{ node: any, topLevel: boolean, depth: number, position: number, text: string }> = []
+		const headings: Array<{ node: Heading, topLevel: boolean, depth: number, position: number, text: string }> = []
 
 		function walk(node: any, parent: any) {
 			const children = node.children
@@ -278,7 +297,7 @@ export const satteriToc = defineMdastPlugin({
 
 		let index: number | undefined
 		let endIndex: number | undefined
-		let opening: any
+		let opening: Heading | undefined
 		const entries: TocEntry[] = []
 
 		for (const heading of headings) {
