@@ -397,3 +397,87 @@ export const satteriCollapse = defineMdastPlugin({
 			ctx.appendChild(root, close)
 	},
 })
+
+/* -------------------------------------------------------------------------- */
+/* remark-rehype-wrap                                                         */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Replaces the single `remark-rehype-wrap` rule this theme configured:
+ * `{ node: div.tide-table-wrapper, start: 'element[tagName=table]' }`.
+ *
+ * Reproducing that rule faithfully means reproducing a quirk: because `end`
+ * defaults to `start` and `end.inclusive` defaults to `false`, a wrapper starts
+ * at each table and runs until the *next* table — so a document with one table
+ * ends up with one wrapper holding the table and every node after it. That is
+ * what the site renders today, so it is what this plugin does; `--wrap` in
+ * `scripts/__compare.ts` pins the behaviour.
+ *
+ * Scope note: `remark-rehype-wrap` recurses into every non-matching node. That
+ * recursion only ever affects tables nested inside other blocks, and every
+ * table in this repository is a top-level block, so this implementation
+ * restructures the top level only.
+ */
+export const satteriWrap = defineHastPlugin({
+	name: 'wrap',
+	before(root, ctx) {
+		// `selectAll` collects every match in the document, in document order.
+		// `start` and `end` use the same selector, so both lists hold the same
+		// nodes and are consumed independently as the walk advances.
+		const startNodes: any[] = []
+		;(function collect(node: any) {
+			for (const child of node.children ?? []) {
+				if (child.type === 'element' && child.tagName === 'table')
+					startNodes.push(child)
+				collect(child)
+			}
+		})(root)
+
+		if (startNodes.length === 0)
+			return
+
+		const endNodes = [...startNodes]
+
+		const wrapper = (children: any[]) => ({
+			type: 'element',
+			tagName: 'div',
+			properties: { className: ['tide-table-wrapper'] },
+			children,
+		})
+
+		const newChildren: any[] = []
+		let inside = false
+		let current: any[] = []
+
+		for (const node of root.children ?? []) {
+			if (!inside && startNodes.includes(node)) {
+				// `start.inclusive` is true, so the table goes inside the wrapper.
+				current.push(node)
+				inside = true
+				startNodes.splice(startNodes.indexOf(node), 1)
+			} else if (inside && endNodes.includes(node)) {
+				// `end.inclusive` is false, so this node closes the previous
+				// wrapper without joining it.
+				newChildren.push(wrapper(current))
+				if (startNodes.includes(node)) {
+					// The same node opens the next wrapper.
+					current = [node]
+					startNodes.splice(startNodes.indexOf(node), 1)
+				} else {
+					current = []
+					inside = false
+				}
+				endNodes.splice(endNodes.indexOf(node), 1)
+			} else if (inside) {
+				current.push(node)
+			} else {
+				newChildren.push(node)
+			}
+		}
+
+		if (current.length)
+			newChildren.push(wrapper(current))
+
+		ctx.replaceNode(root, { type: 'root', children: newChildren })
+	},
+})
