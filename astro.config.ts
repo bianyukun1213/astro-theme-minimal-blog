@@ -1,8 +1,6 @@
-import type { Options as AutolinkHeadingsOptions } from 'rehype-autolink-headings'
-import type { Options as ExternalLinkOptions } from 'rehype-external-links'
 import alpinejs from '@astrojs/alpinejs'
 import cloudflare from '@astrojs/cloudflare'
-import { unified } from '@astrojs/markdown-remark'
+import { satteri, satteriHeadingIdsPlugin } from '@astrojs/markdown-satteri'
 import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
@@ -10,21 +8,9 @@ import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import tailwindcss from '@tailwindcss/vite'
 import expressiveCode from 'astro-expressive-code'
 import { defineConfig, fontProviders } from 'astro/config'
-import { toString } from 'hast-util-to-string'
-import { h, s } from 'hastscript'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeExternalLinks from 'rehype-external-links'
-import rehypeSlug from 'rehype-slug'
-import remarkCjkFriendly from 'remark-cjk-friendly'
-import remarkCjkFriendlyGfmStrikethrough from 'remark-cjk-friendly-gfm-strikethrough'
-import remarkCollapse from 'remark-collapse'
-import remarkDirective from 'remark-directive'
-import { remarkRehypeWrap } from 'remark-rehype-wrap'
-import remarkSmartypants from 'remark-smartypants'
-import remarkToc from 'remark-toc'
 import { tailwindResolver } from 'tailwind-resolver/vite'
 import { DEFAULT_LOCALE, LOCALES, SITE } from './src/constants'
-import { remarkAsides } from './src/remark'
+import { satteriAsides, satteriCollapse, satteriExternalLinks, satteriHeadingPermalinks, satteriToc, satteriWrap } from './src/markdown'
 
 export default defineConfig({
 	fonts: [
@@ -103,52 +89,27 @@ export default defineConfig({
 	},
 
 	markdown: {
-		processor: unified({
-			gfm: true,
-			remarkPlugins: [remarkCjkFriendly, remarkCjkFriendlyGfmStrikethrough, [remarkSmartypants, { backticks: false }], remarkDirective, remarkAsides, [remarkToc, { heading: SITE.tocHeading }], [remarkCollapse, { test: SITE.tocHeading, summary: 'm.btn_expand_toc_title()' }]],
-			rehypePlugins: [
-				rehypeSlug,
-				[
-					rehypeExternalLinks,
-				{
-					target: '_blank',
-					rel: ['nofollow'],
-					properties: { className: ['external_link'] },
-				} satisfies ExternalLinkOptions,
-				],
-				[
-					rehypeAutolinkHeadings,
-				{
-					behavior: 'after',
-					group() {
-						return h('.markdown-heading')
+		processor: satteri({
+			features: {
+				// `:::note`-style container directives, handled by `satteriAsides`.
+				directive: true,
+				// `satteriCollapse` injects `<details>`/`<summary>` as raw HTML.
+				// Reparsing raw HTML into elements is what allows the still-open
+				// `<details>` to nest the table of contents that follows it;
+				// MDX cannot represent a bare `html` node.
+				rawHtml: true,
+				// `smartPunctuation` is on by default here, matching the
+				// `remark-smartypants` setup this replaced (`backticks: false`).
+				gfm: {
+					footnotes: {
+						label: 'm.label_footnotes()',
+						backLabel: 'm.btn_footnote_back_title()',
+						backContent: '↑',
 					},
-					headingProperties() {
-						return { tabIndex: -1 }
-					},
-					properties(node: any) {
-						return { ariaLabel: toString(node), className: 'anchor' }
-					},
-					content() {
-						return h('svg', { className: 'anchor-icon', viewBox: '0 0 16 16', ariaHidden: true }, [
-							s('path', { d: 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z' }),
-						])
-					},
-				} satisfies AutolinkHeadingsOptions,
-				],
-				[
-					remarkRehypeWrap,
-					{
-						node: { type: 'element', tagName: 'div', properties: { className: 'tide-table-wrapper' } },
-						start: 'element[tagName=table]',
-					},
-				],
-			],
-			remarkRehype: {
-				footnoteLabel: 'm.label_footnotes()',
-				footnoteBackLabel: 'm.btn_footnote_back_title()',
-				footnoteBackContent: '↑',
+				},
 			},
+			mdastPlugins: [satteriAsides, satteriToc, satteriCollapse],
+			hastPlugins: [satteriHeadingIdsPlugin(), satteriExternalLinks, satteriHeadingPermalinks, satteriWrap],
 		}),
 	},
 })
