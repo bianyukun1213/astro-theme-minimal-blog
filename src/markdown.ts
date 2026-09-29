@@ -322,3 +322,78 @@ export const satteriToc = defineMdastPlugin({
 		ctx.insertAfter(anchor, buildTocList(entries))
 	},
 })
+
+/* -------------------------------------------------------------------------- */
+/* remark-collapse                                                            */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Label of the `<summary>` that expands the table of contents. It is a literal
+ * placeholder: the i18n middleware rewrites it per request, so no locale is
+ * baked into the build.
+ */
+const COLLAPSE_SUMMARY = 'm.btn_expand_toc_title()'
+
+/**
+ * Replaces `remark-collapse`. Everything between the table-of-contents heading
+ * and the next heading of the same or higher rank is wrapped in
+ * `<details><summary>…</summary> … </details>`.
+ *
+ * `remark-collapse` does this by splicing the whole range at once. Here the
+ * original nodes are left untouched and only the two wrapper paragraphs are
+ * inserted around them, which produces the same children.
+ */
+export const satteriCollapse = defineMdastPlugin({
+	name: 'collapse',
+	before(root, ctx) {
+		const children = root.children
+		if (!children)
+			return
+
+		let depth: number | undefined
+		let start: number | undefined
+		let end: number | undefined
+
+		for (let index = 0; index < children.length; index++) {
+			const child = children[index]
+
+			if (child.type !== 'heading')
+				continue
+
+			if (depth !== undefined && child.depth <= depth) {
+				end = index
+				break
+			}
+
+			if (depth === undefined && TOC_EXPRESSION.test(ctx.textContent(child))) {
+				depth = child.depth
+				start = index
+				// Assume no closing heading is found.
+				end = children.length
+			}
+		}
+
+		if (depth === undefined || start === undefined)
+			return
+
+		// Read the closing heading before queueing any mutation.
+		const endNode = children[end!]
+
+		ctx.insertAfter(children[start], {
+			type: 'paragraph',
+			children: [
+				{ type: 'html', value: '<details>' },
+				{ type: 'html', value: '<summary>' },
+				{ type: 'text', value: COLLAPSE_SUMMARY },
+				{ type: 'html', value: '</summary>' },
+			],
+		})
+
+		const close: PlainNode = { type: 'paragraph', children: [{ type: 'html', value: '</details>' }] }
+
+		if (endNode)
+			ctx.insertBefore(endNode, close)
+		else
+			ctx.appendChild(root, close)
+	},
+})
