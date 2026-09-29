@@ -5,14 +5,14 @@
 	"scripts": {
 		"dev": "astro dev",
 		"build:astro": "astro build",
-		"build": "paraglide-js compile --project ./project.inlang --outdir ./src\\paraglide --emit-ts-declarations && bun run build:astro",
+		"build": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide --emit-ts-declarations && bun run build:astro",
 		"preview": "astro preview",
 		"astro": "astro",
 		"lint": "eslint",
 		"lint:fix": "eslint --fix",
 		"assistant": "tsx ./scripts/assistant.ts",
 		"machine-translate": "inlang machine translate --project project.inlang",
-		"compile-messages": "paraglide-js compile --project ./project.inlang --outdir ./src\\paraglide --emit-ts-declarations",
+		"compile-messages": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide --emit-ts-declarations",
 		"generate-types": "wrangler types"
 	},
 	"dependencies": {
