@@ -1,0 +1,10 @@
+# `tailwind-resolver` generates src/generated/tailwindcss/types.ts by embedding
+# CSS values in TypeScript string literals. It escapes LF as `\n` but leaves CR
+# untouched, so a CRLF input CSS produces a raw carriage return inside a string
+# literal. That is invalid TypeScript, and because a program with syntax errors
+# gets no semantic checking at all, a single CRLF in the CSS silently disables
+# type checking for the whole project.
+#
+# `core.autocrlf` is true here, so without this rule the working copy of the CSS
+# is CRLF again on the next checkout and the generated file breaks again.
+*.css text eol=lf
