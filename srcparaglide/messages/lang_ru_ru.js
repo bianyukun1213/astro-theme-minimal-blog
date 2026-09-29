@@ -32,8 +32,8 @@ const he_il2_lang_ru_ru = /** @type {(inputs: Lang_Ru_RuInputs) => LocalizedStri
 */
 export const lang_ru_ru = /** @type {((inputs?: Lang_Ru_RuInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Lang_Ru_RuInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return en_us2_lang_ru_ru(inputs)
 	if (locale === "zh-CN") return zh_cn2_lang_ru_ru(inputs)
 	if (locale === "ru-RU") return ru_ru2_lang_ru_ru(inputs)
-	return he_il2_lang_ru_ru(inputs)
+	if (locale === "he-IL") return he_il2_lang_ru_ru(inputs)
+	return en_us2_lang_ru_ru(inputs)
 });

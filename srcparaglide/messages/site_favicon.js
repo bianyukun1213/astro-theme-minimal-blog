@@ -32,8 +32,8 @@ const he_il2_site_favicon = /** @type {(inputs: Site_FaviconInputs) => Localized
 */
 export const site_favicon = /** @type {((inputs?: Site_FaviconInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_FaviconInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return en_us2_site_favicon(inputs)
 	if (locale === "zh-CN") return zh_cn2_site_favicon(inputs)
 	if (locale === "ru-RU") return ru_ru2_site_favicon(inputs)
-	return he_il2_site_favicon(inputs)
+	if (locale === "he-IL") return he_il2_site_favicon(inputs)
+	return en_us2_site_favicon(inputs)
 });

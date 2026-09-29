@@ -32,8 +32,8 @@ const he_il2_site_default_og_image = /** @type {(inputs: Site_Default_Og_ImageIn
 */
 export const site_default_og_image = /** @type {((inputs?: Site_Default_Og_ImageInputs, options?: { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }) => LocalizedString) & import('../runtime.js').MessageMetadata<Site_Default_Og_ImageInputs, { locale?: "en-US" | "zh-CN" | "ru-RU" | "he-IL" }, {}>} */ ((inputs = {}, options = {}) => {
 	const locale = experimentalStaticLocale ?? options.locale ?? getLocale()
-	if (locale === "en-US") return en_us2_site_default_og_image(inputs)
 	if (locale === "zh-CN") return zh_cn2_site_default_og_image(inputs)
 	if (locale === "ru-RU") return ru_ru2_site_default_og_image(inputs)
-	return he_il2_site_default_og_image(inputs)
+	if (locale === "he-IL") return he_il2_site_default_og_image(inputs)
+	return en_us2_site_default_og_image(inputs)
 });
