@@ -3,7 +3,7 @@ import type { Locale } from '@utils'
 import type { APIRoute } from 'astro'
 import rss from '@astrojs/rss'
 import { SITE } from '@constants'
-import { filterDrafts, filterHidden, getPostsByLocale, removeTrailingSlash, sortAsc, sortSticky, useTranslations } from '@utils'
+import { filterDrafts, filterHidden, getPostPath, getPostsByLocale, removeTrailingSlash, sortAsc, sortSticky, useTranslations } from '@utils'
 import { trailingSlash } from 'astro:config/client'
 import { getCollection } from 'astro:content'
 
@@ -12,9 +12,9 @@ export const prerender = false
 const base = import.meta.env.BASE_URL
 const slash = trailingSlash === 'never' ? '' : '/'
 
-function generateContent(description: string, link: string, locale: Locale) {
+function generateContent(description: string, path: string, locale: Locale) {
 	const m = useTranslations(locale)
-	return `<p>${description}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${new URL(`${removeTrailingSlash(base)}/${locale}/posts/${link}${slash}`, SITE.url)}">${m.btn_keep_reading_title()}</a></strong></div>`
+	return `<p>${description}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${new URL(path, SITE.url)}">${m.btn_keep_reading_title()}</a></strong></div>`
 }
 
 export const GET = (async ({ params }) => {
@@ -30,11 +30,12 @@ export const GET = (async ({ params }) => {
 	const items = allPosts.map(post => {
 		const title = post.data.title || m.site_title()
 		const description = post.data.description || m.site_description()
+		const path = getPostPath(post.data.displayId, currentLocale)
 		return ({
 			title,
 			description,
-			content: generateContent(description, post.data.displayId, currentLocale),
-			link: `${removeTrailingSlash(base)}/${currentLocale}/posts/${post.data.displayId}${slash}`,
+			content: generateContent(description, path, currentLocale),
+			link: path,
 			pubDate: post.data.date,
 		} satisfies RSSFeedItem)
 	}

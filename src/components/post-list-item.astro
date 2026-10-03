@@ -1,7 +1,6 @@
 ---
-import { defaultDateFormat, getLocalizedTagName, removeTrailingSlash, useTranslations, type Locale } from '@utils'
+import { defaultDateFormat, getLocalizedTagName, getPostPath, useTranslations, type Locale } from '@utils'
 import Picture from 'astro/components/Picture.astro'
-import { trailingSlash } from 'astro:config/client'
 import type { CollectionEntry } from 'astro:content'
 import Pin from './icons/pin.svg'
 import Link from './link.astro'
@@ -17,15 +16,12 @@ interface Props {
 
 const { post, showSticky = false } = Astro.props
 
-const base = import.meta.env.BASE_URL
-const slash = trailingSlash === 'never' ? '' : '/'
-
 const title = post.data.title || m.site_title()
 const description = post.data.description || m.site_description()
 ---
 
 <div>
-	<Link variant="highlight" href={`${removeTrailingSlash(base)}/${currentLocale}/posts/${post.data.displayId}${slash}`} transition:name={`post-title-${post.data.displayId}`}>
+	<Link variant="highlight" href={getPostPath(post.data.displayId, currentLocale)} transition:name={`post-title-${post.data.displayId}`}>
 		{
 			(post.data.cover || post.data.image) && (
 				<>
