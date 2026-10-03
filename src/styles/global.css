@@ -78,6 +78,40 @@ html[lang='he-IL'] {
 	}
 }
 
+/* Site search.
+ *
+ * Pagefind's components are dressed through their own `--pf-*` variables, which default to a
+ * black-on-white palette. The colours below are the site's tokens instead, so the overlay follows
+ * the theme wherever the rest of the page does. `html:root` carries one selector more than the
+ * `:root` block Pagefind's stylesheet ships, so these win wherever the two stylesheets land. */
+html:root {
+	/* The red the asides use for `danger`, mixed into the theme's own background and text so that the
+	   notice the overlay shows when the index cannot be loaded is readable either way. Tailwind emits
+	   that red only while a utility asks for it, hence the red of its own to fall back on. */
+	--search-danger: var(--color-red-600, #dc2626);
+
+	--pf-font: var(--default-font-family);
+	--pf-text: var(--color-text);
+	--pf-text-secondary: var(--color-subtle);
+	--pf-text-muted: var(--color-faded);
+	--pf-background: var(--color-bg);
+	--pf-border: var(--color-border);
+	--pf-border-focus: var(--color-highlight);
+	--pf-hover: color-mix(in oklab, var(--color-text) 7%, var(--color-bg));
+	--pf-skeleton: color-mix(in oklab, var(--color-text) 12%, var(--color-bg));
+	--pf-skeleton-shine: color-mix(in oklab, var(--color-text) 7%, var(--color-bg));
+	--pf-mark: var(--color-highlight);
+	--pf-scroll-shadow: color-mix(in oklab, var(--color-text) 12%, transparent);
+	--pf-outline-focus: var(--color-highlight);
+	--pf-error-bg: color-mix(in oklab, var(--search-danger) 10%, var(--color-bg));
+	--pf-error-border: color-mix(in oklab, var(--search-danger) 35%, var(--color-bg));
+	--pf-error-text: color-mix(in oklab, var(--search-danger) 75%, var(--color-text));
+	--pf-error-text-secondary: color-mix(in oklab, var(--search-danger) 55%, var(--color-subtle));
+	--pf-border-radius: var(--radius-sm);
+	/* The height the header's own controls are. */
+	--pf-input-height: 2rem;
+}
+
 @layer base {
 	details {
 		@apply inline-block;

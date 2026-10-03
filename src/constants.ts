@@ -50,7 +50,6 @@ export const SITE: Record<string, any> = {
 	relAuthEndpoint: 'https://indieauth.com/auth',
 	relWebmention: 'https://webmention.io/his2nd.life/webmention',
 	tocHeading: '(Table of contents)|目录|Содержание|תוכן',
-	searchUrl: 'https://www.bing.com/search?q=',
 	interactions: {
 		waline: {
 			serverURL: 'https://waline.his2nd.life',

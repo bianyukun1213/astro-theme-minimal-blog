@@ -2,7 +2,7 @@
 import { getHeader } from '@constants'
 import { cn, removeTrailingSlash, useTranslations, type Locale } from '@utils'
 import { trailingSlash } from 'astro:config/client'
-import SearchBar from './search-bar.astro'
+import SiteSearch from './site-search.astro'
 import LangSelect from './lang-select.astro'
 import Link from './link.astro'
 import Spacer from './spacer.astro'
@@ -27,7 +27,7 @@ const header = getHeader(currentLocale)
 				aria-label={m.btn_back_to_home_title({ siteTitle: m.site_title() })}>{m.site_title()}</a
 			>
 		</div>
-		<SearchBar />
+		<SiteSearch />
 	</div>
 	<Spacer axis="vertical" size={4} />
 	<div class="flex flex-row flex-wrap justify-between items-center border-b border-border pb-4 text-lg md:text-xl">

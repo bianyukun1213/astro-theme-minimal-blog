@@ -14,7 +14,7 @@ This is a fork of [the original project](https://github.com/LekoArts/astro-theme
 - RSS, Sitemap
 - Light/Dark/System color mode toggle
 - Add tags to your blog posts
-- ~~[Pagefind](https://pagefind.app/) search~~ External search with Bing
+- [Pagefind](https://pagefind.app/) search
 
 ## ✨ Newly added features
 

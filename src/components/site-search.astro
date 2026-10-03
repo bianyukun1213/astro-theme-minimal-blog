@@ -1,0 +1,38 @@
+---
+import '@pagefind/component-ui/css'
+import { SEARCH_INDEX_BUNDLE_NAME } from '@constants'
+import { removeTrailingSlash, useTranslations, type Locale } from '@utils'
+
+const currentLocale = Astro.currentLocale as Locale
+const m = useTranslations(currentLocale)
+
+const base = import.meta.env.BASE_URL
+
+// The index bundle is a plain directory of static assets, so its address has to be named rather than
+// resolved by the build. Pagefind falls back to a literal `/pagefind/` — it reads the location of its
+// own script only when the browser hands it one, which is never for a bundled module — so the address
+// is composed from the site's base and handed over.
+const bundlePath = `${removeTrailingSlash(base)}/${SEARCH_INDEX_BUNDLE_NAME}/`
+---
+
+{/* The whole search surface: the configuration the components share, the header's control, and the
+    overlay that control opens. */}
+<div class="shrink-0">
+	<pagefind-config bundle-path={bundlePath}></pagefind-config>
+	<pagefind-modal-trigger class="w-40" placeholder={m.btn_search_title()}></pagefind-modal-trigger>
+	<pagefind-modal></pagefind-modal>
+</div>
+
+<script>
+	// Importing the interface registers its elements; nothing else here has to ask for them.
+	import { getInstanceManager } from '@pagefind/component-ui'
+
+	// A Pagefind instance keeps every component that has connected to it and opens the first modal it
+	// knows about, so a client-side navigation would leave it holding — and reopening — the modal and
+	// the language of the page it was reading. The instance every component shares unless it names
+	// another is dropped before the swap, and the components the next page brings build one that
+	// belongs to that page.
+	document.addEventListener('astro:before-swap', () => {
+		getInstanceManager().removeInstance('default')
+	})
+</script>
