@@ -7,6 +7,22 @@ export const BLOG_PATH = './content/blog/'
 export const POSTS_PER_PAGE = 5
 
 /**
+ * The directory the site build writes its client output to, relative to the project root.
+ *
+ * `wrangler.jsonc` points at `dist/`, and the Cloudflare adapter keeps the static assets that get
+ * served in `dist/client`, which is also where the Site search index bundle is written.
+ */
+export const CLIENT_OUTPUT_DIRECTORY = './dist/client'
+
+/**
+ * The name of the Site search index bundle's directory inside the client output.
+ *
+ * It sits among the site's static assets, so a deployment serves it without any server code, and
+ * it is reached at `/pagefind/` — or `{base}pagefind/` when the site has a base path.
+ */
+export const SEARCH_INDEX_BUNDLE_NAME = 'pagefind'
+
+/**
  * Whether the site's URLs carry a trailing slash.
  *
  * This is Astro's `trailingSlash` setting, and the one fact a Post's URL spelling needs that
