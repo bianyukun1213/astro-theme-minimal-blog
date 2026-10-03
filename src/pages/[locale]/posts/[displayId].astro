@@ -93,8 +93,6 @@ const jsonLd = {
 	],
 }
 const { Content } = await render(post)
-const dataAttributes: DOMStringMap = {}
-if (post.data.searchIndex) dataAttributes['data-pagefind-body'] = ''
 
 const sortedLocalePosts = sortSticky(sortAsc(getPostsByLocale(allPosts, currentLocale)))
 const currentPostIndex = sortedLocalePosts.findIndex((entry) => entry.id === post.id)
@@ -138,11 +136,11 @@ const components = {
 		<meta name="article:modified_time" content={dateModified} />
 		<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 	</Seo>
-	<SkipNavContent {...dataAttributes}>
+	<SkipNavContent>
 		<PostNavigation class="-mt-4 sm:mt-0" previousPost={previousPost} nextPost={nextPost} />
 		<Spacer class="sm:hidden" axis="vertical" size={4} />
 		<Spacer class="hidden sm:block" axis="vertical" size={8} />
-		<Prose class="h-entry">
+		<Prose class="h-entry" data-pagefind-body="">
 			<div transition:name={`post-title-${post.data.displayId}`}>
 				{
 					(post.data.cover || post.data.image) && (

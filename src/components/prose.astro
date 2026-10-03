@@ -1,11 +1,10 @@
 ---
 import { cn } from '@utils'
+import type { HTMLAttributes } from 'astro/types'
 
-interface Props {
-	class?: string
-}
+interface Props extends HTMLAttributes<'div'> {}
 
-const { class: className } = Astro.props
+const { class: className, ...rest } = Astro.props
 ---
 
 <!-- https://github.com/tailwindlabs/tailwindcss-typography/issues/66#issuecomment-3545849995 -->
@@ -16,6 +15,7 @@ const { class: className } = Astro.props
 		'prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:[&>p]:last-of-type:after:content-none',
 		className,
 	)}
+	{...rest}
 >
 	<slot />
 </div>

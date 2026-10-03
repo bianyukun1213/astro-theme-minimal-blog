@@ -10,8 +10,8 @@ interface Props extends HTMLAttributes<'main'> {
 	id?: string
 }
 
-const { id: idProp, class: className } = Astro.props
+const { id: idProp, class: className, ...rest } = Astro.props
 const id = idProp || SKIP_NAV_ID
 ---
 
-<main id={id} class={cn('container', 'grow', className)}><slot /></main>
+<main id={id} class={cn('container', 'grow', className)} {...rest}><slot /></main>
