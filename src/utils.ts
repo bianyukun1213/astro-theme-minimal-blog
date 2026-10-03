@@ -7,10 +7,10 @@ import { getTextDirection } from '@paraglide/runtime'
 // import {
 // 	getRelativeLocaleUrl as getRelativeLocaleUrlImpl,
 // } from 'astro:i18n'
-import { trailingSlash } from 'astro:config/client'
 import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { BLOG_PATH, DEFAULT_LOCALE, LOCALES } from './constants'
+import { BLOG_PATH, DEFAULT_LOCALE, LOCALES, TRAILING_SLASH } from './constants'
+import { buildPostPath } from './postPath'
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
@@ -194,18 +194,15 @@ export function removeTrailingSlash(path: string): string {
 /**
  * Returns a Post's site-relative path, with its Display ID percent-encoded.
  *
- * Every link to a Post must spell its URL the same way, so they are all built here.
- * The percent-encoded spelling is the one the site's canonical URL carries, and the one
- * the URI specification requires for a Display ID holding characters outside of the
- * unreserved set, such as the Korean in "welcome-to-서울".
+ * The spelling itself lives in `postPath.ts`, which the sitemap and the Site search index build
+ * use as well, so that every consumer of a Post's URL spells it identically. Here it is bound to
+ * the base path Astro resolved for the running site.
  * @param displayId The Post's Display ID, as authored in frontmatter.
  * @param locale The locale the Post is published in.
  * @returns The Post's path, rooted at the site base and with the configured trailing slash.
  */
 export function getPostPath(displayId: string, locale: Locale): string {
-	const base = import.meta.env.BASE_URL
-	const slash = trailingSlash === 'never' ? '' : '/'
-	return `${removeTrailingSlash(base)}/${locale}/posts/${encodeURIComponent(displayId)}${slash}`
+	return buildPostPath(displayId, locale, import.meta.env.BASE_URL, TRAILING_SLASH)
 }
 
 /**

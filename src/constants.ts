@@ -1,9 +1,19 @@
 import type { Locale } from '@paraglide/runtime'
 import type { Author, Header } from '@types'
+import type { TrailingSlash } from './postPath'
 import { baseLocale, locales } from './paraglide/runtime'
 
 export const BLOG_PATH = './content/blog/'
 export const POSTS_PER_PAGE = 5
+
+/**
+ * Whether the site's URLs carry a trailing slash.
+ *
+ * This is Astro's `trailingSlash` setting, and the one fact a Post's URL spelling needs that
+ * `SITE` does not carry. It lives here rather than inline in `astro.config.ts` so that navigation,
+ * the sitemap and the Site search index build are all handed the same spelling.
+ */
+export const TRAILING_SLASH: TrailingSlash = 'always'
 
 export const DEFAULT_LOCALE = baseLocale
 export const LOCALES = locales

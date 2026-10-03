@@ -9,8 +9,14 @@ import tailwindcss from '@tailwindcss/vite'
 import expressiveCode from 'astro-expressive-code'
 import { defineConfig, fontProviders } from 'astro/config'
 import { tailwindResolver } from 'tailwind-resolver/vite'
-import { DEFAULT_LOCALE, LOCALES, SITE } from './src/constants'
+import { DEFAULT_LOCALE, LOCALES, SITE, TRAILING_SLASH } from './src/constants'
 import { satteriAsides, satteriCollapse, satteriExternalLinks, satteriHeadingPermalinks, satteriToc, satteriWrap } from './src/markdown'
+import { enumeratePosts } from './src/postEnumeration'
+
+// Post pages render on demand, so the sitemap integration cannot discover them from the build
+// output; the Post-enumeration module, which the Site search index build will consume as well,
+// supplies them instead.
+const sitemapPostUrls = enumeratePosts().indexable.map(post => post.url)
 
 export default defineConfig({
 	fonts: [
@@ -46,10 +52,10 @@ export default defineConfig({
 
 	output: 'static',
 	adapter: cloudflare(),
-	trailingSlash: 'always',
+	trailingSlash: TRAILING_SLASH,
 	site: SITE.url,
 	base: SITE.base,
-	integrations: [sitemap(), alpinejs({ entrypoint: './src/entrypoint' }), react(), expressiveCode(), mdx()],
+	integrations: [sitemap({ customPages: sitemapPostUrls }), alpinejs({ entrypoint: './src/entrypoint' }), react(), expressiveCode(), mdx()],
 	server: {
 		host: true,
 	},
