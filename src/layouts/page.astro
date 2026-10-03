@@ -14,12 +14,14 @@ interface Props {
 
 const { title, searchIndex = true, interactions = true } = Astro.props
 
+// The same rule a Post follows: `searchIndex: false` takes the page out of External search and
+// withholds the article region an indexer reads.
 const dataAttributes: DOMStringMap = {}
 if (searchIndex) dataAttributes['data-pagefind-body'] = ''
 ---
 
 <Layout>
-	<Seo slot="seo" title={title} />
+	<Seo slot="seo" title={title} noIndex={!searchIndex} />
 	<SkipNavContent>
 		<Prose {...dataAttributes}>
 			<h1 class="mb-0! text-highlight">{title}</h1>

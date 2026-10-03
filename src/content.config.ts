@@ -20,6 +20,9 @@ const blog = defineCollection({
 		coverAlt: z.string().optional(),
 		coverTitle: z.string().optional(),
 		coverCaption: z.string().optional(),
+		// Whether this Post is indexed at all: Site search, External search (via a `noindex` robots
+		// directive) and the sitemap. `false` leaves every index while the Post stays listed and
+		// browsable; a Hidden post leaves the listings and the feed as well.
 		searchIndex: z.boolean().optional().default(true),
 		draft: z.boolean().optional().default(false),
 		hidden: z.boolean().optional().default(false),

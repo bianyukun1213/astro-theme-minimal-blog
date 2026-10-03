@@ -119,13 +119,14 @@ const components = {
 ---
 
 <Layout>
+	{/* A Post enters no External search index when it is Hidden or opted out via `searchIndex: false`. */}
 	<Seo
 		slot="seo"
 		titleOverride={title}
 		keywords={post.data.keywords}
 		{description}
 		image={post.data.image || post.data.cover}
-		noIndex={post.data.hidden}
+		noIndex={post.data.hidden || !post.data.searchIndex}
 	>
 		<meta name="twitter:label1" value={m.label_authors()} />
 		<!-- <meta name="twitter:data1" data-pagefind-meta="author" value={postAuthors.map((author) => author.name).join(',')} /> -->

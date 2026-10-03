@@ -36,11 +36,17 @@ const expectedSig = Array.from(new Uint8Array(signBuffer))
 
 const isUnlocked = Astro.cookies.get(cookieKey)?.value === expectedSig
 const hasError = Astro.url.searchParams.has(`protection_error_${cookieKey}`)
+
+// The unlocked branch is marked so that a credential-free crawl of the built site can prove gated
+// bodies never reached the indexer; the locked branch must never carry the marker.
 ---
 
 {
 	isUnlocked ? (
-		<div class={cn('unlocked relative rounded-sm border border-border', className)}>
+		<div
+			class={cn('unlocked relative rounded-sm border border-border', className)}
+			data-protected-unlocked=""
+		>
 			<div class="absolute z-10 inset-e-2 top-0 -mt-4">
 				<form method="POST" action={`${removeTrailingSlash(base)}/api/lock${slash}`}>
 					<input type="hidden" name="cookieKey" value={cookieKey} />
