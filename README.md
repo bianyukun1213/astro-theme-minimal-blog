@@ -10,7 +10,7 @@ This is a fork of [the original project](https://github.com/LekoArts/astro-theme
 - Styled with [Tailwind](https://tailwindcss.com/)
 - Code blocks powered by [Expressive Code](https://expressive-code.com/)
 - Custom asides component
-- ~~Live coding powered by [Sandpack](https://github.com/codesandbox/sandpack)~~
+- Live coding powered by [Sandpack](https://github.com/codesandbox/sandpack)
 - RSS, Sitemap
 - Light/Dark/System color mode toggle
 - Add tags to your blog Posts

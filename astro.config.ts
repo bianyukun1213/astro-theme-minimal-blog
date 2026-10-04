@@ -5,6 +5,7 @@ import mdx from '@astrojs/mdx'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import { paraglideVitePlugin } from '@inlang/paraglide-js'
+import satteriSandpack from '@lekoarts/satteri-sandpack'
 import tailwindcss from '@tailwindcss/vite'
 import expressiveCode from 'astro-expressive-code'
 import { defineConfig, fontProviders } from 'astro/config'
@@ -76,6 +77,15 @@ export default defineConfig({
 	},
 
 	vite: {
+		// Sandpack imports these CommonJS packages as ESM, so Vite must prebundle them for development.
+		optimizeDeps: {
+			include: [
+				'@codesandbox/sandpack-react > anser',
+				'@codesandbox/sandpack-react > escape-carriage',
+				'@codesandbox/sandpack-react > lz-string',
+				'@codesandbox/sandpack-react > @codesandbox/sandpack-client > mime-db',
+			],
+		},
 		plugins: [
 			// The bundle the dev server serves is the one a previous `bun run build:search` wrote, so it
 			// is read where that build put it.
@@ -132,7 +142,7 @@ export default defineConfig({
 					},
 				},
 			},
-			mdastPlugins: [satteriAsides, satteriToc, satteriCollapse],
+			mdastPlugins: [satteriAsides, satteriToc, satteriCollapse, satteriSandpack({ componentName: ['Playground'] })],
 			hastPlugins: [satteriHeadingIdsPlugin(), satteriExternalLinks, satteriHeadingPermalinks, satteriWrap],
 		}),
 	},
