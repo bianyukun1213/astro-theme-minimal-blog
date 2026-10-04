@@ -1,5 +1,8 @@
 {
 	"git.enabled": false,
+	// Write LF whatever the platform default is, so that a save on Windows cannot
+	// turn a file back into CRLF.
+	"files.eol": "\n",
 	"emeraldwalk.runonsave": {
 		"match": ".*",
 		"cmd": "jj"
