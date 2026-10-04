@@ -11,5 +11,3 @@ The rest of the site is prerendered, but the post route sets `prerender = false`
 
 - The search index cannot be derived from build output; see [ADR-0001](./0001-build-search-index-by-crawling.md).
 - `@astrojs/sitemap` does not generate entries for dynamic routes in SSR mode, so post URLs are absent from the sitemap unless they are added explicitly.
-
-_Recorded from a design review; not yet implemented._

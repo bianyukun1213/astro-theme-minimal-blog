@@ -8,15 +8,30 @@ import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import tailwindcss from '@tailwindcss/vite'
 import expressiveCode from 'astro-expressive-code'
 import { defineConfig, fontProviders } from 'astro/config'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { tailwindResolver } from 'tailwind-resolver/vite'
-import { DEFAULT_LOCALE, LOCALES, SITE, TRAILING_SLASH } from './src/constants'
+import { CLIENT_OUTPUT_DIRECTORY, DEFAULT_LOCALE, LOCALES, SEARCH_INDEX_BUNDLE_NAME, SITE, TRAILING_SLASH } from './src/constants'
 import { satteriAsides, satteriCollapse, satteriExternalLinks, satteriHeadingPermalinks, satteriToc, satteriWrap } from './src/markdown'
 import { enumeratePosts } from './src/postEnumeration'
+import { searchIndexDevServer } from './src/searchIndexDevServer'
 
 // Post pages render on demand, so the sitemap integration cannot discover them from the build
 // output; the Post-enumeration module, which the Site search index build will consume as well,
 // supplies them instead.
 const sitemapPostUrls = enumeratePosts().indexable.map(post => post.url)
+
+// The dev server renders from source, so the built Site search index bundle is nowhere it serves;
+// this puts it back at its public path for as long as the dev server is running. `astro.config.ts`
+// is the project root, so the client output directory is resolved from here rather than from
+// Astro's resolved config, which only exists once the config is loaded.
+const searchIndexBundleDirectory = resolve(
+	fileURLToPath(import.meta.url),
+	'..',
+	CLIENT_OUTPUT_DIRECTORY,
+	SEARCH_INDEX_BUNDLE_NAME,
+)
+const searchIndexBundlePathname = `${SITE.base.replace(/\/$/, '')}/${SEARCH_INDEX_BUNDLE_NAME}/`
 
 export default defineConfig({
 	fonts: [
@@ -62,6 +77,9 @@ export default defineConfig({
 
 	vite: {
 		plugins: [
+			// The bundle the dev server serves is the one a previous `bun run build:search` wrote, so it
+			// is read where that build put it.
+			searchIndexDevServer(searchIndexBundleDirectory, searchIndexBundlePathname),
 			tailwindcss(),
 			tailwindResolver({
 				input: './src/styles/global.css', // Your Tailwind CSS file

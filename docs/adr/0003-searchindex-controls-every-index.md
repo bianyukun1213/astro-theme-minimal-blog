@@ -11,5 +11,3 @@ The field could plausibly mean "omit this post from the site's own search box". 
 
 - The flag has an SEO-visible effect, not merely a site-search one.
 - `hidden: true` and `searchIndex: false` overlap: both keep a post out of every index. They differ in listing visibility only — `hidden` also keeps it out of listings and the feed, `searchIndex: false` does not.
-
-_Recorded from a design review; not yet implemented._
