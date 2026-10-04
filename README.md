@@ -6,14 +6,14 @@ This is a fork of [the original project](https://github.com/LekoArts/astro-theme
 
 ## ✨ Original features
 
-- Write blog posts with MDX
+- Write blog Posts with MDX
 - Styled with [Tailwind](https://tailwindcss.com/)
 - Code blocks powered by [Expressive Code](https://expressive-code.com/)
 - Custom asides component
 - ~~Live coding powered by [Sandpack](https://github.com/codesandbox/sandpack)~~
 - RSS, Sitemap
 - Light/Dark/System color mode toggle
-- Add tags to your blog posts
+- Add tags to your blog Posts
 - [Pagefind](https://pagefind.app/) search over the site's own Posts, served by the site itself (see [Search](#-search))
 
 ## ✨ Newly added features
@@ -23,14 +23,14 @@ This is a fork of [the original project](https://github.com/LekoArts/astro-theme
 - `base` and `trailingSlash` support
 - microformats2 and Indie Web support
 - Keywords for SEO
-- On-demand rendering for posts, with Cloudflare integration
+- On-demand rendering for Posts, with Cloudflare integration
 - View transitions
 - Post content protection with passwords
-- Non-public posts which are not listed and not indexed
+- Non-public Posts which are not listed and not indexed
 - Drafts
 - Table of contents
 - Post header image
-- Sticky posts
+- Sticky Posts
 - Image masonry and image viewer
 - Tab and Collapse components
 - Components for YouTube, VK Music, and NetEase Music
@@ -75,4 +75,4 @@ bun run test:search
 
 ### Keeping a Post out of search
 
-Publishing a Post is enough to make it searchable. `searchIndex: false` in its frontmatter takes it out of every index — Site search, External search via a `noindex` robots meta tag, and the sitemap — while leaving it listed and browsable (see [ADR-0003](docs/adr/0003-searchindex-controls-every-index.md)). A Draft reaches neither the published site nor any index, and a Hidden post stays reachable at its own URL but is absent from listings, the feed, the sitemap and search. The [glossary](GLOSSARY.md) pins these terms down.
+Publishing a Post is enough to make it searchable. `searchIndex: false` in its frontmatter takes it out of every index — Site search, External search via a `noindex` robots meta tag, and the sitemap — while leaving it listed and browsable (see [ADR-0003](docs/adr/0003-searchindex-controls-every-index.md)). A Draft reaches neither the published site nor any index, and a Hidden Post stays reachable at its own URL but is absent from listings, the feed, the sitemap and search. The [glossary](GLOSSARY.md) pins these terms down.
