@@ -10,13 +10,15 @@
 
 真正卡住决定的不是工程问题。而是：Playground 的*执行*依赖 CodeSandbox 托管的 bundler，而本仓库在其他地方的第三方接触面都是有意的自托管；以及每个用到它的 Post 要付出约 274 KB gzip 的客户端 JavaScript，而依赖本身最后一次发版是 2025-04-29。这两件都是产品决策，§5 把它们摆出来，而不是替你决定。
 
-**结果（2026-10-04）。** 功能已重新引入，且采取的路线是**跟随上游**，而不是本笔记自己给出的建议。两个依赖都被采用——**包括** `@lekoarts/satteri-sandpack`，而非 §3 里勾勒的"搬进仓库"方案；`src/components/playground.astro` 与上游逐字节一致（blob `ca219b32`），连 `title` 属性和"没有 `<slot />`"都照搬。Vite 的 `optimizeDeps.include` 块也是上游原文。`README.md:13` 的删除线已去掉。
+**结果（2026-10-04）。** 功能已重新引入，且采取的路线是**跟随上游**，而不是本笔记自己给出的建议。两个依赖都被采用——**包括** `@lekoarts/satteri-sandpack`，而非 §3 里勾勒的"搬进仓库"方案；`src/components/playground.astro` 与上游逐字节一致（blob `ca219b32`），连 `title` 属性和"没有 `<slot />`"都照搬。`README.md:13` 的删除线已去掉。Vite 的 `optimizeDeps.include` 块起初是上游原文，随后多出一项，理由见下一段。
 
 以下**在本仓库实际验证**，不是临时工程：`bun run build` 通过；完整测试套件（`bun run test:search`，它会跑一遍文档化的构建序列）通过；一篇含 Playground 的 Post 在 Cloudflare Workers 预览上返回 **200**，生成的 `files` 属性正确，且那个 620.7 KB 的 island chunk **没有** `modulepreload`。其活动文件的源码可通过构建出的 Site search 索引搜到。而在没有任何 Post 使用 Playground 时，构建产物里没有任何页面引用那个 chunk——这个功能在被使用之前不产生任何代价。
 
+**开发服务器需要第 5 个条目，而发现这一点的代价是一次 500。** `build` 与 `preview` 从不受影响，所以直到有人跑 `astro dev` 才暴露出来：在冷启动的开发服务器上，对一篇含 Playground 的 Post 的**第一次**请求会以 React 的 `Invalid hook call` 返回 **500**，第二次才 200。原因是 Vite 的 SSR 优化器在请求进行中才发现 `@codesandbox/sandpack-react`，把它打包，并在仍在服务的那个请求底下重载整个程序——日志里就是 `optimized dependencies changed. reloading`——于是 `Sandpack` 来自 `node_modules` 里的原始副本，而 React **渲染器**来自预打包的 `react-dom/server.edge`。两个 React 模块实例，`useState` 读到的 dispatcher 是 null。上游那四个条目只覆盖传递性的 CommonJS 包；把 `@codesandbox/sandpack-react` 自身也点出来，优化器就会在启动时而非首次使用时打包它，冷启动的第一次请求随即返回 200。上游遇不到这个问题，因为它的开发服务器不是 Cloudflare adapter 的，而且它没有任何 Post 按需渲染——正是本 fork 自己的开发服务器形态把它暴露出来，而这恰好属于 §4 声称要测、却没测到的那一类差异。
+
 §3 的第 5 项——示例 Post——也做了，四个语种齐全，而且**它的译文根本不需要新写**：`c5d9bd8d` 当初删掉的正是四份本地化副本，从 `c5d9bd8d^` 恢复出来的文件与它们当年的 blob 逐字节一致（`23125634`、`6f99da95`、`5b3abd2a`、`ea0c5d87`），且今天的 schema 依然接受它们——此后 schema 的每一处改动都只是在放宽（`description` 与 `tags` 变为可选、`copyright` 有了默认值、增加了若干可选字段）。en-US 的正文与上游当前正文逐字节相同，所以这一半是"构造上即是上游对齐"，而不是靠翻译对齐。四个语种各自返回 200 且都只有一个 island，sitemap 列出四个 URL，索引也都覆盖到了。上游把指向该 Post 的那句话放在 `## 🔍 Reference` → `### Custom MDX components` 之下，而本 fork 的 README 没有这一节，因此那句话仍未移植。
 
-有一项仍未验证：**island 在浏览器里是否真的水合并让预览运行起来**。服务端渲染、chunk 图、chunk 的响应（两者都是 200、`text/javascript`）以及搜索索引都查过了，但 agent 手边没有可用的浏览器，所以客户端水合与 CodeMirror 的渲染仍只能依赖上游自己的测试。不过代码的*执行*通路看起来是活的：在本文写作之日，被钉死的 bundler 主机 `https://2-19-8-sandpack.codesandbox.io/` 返回 **200**，静态服务回退地址同样如此——这是关于"今天"的证据，不是承诺。
+有一项仍未验证：**island 在浏览器里是否真的水合并让预览运行起来**。`preview` 与 `dev` 两种模式下的服务端渲染、chunk 图、chunk 的响应（两者都是 200、`text/javascript`）以及搜索索引都查过了，但 agent 手边没有可用的浏览器，所以客户端水合与 CodeMirror 的渲染仍只能依赖上游自己的测试。不过代码的*执行*通路看起来是活的：在本文写作之日，被钉死的 bundler 主机 `https://2-19-8-sandpack.codesandbox.io/` 返回 **200**，静态服务回退地址同样如此——这是关于"今天"的证据，不是承诺。
 
 ---
 
@@ -148,6 +150,8 @@ optimizeDeps: {
 ```
 
 需要它，是因为 `@codesandbox/sandpack-react` 以 CommonJS 形式发布（`require('react')`、`require('@codemirror/view')`……），而那四个嵌套依赖也是如此。它只影响开发服务器；生产构建无论如何都会转换 CJS。
+
+**那四个条目并不足够——上面的代码块不要照抄。**「结果」一节记录了原因：若不额外加一条把 `@codesandbox/sandpack-react` 自身点出来，冷启动的开发服务器上第一次请求 Playground 会返回 500。
 
 第 5 步并不免费。上游那个示例 Post 只有英文，也不满足本 fork 的 schema（`displayId`、`authors`、`date`、`updated`、取自 `TAG_SLUGS` 的 `tags`、`copyright`）；而本 fork 是每个语种各自发布同一篇 Post——要移植它，就得为你想要的每个语种各写一个版本（`mdx` 已经是 `TAG_SLUGS` 的成员了）。
 

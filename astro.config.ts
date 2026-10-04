@@ -80,6 +80,7 @@ export default defineConfig({
 		// Sandpack imports these CommonJS packages as ESM, so Vite must prebundle them for development.
 		optimizeDeps: {
 			include: [
+				'@codesandbox/sandpack-react',
 				'@codesandbox/sandpack-react > anser',
 				'@codesandbox/sandpack-react > escape-carriage',
 				'@codesandbox/sandpack-react > lz-string',

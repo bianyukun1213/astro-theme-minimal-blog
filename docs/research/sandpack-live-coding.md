@@ -23,8 +23,9 @@ you rather than deciding them.
 **Outcome (2026-10-04).** The feature was re-introduced, and the decision taken was to follow
 upstream rather than this note's own suggestions. Both packages were adopted — **including**
 `@lekoarts/satteri-sandpack`, not the in-repo port sketched in §3 — and `src/components/playground.astro`
-is byte-identical to upstream (blob `ca219b32`), `title` prop and missing `<slot />` included. The
-Vite `optimizeDeps.include` block is upstream's, verbatim. `README.md:13` is un-struck.
+is byte-identical to upstream (blob `ca219b32`), `title` prop and missing `<slot />` included.
+`README.md:13` is un-struck. The Vite `optimizeDeps.include` block began as upstream's verbatim and
+then gained one entry, for the reason the next paragraph gives.
 
 Verified in this repository, not in a scratch project: `bun run build` succeeds; the full test suite
 (`bun run test:search`, which runs the documented build sequence) passes; and a Post containing a
@@ -32,6 +33,20 @@ Playground answers **200** from the Cloudflare Workers preview with the generate
 and **no** `modulepreload` for its 620.7 KB island chunk. Its active file's source is searchable
 through the built Site search index. With no Playground authored, no built page references that chunk
 at all — the feature costs nothing until someone uses it.
+
+**The dev server needed a fifth entry, and finding that out cost a 500.** `build` and `preview` were
+never affected, which is why this went unnoticed until someone ran `astro dev`: on a cold dev server
+the **first** request for a Post containing a Playground answers **500** with React's `Invalid hook
+call`, and the second answers 200. Vite's SSR optimizer discovers `@codesandbox/sandpack-react`
+mid-request, bundles it, and reloads the program underneath the request still being served —
+`optimized dependencies changed. reloading` — so `Sandpack` is served from the raw `node_modules`
+copy while the React _renderer_ comes from the prebundled `react-dom/server.edge`. Two React module
+instances, and `useState` reads a null dispatcher. Upstream's four entries cover only transitive
+CommonJS packages; naming `@codesandbox/sandpack-react` itself makes the optimizer bundle it at
+startup instead of at first use, and the cold first request then answers 200. Upstream never hits this
+because its dev server is not the Cloudflare adapter's and it renders no Post on demand — it is this
+fork's own dev-server shape that exposes it, which is precisely the class of difference §4 set out to
+test and did not.
 
 §3 item 5 — the example Post — was done too, in all four locales, and **its translations did not have
 to be written**: `c5d9bd8d` had deleted four localized copies, and restoring them from `c5d9bd8d^`
@@ -44,11 +59,12 @@ them. Upstream puts a pointer to that Post beneath `## 🔍 Reference` → `### 
 section this fork's README does not have, so the pointer is still not ported.
 
 One claim below is still **not** verified: that the island hydrates and its preview actually runs in
-a browser. Server rendering, the chunk graph, the served chunks (both 200, `text/javascript`) and the
-search index were all checked, but no browser was available to the agent, so client-side hydration and
-CodeMirror's rendering rest on upstream's own testing. The bundled code's _execution_ path looks alive,
-though: the pinned bundler host `https://2-19-8-sandpack.codesandbox.io/` answered **200** when checked
-on this date, as did the static-server fallback — which is evidence about today, not a promise.
+a browser. Server rendering under both `preview` and `dev`, the chunk graph, the served chunks (both
+200, `text/javascript`) and the search index were all checked, but no browser was available to the
+agent, so client-side hydration and CodeMirror's rendering rest on upstream's own testing. The bundled
+code's _execution_ path looks alive, though: the pinned bundler host
+`https://2-19-8-sandpack.codesandbox.io/` answered **200** when checked on this date, as did the
+static-server fallback — which is evidence about today, not a promise.
 
 ---
 
@@ -220,6 +236,10 @@ optimizeDeps: {
 It is needed because `@codesandbox/sandpack-react` ships CommonJS (`require('react')`,
 `require('@codemirror/view')`, …) and so do those four nested dependencies. It affects the dev
 server only; the production build converts CJS regardless.
+
+**Those four entries are not sufficient — do not copy the block above as-is.** The Outcome block
+records why: without a fifth entry naming `@codesandbox/sandpack-react` itself, the first request for
+a Playground on a cold dev server answers 500.
 
 Step 5 is not free. Upstream's example Post is English-only and does not satisfy this fork's schema
 (`displayId`, `authors`, `date`, `updated`, `tags` drawn from `TAG_SLUGS`, `copyright`), and the
