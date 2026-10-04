@@ -8,7 +8,7 @@
  * it to answer, enumerates the Posts, fetches each one over HTTP *without credentials*, and hands
  * each response body to Pagefind's Node API keyed by that Post's URL.
  *
- * It aborts instead of writing a wrong index quietly when:
+ * It aborts, rather than report a success it cannot vouch for, when:
  *
  * - the enumerated Posts and the sitemap disagree about which Posts exist;
  * - any fetched page answers with a status other than 200;
@@ -17,7 +17,8 @@
  * - any fetched page lacks the article-region marker;
  * - the bundle does not hold exactly one index per language present in the content.
  *
- * The preview server is stopped on success and on failure alike.
+ * The preview server is stopped on success and on failure alike. The language check runs after the
+ * bundle has been written, so a run that fails there leaves that bundle in place.
  *
  * Run it after the site build, because that build clears the output directory and the index lives
  * in it: `bun run build && bun run build:search`. See `bun run test:search` for the integration
