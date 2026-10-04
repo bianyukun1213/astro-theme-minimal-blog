@@ -44,7 +44,7 @@ Site search is served by the site itself, and a query never leaves it. The inter
 
 ### Building the index
 
-Posts render on demand (see [ADR-0002](docs/adr/0002-posts-render-on-demand.md)), so the site build produces no Post HTML, and an index of its output would hold no Posts. The index is instead built by crawling the built site (see [ADR-0001](docs/adr/0001-build-search-index-by-crawling.md)), which takes two commands, in this order:
+Posts render on demand (see [ADR-0002](docs/adr/0002-posts-render-on-demand.md)), so the site build produces no Post HTML, and an index of its output would hold no Posts: a build step that indexed that output anyway would find the listing and static pages, look as though it had succeeded, and leave search unable to return a single Post. The index is instead built by crawling the built site (see [ADR-0001](docs/adr/0001-build-search-index-by-crawling.md)), which takes two commands, in this order:
 
 ```sh
 bun run build
@@ -56,8 +56,6 @@ bun run build:search
 **The order is not a preference.** The site build clears its output directory, so it also destroys the index a previous `build:search` wrote; an index built before it is gone. `dist/` is not in version control, so a clean checkout has neither the site nor the index: with [Bun](https://bun.sh/) installed, `bun install`, then the two commands above, in that order.
 
 **Marker changes require an index rebuild; presentation changes do not.** Anything that decides what the indexer sees — a `data-pagefind-*` attribute, the article-region marker on a Post page, the `searchIndex` frontmatter field, or which Posts exist — reaches the index only once `bun run build:search` has run again. How results are *presented* — the result cards, the overlay's styling, Pagefind's `--pf-*` variables — is decided in the browser when a page renders, so it takes effect without touching the index.
-
-**`astro-pagefind` is deliberately not registered.** The package indexes the build output in its build hook, and that output holds no Post HTML: registered, it would write an index containing zero Posts and look as though it had succeeded, and an index that is wrong while looking right is the failure a maintainer cannot see. Nothing from the package is used — the site takes Pagefind itself and its component UI instead — so the integration must stay out of `astro.config.ts`.
 
 ### Checking search locally
 
