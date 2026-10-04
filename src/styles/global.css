@@ -112,6 +112,16 @@ html:root {
 	--pf-input-height: 2rem;
 }
 
+/* Pagefind lays the header's trigger out as an inline-block, so it sits on a text baseline and its
+ * line box holds a descender's worth of space under a control that has none. The header row centres
+ * that taller box rather than the control, which leaves the search box riding above the site title.
+ * The trigger is the row's whole content, so it is a block. Unlayered and one selector more than
+ * Pagefind's own rule, which is what it takes to win here: a utility class would be layered, and a
+ * layered declaration loses to Pagefind's unlayered one whatever its specificity. */
+header pagefind-modal-trigger {
+	display: block;
+}
+
 @layer base {
 	details {
 		@apply inline-block;
