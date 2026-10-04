@@ -14,9 +14,9 @@
 
 以下**在本仓库实际验证**，不是临时工程：`bun run build` 通过；完整测试套件（`bun run test:search`，它会跑一遍文档化的构建序列）通过；一篇含 Playground 的 Post 在 Cloudflare Workers 预览上返回 **200**，生成的 `files` 属性正确，且那个 620.7 KB 的 island chunk **没有** `modulepreload`。其活动文件的源码可通过构建出的 Site search 索引搜到。而在没有任何 Post 使用 Playground 时，构建产物里没有任何页面引用那个 chunk——这个功能在被使用之前不产生任何代价。
 
-有一项仍未验证：**island 在浏览器里是否真的水合并让预览运行起来**。服务端渲染、chunk 图、chunk 的响应（两者都是 200、`text/javascript`）以及搜索索引都查过了，但 agent 手边没有可用的浏览器，所以客户端水合与 CodeMirror 的渲染仍只能依赖上游自己的测试。不过代码的*执行*通路看起来是活的：在本文写作之日，被钉死的 bundler 主机 `https://2-19-8-sandpack.codesandbox.io/` 返回 **200**，静态服务回退地址同样如此——这是关于"今天"的证据，不是承诺。
+§3 的第 5 项——示例 Post——也做了，四个语种齐全，而且**它的译文根本不需要新写**：`c5d9bd8d` 当初删掉的正是四份本地化副本，从 `c5d9bd8d^` 恢复出来的文件与它们当年的 blob 逐字节一致（`23125634`、`6f99da95`、`5b3abd2a`、`ea0c5d87`），且今天的 schema 依然接受它们——此后 schema 的每一处改动都只是在放宽（`description` 与 `tags` 变为可选、`copyright` 有了默认值、增加了若干可选字段）。en-US 的正文与上游当前正文逐字节相同，所以这一半是"构造上即是上游对齐"，而不是靠翻译对齐。四个语种各自返回 200 且都只有一个 island，sitemap 列出四个 URL，索引也都覆盖到了。上游把指向该 Post 的那句话放在 `## 🔍 Reference` → `### Custom MDX components` 之下，而本 fork 的 README 没有这一节，因此那句话仍未移植。
 
-仍未完成：没有任何 Post 演示该组件，因此上游 README 里指向其示例 Post 的那句话没有移植，§3 的第 5 项仍未做。那句话在这里本来也无处安放：它位于上游 README 的 `## 🔍 Reference` → `### Custom MDX components` 之下，而本 fork 的 README 没有这一节。
+有一项仍未验证：**island 在浏览器里是否真的水合并让预览运行起来**。服务端渲染、chunk 图、chunk 的响应（两者都是 200、`text/javascript`）以及搜索索引都查过了，但 agent 手边没有可用的浏览器，所以客户端水合与 CodeMirror 的渲染仍只能依赖上游自己的测试。不过代码的*执行*通路看起来是活的：在本文写作之日，被钉死的 bundler 主机 `https://2-19-8-sandpack.codesandbox.io/` 返回 **200**，静态服务回退地址同样如此——这是关于"今天"的证据，不是承诺。
 
 ---
 

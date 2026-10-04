@@ -33,16 +33,22 @@ and **no** `modulepreload` for its 620.7 KB island chunk. Its active file's sour
 through the built Site search index. With no Playground authored, no built page references that chunk
 at all — the feature costs nothing until someone uses it.
 
+§3 item 5 — the example Post — was done too, in all four locales, and **its translations did not have
+to be written**: `c5d9bd8d` had deleted four localized copies, and restoring them from `c5d9bd8d^`
+produces files byte-identical to their old blobs (`23125634`, `6f99da95`, `5b3abd2a`, `ea0c5d87`)
+that today's schema still accepts — every schema change since only loosened it (`description` and
+`tags` optional, `copyright` defaulted, more optional fields). The en-US body is byte-identical to
+upstream's current body, so this half is upstream parity by construction rather than by translation.
+Each locale answers 200 with exactly one island, the sitemap lists all four URLs, and the index covers
+them. Upstream puts a pointer to that Post beneath `## 🔍 Reference` → `### Custom MDX components`, a
+section this fork's README does not have, so the pointer is still not ported.
+
 One claim below is still **not** verified: that the island hydrates and its preview actually runs in
 a browser. Server rendering, the chunk graph, the served chunks (both 200, `text/javascript`) and the
 search index were all checked, but no browser was available to the agent, so client-side hydration and
 CodeMirror's rendering rest on upstream's own testing. The bundled code's _execution_ path looks alive,
 though: the pinned bundler host `https://2-19-8-sandpack.codesandbox.io/` answered **200** when checked
 on this date, as did the static-server fallback — which is evidence about today, not a promise.
-
-Still open: no Post demonstrates the component, so upstream's README pointer to its example Post was
-not ported and §3 item 5 remains undone. That pointer has no home here anyway: it lives under
-upstream's `## 🔍 Reference` → `### Custom MDX components`, a section this fork's README does not have.
 
 ---
 
