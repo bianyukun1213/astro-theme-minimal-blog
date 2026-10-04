@@ -129,8 +129,7 @@ const components = {
 		noIndex={post.data.hidden || !post.data.searchIndex}
 	>
 		<meta name="twitter:label1" value={m.label_authors()} />
-		<!-- <meta name="twitter:data1" data-pagefind-meta="author" value={postAuthors.map((author) => author.name).join(',')} /> -->
-		<meta name="twitter:data1" value={postAuthors.map((author) => author.name).join(', ')} />
+		<meta name="twitter:data1" data-pagefind-meta="author" value={postAuthors.map((author) => author.name).join(', ')} />
 		<meta name="twitter:label2" value={m.label_tags()} />
 		<meta name="twitter:data2" value={tagNames.join(', ')} />
 		<meta name="article:published_time" content={datePublished} />
@@ -147,7 +146,7 @@ const components = {
 					(post.data.cover || post.data.image) && (
 						<>
 							<figure class="not-prose relative">
-								<img class="block w-full aspect-3/1 object-cover" src={post.data.cover || post.data.image} alt={post.data.coverAlt ?? ''} title={post.data.coverTitle} />
+								<img class="block w-full aspect-3/1 object-cover" data-pagefind-meta="image[src], image_alt[alt]" src={post.data.cover || post.data.image} alt={post.data.coverAlt ?? ''} title={post.data.coverTitle} />
 								{(post.data.coverTitle || post.data.coverCaption) && (
 									<figcaption class="absolute inset-e-0 bottom-0 max-w-full px-1 bg-bg text-text text-sm rounded-ss-md text-nowrap overflow-auto">
 										<ImageIcon class="inline-block align-middle w-4 ht-4" aria-hidden="true" />
@@ -166,7 +165,7 @@ const components = {
 			<Spacer axis="vertical" size={4} />
 			<div class="text-faded">
 				<div transition:name={`post-tags-${post.data.displayId}`}>
-					<span>{defaultDateFormat(post.data.date, currentLocale)} — </span><TagLinks slugs={post.data.tags} />
+					<span data-pagefind-meta="date">{defaultDateFormat(post.data.date, currentLocale)}</span><span> — </span><TagLinks slugs={post.data.tags} />
 				</div>
 				{copyright && <div>{copyright}</div>}
 				<div class="p-summary" transition:name={`post-description-${post.data.displayId}`}>{description}</div>
