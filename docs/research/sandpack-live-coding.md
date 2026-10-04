@@ -12,7 +12,9 @@ cost?
 this fork already carries every piece of infrastructure the feature needs (React integration,
 Sätteri processor, MDX components map, `tsconfig` JSX settings). I verified end to end that it
 works on this fork's exact stack, including the part upstream never had to face: a Post that
-renders **on demand on the Cloudflare Workers runtime**.
+renders **on demand on the Cloudflare Workers runtime**. That verification was incomplete as first
+written — it exercised `build` and `preview` but not `dev`, and the dev server needed one more
+config line than upstream ships. The Outcome block below says what was missed and why it mattered.
 
 What actually gates the decision is not engineering. It is that a Playground's _execution_ depends
 on a CodeSandbox-hosted bundler, in a repo whose other third-party surfaces are deliberately
@@ -43,10 +45,26 @@ mid-request, bundles it, and reloads the program underneath the request still be
 copy while the React _renderer_ comes from the prebundled `react-dom/server.edge`. Two React module
 instances, and `useState` reads a null dispatcher. Upstream's four entries cover only transitive
 CommonJS packages; naming `@codesandbox/sandpack-react` itself makes the optimizer bundle it at
-startup instead of at first use, and the cold first request then answers 200. Upstream never hits this
-because its dev server is not the Cloudflare adapter's and it renders no Post on demand — it is this
-fork's own dev-server shape that exposes it, which is precisely the class of difference §4 set out to
-test and did not.
+startup instead of at first use, and the cold first request then answers 200.
+
+**The cause is the adapter, not on-demand rendering** — the obvious reading, that upstream is safe
+because it "generates static pages", is wrong, and two runs settle it:
+
+- In **this** fork, a temporarily added **prerendered** page carrying the same island failed exactly
+  the same way: cold first request 500, second 200. Static generation is not the difference. Nor does
+  it remove the island's server render in dev, where Astro renders even prerendered routes per
+  request.
+- An **adapter-free** Astro project in upstream's shape, with upstream's own four entries and the fix
+  deliberately absent, answered **200** on the cold first request — and never created a
+  `node_modules/.vite/deps_ssr` cache at all, only `deps`. That is the difference in one line: the
+  Cloudflare adapter makes the dev server's SSR environment run on workerd, so Vite must _bundle_ its
+  dependencies (creating `deps_ssr`, with an edge-conditioned `react-dom/server.edge` beside the node
+  one) instead of externalizing them as it does for Node SSR. An externalized dependency graph has
+  nothing to re-bundle mid-request, so upstream has nothing to break.
+
+So this is a cost of rendering on demand **on an edge runtime** — the fork's own choice, and one §4
+declared as the axis to test while testing only the parts of it that `build` and `preview` exercise.
+The author had hit this once before: it is why the feature was removed in the first place (see §2).
 
 §3 item 5 — the example Post — was done too, in all four locales, and **its translations did not have
 to be written**: `c5d9bd8d` had deleted four localized copies, and restoring them from `c5d9bd8d^`
@@ -169,11 +187,17 @@ Sandpack", 2025-06-23) is an ancestor of `HEAD` — and left in **`c5d9bd8d` ("a
 - `@codesandbox/sandpack-react` and `@lekoarts/remark-sandpack` from `package.json`,
 - the `remarkSandpack` entry from the then-remark plugin list in `astro.config.ts`.
 
-There is **no recorded rationale** for the removal: no ADR under `docs/adr/`, no commit message
-about it (that commit's subject is "add copyright" and it also carries unrelated `base-test` URL
+Nothing in the repository records **why** it went: no ADR under `docs/adr/`, nothing in the commit
+message (that commit's subject is "add copyright" and it also carries unrelated `base-test` URL
 cleanup), and `git log -i --grep=sandpack` finds only the introduction. The README bullet was struck
-through separately in `7d492101` ("update readme"). Treat the removal as accidental-by-catch-all
-rather than as a decision anyone argued for.
+through separately in `7d492101` ("update readme").
+
+The author supplied the reason afterwards, and it is not the reason this note first assumed. It was
+**the dev-server failure described in the Outcome block**: on a cold `astro dev` the first request for
+a Post carrying a Playground answered 500 with React's `Invalid hook call`, which reads like a defect
+in Sandpack rather than in this fork's dev-server shape, so the feature went. Removing it inside an
+unrelated commit — with no ADR, and with prose in four locales left still advertising it — is what
+made the reason unrecoverable until now. That is the lesson here, more than the bug is.
 
 The fork's own Sätteri migration (`c1934feb`) then rebuilt the Markdown pipeline without the plugin,
 and the upstream merge (`0584158d`, merging `118cb687`) kept it out, so `astro.config.ts` today reads:

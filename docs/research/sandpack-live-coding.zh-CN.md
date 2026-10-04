@@ -6,7 +6,7 @@
 
 **问题。** 上游提供一个由 [Sandpack](https://sandpack.codesandbox.io/) 驱动的交互式 MDX 组件 `<Playground>`。本 fork 继承过它，之后又删掉了，README 现在给它划上了删除线。现在还能从上游把它重新引回来吗？代价是什么？
 
-**结论。** 能，而且改动很小——5 处文件改动，没有一处是结构性的——因为本 fork 已经具备这个功能所需的每一块基础设施（React 集成、Sätteri 处理器、MDX components map、`tsconfig` 的 JSX 设置）。我端到端验证了它在**本 fork 的确切技术栈**上可用，包括上游从不需要面对的那一环：**在 Cloudflare Workers 运行时按需渲染**的 Post。
+**结论。** 能，而且改动很小——5 处文件改动，没有一处是结构性的——因为本 fork 已经具备这个功能所需的每一块基础设施（React 集成、Sätteri 处理器、MDX components map、`tsconfig` 的 JSX 设置）。我端到端验证了它在**本 fork 的确切技术栈**上可用，包括上游从不需要面对的那一环：**在 Cloudflare Workers 运行时按需渲染**的 Post。最初的验证并不完整——它跑的是 `build` 与 `preview`，没跑 `dev`，而开发服务器比上游多需要一行配置。下面的「结果」一节说明了漏掉的是什么，以及它为何要紧。
 
 真正卡住决定的不是工程问题。而是：Playground 的*执行*依赖 CodeSandbox 托管的 bundler，而本仓库在其他地方的第三方接触面都是有意的自托管；以及每个用到它的 Post 要付出约 274 KB gzip 的客户端 JavaScript，而依赖本身最后一次发版是 2025-04-29。这两件都是产品决策，§5 把它们摆出来，而不是替你决定。
 
@@ -14,7 +14,14 @@
 
 以下**在本仓库实际验证**，不是临时工程：`bun run build` 通过；完整测试套件（`bun run test:search`，它会跑一遍文档化的构建序列）通过；一篇含 Playground 的 Post 在 Cloudflare Workers 预览上返回 **200**，生成的 `files` 属性正确，且那个 620.7 KB 的 island chunk **没有** `modulepreload`。其活动文件的源码可通过构建出的 Site search 索引搜到。而在没有任何 Post 使用 Playground 时，构建产物里没有任何页面引用那个 chunk——这个功能在被使用之前不产生任何代价。
 
-**开发服务器需要第 5 个条目，而发现这一点的代价是一次 500。** `build` 与 `preview` 从不受影响，所以直到有人跑 `astro dev` 才暴露出来：在冷启动的开发服务器上，对一篇含 Playground 的 Post 的**第一次**请求会以 React 的 `Invalid hook call` 返回 **500**，第二次才 200。原因是 Vite 的 SSR 优化器在请求进行中才发现 `@codesandbox/sandpack-react`，把它打包，并在仍在服务的那个请求底下重载整个程序——日志里就是 `optimized dependencies changed. reloading`——于是 `Sandpack` 来自 `node_modules` 里的原始副本，而 React **渲染器**来自预打包的 `react-dom/server.edge`。两个 React 模块实例，`useState` 读到的 dispatcher 是 null。上游那四个条目只覆盖传递性的 CommonJS 包；把 `@codesandbox/sandpack-react` 自身也点出来，优化器就会在启动时而非首次使用时打包它，冷启动的第一次请求随即返回 200。上游遇不到这个问题，因为它的开发服务器不是 Cloudflare adapter 的，而且它没有任何 Post 按需渲染——正是本 fork 自己的开发服务器形态把它暴露出来，而这恰好属于 §4 声称要测、却没测到的那一类差异。
+**开发服务器需要第 5 个条目，而发现这一点的代价是一次 500。** `build` 与 `preview` 从不受影响，所以直到有人跑 `astro dev` 才暴露出来：在冷启动的开发服务器上，对一篇含 Playground 的 Post 的**第一次**请求会以 React 的 `Invalid hook call` 返回 **500**，第二次才 200。原因是 Vite 的 SSR 优化器在请求进行中才发现 `@codesandbox/sandpack-react`，把它打包，并在仍在服务的那个请求底下重载整个程序——日志里就是 `optimized dependencies changed. reloading`——于是 `Sandpack` 来自 `node_modules` 里的原始副本，而 React **渲染器**来自预打包的 `react-dom/server.edge`。两个 React 模块实例，`useState` 读到的 dispatcher 是 null。上游那四个条目只覆盖传递性的 CommonJS 包；把 `@codesandbox/sandpack-react` 自身也点出来，优化器就会在启动时而非首次使用时打包它，冷启动的第一次请求随即返回 200。
+
+**成因是 adapter，而不是按需渲染。** 最直觉的读法——上游之所以没事，是因为它"生成静态页面"——是**错的**，两次实验足以定案：
+
+- 在**本** fork 里临时加一个**预渲染**页面、承载同一个 island，失败方式完全相同：冷启动第一次请求 500，第二次 200。静态生成不是差异所在；而且它也不会让 island 在 dev 中免于服务端渲染——dev 里连预渲染路由也是按请求渲染的。
+- 一个**不带 adapter**、形状与上游相同的 Astro 工程，只保留上游那四个条目、并且**故意不加**修复项，冷启动第一次请求返回 **200**——而且它压根没有创建 `node_modules/.vite/deps_ssr`，只有 `deps`。一行就能说清差异：Cloudflare adapter 让开发服务器的 SSR 环境跑在 workerd 上，于是 Vite 必须**打包**它的依赖（因而产生 `deps_ssr`，其中 node 版 `react-dom/server` 旁边还多出一个 edge 条件的 `react-dom/server.edge`），而不是像 Node SSR 那样把依赖外部化。被外部化的依赖图没有东西可以在请求中途重新打包，所以上游也没有东西可坏。
+
+所以这是**在边缘运行时上按需渲染**的代价——本 fork 自己的选择，也正是 §4 声称要检验的那条轴，只不过当时只验了 `build` 与 `preview` 能走到的那部分。作者此前已经撞过一次：这个功能当初被删掉就是因为它（见 §2）。
 
 §3 的第 5 项——示例 Post——也做了，四个语种齐全，而且**它的译文根本不需要新写**：`c5d9bd8d` 当初删掉的正是四份本地化副本，从 `c5d9bd8d^` 恢复出来的文件与它们当年的 blob 逐字节一致（`23125634`、`6f99da95`、`5b3abd2a`、`ea0c5d87`），且今天的 schema 依然接受它们——此后 schema 的每一处改动都只是在放宽（`description` 与 `tags` 变为可选、`copyright` 有了默认值、增加了若干可选字段）。en-US 的正文与上游当前正文逐字节相同，所以这一半是"构造上即是上游对齐"，而不是靠翻译对齐。四个语种各自返回 200 且都只有一个 island，sitemap 列出四个 URL，索引也都覆盖到了。上游把指向该 Post 的那句话放在 `## 🔍 Reference` → `### Custom MDX components` 之下，而本 fork 的 README 没有这一节，因此那句话仍未移植。
 
@@ -100,7 +107,9 @@ MDX 里的 `<Playground>` **没有 `import`**；它通过 components map 解析�
 - `package.json` 里的 `@codesandbox/sandpack-react` 与 `@lekoarts/remark-sandpack`；
 - `astro.config.ts` 中当时那套 remark 插件列表里的 `remarkSandpack` 条目。
 
-这次删除**没有任何记录在案的理由**：`docs/adr/` 下没有 ADR，提交信息里也没提（那个提交的标题是 "add copyright"，同时还夹带了无关的 `base-test` URL 清理），而 `git log -i --grep=sandpack` 只能找到引入那一次。README 的删除线是后来在 `7d492101`（"update readme"）里单独划上的。请把这次移除当作"顺手清理"的副作用，而不是有人论证过的决定。
+仓库里**没有任何地方记录它为什么被删**：`docs/adr/` 下没有 ADR，提交信息里也没提（那个提交的标题是 "add copyright"，同时还夹带了无关的 `base-test` URL 清理），而 `git log -i --grep=sandpack` 只能找到引入那一次。README 的删除线是后来在 `7d492101`（"update readme"）里单独划上的。
+
+作者事后给出了原因，而且**不是本笔记最初以为的那个**：正是「结果」一节描述的那次**开发服务器故障**——冷启动的 `astro dev` 上，第一次请求含 Playground 的 Post 会以 React 的 `Invalid hook call` 返回 500。它看起来像 Sandpack 自身的缺陷，而不像本 fork 开发服务器形态的问题，于是这个功能被拿掉了。把它塞进一个无关提交里删掉、不留 ADR、还让四个语种的正文继续宣传它——这才使得原因直到现在都无从恢复。比起那个 bug 本身，这才是真正值得记取的教训。
 
 本 fork 自己的 Sätteri 迁移（`c1934feb`）随后在不含该插件的前提下重建了 Markdown 流水线，上游合并（`0584158d`，合并 `118cb687`）也让它继续留在外面，于是 `astro.config.ts` 今天是：
 
