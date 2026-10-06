@@ -27,7 +27,8 @@ const nextHref = nextPost ? getPostPath(nextPost.data.displayId, currentLocale) 
 				aria-label={m.label_post_navigation()}
 				class={cn('flex flex-wrap items-center justify-between gap-4', className)}
 			>
-				<div class="min-w-16 me-auto text-start">
+				<!-- 添加 empty:hidden 以消除单个链接在小屏幕下上方或下方的空白 -->
+				<div class="min-w-16 me-auto text-start empty:hidden">
 					{previousPost && (
 						<>
 							<ChevronLeft class="inline-block align-middle ltr:scale-x-100 rtl:-scale-x-100" aria-hidden="true" />
@@ -37,7 +38,7 @@ const nextHref = nextPost ? getPostPath(nextPost.data.displayId, currentLocale) 
 						</>
 					)}
 				</div>
-				<div class="min-w-16 ms-auto text-end">
+				<div class="min-w-16 ms-auto text-end empty:hidden">
 					{nextPost && (
 						<>
 							<Link class="align-middle me-1" href={nextHref}>
