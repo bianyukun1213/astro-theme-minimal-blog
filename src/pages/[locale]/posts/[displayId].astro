@@ -93,6 +93,8 @@ const jsonLd = {
 			: new URL(`${removeTrailingSlash(base)}${validImage}`, SITE.url),
 	],
 }
+const pagefindBody: DOMStringMap = {}
+if (post.data.searchIndex) pagefindBody['data-pagefind-body'] = ''
 const { Content } = await render(post)
 
 const sortedLocalePosts = sortSticky(sortAsc(getPostsByLocale(allPosts, currentLocale)))
@@ -142,7 +144,7 @@ const components = {
 		<PostNavigation class="-mt-4 sm:mt-0" previousPost={previousPost} nextPost={nextPost} />
 		<Spacer class="sm:hidden" axis="vertical" size={4} />
 		<Spacer class="hidden sm:block" axis="vertical" size={8} />
-		<Prose class="h-entry" data-pagefind-body="">
+		<Prose class="h-entry" {...pagefindBody}>
 			<div transition:name={`post-title-${post.data.displayId}`}>
 				{
 					(post.data.cover || post.data.image) && (
