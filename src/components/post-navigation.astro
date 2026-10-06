@@ -27,7 +27,7 @@ const nextHref = nextPost ? getPostPath(nextPost.data.displayId, currentLocale) 
 				aria-label={m.label_post_navigation()}
 				class={cn('flex flex-wrap items-center justify-between gap-4', className)}
 			>
-				<!-- 添加 empty:hidden 以消除单个链接在小屏幕下上方或下方的空白 -->
+				<!-- 添加 empty:hidden 以消除单个链接在非常小的屏幕下上方或下方的空白 -->
 				<div class="min-w-16 me-auto text-start empty:hidden">
 					{previousPost && (
 						<>
