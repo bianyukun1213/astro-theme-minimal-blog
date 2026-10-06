@@ -14,7 +14,7 @@ This is a fork of [the original project](https://github.com/LekoArts/astro-theme
 - RSS, Sitemap
 - Light/Dark/System color mode toggle
 - Add tags to your blog Posts
-- [Pagefind](https://pagefind.app/) search over the site's own Posts, served by the site itself (see [Search](#-search))
+- [Pagefind](https://pagefind.app/) search over the site's own Posts and Pages, served by the site itself (see [Search](#-search))
 
 ## ✨ Newly added features
 
@@ -51,11 +51,11 @@ bun run build
 bun run build:search
 ```
 
-`build:search` enumerates the Posts and cross-checks them against the built sitemap, then starts the built preview server on a port of its own choosing, waits for it to answer, fetches each Post over HTTP **without credentials**, hands each response body to Pagefind's Node API keyed by that Post's site-relative path, and writes the bundle to `dist/client/pagefind/`. It prints how many pages it indexed and in which languages, and every Post it excluded with a reason. On any condition that would make the index wrong it exits non-zero rather than report a success it cannot vouch for: when the enumerated Posts and the sitemap disagree, when a Post answers with a status other than 200, when a fetched page lacks the article-region marker, when a fetched page contains the marker the Protected component emits only for an unlocked body, or when the bundle does not hold exactly one index per language present in the content. The preview server is stopped on success and on failure alike. A run that fails after the bundle has been written — the language check is the last thing it does — leaves that bundle in place.
+`build:search` starts the built preview server on a port of its own choosing, waits for it to answer, and crawls every URL in its plan: the Posts, enumerated from the content tree and cross-checked against the built sitemap, plus the Pages, which are every other URL the sitemap lists (see [ADR-0004](docs/adr/0004-site-search-indexes-opted-in-pages.md)). Each URL is fetched over HTTP **without credentials**, and its response body is handed to Pagefind's Node API keyed by that URL's site-relative path, which writes the bundle to `dist/client/pagefind/`. A Page is indexed only when its HTML carries the article-region marker, the same marker a Post is required to carry; one that lacks it is reported as skipped rather than indexed, so the listing Pages never answer for the Posts they link to. It prints how many pages it indexed and in which languages, every Post it excluded with a reason, and every Page it skipped with one. On any condition that would make the index wrong it exits non-zero rather than report a success it cannot vouch for: when the enumerated Posts and the sitemap disagree, when a crawled URL answers with a status other than 200, when a Post lacks the article-region marker, when a crawled URL contains the marker the Protected component emits only for an unlocked body, or when the bundle does not hold exactly one index per language the crawl indexed. The preview server is stopped on success and on failure alike. A run that fails after the bundle has been written — the language check is the last thing it does — leaves that bundle in place.
 
 **The order is not a preference.** The site build clears its output directory, so it also destroys the index a previous `build:search` wrote; an index built before it is gone. `dist/` is not in version control, so a clean checkout has neither the site nor the index: with [Bun](https://bun.sh/) installed, `bun install`, then the two commands above, in that order.
 
-**Marker changes require an index rebuild; presentation changes do not.** Anything that decides what the indexer sees — a `data-pagefind-*` attribute, the article-region marker on a Post page, the `searchIndex` frontmatter field, or which Posts exist — reaches the index only once `bun run build:search` has run again. How results are *presented* — the result cards, the overlay's styling, Pagefind's `--pf-*` variables — is decided in the browser when a page renders, so it takes effect without touching the index.
+**Marker changes require an index rebuild; presentation changes do not.** Anything that decides what the indexer sees — a `data-pagefind-*` attribute, the article-region marker on a Post or a Page, the `searchIndex` field on a Post or the `searchIndex` prop on a Page, or which Posts and Pages exist — reaches the index only once `bun run build:search` has run again. How results are *presented* — the result cards, the overlay's styling, Pagefind's `--pf-*` variables — is decided in the browser when a page renders, so it takes effect without touching the index.
 
 ### Checking search locally
 
@@ -67,12 +67,14 @@ bun run dev
 
 The dev server renders from source, so it never builds an index itself, and the bundle it serves is the one the last `build:search` wrote.
 
-The integration test runs the documented sequence and asserts on what it produces — the sitemap's Post URLs, the bundle's per-language page counts, the robots file, and the exclusions the run reports — so run it after changing anything the index depends on:
+The integration test runs the documented sequence and asserts on what it produces — the sitemap's Post URLs, the bundle's per-language page counts, the Pages the run indexed and skipped, the robots file, and the exclusions the run reports — so run it after changing anything the index depends on:
 
 ```sh
 bun run test:search
 ```
 
-### Keeping a Post out of search
+### Keeping a Post or a Page out of search
 
-Publishing a Post is enough to make it searchable. `searchIndex: false` in its frontmatter takes it out of every index — Site search, External search via a `noindex` robots meta tag, and the sitemap — while leaving it listed and browsable (see [ADR-0003](docs/adr/0003-searchindex-controls-every-index.md)). A Draft reaches neither the published site nor any index, and a Hidden Post stays reachable at its own URL but is absent from listings, the feed, the sitemap and search. The [glossary](GLOSSARY.md) pins these terms down.
+Publishing a Post is enough to make it searchable. `searchIndex: false` in its frontmatter takes it out of every index — Site search, External search via a `noindex` robots meta tag, and the sitemap — while leaving it listed and browsable (see [ADR-0003](docs/adr/0003-searchindex-controls-every-index.md)). A Draft reaches neither the published site nor any index, and a Hidden Post stays reachable at its own URL but is absent from listings, the feed, the sitemap and search.
+
+A Page carries the same field as the `searchIndex` prop of the [Page layout](src/layouts/page.astro), and it defaults to `true`: the layout adds the article-region marker and withholds the `noindex` meta tag, which is all the opt-in a Page needs. A Page that never opts in — every listing Page, for instance — is absent from every index and reported as skipped by `build:search`. The [glossary](GLOSSARY.md) pins these terms down.

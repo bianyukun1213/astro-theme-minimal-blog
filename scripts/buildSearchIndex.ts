@@ -5,17 +5,26 @@
  * holds no Post HTML and Pagefind's ordinary approach — index `dist/client` — would find plenty of
  * listing and static pages and zero Posts (see `docs/adr/0001-build-search-index-by-crawling.md`).
  * This command therefore starts the built preview server on a port of its own choosing, waits for
- * it to answer, enumerates the Posts, fetches each one over HTTP *without credentials*, and hands
- * each response body to Pagefind's Node API keyed by that Post's URL.
+ * it to answer, and hands the built HTML of every URL in its crawl plan to Pagefind's Node API,
+ * keyed by that URL's site-relative path. Each one is fetched over HTTP *without credentials*, so a
+ * gated body never reaches the crawler.
+ *
+ * The crawl plan is the enumerated Posts, plus the Pages: every other URL the built sitemap lists.
+ * A Page is indexed only when its built HTML carries the article-region marker, which is how a Page
+ * opts in (see `docs/adr/0004-site-search-indexes-opted-in-pages.md`); one that lacks the marker is
+ * reported as skipped. Handing such a Page to Pagefind anyway would index its whole body —
+ * navigation and footer included — and a listing Page would then answer for Posts it merely links
+ * to.
  *
  * It aborts, rather than report a success it cannot vouch for, when:
  *
  * - the enumerated Posts and the sitemap disagree about which Posts exist;
- * - any fetched page answers with a status other than 200;
- * - any fetched page contains the marker the Protected component emits only when it rendered a
+ * - any crawled URL answers with a status other than 200;
+ * - any crawled URL contains the marker the Protected component emits only when it rendered a
  *   gated body unlocked;
- * - any fetched page lacks the article-region marker;
- * - the bundle does not hold exactly one index per language present in the content.
+ * - a Post's built HTML lacks the article-region marker, so an indexer would read the whole page
+ *   instead of the article region;
+ * - the bundle does not hold exactly one index per language the crawl indexed.
  *
  * The preview server is stopped on success and on failure alike. The language check runs after the
  * bundle has been written, so a run that fails there leaves that bundle in place.
@@ -27,6 +36,7 @@
 
 import type { ChildProcess } from 'node:child_process'
 import type { PagefindIndex } from 'pagefind'
+import type { Locale } from '../src/paraglide/runtime'
 import type { ExcludedPost, IndexablePost } from '../src/postEnumeration'
 import { spawn, spawnSync } from 'node:child_process'
 import { existsSync, readFileSync } from 'node:fs'
@@ -81,6 +91,54 @@ const POST_URL_PATTERN = new RegExp(
 type LanguagePageCounts = Map<string, number>
 
 /**
+ * Whether a crawled URL is a Post or a Page. A Post belongs in every index by default; a Page has
+ * to opt in.
+ */
+type CrawlKind = 'post' | 'page'
+
+/**
+ * A URL the crawl will fetch and hand to Pagefind.
+ */
+interface CrawlTarget {
+	/** The URL's site-relative path, spelled as the site addresses it. */
+	path: string
+	/** The locale the URL is published in, and so the language index it must land in. */
+	locale: Locale
+	/** Whether the URL is a Post or a Page. */
+	kind: CrawlKind
+}
+
+/**
+ * A Page candidate the crawl left out, and why.
+ */
+interface SkippedPage {
+	/** The Page's site-relative path. */
+	path: string
+	/** Why the Page is in no index. */
+	reason: 'no article region' | 'no locale'
+}
+
+/**
+ * What the crawl will fetch, and the Page candidates that were out of scope before fetching began.
+ */
+interface CrawlPlan {
+	/** The URLs to fetch. */
+	targets: CrawlTarget[]
+	/** The Page candidates that name no locale, so no language index could hold them. */
+	skipped: SkippedPage[]
+}
+
+/**
+ * What a completed crawl produced.
+ */
+interface IndexBuildResult {
+	/** The page count per language the bundle holds. */
+	pageCounts: LanguagePageCounts
+	/** The Page candidates that were fetched and left out of the index. */
+	skipped: SkippedPage[]
+}
+
+/**
  * The `pagefind-entry.json` bundle file, narrowed to what this command reads from it.
  */
 interface PagefindEntry {
@@ -102,21 +160,23 @@ catch (error) {
 
 async function main(): Promise<void> {
 	const { indexable, excluded } = enumeratePosts()
-	assertSitemapAgreesWith(indexable)
+	const sitemapUrls = readSitemapUrls()
+	assertSitemapAgreesWith(indexable, sitemapUrls)
+	const { targets, skipped } = planCrawl(indexable, sitemapUrls)
 
 	const port = await findFreePort()
-	console.log(`Crawling ${pluralize(indexable.length, 'Post')} from the built preview server on http://${PREVIEW_HOST}:${port}/`)
-	const pageCounts = await buildIndex(indexable, port)
-	printSummary(pageCounts, excluded)
+	console.log(`Crawling ${pluralize(targets.length, 'URL')} from the built preview server on http://${PREVIEW_HOST}:${port}/`)
+	const crawl = await buildIndex(targets, port)
+	printSummary(crawl.pageCounts, excluded, [...skipped, ...crawl.skipped].sort((left, right) => left.path.localeCompare(right.path)))
 }
 
 /**
- * Crawls every Post, hands it to Pagefind and writes the bundle.
- * @param indexable The Posts to index.
+ * Crawls every URL in the plan, hands each one to Pagefind and writes the bundle.
+ * @param targets The URLs to crawl.
  * @param port The port the preview server answers on.
- * @returns The page count per language the bundle holds.
+ * @returns The page count per language the bundle holds, and the Pages the crawl left out.
  */
-async function buildIndex(indexable: IndexablePost[], port: number): Promise<LanguagePageCounts> {
+async function buildIndex(targets: CrawlTarget[], port: number): Promise<IndexBuildResult> {
 	const server = startPreviewServer(port)
 	try {
 		await server.waitUntilReady()
@@ -125,10 +185,17 @@ async function buildIndex(indexable: IndexablePost[], port: number): Promise<Lan
 			throw new IndexBuildError(`Pagefind refused to create an index: ${errors.join('; ')}`)
 		}
 		try {
-			for (const post of indexable) {
-				await addPostToIndex(index, post, port)
+			const indexed: CrawlTarget[] = []
+			const skipped: SkippedPage[] = []
+			for (const target of targets) {
+				if (await addToIndex(index, target, port)) {
+					indexed.push(target)
+				}
+				else {
+					skipped.push({ path: target.path, reason: 'no article region' })
+				}
 			}
-			return await writeBundle(index, indexable)
+			return { pageCounts: await writeBundle(index, indexed), skipped }
 		}
 		finally {
 			await index.deleteIndex()
@@ -141,64 +208,73 @@ async function buildIndex(indexable: IndexablePost[], port: number): Promise<Lan
 }
 
 /**
- * Fetches a Post the way an anonymous visitor would, and refuses anything that would make the
- * index wrong.
- * @param post The Post to fetch.
+ * Fetches a URL the way an anonymous visitor would, and refuses anything that would make the index
+ * wrong.
+ * @param target The URL to fetch.
  * @param port The port the preview server answers on.
  * @returns The response body.
  */
-async function fetchPost(post: IndexablePost, port: number): Promise<string> {
+async function fetchTarget(target: CrawlTarget, port: number): Promise<string> {
 	let response: Response
 	try {
-		response = await fetch(`http://${PREVIEW_HOST}:${port}${post.path}`, {
+		response = await fetch(`http://${PREVIEW_HOST}:${port}${target.path}`, {
 			// The credential-free fetch is the only thing keeping a Protected Post's body out of the
 			// index, so it is stated here rather than left to the default.
 			credentials: 'omit',
-			// A Post's URL must be served as spelled; a redirect would index a second spelling of it.
+			// A URL must be served as spelled; a redirect would index a second spelling of it.
 			redirect: 'manual',
 			signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
 		})
 	}
 	catch (error) {
-		throw new IndexBuildError(`${post.path} could not be fetched: ${(error as Error).message}`)
+		throw new IndexBuildError(`${target.path} could not be fetched: ${(error as Error).message}`)
 	}
 	if (response.status !== 200) {
-		throw new IndexBuildError(`${post.path} answered ${response.status} ${response.statusText}; every Post must answer 200.`)
+		throw new IndexBuildError(`${target.path} answered ${response.status} ${response.statusText}; every crawled URL must answer 200.`)
 	}
 	const content = await response.text()
 	if (content.includes(UNLOCKED_PROTECTED_MARKER)) {
-		throw new IndexBuildError(`${post.path} contains ${UNLOCKED_PROTECTED_MARKER}, so gated content reached the crawler unlocked. Refusing to index it.`)
-	}
-	if (!content.includes(ARTICLE_REGION_MARKER)) {
-		throw new IndexBuildError(`${post.path} does not contain ${ARTICLE_REGION_MARKER}, so an indexer would read the whole page instead of the article region. Refusing to index it.`)
+		throw new IndexBuildError(`${target.path} contains ${UNLOCKED_PROTECTED_MARKER}, so gated content reached the crawler unlocked. Refusing to index it.`)
 	}
 	return content
 }
 
 /**
- * Hands one fetched Post to Pagefind, keyed by the Post's site-relative path.
- * @param index The index to add the Post to.
- * @param post The Post to add.
+ * Hands one crawled URL to Pagefind, keyed by its site-relative path.
+ *
+ * The article-region marker is a requirement for a Post and an opt-in for a Page: a Post without it
+ * means an indexer would read the whole page, while a Page without it simply never asked to be
+ * indexed.
+ * @param index The index to add the URL to.
+ * @param target The URL to add.
  * @param port The port the preview server answers on.
+ * @returns Whether the URL was indexed.
  */
-async function addPostToIndex(index: PagefindIndex, post: IndexablePost, port: number): Promise<void> {
-	const content = await fetchPost(post, port)
-	const { errors, file } = await index.addHTMLFile({ url: post.path, content })
+async function addToIndex(index: PagefindIndex, target: CrawlTarget, port: number): Promise<boolean> {
+	const content = await fetchTarget(target, port)
+	if (!content.includes(ARTICLE_REGION_MARKER)) {
+		if (target.kind === 'post') {
+			throw new IndexBuildError(`${target.path} is a Post but does not contain ${ARTICLE_REGION_MARKER}, so an indexer would read the whole page instead of the article region. Refusing to index it.`)
+		}
+		return false
+	}
+	const { errors, file } = await index.addHTMLFile({ url: target.path, content })
 	if (errors.length > 0) {
-		throw new IndexBuildError(`Pagefind could not index ${post.path}: ${errors.join('; ')}`)
+		throw new IndexBuildError(`Pagefind could not index ${target.path}: ${errors.join('; ')}`)
 	}
-	if (file.url !== post.path) {
-		console.warn(`Warning: Pagefind recorded "${file.url}" for ${post.path}; results will link to what it recorded.`)
+	if (file.url !== target.path) {
+		console.warn(`Warning: Pagefind recorded "${file.url}" for ${target.path}; results will link to what it recorded.`)
 	}
+	return true
 }
 
 /**
  * Writes the bundle into the client output and reads back what it holds.
  * @param index The index to write.
- * @param indexable The Posts that were added to it.
+ * @param indexed The URLs that were added to it.
  * @returns The page count per language the bundle holds.
  */
-async function writeBundle(index: PagefindIndex, indexable: IndexablePost[]): Promise<LanguagePageCounts> {
+async function writeBundle(index: PagefindIndex, indexed: CrawlTarget[]): Promise<LanguagePageCounts> {
 	const { errors } = await index.writeFiles({ outputPath: BUNDLE_DIRECTORY })
 	if (errors.length > 0) {
 		throw new IndexBuildError(`Pagefind could not write the index: ${errors.join('; ')}`)
@@ -206,9 +282,9 @@ async function writeBundle(index: PagefindIndex, indexable: IndexablePost[]): Pr
 	const entry = readBundleEntry()
 	const pageCounts = new Map(Object.entries(entry.languages ?? {}).map(([language, info]) => [language, info.page_count ?? 0]))
 	const actualLanguages = [...pageCounts.keys()].sort()
-	const expectedLanguages = [...new Set(indexable.map(post => post.locale.toLowerCase()))].sort()
+	const expectedLanguages = [...new Set(indexed.map(target => target.locale.toLowerCase()))].sort()
 	if (actualLanguages.join() !== expectedLanguages.join()) {
-		throw new IndexBuildError(`The bundle holds an index for ${actualLanguages.join(', ') || 'no language'}, but the content holds ${expectedLanguages.join(', ')}. Every Post must land in its own language's index, and nowhere else.`)
+		throw new IndexBuildError(`The bundle holds an index for ${actualLanguages.join(', ') || 'no language'}, but the crawl indexed ${expectedLanguages.join(', ') || 'no language'}. Every crawled URL must land in its own language's index, and nowhere else.`)
 	}
 	return pageCounts
 }
@@ -228,12 +304,13 @@ function readBundleEntry(): PagefindEntry {
 /**
  * Refuses to build an index for a set of Posts the sitemap does not agree with.
  * @param indexable The enumerated Posts.
+ * @param sitemapUrls Every URL the built sitemap lists.
  */
-function assertSitemapAgreesWith(indexable: IndexablePost[]): void {
-	const sitemapUrls = new Set(readSitemapUrls().filter(url => POST_URL_PATTERN.test(url)))
+function assertSitemapAgreesWith(indexable: IndexablePost[], sitemapUrls: string[]): void {
+	const sitemapPostUrls = new Set(sitemapUrls.filter(url => POST_URL_PATTERN.test(url)))
 	const enumeratedUrls = new Set(indexable.map(post => post.url))
-	const missing = [...enumeratedUrls].filter(url => !sitemapUrls.has(url))
-	const unexpected = [...sitemapUrls].filter(url => !enumeratedUrls.has(url))
+	const missing = [...enumeratedUrls].filter(url => !sitemapPostUrls.has(url))
+	const unexpected = [...sitemapPostUrls].filter(url => !enumeratedUrls.has(url))
 	if (missing.length === 0 && unexpected.length === 0) {
 		return
 	}
@@ -255,6 +332,49 @@ function readSitemapUrls(): string[] {
 	}
 	const shards = readLocElements(readFileSync(indexPath, 'utf8')).map(loc => basename(new URL(loc).pathname))
 	return shards.flatMap(shard => readLocElements(readFileSync(join(CLIENT_DIRECTORY, shard), 'utf8')))
+}
+
+/**
+ * Decides what the crawl will fetch.
+ *
+ * Every enumerated Post is fetched, because a Post belongs in every index unless its frontmatter
+ * says otherwise. The Pages are every other URL the sitemap lists: that the Page exists is the
+ * sitemap's to declare, while whether it is indexed is decided by the marker in its built HTML, so
+ * a Page is planned here and judged when it is fetched.
+ * @param indexable The enumerated Posts.
+ * @param sitemapUrls Every URL the built sitemap lists.
+ * @returns The URLs to fetch, and the Page candidates that name no locale.
+ */
+function planCrawl(indexable: IndexablePost[], sitemapUrls: string[]): CrawlPlan {
+	const targets: CrawlTarget[] = indexable.map(post => ({ path: post.path, locale: post.locale, kind: 'post' }))
+	const skipped: SkippedPage[] = []
+	for (const url of sitemapUrls) {
+		// The Post URLs the sitemap lists were just checked against the enumerated Posts.
+		if (POST_URL_PATTERN.test(url)) {
+			continue
+		}
+		const path = new URL(url).pathname
+		const locale = getLocaleFromPath(path)
+		if (locale === null) {
+			skipped.push({ path, reason: 'no locale' })
+			continue
+		}
+		targets.push({ path, locale, kind: 'page' })
+	}
+	return { targets, skipped }
+}
+
+/**
+ * Reads a Page's locale off its path, which is where the site spells it: a prerendered Page is
+ * addressed as `{base}/{locale}/...`, the same shape `buildPostPath` gives a Post.
+ * @param path The Page's site-relative path.
+ * @returns The locale the path names, or `null` when it names none.
+ */
+function getLocaleFromPath(path: string): Locale | null {
+	const base = SITE.base.replace(/\/+$/, '')
+	const withoutBase = path.startsWith(base) ? path.slice(base.length) : path
+	const firstSegment = withoutBase.replace(/^\/+/, '').split('/')[0]
+	return LOCALES.find(locale => locale.toLowerCase() === firstSegment.toLowerCase()) ?? null
 }
 
 /**
@@ -415,8 +535,9 @@ async function findFreePort(): Promise<number> {
  * Prints what was indexed and what was left out.
  * @param pageCounts The page count per language the bundle holds.
  * @param excluded The Posts that were left out of every index, with a reason each.
+ * @param skipped The Page candidates the index does not cover, with a reason each.
  */
-function printSummary(pageCounts: LanguagePageCounts, excluded: ExcludedPost[]): void {
+function printSummary(pageCounts: LanguagePageCounts, excluded: ExcludedPost[], skipped: SkippedPage[]): void {
 	const counts = [...pageCounts].sort(([left], [right]) => left.localeCompare(right))
 	const total = counts.reduce((sum, [, pageCount]) => sum + pageCount, 0)
 	console.log('')
@@ -428,11 +549,22 @@ function printSummary(pageCounts: LanguagePageCounts, excluded: ExcludedPost[]):
 	console.log('')
 	if (excluded.length === 0) {
 		console.log('Excluded Posts: none.')
-		return
 	}
-	console.log(`Excluded ${pluralize(excluded.length, 'Post')} from every index:`)
-	for (const post of excluded) {
-		console.log(`  - ${post.displayId} (${post.locale}): ${post.reason} [${toPosixPath(relative(PROJECT_ROOT, post.sourcePath))}]`)
+	else {
+		console.log(`Excluded ${pluralize(excluded.length, 'Post')} from every index:`)
+		for (const post of excluded) {
+			console.log(`  - ${post.displayId} (${post.locale}): ${post.reason} [${toPosixPath(relative(PROJECT_ROOT, post.sourcePath))}]`)
+		}
+	}
+	console.log('')
+	if (skipped.length === 0) {
+		console.log('Skipped Pages: none.')
+	}
+	else {
+		console.log(`Skipped ${pluralize(skipped.length, 'Page')} the index does not cover:`)
+		for (const page of skipped) {
+			console.log(`  - ${page.path}: ${page.reason}`)
+		}
 	}
 }
 
