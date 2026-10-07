@@ -58,7 +58,9 @@ const tideMeta: TideMeta = { breakpoints }
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={m.site_favicon()} />
 		{Array.isArray(SITE.relMe) ? SITE.relMe.map((rel) => <link rel="me" href={rel} />) : null}
+		{SITE.relIndieAuthMetadata && <link rel="indieauth-metadata" href={SITE.relIndieAuthMetadata} />}
 		{SITE.relAuthEndpoint && <link rel="authorization_endpoint" href={SITE.relAuthEndpoint} />}
+		{SITE.relTokenEndpoint && <link rel="token_endpoint" href={SITE.relTokenEndpoint} />}
 		{SITE.relWebmention && <link rel="webmention" href={SITE.relWebmention} />}
 		<meta name="generator" content={Astro.generator} />
 		<Font cssVariable={localeFonts.default.cssVariable} preload={localeFonts.default.preload} />

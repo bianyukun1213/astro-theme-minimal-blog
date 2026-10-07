@@ -47,7 +47,9 @@ export const SITE: Record<string, any> = {
 	 */
 	base: '',
 	relMe: ['mailto:bianyukun1213@outlook.com', 'https://yukun.bio/', 'https://github.com/bianyukun1213'],
+	relIndieAuthMetadata: '', // For https://indiekey.id/
 	relAuthEndpoint: 'https://indieauth.com/auth',
+	relTokenEndpoint: '',
 	relWebmention: 'https://webmention.io/his2nd.life/webmention',
 	tocHeading: '(Table of contents)|目录|Содержание|תוכן',
 	interactions: {
